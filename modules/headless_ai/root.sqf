@@ -9,3 +9,9 @@
 	#include "functions\CfgFunctions.hpp"
 	
 #endif
+
+#ifdef description
+
+	#include "functions\CfgRemoteExec.hpp"
+
+#endif

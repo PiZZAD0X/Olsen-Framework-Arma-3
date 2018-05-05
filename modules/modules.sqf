@@ -15,6 +15,7 @@
 #include "self_actions\root.sqf"
 #include "shot_count\root.sqf"
 #include "start_on_safe\root.sqf"
+#include "onLoad\root.sqf"
 
 //Additional modules that can be enabled by removing the //
 //!!Some of them require changing settings in their settings.sqf file!!
@@ -44,3 +45,5 @@
 //#include "start_on_team_color\root.sqf"
 //#include "start_text\root.sqf"
 //#include "task_control\root.sqf"
+//#include "start_in_vehicle\root.sqf"
+//#include "headless_ai\root.sqf"
