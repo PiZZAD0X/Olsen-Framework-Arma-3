@@ -1,0 +1,2384 @@
+/*%FSM<COMPILE "D:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, AIBEHAVIORNEW">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin_State",0,250,317.534943,212.638245,407.534912,262.638184,0.000000,"Begin State"};
+item1[] = {"_UseAI_NO",4,218,-2613.675537,535.909973,-2530.325928,571.870056,50.000000,"_UseAI NO"};
+item2[] = {"_UseAI_YES",4,218,313.238617,510.139099,403.238678,560.139160,48.000000,"_UseAI YES"};
+item3[] = {"Exit_FSM",1,250,-2608.898438,603.833252,-2536.632813,639.054382,0.000000,"Exit FSM"};
+item4[] = {"Set_Basic",2,250,310.688141,619.798889,400.688110,669.798828,0.000000,"Set Basic"};
+item5[] = {"Moving_Along",8,218,311.339172,734.300049,401.339172,784.300049,0.000000,"Moving Along"};
+item6[] = {"Leader_Or_Not",2,250,304.633118,872.367432,394.633209,922.367188,0.000000,"Leader" \n "Or" \n "Not"};
+item7[] = {"Leader",8,218,-1800.894775,1071.257202,-1710.894775,1121.257202,0.000000,"Leader"};
+item8[] = {"",7,210,-459.620605,1781.081665,-451.620605,1789.081665,0.000000,""};
+item9[] = {"Dead",4,218,837.799561,786.019470,927.799805,836.019470,55.000000,"Dead"};
+item10[] = {"Dead_Captain",1,250,1073.333740,784.695007,1163.333740,834.695007,0.000000,"Dead Captain"};
+item11[] = {"_UseAI_NO_1",4,218,838.948792,929.843872,928.948975,979.843872,998.000000,"_UseAI NO"};
+item12[] = {"NO_AI",1,250,994.649658,904.796631,1084.649658,954.796631,0.000000,"NO AI"};
+item13[] = {"IsPlayer",4,218,-2700.867188,538.533569,-2617.517578,574.493652,51.000000,"IsPlayer"};
+item14[] = {"Exit_FSM_1",1,250,-2703.574951,605.001282,-2631.309570,640.222412,0.000000,"Exit FSM"};
+item15[] = {"Leader_Cycle_Beg",3,250,-1799.364746,1166.541504,-1699.364746,1216.541504,0.000000,"Leader Cycle Beginning"};
+item16[] = {"InVehicle",4,218,-1502.333618,1253.615723,-1430.484619,1303.615723,105.000000,"InVehicle"};
+item17[] = {"NotDriver",4,218,-1538.890137,1396.430420,-1466.603882,1436.678955,49.000000,"NotDriver"};
+item18[] = {"IsDriver",4,218,-1447.618774,1399.603638,-1375.332520,1439.852173,50.000000,"IsDriver"};
+item19[] = {"IsDriver_Check",3,250,-1501.637573,1331.268066,-1429.788574,1381.268066,0.000000,"IsDriver Check"};
+item20[] = {"Driver_Checks",3,250,-1434.811890,1469.489502,-1362.962769,1519.489502,0.000000,"Driver Checks"};
+item21[] = {"",7,210,-1331.143677,1786.108643,-1323.143677,1794.108643,0.000000,""};
+item22[] = {"CombatNearby",4,218,-1348.606079,1559.666626,-1276.757080,1609.666626,30.000000,"CombatNearby"};
+item23[] = {"Engaged",4,218,-1428.859741,1558.481689,-1357.010864,1608.481689,40.000000,"Engaged"};
+item24[] = {"CheckNow",2,250,-1432.304688,1636.206543,-1360.455811,1686.206543,0.000000,"CheckNow"};
+item25[] = {"",7,210,-1200.917480,1715.976196,-1192.917480,1723.976196,0.000000,""};
+item26[] = {"",7,210,-1199.798706,1784.213623,-1191.798706,1792.213623,0.000000,""};
+item27[] = {"",7,210,-1534.176392,1785.424683,-1526.176514,1793.424683,0.000000,""};
+item28[] = {"",7,210,-1981.496582,1201.254639,-1973.496582,1209.254883,0.000000,""};
+item29[] = {"Combat",4,218,-954.111694,1244.074951,-875.736084,1294.074951,100.000000,"Combat"};
+item30[] = {"Combat_Brain",3,250,-954.362671,1318.735474,-871.434448,1368.735474,0.000000,"Combat Brain"};
+item31[] = {"Wait",4,218,-1239.902222,1557.906738,-1159.250488,1607.906738,0.000000,"Wait"};
+item32[] = {"Dead",4,218,-1494.229736,1136.864258,-1416.899170,1183.584473,1000.000000,"Dead"};
+item33[] = {"Exit",1,250,-1334.477539,1130.793091,-1263.705933,1175.326660,0.000000,"Exit"};
+item34[] = {"FLANKBEHAVIOR",2,250,-734.579468,1481.743774,-663.032349,1531.743774,0.000000,"FLANKBEHAVIOR"};
+item35[] = {"Flank_Orders",4,218,-729.539673,1420.487061,-660.230347,1469.348999,80.000000,"Flank Orders"};
+item36[] = {"Move_Move_Move",4,218,-825.628540,1418.289795,-742.660767,1468.289795,40.000000,"Move Move Move"};
+item37[] = {"MoveUnit",2,250,-819.098022,1485.864014,-747.550659,1535.864014,0.000000,"MoveUnit"};
+item38[] = {"Hold_WP",4,218,-1645.789307,1384.859131,-1577.459229,1434.859131,48.000000,"Hold WP"};
+item39[] = {"Garrison",2,250,-1635.388916,1467.441895,-1567.058838,1517.441895,0.000000,"Garrison"};
+item40[] = {"Wait",4,218,-1944.965820,1181.639648,-1858.665527,1231.639648,0.000000,"Wait"};
+item41[] = {"LightGarrison",4,218,-904.392456,1414.448120,-832.845337,1464.448120,30.000000,"LightGarrison"};
+item42[] = {"Light_Garrison",2,250,-903.526855,1488.206299,-831.979736,1538.206299,0.000000,"Light Garrison"};
+item43[] = {"SatchelPlant",4,218,-1074.929199,1416.492676,-1003.382080,1466.492676,65.000000,"SatchelPlant"};
+item44[] = {"PlantTheSatch",2,250,-1072.665649,1487.272949,-1001.118530,1537.272949,0.000000,"PlantTheSatch"};
+item45[] = {"Arm_Static_Weapo",4,218,-994.217896,1417.367065,-922.670776,1467.366821,45.000000,"Arm Static Weapon"};
+item46[] = {"Get_In_Static",2,250,-992.898804,1488.394043,-921.351685,1538.394043,0.000000,"Get In Static"};
+item47[] = {"MinePlant",4,218,-1231.275757,1418.061157,-1159.728638,1468.061157,55.000000,"MinePlant"};
+item48[] = {"PlaceMine",2,250,-1236.082275,1485.219971,-1164.535156,1535.219971,0.000000,"PlaceMine"};
+item49[] = {"_UseAI_NO",4,218,832.708069,863.314209,932.708069,913.314209,999.000000,"_UseAI NO"};
+item50[] = {"Clear_Garrison",4,218,-572.047119,1423.298706,-500.500732,1473.298584,60.000000,"Clear Garrison"};
+item51[] = {"Clear_Building",2,250,-566.512939,1482.379395,-494.965576,1532.379272,0.000000,"Clear Building"};
+item52[] = {"Dismissed_WP",4,218,-1748.955078,1386.455688,-1680.625000,1436.455688,47.000000,"Dismissed WP"};
+item53[] = {"Loiter",2,250,-1741.149048,1467.521606,-1672.818970,1517.521606,0.000000,"Loiter"};
+item54[] = {"",7,210,-1812.650635,1551.589600,-1804.650635,1559.589600,0.000000,""};
+item55[] = {"__0_SECONDS__1",4,218,-434.297699,1186.619385,-344.297577,1236.619385,51.000000,"30 SECONDS" \n ""};
+item56[] = {"__0_SECONDS__",4,218,-430.442932,1126.832153,-340.442932,1176.832153,52.000000,"20 SECONDS" \n "" \n ""};
+item57[] = {"RANDOM_TICK__",4,218,-242.929932,1252.598145,-152.929993,1302.598389,55.000000,"RANDOM TICK" \n "" \n ""};
+item58[] = {"__0_SECONDS_",4,218,-141.992615,1245.564453,-51.992645,1295.564575,53.000000,"60 SECONDS" \n ""};
+item59[] = {"__20_SECONDS__",4,218,-432.243225,1247.977905,-342.243225,1297.978149,54.000000,"120 SECONDS" \n "" \n ""};
+item60[] = {"__5_SECONDS_",4,218,-340.337006,1250.846191,-250.336914,1300.846313,56.000000,"45 SECONDS" \n ""};
+item61[] = {"RUSH__",4,218,-653.284058,1426.277344,-583.974854,1475.139282,100.000000,"RUSH!!"};
+item62[] = {"SetSpeed_",3,250,-650.023560,1484.675171,-578.476318,1534.675171,0.000000,"SetSpeed!"};
+item63[] = {"MEDIC_CHECK__",4,218,-133.624542,1186.241089,-43.624603,1236.241455,57.000000,"MEDIC CHECK" \n "" \n ""};
+item64[] = {"Wait",3,250,-1556.149780,1469.314453,-1484.300781,1519.314453,0.000000,"Wait"};
+item65[] = {"Wait",4,218,-1557.566650,1634.222778,-1485.717407,1684.222778,0.000000,"Wait"};
+item66[] = {"Simulation__Paus",4,218,1354.937622,1239.106445,1444.667603,1291.673828,1050.000000,"Simulation " \n "Pause"};
+item67[] = {"Simulation_Pause",2,250,1360.177246,1299.757813,1439.907349,1352.324951,0.000000,"Simulation Pause"};
+item68[] = {"Simulation__Unpa",4,218,1350.537354,1362.736938,1440.267334,1415.304077,1005.000000,"Simulation " \n "Unpause"};
+item69[] = {"Wait",4,218,1275.493408,1293.452271,1342.116211,1348.587158,0.000000,"Wait"};
+item70[] = {"Enemy_Delay",4,218,1454.813110,1237.752197,1544.812866,1287.752197,900.000000,"Enemy Delay"};
+item71[] = {"Temp_Halt",2,250,1454.577515,1302.124023,1544.577515,1352.124146,0.000000,"Temp Halt"};
+item72[] = {"Enable_AI",4,218,1456.072754,1369.056885,1546.072998,1419.056885,15.000000,"Enable AI"};
+item73[] = {"Wait",4,218,1562.103882,1297.332153,1627.603149,1355.249268,0.000000,"Wait"};
+item74[] = {"Check_Turn",4,218,-271.873596,1053.521729,-181.873688,1103.521851,60.000000,"Check Turn"};
+item75[] = {"Begin_Basic_Checks",2,250,-279.680115,1133.058350,-189.680054,1183.058350,0.000000,"Begin Basic Checks Here"};
+item76[] = {"Go_Back",4,218,-136.087341,1129.781372,-46.087341,1179.781372,100.000000,"Go Back"};
+item77[] = {"Guard_WP",4,218,-1841.586426,1386.796997,-1783.256348,1436.796875,46.000000,"Guard WP"};
+item78[] = {"Patrol",2,250,-1838.566650,1470.529541,-1780.236572,1520.529541,0.000000,"Patrol"};
+item79[] = {"",7,210,-1711.323608,1551.328491,-1703.323608,1559.328491,0.000000,""};
+item80[] = {"No_WP",4,218,-1935.717285,1386.296387,-1877.387207,1436.296387,1.000000,"No WP"};
+item81[] = {"Default_Patrol",2,250,-1933.250366,1469.233643,-1874.920288,1519.233643,0.000000,"Default Patrol"};
+item82[] = {"",7,210,-1602.952881,1551.513916,-1594.952881,1559.513916,0.000000,""};
+item83[] = {"reveal_check_",4,218,1231.704834,1154.779419,1322.565186,1213.139160,50.000000,"" \n "reveal check" \n ""};
+item84[] = {"Set_Basic_1",2,250,2731.724365,1480.520752,2821.724365,1530.520874,0.000000,"Set Basic"};
+item85[] = {"reveal_check_",4,218,2799.213623,1568.572021,2889.213623,1623.165405,1.000000," " \n "reveal check" \n ""};
+item86[] = {"Go_Back",4,218,2655.506592,1574.928467,2745.506592,1624.928467,1.000000,"Go Back"};
+item87[] = {"Bunker_Checks_",2,250,2737.764893,1656.173584,2827.764893,1706.173462,0.000000,"" \n "Bunker Checks" \n ""};
+item88[] = {"Enemy_in_range",4,218,2832.141357,1755.525269,2922.141357,1805.525269,2.000000,"Enemy in range"};
+item89[] = {"Check___Reveal",2,250,2828.951416,1850.931152,2918.951416,1900.931152,0.000000,"Check" \n "& Reveal"};
+item90[] = {"Enemy_Close",4,218,3087.323975,1951.607300,3177.323975,2001.607422,5.000000,"Enemy Close"};
+item91[] = {"Release_from_Bun",2,250,3229.520264,1956.771606,3319.520264,2006.771484,0.000000,"Release from" \n "Bunker"};
+item92[] = {"Cansee",4,218,2839.182861,1953.663940,2929.182861,2003.664063,4.000000,"Cansee"};
+item93[] = {"Cant_See",4,218,2565.514404,1952.092896,2655.514404,2002.092773,3.000000,"Cant See"};
+item94[] = {"Remove_Cantsee_",2,250,2434.027588,1948.938965,2524.027588,1998.938721,0.000000,"Remove Cantsee " \n "Enemy from Array"};
+item95[] = {"Back_to_cansee_",4,218,2450.254150,1852.423096,2540.254639,1902.423096,0.000000,"Back to cansee " \n "check"};
+item96[] = {"Timeout",4,218,2843.305420,2151.427490,2933.305420,2201.427490,0.000000,"Timeout"};
+item97[] = {"Reset_Vector_",2,250,1932.599121,1478.143555,2022.599121,1528.143677,0.000000,"Reset" \n "Vector" \n ""};
+item98[] = {"",7,210,2880.005615,2585.434326,2888.005615,2593.434082,0.000000,""};
+item99[] = {"Cant_see_any",4,218,2430.897705,2034.824463,2520.897705,2084.824463,2.000000,"Cant see any"};
+item100[] = {"Recently_Shot",4,218,2275.723389,2120.044678,2365.723389,2170.044434,1.000000,"Recently Shot"};
+item101[] = {"Not__Recently__S",4,218,2033.406738,2115.763184,2123.406738,2165.762939,2.000000,"Not " \n "Recently " \n "Shot"};
+item102[] = {"Supress_last__known",2,250,2274.165771,2204.886475,2364.165771,2254.887207,0.000000,"Supress last " \n "known" \n "position"};
+item103[] = {"Timeout",4,218,2153.251709,2278.839111,2243.251709,2328.839355,0.000000,"Timeout"};
+item104[] = {"Recheck_Time",2,250,2274.008545,2034.937012,2364.008545,2084.937012,0.000000,"Recheck Time"};
+item105[] = {"Timeout_",4,218,3286.045654,2027.044922,3376.045654,2077.044922,2.000000,"" \n "Timeout" \n ""};
+item106[] = {"Aimed",4,218,2272.365479,2278.545654,2362.365723,2328.545654,1.000000,"Aimed"};
+item107[] = {"Fire_Weapon",2,250,2269.309814,2361.694824,2359.309814,2411.694336,0.000000,"Fire Weapon"};
+item108[] = {"Loop_Back",8,218,2270.238281,2455.635010,2360.238525,2505.634766,0.000000,"Loop Back"};
+item109[] = {"Recheck__Enemies",2,250,3224.019287,2092.807617,3314.019287,2142.807861,0.000000,"Recheck " \n "Enemies"};
+item110[] = {"Still_Enemies",4,218,3171.475830,2025.533936,3261.475830,2075.533691,2.000000,"Still Enemies"};
+item111[] = {"No_Enemies",4,218,3219.360107,2174.774170,3309.360107,2224.774170,1.000000,"No Enemies"};
+item112[] = {"Return_to_Trench",2,250,3218.085205,2250.337402,3308.085205,2300.337646,0.000000,"Return to" \n "Trench"};
+item113[] = {"At_old_position",4,218,3220.764893,2329.553955,3310.764893,2379.553955,2.000000,"At old position"};
+item114[] = {"Timeout",4,218,3346.532471,2251.143311,3436.532471,2301.143311,1.000000,"Timeout"};
+item115[] = {"Dead",4,218,2474.558838,1573.116211,2564.558838,1623.115967,0.000000,"Dead"};
+item116[] = {"Exit_1",1,250,2473.842529,1676.916504,2563.842529,1726.916382,0.000000,"Exit"};
+item117[] = {"Disable__Movement",2,250,3221.843994,2412.246094,3311.843994,2462.246094,0.000000,"Disable " \n "Movement " \n "Again"};
+item118[] = {"_",8,218,3408.597412,2412.571045,3498.597412,2462.571289,0.000000,""};
+item119[] = {"CombatMode___Tar",2,250,2842.029053,2057.856445,2932.029053,2107.856689,0.000000,"CombatMode" \n "& Target"};
+item120[] = {"No_ammo",4,218,3055.991943,2057.338379,3145.991943,2107.338623,2.000000,"No ammo"};
+item121[] = {"Aimed",4,218,2959.853760,2148.957764,3049.854248,2198.957764,1.000000,"Aimed"};
+item122[] = {"Fire_Weapon_1",2,250,2959.173584,2236.461426,3049.173584,2286.461182,0.000000,"Fire Weapon"};
+item123[] = {"Moving_Along",8,218,2959.824951,2326.434326,3049.824951,2376.434326,0.000000,"Moving Along"};
+item124[] = {"Nil___LastFiredT",4,218,2158.951660,2118.427979,2248.951660,2168.427979,3.000000,"Nil " \n "_LastFiredTime"};
+item125[] = {"No_ammo",4,250,2414.103027,2204.674805,2504.103271,2254.675049,2.000000,"No ammo"};
+item126[] = {"isBunker_",4,218,2727.713135,1188.414917,2817.713135,1238.414917,49.000000,"" \n "isBunker" \n ""};
+item127[] = {"Set_Vector",2,250,2727.734131,1275.061401,2817.734131,1325.061523,0.000000,"Set Vector"};
+item128[] = {"__isNil__relpos",4,218,2730.886963,1367.653076,2820.886963,1417.652954,0.000000,"!isNil _relpos"};
+item129[] = {"Timeout",4,218,2277.052490,1946.475220,2367.052490,1996.475098,1.000000,"Timeout"};
+item130[] = {"_",8,218,2303.169678,1478.506592,2393.169678,1528.506470,0.000000,""};
+item131[] = {"",7,210,3445.703857,1509.996704,3453.703857,1517.996704,0.000000,""};
+item132[] = {"",7,210,3120.744873,2348.193359,3128.744873,2356.193359,0.000000,""};
+item133[] = {"",7,210,3123.614014,2143.938965,3131.614014,2151.938965,0.000000,""};
+item134[] = {"",7,210,2072.379395,2515.183838,2080.379395,2523.184082,0.000000,""};
+item135[] = {"",7,210,2311.037354,2551.699707,2319.037354,2559.699707,0.000000,""};
+item136[] = {"",7,210,2413.216797,2551.354004,2421.216797,2559.354004,0.000000,""};
+item137[] = {"",7,210,2410.321533,2311.429932,2426.321533,2327.429932,0.000000,""};
+item138[] = {"",7,210,1960.794678,2515.317139,1968.794678,2523.317139,0.000000,""};
+item139[] = {"",7,210,1963.403076,1924.541016,1971.403076,1932.541016,0.000000,""};
+item140[] = {"",7,210,2196.272705,2515.279297,2204.272705,2523.279297,0.000000,""};
+item141[] = {"",7,210,2198.394531,2226.971680,2206.394531,2234.971680,0.000000,""};
+item142[] = {"",7,210,2071.872559,2227.375977,2079.872559,2235.375977,0.000000,""};
+item143[] = {"",7,210,1960.844971,2585.429199,1968.844971,2593.429199,0.000000,""};
+item144[] = {"",7,210,-2618.492920,393.759949,-2602.492920,409.759949,0.000000,""};
+item145[] = {"",7,210,1305.172852,402.541016,1321.172852,418.541016,0.000000,""};
+item146[] = {"",7,210,2745.206787,403.605682,2761.206787,419.605682,0.000000,""};
+item147[] = {"",7,210,993.312622,801.171997,1009.312622,817.171997,0.000000,""};
+item148[] = {"",7,210,-1989.363037,1787.480713,-1981.363037,1795.480713,0.000000,""};
+item149[] = {"",7,210,-1992.101563,1553.687134,-1984.101563,1561.687134,0.000000,""};
+item150[] = {"wait",4,218,-1942.739014,1531.033081,-1884.408936,1581.033081,0.000000,"wait"};
+item151[] = {"",7,210,-1060.649902,1375.064209,-1044.649902,1391.064209,0.000000,""};
+item152[] = {"",7,210,-691.951782,1374.133545,-675.951782,1390.133545,0.000000,""};
+item153[] = {"",7,210,356.656738,409.444946,372.656738,425.444946,0.000000,""};
+item154[] = {"Wait",4,218,-494.553101,1330.122314,-413.901367,1380.122314,0.000000,"Wait"};
+item155[] = {"",7,210,-1119.534668,1575.820801,-1111.534668,1583.820801,0.000000,""};
+item156[] = {"",7,210,-1040.001465,1576.745605,-1032.001465,1584.745605,0.000000,""};
+item157[] = {"",7,210,-963.242798,1576.745605,-955.242798,1584.745605,0.000000,""};
+item158[] = {"",7,210,-872.611938,1574.895996,-864.611938,1582.895996,0.000000,""};
+item159[] = {"",7,210,-787.530029,1574.895996,-779.530029,1582.895996,0.000000,""};
+item160[] = {"",7,210,-699.673706,1571.196899,-691.673706,1579.196899,0.000000,""};
+item161[] = {"",7,210,-615.516602,1570.272095,-607.516602,1578.272095,0.000000,""};
+item162[] = {"",7,210,-535.983398,1570.272095,-527.983398,1578.272095,0.000000,""};
+item163[] = {"",7,210,-1979.301025,948.734131,-1971.301025,956.734375,0.000000,""};
+item164[] = {"",7,210,-1761.367065,994.294739,-1745.367065,1010.294678,0.000000,""};
+item165[] = {"",7,210,-237.169128,983.301147,-221.169128,999.301147,0.000000,""};
+item166[] = {"",7,210,1495.504883,1443.818481,1511.504883,1459.818481,0.000000,""};
+item167[] = {"",7,210,1424.807739,1169.765625,1440.807739,1185.765625,0.000000,""};
+item168[] = {"",7,210,1629.959351,1439.427124,1645.959351,1455.427124,0.000000,""};
+item169[] = {"",7,210,1625.054565,1152.441162,1641.054565,1168.441162,0.000000,""};
+item170[] = {"",7,210,1383.203125,1440.075195,1399.203125,1456.075195,0.000000,""};
+item171[] = {"Normal_AI_Chain",-1,250,-19.442139,598.130981,177.040833,778.178894,0.000000,"Normal AI" \n "Chain - checks" \n "in cycle for VCOM" \n "functions and" \n "waypoint" \n "overrides"};
+item172[] = {"Bunker_AI_chain",-1,250,2415.971924,1213.447388,2612.454834,1393.495239,0.000000,"Bunker AI chain" \n "Places Enemies " \n "and faces in spawn" \n "direction, detects" \n "enemies at distance" \n "and force engages"};
+item173[] = {"isLeader",4,218,-1791.970215,1234.010864,-1701.970215,1284.010864,0.000000,"isLeader"};
+item174[] = {"Leader_init",2,250,-1795.539063,1300.113281,-1705.538940,1350.113281,0.000000,"Leader init"};
+version=1;
+class LayoutItems
+{
+	class Item171
+	{
+		class ItemInfo
+		{
+			FontFace="Arial Black";
+			FontHeight=17;
+			lStyle=1;
+		};
+	};
+	class Item172
+	{
+		class ItemInfo
+		{
+			FontFace="Arial Black";
+			FontHeight=17;
+			lStyle=1;
+		};
+	};
+};
+link0[] = {0,153};
+link1[] = {1,3};
+link2[] = {2,4};
+link3[] = {4,5};
+link4[] = {5,6};
+link5[] = {6,9};
+link6[] = {6,11};
+link7[] = {6,49};
+link8[] = {6,83};
+link9[] = {6,165};
+link10[] = {6,167};
+link11[] = {7,15};
+link12[] = {8,26};
+link13[] = {9,147};
+link14[] = {11,12};
+link15[] = {13,14};
+link16[] = {15,16};
+link17[] = {15,29};
+link18[] = {15,32};
+link19[] = {15,40};
+link20[] = {15,173};
+link21[] = {16,19};
+link22[] = {17,64};
+link23[] = {18,20};
+link24[] = {19,17};
+link25[] = {19,18};
+link26[] = {20,22};
+link27[] = {20,23};
+link28[] = {20,65};
+link29[] = {21,27};
+link30[] = {22,24};
+link31[] = {23,24};
+link32[] = {24,65};
+link33[] = {25,26};
+link34[] = {26,21};
+link35[] = {27,148};
+link36[] = {28,163};
+link37[] = {29,30};
+link38[] = {30,41};
+link39[] = {30,45};
+link40[] = {30,151};
+link41[] = {30,152};
+link42[] = {30,154};
+link43[] = {31,25};
+link44[] = {32,33};
+link45[] = {34,160};
+link46[] = {35,34};
+link47[] = {36,37};
+link48[] = {37,159};
+link49[] = {38,39};
+link50[] = {39,82};
+link51[] = {40,28};
+link52[] = {41,42};
+link53[] = {42,158};
+link54[] = {43,44};
+link55[] = {44,156};
+link56[] = {45,46};
+link57[] = {46,157};
+link58[] = {47,48};
+link59[] = {48,31};
+link60[] = {49,12};
+link61[] = {50,51};
+link62[] = {51,162};
+link63[] = {52,53};
+link64[] = {53,79};
+link65[] = {54,150};
+link66[] = {55,75};
+link67[] = {56,75};
+link68[] = {57,75};
+link69[] = {58,75};
+link70[] = {59,75};
+link71[] = {60,75};
+link72[] = {61,62};
+link73[] = {62,161};
+link74[] = {63,75};
+link75[] = {64,65};
+link76[] = {65,27};
+link77[] = {66,67};
+link78[] = {67,68};
+link79[] = {67,69};
+link80[] = {68,170};
+link81[] = {69,67};
+link82[] = {70,71};
+link83[] = {71,72};
+link84[] = {71,73};
+link85[] = {72,166};
+link86[] = {73,71};
+link87[] = {74,75};
+link88[] = {75,55};
+link89[] = {75,56};
+link90[] = {75,57};
+link91[] = {75,58};
+link92[] = {75,59};
+link93[] = {75,60};
+link94[] = {75,63};
+link95[] = {75,76};
+link96[] = {76,6};
+link97[] = {77,78};
+link98[] = {78,54};
+link99[] = {79,54};
+link100[] = {80,81};
+link101[] = {81,150};
+link102[] = {82,79};
+link103[] = {83,6};
+link104[] = {84,85};
+link105[] = {84,115};
+link106[] = {85,87};
+link107[] = {86,84};
+link108[] = {87,86};
+link109[] = {87,88};
+link110[] = {88,89};
+link111[] = {89,90};
+link112[] = {89,92};
+link113[] = {89,93};
+link114[] = {90,91};
+link115[] = {91,105};
+link116[] = {92,119};
+link117[] = {93,94};
+link118[] = {94,95};
+link119[] = {94,99};
+link120[] = {94,129};
+link121[] = {95,89};
+link122[] = {96,98};
+link123[] = {97,130};
+link124[] = {98,143};
+link125[] = {99,104};
+link126[] = {100,102};
+link127[] = {101,142};
+link128[] = {102,103};
+link129[] = {102,106};
+link130[] = {102,125};
+link131[] = {103,140};
+link132[] = {104,100};
+link133[] = {104,101};
+link134[] = {104,124};
+link135[] = {105,109};
+link136[] = {106,107};
+link137[] = {107,108};
+link138[] = {108,135};
+link139[] = {109,110};
+link140[] = {109,111};
+link141[] = {110,91};
+link142[] = {111,112};
+link143[] = {112,113};
+link144[] = {112,114};
+link145[] = {113,117};
+link146[] = {114,112};
+link147[] = {115,116};
+link148[] = {117,118};
+link149[] = {118,131};
+link150[] = {119,96};
+link151[] = {119,120};
+link152[] = {119,121};
+link153[] = {120,119};
+link154[] = {121,122};
+link155[] = {122,123};
+link156[] = {123,132};
+link157[] = {124,141};
+link158[] = {125,102};
+link159[] = {126,127};
+link160[] = {127,128};
+link161[] = {128,84};
+link162[] = {129,104};
+link163[] = {130,84};
+link164[] = {131,84};
+link165[] = {132,133};
+link166[] = {133,119};
+link167[] = {134,138};
+link168[] = {135,136};
+link169[] = {136,137};
+link170[] = {137,102};
+link171[] = {138,139};
+link172[] = {139,97};
+link173[] = {140,134};
+link174[] = {141,142};
+link175[] = {142,134};
+link176[] = {143,138};
+link177[] = {144,1};
+link178[] = {144,13};
+link179[] = {145,146};
+link180[] = {146,126};
+link181[] = {147,10};
+link182[] = {148,149};
+link183[] = {149,28};
+link184[] = {150,149};
+link185[] = {151,43};
+link186[] = {151,47};
+link187[] = {152,35};
+link188[] = {152,36};
+link189[] = {152,50};
+link190[] = {152,61};
+link191[] = {153,2};
+link192[] = {153,144};
+link193[] = {153,145};
+link194[] = {154,8};
+link195[] = {155,31};
+link196[] = {156,155};
+link197[] = {157,156};
+link198[] = {158,157};
+link199[] = {159,158};
+link200[] = {160,159};
+link201[] = {161,160};
+link202[] = {162,161};
+link203[] = {163,6};
+link204[] = {164,7};
+link205[] = {165,74};
+link206[] = {165,164};
+link207[] = {166,168};
+link208[] = {167,66};
+link209[] = {167,70};
+link210[] = {168,169};
+link211[] = {169,6};
+link212[] = {170,166};
+link213[] = {173,174};
+link214[] = {174,38};
+link215[] = {174,52};
+link216[] = {174,77};
+link217[] = {174,80};
+globals[] = {0.000000,0,0,0,0,640,480,2,695,6316128,1,-2292.228027,-1189.896240,1620.791748,783.625000,1164,884,1};
+window[] = {2,-1,-1,-32000,-32000,911,104,1318,104,3,1182};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "AIBEHAVIORNEW";
+        class States
+        {
+                /*%FSM<STATE "Begin_State">*/
+                class Begin_State
+                {
+                        name = "Begin_State";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_Unit = _this select 0;" \n
+                         "" \n
+                         "if (VCOM_UseMarkers) then {_Unit spawn VCOMAI_fnc_MapMarkers;};" \n
+                         "" \n
+                         "_ReturnVariable = [_Unit] call VcomAI_fnc_UnitInit;" \n
+                         "_NoAICheck = _ReturnVariable select 0;" \n
+                         "_IsPlayerCheck = _ReturnVariable select 1;" \n
+                         "_IsBunkerCheck = _ReturnVariable select 2;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "IsPlayer">*/
+                                class IsPlayer
+                                {
+                                        itemno = 13;
+                                        priority = 51.000000;
+                                        to="Exit_FSM_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_IsPlayerCheck"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_UseAI_NO">*/
+                                class _UseAI_NO
+                                {
+                                        itemno = 1;
+                                        priority = 50.000000;
+                                        to="Exit_FSM";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_NoAICheck"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "isBunker_">*/
+                                class isBunker_
+                                {
+                                        itemno = 126;
+                                        priority = 49.000000;
+                                        to="Set_Vector";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_IsBunkerCheck"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_UseAI_YES">*/
+                                class _UseAI_YES
+                                {
+                                        itemno = 2;
+                                        priority = 48.000000;
+                                        to="Set_Basic";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_NoAICheck"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Exit_FSM">*/
+                class Exit_FSM
+                {
+                        name = "Exit_FSM";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_Basic">*/
+                class Set_Basic
+                {
+                        name = "Set_Basic";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_RankReturn = [_Unit] call VcomAI_fnc_DetermineRank;" \n
+                         "" \n
+                         "_LastTimeCheck = diag_ticktime;" \n
+                         "_LastTimeCheck2 = diag_ticktime;" \n
+                         "_LastTimeCheck3 = diag_ticktime;" \n
+                         "_LastTimeCheck4 = diag_ticktime;" \n
+                         "_LastTimeCheck5 = diag_ticktime;" \n
+                         "_LastTimeCheck6 = diag_ticktime;" \n
+                         "_LastTimeCheck7 = diag_ticktime;" \n
+                         "_LastTimeCheck8 = diag_ticktime;" \n
+                         "_LastTimeCheckMedic = diag_ticktime;" \n
+                         "_AICOMMANDER = 0;" \n
+                         "" \n
+                         "//Add necessary eventhandlers." \n
+                         "_Unit addEventHandler [""Killed"",{_this spawn VCOMAI_fnc_ClosestAllyWarn;}];" \n
+                         "_Unit addEventHandler [""FiredMan"",{[_this] call VCOMAI_fnc_SuppressingShots;}];" \n
+                         "_Unit addEventHandler [""FiredMan"",{[_this] call VCOMAI_fnc_HearingAids;}];" \n
+                         "_Unit addEventHandler [""Hit"",{_this call VCOMAI_fnc_AIHit;}];" \n
+                         "" \n
+                         "//Should the AI run to support friendlies?" \n
+                         "if (VCOM_NOPATHING) then" \n
+                         "{" \n
+                         "	_VariableCheck1 = _Unit getvariable [""VCOM_NOPATHING_Unit"",true];" \n
+                         "}" \n
+                         "else" \n
+                         "{" \n
+                         "	_VariableCheck1 = _Unit getvariable [""VCOM_NOPATHING_Unit"",false];" \n
+                         "};" \n
+                         "" \n
+                         "" \n
+                         "//Default Setup stuff here" \n
+                         "_VCOM_CHANGEDFORMATION = false; //Converted" \n
+                         "_VCOM_MOVINGTOSUPPORT = false; //Converted" \n
+                         "_VCOM_GARRISONED = false; //Converted" \n
+                         "_VCOM_SubLeader = false; //Converted" \n
+                         "_VCOM_GroupLeader = false; //Converted" \n
+                         "_VCOM_FLANKING = false; //Converted" \n
+                         "_VCOM_MovedRecently = false; //Converted" \n
+                         "_VCOM_MovedRecentlyCover = false; //Converted" \n
+                         "_VCOM_GRENADETHROWN = false; //Converted" \n
+                         "_VCOM_FiredTime = 0; //Can't Convert fully" \n
+                         "_Unit setvariable [""VCOM_FiredTime"",_VCOM_FiredTime];" \n
+                         "_VCOM_FiredTimeHearing = diag_ticktime; //Can't Convert fully" \n
+                         "_Unit setvariable [""VCOM_FiredTimeHearing"",_VCOM_FiredTimeHearing];" \n
+                         "_VCOM_DiagLastCheck = diag_ticktime; //Converted" \n
+                         "_VCOM_HASSATCHEL = false; //Converted" \n
+                         "_VCOM_SATCHELRECENTLY = false; //Converted" \n
+                         "_VCOM_AssignedEnemy = [0,0,0]; //Converted" \n
+                         "_Vcom_MineObject = []; //Converted" \n
+                         "_Vcom_MineObjectMagazine = []; //Converted" \n
+                         "_VCOM_HasMine = false; //Converted" \n
+                         "_VCOM_PlantedMineRecently = false; //Converted" \n
+                         "_Unit setVariable [""VCOMAI_ShotsFired"",false,true]; //Can't convert." \n
+                         "_VCOM_InCover = false; //Converted" \n
+                         "_VCOMAI_StaticNearby = false; //Converted" \n
+                         "_VCOM_VisuallyCanSee = false; //Converted" \n
+                         "_VCOMAI_ActivelyClearing= false; //Converted" \n
+                         "_VCOMAI_StartedInside = false; //Converted" \n
+                         "_VCOMAI_LastCStance = (behaviour _Unit); //Converted" \n
+                         "_VCOM_Unit_AIWarnDistance = VCOM_Unit_AIWarnDistance; //Converted" \n
+                         "_MyNearestEnemy = _Unit call VCOMAI_fnc_ClosestEnemy;" \n
+                         "_BasicCheckTime = time;" \n
+                         "_Unit setVariable [""VCOM_Unit_AIWarnDistance"",_VCOM_Unit_AIWarnDistance];" \n
+                         "//_Vcom_StanceSet = 0;" \n
+                         "_VCOM_AssignedEnemy = [0,0,0];" \n
+                         "_RandomTick = 1;" \n
+                         "" \n
+                         "////////////////////////////////////////////////////////////////////////////////////////" \n
+                         "" \n
+                         "	_VCOMAI_StartedInside = _Unit call VCOMAI_fnc_BuildingSpawnCheck;" \n
+                         "	_MineArray = _Unit call VCOMAI_fnc_HasMine;" \n
+                         "	_VCOM_HASSATCHEL = _MineArray select 0;" \n
+                         "	_Vcom_MineObject = _MineArray select 1;" \n
+                         "	_VCOM_HasMine = _MineArray select 2;" \n
+                         "	_SatchelArray = _MineArray select 3;" \n
+                         "" \n
+                         "if (VCOM_IncreasingAccuracy) then" \n
+                         "{" \n
+                         "   	_ReturnedArray = [_Unit,_VCOM_DiagLastCheck,_VCOM_AssignedEnemy] call VCOMAI_fnc_FocusedAccuracy;" \n
+                         "	_VCOM_AssignedEnemy = _ReturnedArray select 1;" \n
+                         "	_VCOM_DiagLastCheck = _ReturnedArray select 0;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Moving_Along">*/
+                                class Moving_Along
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Leader_Or_Not">*/
+                class Leader_Or_Not
+                {
+                        name = "Leader_Or_Not";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"" \n
+                         "_PositionCheck = _unit call VCOMAI_fnc_DetermineLeader;" \n
+                         "if (isNil ""_PositionCheck"") exitWith {};" \n
+                         "" \n
+                         "_AICOMMANDER = 0;" \n
+                         "_Leader = _PositionCheck select 0;" \n
+                         "_SubLeader = _PositionCheck select 1;" \n
+                         "" \n
+                         "//Set this if AI should not run the rest of this FSM with a human player" \n
+                         "if (true) then {" \n
+                         "	if (isPlayer (leader _unit) ) then {_AICOMMANDER = 1};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Simulation__Paus">*/
+                                class Simulation__Paus
+                                {
+                                        itemno = 66;
+                                        priority = 1050.000000;
+                                        to="Simulation_Pause";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(simulationEnabled _unit)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_UseAI_NO">*/
+                                class _UseAI_NO
+                                {
+                                        itemno = 49;
+                                        priority = 999.000000;
+                                        to="NO_AI";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_Unit getVariable [""VCOM_NOAI"",false] || !(local _unit)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_UseAI_NO_1">*/
+                                class _UseAI_NO_1
+                                {
+                                        itemno = 11;
+                                        priority = 998.000000;
+                                        to="NO_AI";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_AICOMMANDER isEqualTo 1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Enemy_Delay">*/
+                                class Enemy_Delay
+                                {
+                                        itemno = 70;
+                                        priority = 900.000000;
+                                        to="Temp_Halt";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_fps < VCOM_FPSFreeze || {(_MyNearestEnemy distance _Unit > VCOM_DisableDistance) && !((behaviour _Unit) isEqualTo ""COMBAT"")}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Check_Turn">*/
+                                class Check_Turn
+                                {
+                                        itemno = 74;
+                                        priority = 60.000000;
+                                        to="Begin_Basic_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_BasicCheckTime + 20) < time && {VCOM_BasicCheckCurrent <= VCOM_BasicCheckLimit}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"private _tOrg = time;" \n
+                                         "VCOM_BasicCheckCurrent = VCOM_BasicCheckCurrent + 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dead">*/
+                                class Dead
+                                {
+                                        itemno = 9;
+                                        priority = 55.000000;
+                                        to="Dead_Captain";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _Unit || {isNull _Unit} || {isPlayer _Unit} || {isNil (""_Leader"")}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "reveal_check_">*/
+                                class reveal_check_
+                                {
+                                        itemno = 83;
+                                        priority = 50.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_LastTimeCheck8 < (diag_ticktime - 2)) && (VCOM_NightAid) && ({_x distance2d _unit < VCOM_NightAid_Distance} count allPlayers > 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[_unit] spawn VCOMAI_fnc_NightSight;" \n
+                                         "" \n
+                                         "_LastTimeCheck8 = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Leader">*/
+                                class Leader
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Leader_Cycle_Beg";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Dead_Captain">*/
+                class Dead_Captain
+                {
+                        name = "Dead_Captain";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "NO_AI">*/
+                class NO_AI
+                {
+                        name = "NO_AI";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"_Unit setVariable [""FSMHandleEvents"",1,false];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Exit_FSM_1">*/
+                class Exit_FSM_1
+                {
+                        name = "Exit_FSM_1";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"_Unit addEventHandler [""FiredMan"",{[_this] call VCOMAI_fnc_SuppressingShots;}];" \n
+                         "_Unit addEventHandler [""FiredMan"",{[_this] call VCOMAI_HearingAids;}];" \n
+                         "_Unit setVariable [""VCOM_FiredTime"",0];" \n
+                         "_Unit setVariable [""VCOM_FiredTimeHearing"",0];" \n
+                         "player spawn VCOMAI_fnc_IRCheck;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Leader_Cycle_Beg">*/
+                class Leader_Cycle_Beg
+                {
+                        name = "Leader_Cycle_Beg";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
+                         "_t = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Dead">*/
+                                class Dead
+                                {
+                                        itemno = 32;
+                                        priority = 1000.000000;
+                                        to="Exit";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _Unit || isnil ""_Unit"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"VCOM_LeaderExecuteCurrent = VCOM_LeaderExecuteCurrent -1"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "InVehicle">*/
+                                class InVehicle
+                                {
+                                        itemno = 16;
+                                        priority = 105.000000;
+                                        to="IsDriver_Check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((vehicle _Unit) != _Unit)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Combat">*/
+                                class Combat
+                                {
+                                        itemno = 29;
+                                        priority = 100.000000;
+                                        to="Combat_Brain";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((behaviour _Unit) isEqualTo ""COMBAT"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "isLeader">*/
+                                class isLeader
+                                {
+                                        itemno = 173;
+                                        priority = 0.000000;
+                                        to="Leader_init";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_Leader"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"VCOM_LeaderExecuteCurrent = VCOM_LeaderExecuteCurrent + 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 40;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "IsDriver_Check">*/
+                class IsDriver_Check
+                {
+                        name = "IsDriver_Check";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"private [""_CheckDriver""];" \n
+                         "_CheckDriver = _Unit call VCOMAI_fnc_DriverCheck;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "IsDriver">*/
+                                class IsDriver
+                                {
+                                        itemno = 18;
+                                        priority = 50.000000;
+                                        to="Driver_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_CheckDriver"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "NotDriver">*/
+                                class NotDriver
+                                {
+                                        itemno = 17;
+                                        priority = 49.000000;
+                                        to="Wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_CheckDriver"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Driver_Checks">*/
+                class Driver_Checks
+                {
+                        name = "Driver_Checks";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
+                         "_t = time;" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Engaged">*/
+                                class Engaged
+                                {
+                                        itemno = 23;
+                                        priority = 40.000000;
+                                        to="CheckNow";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((behaviour _Unit) isEqualTo ""COMBAT"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "CombatNearby">*/
+                                class CombatNearby
+                                {
+                                        itemno = 22;
+                                        priority = 30.000000;
+                                        to="CheckNow";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_VCOM_MOVINGTOSUPPORT"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 65;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "CheckNow">*/
+                class CheckNow
+                {
+                        name = "CheckNow";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
+                         "_t = time;" \n
+                         "" \n
+                         "_myNearestEnemy = _Unit call VCOMAI_fnc_ClosestEnemy;" \n
+                         "[_Unit,_myNearestEnemy] spawn VCOMAI_fnc_VehicleHandle;" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 65;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Combat_Brain">*/
+                class Combat_Brain
+                {
+                        name = "Combat_Brain";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 4;" \n
+                         "" \n
+                         "_CheckClass = true;" \n
+                         "if (!(isNil ""_MyNearestEnemy"") && !(typename _MyNearestEnemy isEqualTo ""ARRAY"")) then" \n
+                         "{" \n
+                         "	_ClassName = typeOf (vehicle _MyNearestEnemy);" \n
+                         "	_CheckClass = _ClassName isKindOf ""AIR"";" \n
+                         "};" \n
+                         "" \n
+                         "_MyNearestEnemy = _Unit call VCOMAI_fnc_ClosestEnemy;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "RUSH__">*/
+                                class RUSH__
+                                {
+                                        itemno = 61;
+                                        priority = 100.000000;
+                                        to="SetSpeed_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((speedMode (group _Unit)) isEqualTo ""FULL"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Flank_Orders">*/
+                                class Flank_Orders
+                                {
+                                        itemno = 35;
+                                        priority = 80.000000;
+                                        to="FLANKBEHAVIOR";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_VCOM_Flanking) && !(_VCOM_GARRISONED) && !((speedMode (group _Unit)) isEqualTo ""FULL"") && !(_CheckClass)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "SatchelPlant">*/
+                                class SatchelPlant
+                                {
+                                        itemno = 43;
+                                        priority = 65.000000;
+                                        to="PlantTheSatch";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_VCOM_HASSATCHEL) && !(_VCOM_SATCHELRECENTLY);"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Clear_Garrison">*/
+                                class Clear_Garrison
+                                {
+                                        itemno = 50;
+                                        priority = 60.000000;
+                                        to="Clear_Building";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(((nearestBuilding _MyNearestEnemy)  distance _MyNearestEnemy) < 8 ) && !(_VCOMAI_ActivelyClearing) && ((random 100) > 90)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "MinePlant">*/
+                                class MinePlant
+                                {
+                                        itemno = 47;
+                                        priority = 55.000000;
+                                        to="PlaceMine";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_myNearestEnemy distance _Unit) < 400) && {VCOM_MineLaying} && {(_VCOM_HasMine)} && {!(_VCOM_PlantedMineRecently)}  && {!(_CheckClass)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Arm_Static_Weapo">*/
+                                class Arm_Static_Weapo
+                                {
+                                        itemno = 45;
+                                        priority = 45.000000;
+                                        to="Get_In_Static";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_myNearestEnemy distance _Unit) < 800)  && {(_VCOMAI_StaticNearby)};"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Move_Move_Move">*/
+                                class Move_Move_Move
+                                {
+                                        itemno = 36;
+                                        priority = 40.000000;
+                                        to="MoveUnit";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_VCOM_MovedRecently) && {!((speedMode (group _Unit)) isEqualTo ""FULL"")}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "LightGarrison">*/
+                                class LightGarrison
+                                {
+                                        itemno = 41;
+                                        priority = 30.000000;
+                                        to="Light_Garrison";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((!(_VCOM_GARRISONED)) && (random 100) < 20)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 154;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Exit">*/
+                class Exit
+                {
+                        name = "Exit";
+                        itemno = 33;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "FLANKBEHAVIOR">*/
+                class FLANKBEHAVIOR
+                {
+                        name = "FLANKBEHAVIOR";
+                        itemno = 34;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 10;" \n
+                         "" \n
+                         "[_Unit,_VCOM_Flanking,_VCOMAI_ActivelyClearing,_VCOMAI_StartedInside,_VCOM_GARRISONED] spawn VCOMAI_fnc_FlankManeuver;" \n
+                         "_VCOM_Flanking = true;" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "MoveUnit">*/
+                class MoveUnit
+                {
+                        name = "MoveUnit";
+                        itemno = 37;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 30;" \n
+                         "" \n
+                         "_ReturnVariable = [_unit,_VCOM_GARRISONED,_VCOM_MovedRecently,_VCOM_MovedRecentlyCover,_VCOM_InCover,_VCOM_VisuallyCanSee,_VCOMAI_ActivelyClearing,_VCOMAI_StartedInside] call VCOMAI_fnc_MoveInCombat;" \n
+                         "_VCOM_MovedRecently = _ReturnVariable select 0;" \n
+                         "_VCOM_MovedRecentlyCover = _ReturnVariable select 1;" \n
+                         "_VCOM_InCover = _ReturnVariable select 2;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Garrison">*/
+                class Garrison
+                {
+                        name = "Garrison";
+                        itemno = 39;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 15;" \n
+                         "" \n
+                         "if (!_VCOM_GARRISONED) then {" \n
+                         "	[_Unit,(group _Unit),(currentWaypoint _group)] spawn VCOMAI_fnc_Garrison;" \n
+                         "	if (VCOM_UseMarkers) then {" \n
+                         "		diag_log format [""setting _group: %1 to garrison from hold waypoint"",_group];" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 150;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"VCOM_LeaderExecuteCurrent = VCOM_LeaderExecuteCurrent -1"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Light_Garrison">*/
+                class Light_Garrison
+                {
+                        name = "Light_Garrison";
+                        itemno = 42;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 10;" \n
+                         "[_Unit,_VCOM_MovedRecentlyCover,_VCOMAI_ActivelyClearing,_VCOMAI_StartedInside] spawn VCOMAI_fnc_LightGarrison;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "PlantTheSatch">*/
+                class PlantTheSatch
+                {
+                        name = "PlantTheSatch";
+                        itemno = 44;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 10;" \n
+                         "" \n
+                         "[_Unit,(_SatchelArray select 0)] spawn VCOMAI_fnc_DestroyBuilding;" \n
+                         "_VCOM_HASSATCHEL = false;" \n
+                         "_VCOM_SATCHELRECENTLY = true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Get_In_Static">*/
+                class Get_In_Static
+                {
+                        name = "Get_In_Static";
+                        itemno = 46;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 10;" \n
+                         "_Unit spawn VCOMAI_fnc_ArmEmptyStatic;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "PlaceMine">*/
+                class PlaceMine
+                {
+                        name = "PlaceMine";
+                        itemno = 48;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 10;" \n
+                         "[_Unit,(_Vcom_MineObject select 0)] spawn VCOMAI_fnc_PlaceMine;" \n
+                         "_VCOM_HasMine = false;" \n
+                         "_VCOM_PlantedMineRecently = true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Clear_Building">*/
+                class Clear_Building
+                {
+                        name = "Clear_Building";
+                        itemno = 51;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 30;" \n
+                         "//Old Condition -> //([_Unit,_VCOM_MovedRecentlyCover,_VCOMAI_ActivelyClearing,_VCOMAI_StartedInside] call VCOMAI_fnc_BuildingCheck) && !(_VCOMAI_ActivelyClearing) && ((random 100) > 90)" \n
+                         "" \n
+                         "//systemchat format [""%1 GARRISONCLEAR"",_Unit];" \n
+                         "[_Unit,_VCOM_MovedRecentlyCover,_VCOM_InCover,_VCOMAI_ActivelyClearing,_VCOMAI_StartedInside,_VCOM_GARRISONED] spawn VCOMAI_fnc_GarrisonClear;" \n
+                         "" \n
+                         "_VCOM_InCover = true;" \n
+                         "_VCOMAI_ActivelyClearing = true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Loiter">*/
+                class Loiter
+                {
+                        name = "Loiter";
+                        itemno = 53;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 15;" \n
+                         "" \n
+                         "if (!(_Unit getVariable [""VCOM_LOITERING"",false])) then {" \n
+                         "	[_Unit,(group _Unit)] spawn VCOMAI_fnc_GroupLoiter;" \n
+                         "	if (VCOM_UseMarkers) then {" \n
+                         "		diag_log format [""setting _group: %1 to loiter from dismissed waypoint"",_group];" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 150;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"VCOM_LeaderExecuteCurrent = VCOM_LeaderExecuteCurrent -1"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "SetSpeed_">*/
+                class SetSpeed_
+                {
+                        name = "SetSpeed_";
+                        itemno = 62;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 10;" \n
+                         "" \n
+                         "_Unit forcespeed -1;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Wait">*/
+                class Wait
+                {
+                        name = "Wait";
+                        itemno = 64;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
+                         "_t = time;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 65;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Simulation_Pause">*/
+                class Simulation_Pause
+                {
+                        name = "Simulation_Pause";
+                        itemno = 67;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
+                         "_t = time;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Simulation__Unpa">*/
+                                class Simulation__Unpa
+                                {
+                                        itemno = 68;
+                                        priority = 1005.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"simulationEnabled _unit"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 69;
+                                        priority = 0.000000;
+                                        to="Simulation_Pause";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Temp_Halt">*/
+                class Temp_Halt
+                {
+                        name = "Temp_Halt";
+                        itemno = 71;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
+                         "_t = time;" \n
+                         "_MyNearestEnemy = _Unit call VCOMAI_fnc_ClosestEnemy;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Enable_AI">*/
+                                class Enable_AI
+                                {
+                                        itemno = 72;
+                                        priority = 15.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_fps > VCOM_FPSFreeze && {(_MyNearestEnemy distance _Unit < VCOM_DisableDistance) || ((behaviour _Unit) isEqualTo ""COMBAT"")}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait">*/
+                                class Wait
+                                {
+                                        itemno = 73;
+                                        priority = 0.000000;
+                                        to="Temp_Halt";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 15"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Begin_Basic_Checks">*/
+                class Begin_Basic_Checks
+                {
+                        name = "Begin_Basic_Checks";
+                        itemno = 75;
+                        init = /*%FSM<STATEINIT""">*/"private _t = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Go_Back">*/
+                                class Go_Back
+                                {
+                                        itemno = 76;
+                                        priority = 100.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > (_t + 10)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"VCOM_BasicCheckCurrent = VCOM_BasicCheckCurrent - 1;" \n
+                                         "_BasicCheckTime = time;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "MEDIC_CHECK__">*/
+                                class MEDIC_CHECK__
+                                {
+                                        itemno = 63;
+                                        priority = 57.000000;
+                                        to="Begin_Basic_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_Unit getUnitTrait ""Medic"" && {diag_tickTime - (_unit getVariable [""VCOM_FiredTime"",diag_ticktime]) > 30} && {_LastTimeCheckMedic < (diag_ticktime - 10)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_Unit spawn VCOMAI_fnc_ForceHeal;" \n
+                                         "_LastTimeCheckMedic = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__5_SECONDS_">*/
+                                class __5_SECONDS_
+                                {
+                                        itemno = 60;
+                                        priority = 56.000000;
+                                        to="Begin_Basic_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck7 < (diag_ticktime - 45)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_VCOM_MovedRecently = false;" \n
+                                         "_VCOM_MovedRecentlyCover = false;" \n
+                                         "" \n
+                                         "_LastTimeCheck7 = diag_ticktime;" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "RANDOM_TICK__">*/
+                                class RANDOM_TICK__
+                                {
+                                        itemno = 57;
+                                        priority = 55.000000;
+                                        to="Begin_Basic_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_LastTimeCheck6 + _RandomTick) < diag_ticktime"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"" \n
+                                         "_VCOM_PlantedMineRecently = false;" \n
+                                         "_RandomTick = (random 460);" \n
+                                         "_LastTimeCheck6 = diag_ticktime;" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__20_SECONDS__">*/
+                                class __20_SECONDS__
+                                {
+                                        itemno = 59;
+                                        priority = 54.000000;
+                                        to="Begin_Basic_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck4 < (diag_ticktime - 120)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"" \n
+                                         "_VCOMAI_ActivelyClearing = false;" \n
+                                         "_LastTimeCheck4 = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__0_SECONDS_">*/
+                                class __0_SECONDS_
+                                {
+                                        itemno = 58;
+                                        priority = 53.000000;
+                                        to="Begin_Basic_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck3 < (diag_ticktime - 60)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"" \n
+                                         "_VCOM_FLANKING = false;" \n
+                                         "_VCOM_SATCHELRECENTLY = false;" \n
+                                         "_Unit spawn VCOMAI_fnc_RearmSelf;" \n
+                                         "_Unit forcespeed -1;" \n
+                                         "" \n
+                                         "_LastTimeCheck3 = diag_ticktime;" \n
+                                         "" \n
+                                         "" \n
+                                         "" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__0_SECONDS__">*/
+                                class __0_SECONDS__
+                                {
+                                        itemno = 56;
+                                        priority = 52.000000;
+                                        to="Begin_Basic_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck < (diag_ticktime - 20)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"" \n
+                                         "_VCOM_InCover = false;" \n
+                                         "_VCOM_GRENADETHROWN = false;" \n
+                                         "_MyNearestEnemy = _Unit call VCOMAI_fnc_ClosestEnemy;" \n
+                                         "" \n
+                                         "if (_LastTimeCheck < (diag_ticktime - _RandomTick)) then" \n
+                                         "{" \n
+                                         "	_VCOM_PlantedMineRecently = false;" \n
+                                         "	_RandomTick = (random 300);" \n
+                                         "};" \n
+                                         "" \n
+                                         "" \n
+                                         "_LastTimeCheck = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__0_SECONDS__1">*/
+                                class __0_SECONDS__1
+                                {
+                                        itemno = 55;
+                                        priority = 51.000000;
+                                        to="Begin_Basic_Checks";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck2 < (diag_ticktime - 30)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"" \n
+                                         "_MineArray = _Unit call VCOMAI_fnc_HasMine;" \n
+                                         "" \n
+                                         "_VCOM_HASSATCHEL = _MineArray select 0;" \n
+                                         "_Vcom_MineObject = _MineArray select 1;" \n
+                                         "_VCOM_HasMine = _MineArray select 2;" \n
+                                         "_SatchelArray = _MineArray select 3;" \n
+                                         "" \n
+                                         "_VCOMAI_StaticNearby = _Unit call VCOMAI_fnc_CheckStatic;" \n
+                                         "if (VCOM_IncreasingAccuracy) then" \n
+                                         "{" \n
+                                         "  	 _ReturnedArray = [_Unit,_VCOM_DiagLastCheck,_VCOM_AssignedEnemy] call VCOMAI_fnc_FocusedAccuracy;" \n
+                                         "	_VCOM_AssignedEnemy = _ReturnedArray select 1;" \n
+                                         "	_VCOM_DiagLastCheck = _ReturnedArray select 0;" \n
+                                         "};" \n
+                                         "" \n
+                                         "" \n
+                                         "//Allow leaders to change formations again" \n
+                                         "_VCOM_CHANGEDFORMATION = false;" \n
+                                         "_VCOM_MOVINGTOSUPPORT =  _Unit getvariable [""VCOM_MOVINGTOSUPPORT"",false];" \n
+                                         "_VCOM_GARRISONED = _Unit getvariable [""VCOM_GARRISONED"",false];" \n
+                                         "_LastTimeCheck2 = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Patrol">*/
+                class Patrol
+                {
+                        name = "Patrol";
+                        itemno = 78;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 15;" \n
+                         "" \n
+                         "if (!((group _Unit) getVariable [""VCOM_PATROLLING"",false])) then {" \n
+                         "	[_Unit,(group _Unit),(currentWaypoint _group)] spawn VCOMAI_fnc_GroupPatrol;" \n
+                         "	if (VCOM_UseMarkers) then {" \n
+                         "		diag_log format [""setting _group: %1 to patrol from guard waypoint"",_group];" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 150;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"VCOM_LeaderExecuteCurrent = VCOM_LeaderExecuteCurrent -1"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Default_Patrol">*/
+                class Default_Patrol
+                {
+                        name = "Default_Patrol";
+                        itemno = 81;
+                        init = /*%FSM<STATEINIT""">*/"private [""_t"", ""_wait""];" \n
+                         "_t = time;" \n
+                         "_wait = 15;" \n
+                         "" \n
+                         "if (!((group _Unit) getVariable [""VCOM_DEFAULTPATROLLING"",false])) then {" \n
+                         "	[_Unit,(group _Unit)] spawn VCOMAI_fnc_DefaultGroupPatrol;" \n
+                         "	if (VCOM_UseMarkers) then {" \n
+                         "		diag_log format [""setting _group: %1 to default patrol"",_group];" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 150;
+                                        priority = 0.000000;
+                                        to="Leader_Or_Not";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + _wait"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"VCOM_LeaderExecuteCurrent = VCOM_LeaderExecuteCurrent -1"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_Basic_1">*/
+                class Set_Basic_1
+                {
+                        name = "Set_Basic_1";
+                        itemno = 84;
+                        init = /*%FSM<STATEINIT""">*/"_LastTimeCheckB = diag_ticktime;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "reveal_check_">*/
+                                class reveal_check_
+                                {
+                                        itemno = 85;
+                                        priority = 1.000000;
+                                        to="Bunker_Checks_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(diag_ticktime > 10) && (_LastTimeCheckB < (diag_ticktime - 4 - _randomtimedelay))"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dead">*/
+                                class Dead
+                                {
+                                        itemno = 115;
+                                        priority = 0.000000;
+                                        to="Exit_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _Unit || {isNull _Unit} || {isPlayer _Unit}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Bunker_Checks_">*/
+                class Bunker_Checks_
+                {
+                        name = "Bunker_Checks_";
+                        itemno = 87;
+                        init = /*%FSM<STATEINIT""">*/"_t = diag_ticktime;" \n
+                         "_EnemyArray = [];" \n
+                         "_EnemyInRange = [];" \n
+                         "_EnemyArray = _Unit call VCOMAI_fnc_EnemyArray;" \n
+                         "if (count _EnemyArray > 0) then {" \n
+                         "	_EnemyInRange = _EnemyArray select {(_unit distance2d _x) < VCOM_Bunker_Distance};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Enemy_in_range">*/
+                                class Enemy_in_range
+                                {
+                                        itemno = 88;
+                                        priority = 2.000000;
+                                        to="Check___Reveal";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count _EnemyInRange > 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Go_Back">*/
+                                class Go_Back
+                                {
+                                        itemno = 86;
+                                        priority = 1.000000;
+                                        to="Set_Basic_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_t + 4 + _randomtimedelay)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check___Reveal">*/
+                class Check___Reveal
+                {
+                        name = "Check___Reveal";
+                        itemno = 89;
+                        init = /*%FSM<STATEINIT""">*/"_NearestEnemyBunker = [_EnemyInRange,_unit] call VCOMAI_fnc_ClosestObject;" \n
+                         "_unit reveal [_NearestEnemyBunker,4];" \n
+                         "_unit setformDir (_unit getDir _NearestEnemyBunker);" \n
+                         "_unit setDir (_unit getDir _NearestEnemyBunker);" \n
+                         "_unit lookat (position _NearestEnemyBunker);" \n
+                         "_unit glanceat (position _NearestEnemyBunker);" \n
+                         "_cansee = [_Unit,_NearestEnemyBunker] call VCOMAI_fnc_LOSCheck;" \n
+                         "_BunkerEnemyDistance = (_unit distance2d _NearestEnemyBunker);" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Enemy_Close">*/
+                                class Enemy_Close
+                                {
+                                        itemno = 90;
+                                        priority = 5.000000;
+                                        to="Release_from_Bun";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_BunkerEnemyDistance < VCOM_BUNKER_RELEASE_DIST) && (VCOM_BUNKER_RELEASE) && (!_cansee)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cansee">*/
+                                class Cansee
+                                {
+                                        itemno = 92;
+                                        priority = 4.000000;
+                                        to="CombatMode___Tar";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_cansee"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_t3 = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cant_See">*/
+                                class Cant_See
+                                {
+                                        itemno = 93;
+                                        priority = 3.000000;
+                                        to="Remove_Cantsee_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!_cansee"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Release_from_Bun">*/
+                class Release_from_Bun
+                {
+                        name = "Release_from_Bun";
+                        itemno = 91;
+                        init = /*%FSM<STATEINIT""">*/"(group _unit) setBehaviour ""AWARE"";" \n
+                         "_unit dowatch objnull;" \n
+                         "_unit doFollow (leader _unit);" \n
+                         "_unit enableAI ""PATH"";" \n
+                         "_unit forcespeed -1;" \n
+                         "_unit setunitpos ""AUTO"";" \n
+                         "_releaseTime = diag_ticktime;" \n
+                         "if (leader group _unit isEqualTo _unit) then {" \n
+                         "	[group _unit, position _unit, 20, ""SAD"", ""COMBAT"", ""RED""] call CBA_fnc_addWaypoint;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Timeout_">*/
+                                class Timeout_
+                                {
+                                        itemno = 105;
+                                        priority = 2.000000;
+                                        to="Recheck__Enemies";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_releaseTime + 60)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Remove_Cantsee_">*/
+                class Remove_Cantsee_
+                {
+                        name = "Remove_Cantsee_";
+                        itemno = 94;
+                        init = /*%FSM<STATEINIT""">*/"_EnemyInRange = _EnemyInRange - [_NearestEnemyBunker];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Cant_see_any">*/
+                                class Cant_see_any
+                                {
+                                        itemno = 99;
+                                        priority = 2.000000;
+                                        to="Recheck_Time";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count _EnemyInRange <= 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 129;
+                                        priority = 1.000000;
+                                        to="Recheck_Time";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_t + 2 +  + _randomtimedelay)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Back_to_cansee_">*/
+                                class Back_to_cansee_
+                                {
+                                        itemno = 95;
+                                        priority = 0.000000;
+                                        to="Check___Reveal";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count _EnemyInRange > 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Reset_Vector_">*/
+                class Reset_Vector_
+                {
+                        name = "Reset_Vector_";
+                        itemno = 97;
+                        init = /*%FSM<STATEINIT""">*/"_unit lookat _laserTarget;" \n
+                         "_unit glanceat _laserTarget;" \n
+                         "_unit setformdir _azimuth;" \n
+                         "_unit setdir _azimuth;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 130;
+                                        priority = 0.000000;
+                                        to="Set_Basic_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Supress_last__known">*/
+                class Supress_last__known
+                {
+                        name = "Supress_last__known";
+                        itemno = 102;
+                        init = /*%FSM<STATEINIT""">*/"_unit doWatch _lastknowntargetpos;" \n
+                         "_unit lookat _lastknowntargetpos;" \n
+                         "_unit glanceat _lastknowntargetpos;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "No_ammo">*/
+                                class No_ammo
+                                {
+                                        itemno = 125;
+                                        priority = 2.000000;
+                                        to="Supress_last__known";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_unit ammo (currentWeapon _unit) == 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_unit setAmmo [primaryWeapon _unit, 10000];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Aimed">*/
+                                class Aimed
+                                {
+                                        itemno = 106;
+                                        priority = 1.000000;
+                                        to="Fire_Weapon";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_unit weaponDirection (currentWeapon _unit) vectorCos ((_lastknowntargetpos) vectorDiff (eyepos _unit))) > 0.980 min (0.975 + (0.00024 * (_unit distance _lastknowntargetpos))))" \n
+                                         "&& ({" \n
+                                         "	!([getPosATL _unit, getDir _unit, 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
+                                         "} foreach _otherfriendlies)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 103;
+                                        priority = 0.000000;
+                                        to="Reset_Vector_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_t2 + 10)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Recheck_Time">*/
+                class Recheck_Time
+                {
+                        name = "Recheck_Time";
+                        itemno = 104;
+                        init = /*%FSM<STATEINIT""">*/"_t2 = diag_ticktime;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Nil___LastFiredT">*/
+                                class Nil___LastFiredT
+                                {
+                                        itemno = 124;
+                                        priority = 3.000000;
+                                        to="Reset_Vector_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isNil ""_LastFiredTime"") || (isNil ""_lastknowntargetpos"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Not__Recently__S">*/
+                                class Not__Recently__S
+                                {
+                                        itemno = 101;
+                                        priority = 2.000000;
+                                        to="Reset_Vector_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime <= (_LastFiredTime + 10)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Recently_Shot">*/
+                                class Recently_Shot
+                                {
+                                        itemno = 100;
+                                        priority = 1.000000;
+                                        to="Supress_last__known";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime < (_LastFiredTime + 10)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Fire_Weapon">*/
+                class Fire_Weapon
+                {
+                        name = "Fire_Weapon";
+                        itemno = 107;
+                        init = /*%FSM<STATEINIT""">*/"_unit forceWeaponFire [currentWeapon _unit,currentWeaponMode _unit];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Loop_Back">*/
+                                class Loop_Back
+                                {
+                                        itemno = 108;
+                                        priority = 0.000000;
+                                        to="Supress_last__known";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Recheck__Enemies">*/
+                class Recheck__Enemies
+                {
+                        name = "Recheck__Enemies";
+                        itemno = 109;
+                        init = /*%FSM<STATEINIT""">*/"_EnemyInCloseRange = [];" \n
+                         "_EnemyArrayClose = [];" \n
+                         "_EnemyArrayClose = _Unit call VCOMAI_fnc_EnemyArray;" \n
+                         "if (count _EnemyArrayClose > 0) then {" \n
+                         "	_EnemyInCloseRange = _EnemyArrayClose select {(_unit distance2d _x) < 50};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Still_Enemies">*/
+                                class Still_Enemies
+                                {
+                                        itemno = 110;
+                                        priority = 2.000000;
+                                        to="Release_from_Bun";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"count _EnemyInCloseRange > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "No_Enemies">*/
+                                class No_Enemies
+                                {
+                                        itemno = 111;
+                                        priority = 1.000000;
+                                        to="Return_to_Trench";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"count _EnemyInCloseRange <= 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_trycount = 0;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Return_to_Trench">*/
+                class Return_to_Trench
+                {
+                        name = "Return_to_Trench";
+                        itemno = 112;
+                        init = /*%FSM<STATEINIT""">*/"(group _unit) setBehaviour ""AWARE"";" \n
+                         "_unit doMove _oldtrenchpos;" \n
+                         "_releaseMoveTime = diag_ticktime;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "At_old_position">*/
+                                class At_old_position
+                                {
+                                        itemno = 113;
+                                        priority = 2.000000;
+                                        to="Disable__Movement";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_unit distance2d _oldtrenchpos < 3.5) || ((_trycount > 5) && (_unit distance2d _oldtrenchpos < 20))"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 114;
+                                        priority = 1.000000;
+                                        to="Return_to_Trench";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_releaseMoveTime + 2)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_trycount = _trycount + 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Exit_1">*/
+                class Exit_1
+                {
+                        name = "Exit_1";
+                        itemno = 116;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Disable__Movement">*/
+                class Disable__Movement
+                {
+                        name = "Disable__Movement";
+                        itemno = 117;
+                        init = /*%FSM<STATEINIT""">*/"_unit disableAI ""PATH"";" \n
+                         "_unit forcespeed 0;" \n
+                         "_unit setposATL _oldtrenchpos;" \n
+                         "_unit setunitpos _oldunitpos;" \n
+                         "_laserTarget setpos [(_relpos) select 0, (_relpos) select 1, ((_oldtrenchpos) select 2) + 1.5];" \n
+                         "_unit reveal [_laserTarget,4];" \n
+                         "_unit lookat _laserTarget;" \n
+                         "_unit glanceat _laserTarget;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 118;
+                                        priority = 0.000000;
+                                        to="Set_Basic_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "CombatMode___Tar">*/
+                class CombatMode___Tar
+                {
+                        name = "CombatMode___Tar";
+                        itemno = 119;
+                        init = /*%FSM<STATEINIT""">*/"_unit reveal [_NearestEnemyBunker,4];" \n
+                         "_unit setCombatMode ""RED"";" \n
+                         "_unit setBehaviour ""COMBAT"";" \n
+                         "_unit lookat (position _NearestEnemyBunker);" \n
+                         "_unit glanceat (position _NearestEnemyBunker);" \n
+                         "_unit doWatch _NearestEnemyBunker;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "No_ammo">*/
+                                class No_ammo
+                                {
+                                        itemno = 120;
+                                        priority = 2.000000;
+                                        to="CombatMode___Tar";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_unit ammo (currentWeapon _unit) == 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_unit setAmmo [primaryWeapon _unit, 10000];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Aimed">*/
+                                class Aimed
+                                {
+                                        itemno = 121;
+                                        priority = 1.000000;
+                                        to="Fire_Weapon_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_unit weaponDirection (currentWeapon _unit) vectorCos ((position _NearestEnemyBunker) vectorDiff (eyepos _unit))) > 0.999 min (0.975 + (0.00024 * (_unit distance _NearestEnemyBunker))))" \n
+                                         "&& ({" \n
+                                         "	!([getPosATL _unit, getDir _unit, 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
+                                         "} foreach _otherfriendlies)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 96;
+                                        priority = 0.000000;
+                                        to="Reset_Vector_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_t3 + 10)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Fire_Weapon_1">*/
+                class Fire_Weapon_1
+                {
+                        name = "Fire_Weapon_1";
+                        itemno = 122;
+                        init = /*%FSM<STATEINIT""">*/"_unit forceWeaponFire [currentWeapon _unit,currentWeaponMode _unit];" \n
+                         "_LastFiredTime = diag_ticktime;" \n
+                         "_lastknowntargetpos = (position _NearestEnemyBunker);" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Moving_Along">*/
+                                class Moving_Along
+                                {
+                                        itemno = 123;
+                                        priority = 0.000000;
+                                        to="CombatMode___Tar";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_Vector">*/
+                class Set_Vector
+                {
+                        name = "Set_Vector";
+                        itemno = 127;
+                        init = /*%FSM<STATEINIT""">*/"_vectordirandup = _unit getvariable ""vectordirandup"";" \n
+                         "_vectordir = (_vectordirandup select 0);" \n
+                         "_azimuth = (((_vectordir) select 0) atan2 ((_vectordir) select 1) + 360) % 360;" \n
+                         "_relpos = _unit getPos [20, _azimuth];" \n
+                         "_oldtrenchpos = getposATL _unit;" \n
+                         "_oldunitpos = unitpos _unit;" \n
+                         "_oldgroup = group _unit;" \n
+                         "_otherfriendlies = (units (group _unit));" \n
+                         "_otherfriendlies = _otherfriendlies - [_unit];" \n
+                         "_oldgroup setBehaviour ""COMBAT"";" \n
+                         "_unit setformdir _azimuth;" \n
+                         "_unit setdir _azimuth;" \n
+                         "_laserTarget = ""Sign_Sphere100cm_F"" createVehicleLocal [0,0,0];" \n
+                         "_laserTarget setobjecttexture [0,""""];" \n
+                         "_laserTarget setpos [(_relpos) select 0, (_relpos) select 1, ((_oldtrenchpos) select 2) + 1.5];" \n
+                         "dostop _unit;" \n
+                         "_unit lookat _laserTarget;" \n
+                         "_unit glanceat _laserTarget;" \n
+                         "_randomtimedelay = (random 2);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__isNil__relpos">*/
+                                class __isNil__relpos
+                                {
+                                        itemno = 128;
+                                        priority = 0.000000;
+                                        to="Set_Basic_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_relpos"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Leader_init">*/
+                class Leader_init
+                {
+                        name = "Leader_init";
+                        itemno = 174;
+                        init = /*%FSM<STATEINIT""">*/"if !(_VCOM_CHANGEDFORMATION) then " \n
+                         "{" \n
+                         "	 [_Unit,_VCOM_CHANGEDFORMATION] call VcomAI_fnc_FormationChange;" \n
+                         "};" \n
+                         "" \n
+                         "" \n
+                         "_group	= group _Unit;" \n
+                         "_index = currentWaypoint _group;" \n
+                         "_WaypointIs = waypointType [_group,_index];" \n
+                         "_StartWaypointCount = (count waypoints _group);" \n
+                         "" \n
+                         "if (VCOM_UseMarkers) then {" \n
+                         "diag_log format [""_group: %1"",_group];" \n
+                         "diag_log format [""_WaypointIs: %1"",_WaypointIs];" \n
+                         "diag_log format [""_StartWaypointCount: %1"",_StartWaypointCount];" \n
+                         "};" \n
+                         "" \n
+                         "if  !((behaviour _Unit) isEqualTo ""COMBAT"") then" \n
+                         "{" \n
+                         "	{" \n
+                         "		_x forcespeed -1; " \n
+                         "	} foreach units _group;" \n
+                         "	[_Unit,_VCOM_MovedRecently,_VCOMAI_ActivelyClearing,_VCOM_MovedRecentlyCover] execFSM ""modules\headless_ai\functions\FSM\DangerIdentify.fsm"";" \n
+                         "	" \n
+                         "};" \n
+                         "" \n
+                         "" \n
+                         "//See if we can take any vehicles." \n
+                         "if (VCOM_VehicleUse) then" \n
+                         "{" \n
+                         "{" \n
+                         "	if (_x iskindof ""LandVehicle"" && {crew _x isEqualTo []} && {_x distance _Unit < VCOM_AIDISTANCEVEHPATH} && {!(locked _x isEqualTo 2)}) then" \n
+                         "	{" \n
+                         "		_group addvehicle _x;" \n
+                         "	};" \n
+                         "} foreach vehicles;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Hold_WP">*/
+                                class Hold_WP
+                                {
+                                        itemno = 38;
+                                        priority = 48.000000;
+                                        to="Garrison";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_WaypointIs isEqualTo ""HOLD"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dismissed_WP">*/
+                                class Dismissed_WP
+                                {
+                                        itemno = 52;
+                                        priority = 47.000000;
+                                        to="Loiter";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_WaypointIs isEqualTo ""DISMISS"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Guard_WP">*/
+                                class Guard_WP
+                                {
+                                        itemno = 77;
+                                        priority = 46.000000;
+                                        to="Patrol";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_WaypointIs isEqualTo ""GUARD"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "No_WP">*/
+                                class No_WP
+                                {
+                                        itemno = 80;
+                                        priority = 1.000000;
+                                        to="Default_Patrol";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"(_Leader && {VCOM_LeaderExecuteCurrent < VCOM_LeaderExecuteLimit}) || (_Leader && {((behaviour _Unit) isEqualTo ""COMBAT"")})"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_StartWaypointCount isEqualto 1) && !((group _Unit) getVariable [""VCOM_PATROLLING"",false]) && !(_Unit getVariable [""VCOM_LOITERING"",false]) && (!_VCOM_GARRISONED))"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin_State";
+        finalStates[] =
+        {
+                "Exit_FSM",
+                "Dead_Captain",
+                "NO_AI",
+                "Exit_FSM_1",
+                "Exit",
+                "Exit_1",
+        };
+};
+/*%FSM</COMPILE>*/
