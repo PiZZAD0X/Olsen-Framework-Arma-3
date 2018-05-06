@@ -7,9 +7,9 @@
 FW_map_cover = [];
 FW_map_currentAO = 0;
 
-CBA_LoadedIntoMission = false;
-
-
+if (isNil "CBA_LoadedIntoMission") then {
+	CBA_LoadedIntoMission = false;
+};
 
 //in game map cover and center
 ["CBA_loadingScreenDone", {
