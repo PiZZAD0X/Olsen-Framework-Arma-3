@@ -277,7 +277,7 @@ _inits = [];
 
 		//add veh init to _inits array
 		if !((_paramsInitV select 1) isEqualTo "") then {
-			_nul = _inits pushBack [_obj, _init];
+			_nul = _inits pushBack [_obj, (_paramsInitV select 1)];
 		};
 
 } forEach (_groupArray select 0);
