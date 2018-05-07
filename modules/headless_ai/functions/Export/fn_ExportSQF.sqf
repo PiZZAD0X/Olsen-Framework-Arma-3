@@ -11,4 +11,6 @@ HC_3DEN_TextSelectedMarkers = nil;
 HC_3DEN_TextSelectedVehicles = nil;
 HC_3DEN_TextSelectedGroups = nil;
 
+_type = toLower _type;
+
 [_type,_selectType] call HC_fnc_SelTypeExport;
