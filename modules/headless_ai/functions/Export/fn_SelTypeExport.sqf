@@ -7,7 +7,9 @@ private ["_code","_br"];
 _code = "";
 _br = toString [13,10];
 
-switch (_type) do {
+_type2 = format ["%1",(toLower _type)];
+
+switch (_type2) do {
 	case "objects": {
 		
 		if ((isNil "HC_3DEN_TextObjectsOnMap" && _selectType isEqualTo 2) || (isNil "HC_3DEN_TextSelectedObjects" && _selectType isEqualTo 1)) then { ["object",_selectType] call HC_fnc_ExportInText; };

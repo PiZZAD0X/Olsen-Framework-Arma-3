@@ -6,8 +6,10 @@ params ["_type","_selectType"];
 _br = toString [13,10];
 _entities = all3DENEntities;
 
-switch _type do {
-	case "Object": {
+_type2 = format ["%1",(toLower _type)];
+
+switch (_type2) do {
+	case "object": {
 		private["_objects","_init"];
 		_objects = switch _selectType do {
 			case 1: { get3DENSelected "object" };
@@ -42,7 +44,7 @@ switch _type do {
 		};
 		//[classname,[vehVarName,init],[pos,[verticaldir,verticalUp],randomPos],[damage,ammo],[dinamicSimulation,simulation,hideobj,allowDam],[presence,condition]]
 	};
-	case "Vehicle": {
+	case "vehicle": {
 		private["_vehicles","_init","_crew"];
 		_vehicles = switch _selectType do {
 			case 1: { get3DENSelected "object" };
@@ -79,7 +81,7 @@ switch _type do {
 		};
 		//[classname,[vehVarName,init],[pos,[verticaldir,verticalUp],randomPos],[lock,damage,fuel,ammo],[dinamicSimulation,simulation,simpleObj,hideobj,allowDam],[presence,condition],paramsGear,[ReportRemoteTargets,ReceiveRemoteTargets,ReportOwnPosition,RadarUsageAI]]
 	};
-	case "Marker": {
+	case "marker": {
 		private["_markers","_shape","_marker"];
 		_markers = switch _selectType do {
 			case 1: { get3DENSelected "marker" };
@@ -115,7 +117,7 @@ switch _type do {
 		};
 		//[name(var),[shape, type], [pos, size, rotation], text, [brush(texture), color, alpha]]
 	};
-	case "Groups": {
+	case "groups": {
 		private["_groups","_init","_allFormations","_allSpeedModes","_formation","_speedMode","_textGr","_textGrUs"];
 		_groups = switch _selectType do {
 			case 1: { 
