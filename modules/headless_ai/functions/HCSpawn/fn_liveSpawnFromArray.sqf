@@ -56,7 +56,8 @@ private _spawnedVehicles = [];
 
 	{
 		private _paramsPresence = _x select 6;
-		private _paramsVeh = _x select 7;
+		private _paramsInventory = (_x select 7);
+		private _paramsVeh = _x select 8;
 
 		private _isAllowVeh = false;
 		if (_paramsVeh isEqualTo []) then {
@@ -132,7 +133,7 @@ private _spawnedVehicles = [];
 			
 			if (!((_paramsStates select 4) isEqualto "Auto")) then {
 				_unit setUnitPos (_paramsStates select 4);
-				//_unit setvariable ["VCOM_NOAI",true];
+				_unit setvariable ["PZAI_STATIONARY",true];
 				_unit forcespeed 0;
 				_unit disableAI "PATH";
 			} else {
@@ -145,6 +146,9 @@ private _spawnedVehicles = [];
 			_unit hideObjectGlobal (_paramsSpecStates select 2);
 			_unit allowDamage (_paramsSpecStates select 3);
 			_unit enableStamina (_paramsSpecStates select 4);
+			if (!(_paramsInventory isEqualTo [])) then {
+				[_unit,_paramsInventory] call BIS_fnc_loadInventory;
+			};
 			if (getMissionConfigValue ['ReviveMode',0] == 2) then {_unit setVariable ['#rev_enabled', (_paramsSpecStates select 5), true]};
 
 			[_unit,(_paramsIdentity select 5)] call BIS_fnc_setUnitInsignia;

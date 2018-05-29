@@ -1,6 +1,8 @@
 params ["_unit"];
 waituntil {!isNil "HC_customskill"};
 
+if (_unit getvariable ["ManualSkill",false]) exitwith {};
+
 //Set custom skills set in settings.sqf
 if (HC_customskill) then {
 	_unit setSkill ["aimingspeed", HC_aimingspeed];

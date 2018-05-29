@@ -10,7 +10,7 @@ class HC {
 	};
 	class Export
 	{
-		file = "modules\headless_ai\functions\Export";
+		file = "modules\headless_ai\functions\HCExport";
 		class ExportSQF {};
 		class ExportInText {};
 		class ReplaceText {};
@@ -19,74 +19,56 @@ class HC {
 	class Inits
 	{
 		file = "modules\headless_ai\functions\HCInits";
-		class playerInit {postInit = 1;};
 		class initHC {};
 	};
 };
 
-class VCOMAI {
+class PZAI {
 	class Main
 	{
-		file = "modules\headless_ai\functions\VCOMAI";
+		file = "modules\headless_ai\functions\PZAI\Main";
+		class ActiveHandler {};
+		class GroupHandler {};
 		class initMain {};
+		class MainLoop {};
+		class QueueHandle {};
+		class UnitInit {};
+	};
+	class Misc
+	{
+		file = "modules\headless_ai\functions\PZAI";
+		class playerInit {};
+	};
+	class Diag
+	{
+		file = "modules\headless_ai\functions\PZAI\Diag";
 		class AIHit {};
-		class ArmEmptyStatic {};
 		class AttachPosition {};
 		class BuildingCheck {};
 		class BuildingSpawnCheck {};
 		class CheckStatic {};
 		class Classvehicle {};
-		class ClosestAllyWarn {};
 		class ClosestEnemy {};
 		class ClosestObject {};
-		class CombatMode {};
-		class DebugText {};
-		class DefaultGroupPatrol {};
-		class DestroyBuilding {};
-		class DetermineLeader {};
-		class DetermineRank {};
 		class DriverCheck {};
 		class EnemyArray {};
-		class EraseMarkers {};
-		class FindCoverPos {};
-		class FlankManeuver {};
-		class FocusedAccuracy {};
-		class ForceHeal {};
-		class FormationChange {};
-		class FragmentMove {};
-		class FriendlyArray {};
-		class Garrison {};
-		class GarrisonClear {};
-		class GarrisonClearPatrol {};
-		class GroupLoiter {};
-		class GroupPatrol {};
-		class HearingAids {};
 		class HasMine {};
+		class HasRadioGroup {};
 		class IRCheck {};
-		class LightGarrison {};
-		class LoiterAction {};
+		class LOSCheck {};
 		class MapMarkers {};
-		class MoveInCombat {};
-		class MoveToCover {};
-		class NightSight {};
-		class PlaceMine {};
-		class QueueHandle {};
-		class RearmGo {};
-		class RearmSelf {};
-		class ReGroup {};
+		class NearEnemies {};
+		class searchNestedArray {};
 		class StanceModifier {};
-		class SuppressingShots {};
 		class SuppressedEffect {};
-		class ThrowGrenade {};
-		class UnitInit {};
+		class UnitCheck {};
 		class VehicleHandle {};
 		class Waypointcheck {};
-		class WepSupCheck {};	
-		class LOSCheck {};		
+		class WepSupCheck {};		
 	};
 	class Danger
 	{
-		file = "modules\headless_ai\functions\VCOMAI\dangercauses";
+		file = "modules\headless_ai\functions\PZAI\dangercauses";
 		class CombatMovement {};	
 		class CurrentStance {};	
 		class DeadBodyDetection {};	
@@ -94,6 +76,43 @@ class VCOMAI {
 		class MoveToCoverGroup {};	
 		class RecentEnemyDetected {};	
 		class SetCombatStance {};	
+		class stopToShoot {};
 		class VehicleHandleDanger {};	
+	};
+	class Combat
+	{
+		file = "modules\headless_ai\functions\PZAI\combat";
+		class ArmEmptyStatic {};
+		class CombatAttack {};
+		class CombatDefend {};
+		class CombatMode {};
+		class CombatMoveTo {};
+		class CombatResponse {};
+		class DefaultGroupPatrol {};
+		class DestroyBuilding {};
+		class FindCoverPos {};
+		class FlankManeuver {};
+		class FocusedAccuracy {};
+		class ForceHeal {};
+		class FormationChange {};
+		class FragmentMove {};
+		class Garrison {};
+		class GarrisonClear {};
+		class GarrisonClearPatrol {};
+		class GroupLoiter {};
+		class GroupPatrol {};
+		class LightGarrison {};
+		class LoiterAction {};
+		class MoveInCombat {};
+		class MoveToCover {};
+		class PlaceMine {};
+		class RadioCommsEnemy {};
+		class RearmGo {};
+		class RearmSelf {};
+		class ReGroup {};
+		class SightAid {};
+		class SuppressingShots {};
+		class ThrowGrenade {};
+		class WatchEnemy {};
 	};
 };
