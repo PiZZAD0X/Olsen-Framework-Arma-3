@@ -147,7 +147,7 @@ private _spawnedVehicles = [];
 			_unit allowDamage (_paramsSpecStates select 3);
 			_unit enableStamina (_paramsSpecStates select 4);
 			if (!(_paramsInventory isEqualTo [])) then {
-				[_unit,_paramsInventory] call BIS_fnc_loadInventory;
+				_unit setUnitLoadout _paramsInventory;
 			};
 			if (getMissionConfigValue ['ReviveMode',0] == 2) then {_unit setVariable ['#rev_enabled', (_paramsSpecStates select 5), true]};
 
