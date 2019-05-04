@@ -1,7 +1,3 @@
-//Turn this on to see certain debug messages. 1 is on
-PZAI_AIDEBUG = 1;
-//Turn on map markers that track AI movement
-PZAI_UseMarkers = true;
 //Will AI garrison static weapons nearby?
 PZAI_STATICGARRISON = 1;
 //Should we let AI use flanking manuevers? false means they can flank
