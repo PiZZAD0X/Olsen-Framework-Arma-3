@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "D:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, AIBEHAVIORTEST">*/
+/*%FSM<COMPILE "D:\SteamLibrary\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, AIBEHAVIORTEST">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Begin_State",0,250,317.534943,212.638245,407.534912,262.638184,0.000000,"Begin State"};
@@ -35,7 +35,7 @@ item30[] = {"Wait",4,218,1569.026245,1065.433105,1634.525513,1123.350220,0.00000
 item31[] = {"Check_Turn",4,218,-315.402344,563.471985,-225.402435,613.472107,99.000000,"Check Turn"};
 item32[] = {"Begin_Basic_Checks",2,250,-323.208862,643.008606,-233.208801,693.008606,0.000000,"Begin Basic Checks Here"};
 item33[] = {"Go_Back",4,218,-179.616089,639.731628,-89.616089,689.731628,100.000000,"Go Back"};
-item34[] = {"___SECONDS_",4,218,306.309662,1056.367676,390.816284,1109.644409,50.000000,"" \n "2 SECONDS" \n ""};
+item34[] = {"___SECONDS_",4,4314,306.309662,1056.367676,390.816284,1109.644409,50.000000,"" \n "2 SECONDS" \n ""};
 item35[] = {"Set_Basic_1",2,250,2719.507813,894.132507,2809.507813,944.132507,0.000000,"Set Basic"};
 item36[] = {"reveal_check_",4,218,2774.802002,971.208069,2864.802002,1025.801514,1.000000," " \n "reveal check" \n ""};
 item37[] = {"Go_Back",4,218,2655.485107,973.906006,2745.485107,1023.906128,1.000000,"Go Back"};
@@ -568,8 +568,8 @@ link274[] = {229,221};
 link275[] = {229,223};
 link276[] = {189,230};
 link277[] = {230,189};
-globals[] = {0.000000,0,0,0,0,640,480,2,872,6316128,1,1799.069092,2727.446533,1510.760498,894.890808,1218,808,1};
-window[] = {0,-1,-1,-1,-1,1250,-1446,107,270,1,1236};
+globals[] = {0.000000,0,0,0,0,640,480,2,872,6316128,1,-583.728882,734.691528,1502.983154,599.434814,1179,808,1};
+window[] = {0,-1,-1,-1,-1,1033,-1830,-112,53,1,1197};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -589,7 +589,8 @@ class FSM
                          "_ReturnVariable = [_Unit] call PZAI_fnc_UnitCheck;" \n
                          "_NoAICheck = _ReturnVariable select 0;" \n
                          "_IsPlayerCheck = _ReturnVariable select 1;" \n
-                         "_IsBunkerCheck = _ReturnVariable select 2;"/*%FSM</STATEINIT""">*/;
+                         "_IsBunkerCheck = _ReturnVariable select 2;" \n
+                         ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -759,7 +760,8 @@ class FSM
                                         priority = 995.000000;
                                         to="Temp_Halt";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_fps < PZAI_FPSFreeze || {(_MyNearestEnemy distance _Unit > PZAI_DisableDistance) && !((behaviour _Unit) isEqualTo ""COMBAT"")}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_fps < PZAI_FPSFreeze || " \n
+                                         "(!(_MyNearestEnemy isEqualTo [0,0,0]) && (_MyNearestEnemy distance _Unit > PZAI_DisableDistance) && !((behaviour _Unit) isEqualTo ""COMBAT""))"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"_unit disableAI ""ALL"";" \n
                                          "_unit forcespeed 0;"/*%FSM</ACTION""">*/;
                                 };
@@ -782,7 +784,7 @@ class FSM
                                         priority = 99.000000;
                                         to="Begin_Basic_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_InitialWaypointSet) && ((_BasicCheckTime + 20) < time) && {PZAI_BasicCheckCurrent <= PZAI_BasicCheckLimit}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_InitialWaypointSet) && {((_BasicCheckTime + 20) < time)} && {PZAI_BasicCheckCurrent <= PZAI_BasicCheckLimit}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"PZAI_BasicCheckCurrent = PZAI_BasicCheckCurrent + 1;" \n
                                          "private _tOrg = time;"/*%FSM</ACTION""">*/;
                                 };
@@ -794,7 +796,7 @@ class FSM
                                         priority = 50.000000;
                                         to="Main_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_LastTimeCheck8 < (diag_ticktime - 2)) && (_InitialWaypointSet) && (PZAI_SightAid) && ({_x distance2d _unit < PZAI_SightAid_Distance} count allPlayers > 0)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_LastTimeCheck8 < (diag_ticktime - 2)) && {(_InitialWaypointSet)} && {(PZAI_SightAid)} && {({_x distance2d _unit < PZAI_SightAid_Distance} count allPlayers > 0)}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"_LastTimeCheck8 = diag_ticktime;" \n
                                          "[_unit] spawn PZAI_fnc_SightAid;"/*%FSM</ACTION""">*/;
                                 };
@@ -848,7 +850,7 @@ class FSM
                         itemno = 24;
                         init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
                          "_t = time;" \n
-                         ""/*%FSM</STATEINIT""">*/;
+                         "diag_log format [""sim pause for %1"",_unit];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -885,6 +887,7 @@ class FSM
                         itemno = 28;
                         init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
                          "_t = time;" \n
+                         "diag_log format [""temp halt for %1"",_unit];" \n
                          "_MyNearestEnemy = _Unit call PZAI_fnc_ClosestEnemy;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1711,9 +1714,11 @@ class FSM
                         name = "Leader_init";
                         itemno = 117;
                         init = /*%FSM<STATEINIT""">*/"_leadertime = diag_ticktime;" \n
+                         "diag_log format [""checking leader for %1"",_group];" \n
                          "_currentmission = _group getvariable [""PZAI_Mission"",""NONE""];" \n
+                         "_InitialWaypointSet = _group getvariable [""InitialWPSet"",false];" \n
                          "_currenttarget = _group getvariable [""PZAI_CurrentTarget"",objnull];" \n
-                         ""/*%FSM</STATEINIT""">*/;
+                         "diag_log format [""check %1 mission: %2 WPSet: %3 target: %4"",_group,_currentmission,_InitialWaypointSet,_currenttarget];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {

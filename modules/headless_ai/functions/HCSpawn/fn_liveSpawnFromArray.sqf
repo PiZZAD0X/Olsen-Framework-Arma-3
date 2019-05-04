@@ -6,7 +6,7 @@ if (isnil "bis_fnc_init") exitwith {diag_log "HC_fnc_liveSpawnFromArray called b
 
 params ["_groupArraystr"];
 
-_groupArray = missionNamespace getVariable _groupArraystr;
+private _groupArray = missionNamespace getVariable _groupArraystr;
 if (isNil "_groupArray") exitwith {diag_log "_grouparray not found from string variable!"};
 
 private _spawnedVehicles = [];
@@ -15,14 +15,14 @@ private _spawnedVehicles = [];
 	private _obj = objNull;
 	private _paramsPresenceV = _x select 5;
 
-	if ((random(1) < (_paramsPresenceV select 0)) && call compileFinal(_paramsPresenceV select 1)) then {
+	if ((random(1) < (_paramsPresenceV select 0)) && {call compileFinal(_paramsPresenceV select 1)}) then {
 		private _paramsPosV = _x select 2;
 
 		private _posV = _paramsPosV select 0;
 		private _randPosV = _paramsPosV select 2;
 
 		_obj = (_x select 0) createVehicle _posV;
-		
+
 		waituntil {!isnil "_obj"};
 		sleep 0.25;
 
@@ -41,7 +41,7 @@ private _spawnedVehicles = [];
 	};
 
 	_spawnedVehicles set [_forEachIndex, _obj];
-	
+
 	sleep 0.5;
 
 } forEach (_groupArray select 0);
@@ -56,7 +56,7 @@ private _spawnedVehicles = [];
 
 	{
 		private _paramsPresence = _x select 6;
-		private _paramsInventory = (_x select 7);
+		private _paramsInventory = (_x select 7) select 0;
 		private _paramsVeh = _x select 8;
 
 		private _isAllowVeh = false;
@@ -70,26 +70,26 @@ private _spawnedVehicles = [];
 			};
 		};
 
-		if (_isAllowVeh && (random(1) < (_paramsPresence select 0)) && call compileFinal(_paramsPresence select 1)) then {
+		if (_isAllowVeh && (random(1) < (_paramsPresence select 0)) && {call compileFinal(_paramsPresence select 1)}) then {
 
 			if (isNull _group) then {
 				_group = createGroup [_side, _paramsStatesGr select 5];
-				
+
 				waituntil {!isnil "_group"};
 				sleep 0.25;
-				
+
 				_group setGroupIdGlobal [(_paramsInitGr select 2)];
 				_group setCombatMode (_paramsStatesGr select 0);
 				_group setBehaviour (_paramsStatesGr select 1);
 				_group setFormation (_paramsStatesGr select 2);
 				_group setSpeedMode (_paramsStatesGr select 3);
 				_group enableDynamicSimulation (_paramsStatesGr select 4);
-				
+
 				//Sets VAR name for group
 				if !((_paramsInitGr select 0) isEqualTo "") then {
 					call compile format ["%1 = %2; publicvariable '%1'; _this = %2; %3",(_paramsInitGr select 0),_group,(_paramsInitGr select 1)];
 				};
-				
+
 				if !((_paramsInitGr select 1) isEqualTo "") then {
 					_group call compile (_paramsInitGr select 1);
 				};
@@ -106,7 +106,7 @@ private _spawnedVehicles = [];
 			private _randPos = _paramsPos select 2;
 
 			private _unit = _group createUnit [(_x select 0), (_paramsPos select 0), [], 0, 'CAN_COLLIDE'];
-			
+
 			waituntil {!isnil "_unit"};
 			sleep 0.25;
 
@@ -119,18 +119,18 @@ private _spawnedVehicles = [];
 				_pos set [1, (_pos select 1) + ((random _randPosX2) - _randPos)];
 				_unit setPos _pos;
 			};
-			
+
 			//Sets VAR name for unit
 			if (!((_paramsInit select 0) isEqualTo "")) then {
 				_unit setVehicleVarName (_paramsInit select 0);
 				call compile format ["%2 = _unit; publicvariable '%2'",_unit,(_paramsInit select 0)];
 			};
-			
+
 			_unit setSkill (_paramsStates select 0);
 			_unit setDamage [(_paramsStates select 1), false];
 			_unit setVehicleAmmo (_paramsStates select 2);
 			_unit setRank (_paramsStates select 3);
-			
+
 			if (!((_paramsStates select 4) isEqualto "Auto")) then {
 				_unit setUnitPos (_paramsStates select 4);
 				_unit setvariable ["PZAI_STATIONARY",true];
@@ -152,25 +152,25 @@ private _spawnedVehicles = [];
 			if (getMissionConfigValue ['ReviveMode',0] == 2) then {_unit setVariable ['#rev_enabled', (_paramsSpecStates select 5), true]};
 
 			[_unit,(_paramsIdentity select 5)] call BIS_fnc_setUnitInsignia;
-			
-			_unitinit =  "" 
+
+			private _unitinit =  ""
 					+"_this setName " + str(_paramsIdentity select 0) + "; "
 					+"_this setFace " + str(_paramsIdentity select 1) + "; "
 					+"_this setNameSound " + str(_paramsIdentity select 2) + "; "
 					+"_this setSpeaker " + str(_paramsIdentity select 3) + "; "
 					+"_this setPitch " + str(_paramsIdentity select 4) + "; "
 					+ (_paramsInit select 1);
-					
+
 			sleep 0.25;
-			
+
 			_unit call compile _unitinit;
-			
+
 			//add to framework
 			if(!isNil "aCount_addEH") then { ["aCount_event_addEH", _unit] call CBA_fnc_serverEvent};
 			[_unit, {_this call FNC_trackUnit;}] remoteExec ["bis_fnc_call", 2];
-			
+
 			[_unit] spawn HC_fnc_setunitskill;
-			
+
 			_unit setVectorDirAndUp (_paramsPos select 1);
 
 			if !(_paramsVeh isEqualTo []) then {
@@ -202,27 +202,20 @@ private _spawnedVehicles = [];
 			};
 
 		};
-		
+
 	} forEach _units;
 
 	{
-		_typeW = _x select 0;
-		_paramsInitW = _x select 1;
-		_paramsPosW = _x select 2;
-		_paramsStateW = _x select 3;
-		_paramsExpresionW = _x select 4;
-		_paramsVisibleW = _x select 5;
-		_timer = _x select 6;
-		_paramsEffectW = _x select 7;
+		_x params ["_typeW","_paramsInitW","_paramsPosW","_paramsStateW","_paramsExpresionW","_paramsVisibleW","_timer","_paramsEffectW"];
 
-		_wp = _group addWaypoint [(_paramsPosW select 0), (_paramsPosW select 1)];
+		private _wp = _group addWaypoint [(_paramsPosW select 0), (_paramsPosW select 1)];
 		_wp setWaypointCompletionRadius (_paramsPosW select 2);
 
 		//for seek and destroy waypoints we need to rename them to SAD
 		if (_typeW isEqualTo "SeekAndDestroy") then {
 			_typeW = "SAD";
 		};
-		
+
 		_wp setWaypointType _typeW;
 
 		_wp setWaypointDescription (_paramsInitW select 0);
@@ -263,20 +256,16 @@ private _spawnedVehicles = [];
 } forEach (_groupArray select 1);
 
 {
-		private _paramsInitV = _x select 1;
-		private _paramsStatesV = _x select 3;
-		private _paramsSpecStatesV = _x select 4;
-		private _paramsGear = _x select 6;
-		private _paramsElectr = _x select 7;
+		_x params ["","_paramsInitV","","_paramsStatesV","_paramsSpecStatesV","","_paramsGear","_paramsElectr"];
 
-		_obj = _spawnedVehicles select _forEachIndex;
-	
+		private _obj = _spawnedVehicles select _forEachIndex;
+
 		//set VAR name for vehicle
 		if (!((_paramsInitV select 0) isEqualTo "")) then {
 			_obj setVehicleVarName (_paramsInitV select 0);
 			call compile format ["%2 = _obj; publicvariable '%2'",_obj,(_paramsInitV select 0)];
 		};
-	
+
 		_obj lock (_paramsStatesV select 0);
 		_obj setDamage [(_paramsStatesV select 1), false];
 		_obj setFuel (_paramsStatesV select 2);
@@ -293,11 +282,11 @@ private _spawnedVehicles = [];
 		_obj setVehicleReceiveRemoteTargets (_paramsElectr select 1);
 		_obj setVehicleReportOwnPosition (_paramsElectr select 2);
 		_obj setVehicleRadar (_paramsElectr select 3);
-		
+
 		if !((_paramsInitV select 1) isEqualTo "") then {
-			_obj call compile (_paramsInitV select 1); 
+			_obj call compile (_paramsInitV select 1);
 		};
-		
+
 		sleep 0.5;
-		
+
 } forEach (_groupArray select 0);

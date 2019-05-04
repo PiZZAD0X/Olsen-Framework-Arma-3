@@ -10,7 +10,10 @@ true/false for HC/not-HC
 */
 
 _hc = false;
+
 FW_var_isHC = false;
+FW_var_isHCorServer = false;
+
 if (isNil "FW_var_HCs") then {
 	FW_var_HCs = []; 
 	publicVariable "FW_var_HCs";
@@ -25,6 +28,10 @@ if (!hasInterface && !isServer) then {
 		FW_var_HCs pushback (player);
 		publicVariable "FW_var_HCs";
 	};
+};
+
+if (!hasInterface || isServer) then {
+	FW_var_isHCorServer = true;
 };
 
 if (!isMultiplayer) then {

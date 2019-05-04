@@ -4,10 +4,10 @@
 //of reinforcements or subsequent AOs.
 
 //Initial spawns are spawned upon init, at the start of the mission.
-//_InitialSpawn = ["NAMEOFARRAY"];
+_InitialSpawn = ["HC1"];
 
 //Custom viewdistance for the AI
-HC_viewdistance = 1200;
+HC_viewdistance = 2500;
 
 //Forces Time on the HC to simulate better AI [HOUR,MINUTE]
 //Comment out to disable

@@ -1,4 +1,5 @@
 //Prints and updates markers for all in PZAI_TrackedUnits array
+PZAI_MARKERARRAY = [];
 
 While {true} do {
 	{

@@ -50,7 +50,7 @@ switch (_currentmission) do {
 			};
 		};
 	case "LOITERING": {
-			(_group) setSpeedMode "FULL";
+			_Group setSpeedMode "FULL";
 			{_x setUnitPos "AUTO";} foreach (units _group);
 			if (((random 2) > 1) || _reinforcement) then {
 				[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatAttack;

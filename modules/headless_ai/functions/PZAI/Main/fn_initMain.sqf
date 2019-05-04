@@ -8,8 +8,6 @@ MarkerArray = [];
 PZAI_UnitQueue = [];
 PZAI_ActiveList = [];
 PZAI_TrackedUnits = [];
-PZAI_MarkerArray = [];
-PZAI_GroupArray = [];
 PZAI_BasicCheckCurrent = 0;
 PZAI_LeaderExecuteCurrent = 0;
 
