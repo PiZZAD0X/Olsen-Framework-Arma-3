@@ -4,7 +4,7 @@
 //of reinforcements or subsequent AOs.
 
 //Initial spawns are spawned upon init, at the start of the mission.
-_InitialSpawn = ["HC1"];
+_InitialSpawn = ["ArrayName"];
 
 //Custom viewdistance for the AI
 HC_viewdistance = 2500;
@@ -58,6 +58,10 @@ PZAI_Radio_NeedRadio = false;
 PZAI_PatrolDistance = 200;
 //Whether the AI will patrol between garrison positions. Pretty buggy, but nice for 'mersion
 PZAI_GarrisonPatrol = true;
+//Turn this on to see certain debug messages. 1 is on
+PZAI_AIDEBUG = 1;
+//Turn on map markers that track AI movement
+PZAI_UseMarkers = true;
 
 //More obscure settings are found in:
 #include "functions\PZAI\AdditionalSettings.sqf"
