@@ -35,66 +35,66 @@ item30[] = {"Wait",4,218,1569.026245,1065.433105,1634.525513,1123.350220,0.00000
 item31[] = {"Check_Turn",4,218,-315.402344,563.471985,-225.402435,613.472107,99.000000,"Check Turn"};
 item32[] = {"Begin_Basic_Checks",2,250,-323.208862,643.008606,-233.208801,693.008606,0.000000,"Begin Basic Checks Here"};
 item33[] = {"Go_Back",4,218,-179.616089,639.731628,-89.616089,689.731628,100.000000,"Go Back"};
-item34[] = {"___SECONDS_",4,4314,306.309662,1056.367676,390.816284,1109.644409,50.000000,"" \n "2 SECONDS" \n ""};
+item34[] = {"___SECONDS_",4,218,306.309662,1056.367676,390.816284,1109.644409,50.000000,"" \n "2 SECONDS" \n ""};
 item35[] = {"Set_Basic_1",2,250,2719.507813,894.132507,2809.507813,944.132507,0.000000,"Set Basic"};
 item36[] = {"reveal_check_",4,218,2774.802002,971.208069,2864.802002,1025.801514,1.000000," " \n "reveal check" \n ""};
 item37[] = {"Go_Back",4,218,2655.485107,973.906006,2745.485107,1023.906128,1.000000,"Go Back"};
 item38[] = {"Bunker_Checks_",2,250,2721.889893,1036.858398,2811.889893,1086.858154,0.000000,"" \n "Bunker Checks" \n ""};
-item39[] = {"Enemy_in_range",4,218,2805.539795,1194.596436,2895.539795,1244.596436,3.000000,"Enemy in range"};
-item40[] = {"Check___Reveal",2,250,2816.734863,1369.887329,2906.734863,1419.887329,0.000000,"Check" \n "& Reveal"};
-item41[] = {"Enemy_Close",4,218,3075.107422,1470.563354,3165.107422,1520.563599,5.000000,"Enemy Close"};
-item42[] = {"Release_from_Bun",2,250,3217.303711,1475.727661,3307.303711,1525.727661,0.000000,"Release from" \n "Bunker"};
-item43[] = {"Cansee",4,218,2826.966309,1472.619995,2916.966309,1522.620239,4.000000,"Cansee"};
-item44[] = {"Cant_See",4,218,2714.067871,1474.748047,2804.067871,1524.748047,3.000000,"Cant See"};
-item45[] = {"Remove_Cantsee_",2,250,2588.690430,1467.895142,2678.690430,1517.894897,0.000000,"Remove Cantsee " \n "Enemy from Array"};
-item46[] = {"Back_to_cansee_",4,218,2590.940674,1389.747681,2680.941162,1439.747681,0.000000,"Back to cansee " \n "check"};
-item47[] = {"Timeout",4,218,2831.088867,1670.383423,2921.088867,1720.383423,0.000000,"Timeout"};
+item39[] = {"Enemy_in_range",4,218,2900.000000,1050.000000,3000.000000,1100.000000,3.000000,"Enemy in range"};
+item40[] = {"Check_Nearby_Ene",2,250,2900.000000,1150.000000,3000.000000,1200.000000,0.000000,"Check" \n "Nearby Enemies"};
+item41[] = {"Enemy_Close",4,218,3025.000000,1050.000000,3125.000000,1100.000000,2.000000,"Enemy Close"};
+item42[] = {"Release_from_Bun",2,250,3225.000000,1050.000000,3325.000000,1100.000000,0.000000,"Release from" \n "Bunker"};
+item43[] = {"Cansee",4,218,2900.000000,1400.000000,3000.000000,1450.000000,4.000000,"Cansee"};
+item44[] = {"Cant_See",4,218,2700.000000,1225.000000,2800.000000,1275.000000,3.000000,"Cant See"};
+item45[] = {"Remove_Cantsee_",2,250,2600.000000,1275.000000,2700.000000,1325.000000,0.000000,"Remove Cantsee " \n "Enemy from Array"};
+item46[] = {"Back_to_cansee_",4,218,2700.000000,1325.000000,2800.000000,1375.000000,0.000000,"Back to cansee " \n "check"};
+item47[] = {"Timeout",4,218,3100.000000,1900.000000,3200.000000,1950.000000,1.000000,"Timeout"};
 item48[] = {"Reset_Vector_",2,250,2029.992676,891.755310,2119.992676,941.755310,0.000000,"Reset" \n "Vector" \n ""};
-item49[] = {"",7,210,2867.789063,2104.390381,2875.789063,2112.390381,0.000000,""};
-item50[] = {"Cant_see_any",4,218,2585.560547,1553.780640,2675.560547,1603.780396,2.000000,"Cant see any"};
-item51[] = {"Recently_Shot",4,218,2430.386230,1639.000610,2520.386230,1689.000610,1.000000,"Recently Shot"};
-item52[] = {"Not__Recently__S",4,218,2188.069580,1634.719360,2278.069580,1684.718872,2.000000,"Not " \n "Recently " \n "Shot"};
-item53[] = {"Supress_last__known",2,250,2428.828613,1723.842407,2518.828613,1773.843628,0.000000,"Supress last " \n "known" \n "position"};
-item54[] = {"Timeout",4,218,2307.914551,1797.795288,2397.914551,1847.795776,0.000000,"Timeout"};
-item55[] = {"Recheck_Time",2,250,2428.671387,1553.893188,2518.671387,1603.893188,0.000000,"Recheck Time"};
-item56[] = {"Timeout_",4,218,3273.829102,1546.001099,3363.829102,1596.001099,2.000000,"" \n "Timeout" \n ""};
-item57[] = {"Aimed",4,218,2427.028320,1797.501831,2517.028564,1847.501831,1.000000,"Aimed"};
-item58[] = {"Fire_Weapon",2,250,2423.972656,1880.651245,2513.972656,1930.650757,0.000000,"Fire Weapon"};
-item59[] = {"Loop_Back",8,218,2424.901123,1974.591187,2514.901367,2024.591187,0.000000,"Loop Back"};
-item60[] = {"Recheck__Enemies",2,250,3211.802734,1611.763794,3301.802734,1661.763794,0.000000,"Recheck " \n "Enemies"};
-item61[] = {"Still_Enemies",4,218,3159.259277,1544.490112,3249.259277,1594.489868,2.000000,"Still Enemies"};
-item62[] = {"No_Enemies",4,218,3207.143555,1693.730103,3297.143555,1743.730103,1.000000,"No Enemies"};
-item63[] = {"Return_to_Trench",2,250,3205.868652,1769.293823,3295.868652,1819.293823,0.000000,"Return to" \n "Trench"};
-item64[] = {"At_old_position",4,218,3208.548340,1848.510132,3298.548340,1898.510132,2.000000,"At old position"};
-item65[] = {"Timeout",4,218,3334.315918,1770.099487,3424.315918,1820.099487,1.000000,"Timeout"};
+item49[] = {"",7,210,3121.000000,2108.500000,3129.000000,2116.500000,0.000000,""};
+item50[] = {"Cant_see_any",4,218,2575.000000,1375.000000,2675.000000,1425.000000,2.000000,"Cant see any"};
+item51[] = {"Recently_Shot",4,218,2625.000000,1450.000000,2725.000000,1500.000000,1.000000,"Recently Shot"};
+item52[] = {"Not__Recently__S",4,218,2200.000000,1450.000000,2300.000000,1500.000000,2.000000,"Not " \n "Recently " \n "Shot"};
+item53[] = {"Supress_last__known",2,250,2775.000000,1725.000000,2875.000000,1775.000000,0.000000,"Supress last " \n "known" \n "position"};
+item54[] = {"Timeout",4,218,2650.000000,1800.000000,2750.000000,1850.000000,2.000000,"Timeout"};
+item55[] = {"Recheck_Time",2,250,2425.000000,1375.000000,2525.000000,1425.000000,0.000000,"Recheck Time"};
+item56[] = {"Timeout_",4,218,3275.000000,1125.000000,3375.000000,1175.000000,2.000000,"" \n "Timeout" \n ""};
+item57[] = {"Aimed",4,218,2775.000000,1800.000000,2875.000000,1850.000000,0.000000,"Aimed"};
+item58[] = {"Fire_Weapon",2,250,2775.000000,1875.000000,2875.000000,1925.000000,0.000000,"Fire Weapon"};
+item59[] = {"Loop_Back",8,218,2775.000000,1975.000000,2875.000000,2025.000000,0.000000,"Loop Back"};
+item60[] = {"Recheck__Enemies",2,250,3225.000000,1175.000000,3325.000000,1225.000000,0.000000,"Recheck " \n "Enemies"};
+item61[] = {"Still_Enemies",4,218,3175.000000,1125.000000,3275.000000,1175.000000,2.000000,"Still Enemies"};
+item62[] = {"No_Enemies",4,218,3225.000000,1275.000000,3325.000000,1325.000000,1.000000,"No Enemies"};
+item63[] = {"Return_to_Trench",2,250,3225.000000,1350.000000,3325.000000,1400.000000,0.000000,"Return to" \n "Trench"};
+item64[] = {"At_old_position",4,218,3225.000000,1425.000000,3325.000000,1475.000000,2.000000,"At old position"};
+item65[] = {"Timeout",4,218,3350.000000,1350.000000,3450.000000,1400.000000,1.000000,"Timeout"};
 item66[] = {"Dead",4,218,2462.342285,986.727966,2552.342285,1036.727783,0.000000,"Dead"};
 item67[] = {"Exit",1,250,2461.625977,1090.528320,2551.625977,1140.528076,0.000000,"Exit"};
-item68[] = {"Disable__Movement",2,250,3209.627441,1931.202515,3299.627441,1981.202515,0.000000,"Disable " \n "Movement " \n "Again"};
-item69[] = {"_",8,218,3396.380859,1931.527222,3486.380859,1981.527710,0.000000,""};
-item70[] = {"CombatMode___Tar",2,250,2829.812500,1576.812622,2919.812500,1626.812622,0.000000,"CombatMode" \n "& Target"};
-item71[] = {"No_ammo",4,218,3043.775391,1576.294556,3133.775391,1626.294556,2.000000,"No ammo"};
-item72[] = {"Aimed",4,218,2947.637207,1667.913696,3037.637695,1717.913696,1.000000,"Aimed"};
-item73[] = {"Fire_Weapon_1",2,250,2946.957031,1755.417847,3036.957031,1805.417358,0.000000,"Fire Weapon"};
-item74[] = {"Moving_Along",8,218,2947.608398,1845.390503,3037.608398,1895.390503,0.000000,"Moving Along"};
-item75[] = {"Nil___LastFiredT",4,218,2313.614502,1637.383911,2403.614502,1687.383911,3.000000,"Nil " \n "_LastFiredTime"};
-item76[] = {"No_ammo",4,250,2568.765869,1723.630981,2658.766113,1773.631226,2.000000,"No ammo"};
+item68[] = {"Disable__Movement",2,250,3225.000000,1500.000000,3325.000000,1550.000000,0.000000,"Disable " \n "Movement " \n "Again"};
+item69[] = {"_",8,218,3425.000000,1500.000000,3525.000000,1550.000000,0.000000,""};
+item70[] = {"CombatMode___Tar",2,250,3075.000000,1800.000000,3175.000000,1850.000000,0.000000,"CombatMode" \n "& Target"};
+item71[] = {"No_ammo",4,218,3225.000000,1800.000000,3325.000000,1850.000000,2.000000,"No ammo"};
+item72[] = {"Aimed",4,218,3200.000000,1900.000000,3300.000000,1950.000000,0.000000,"Aimed"};
+item73[] = {"Aimed",2,250,3200.000000,1975.000000,3300.000000,2025.000000,0.000000,"Aimed"};
+item74[] = {"Moving_Along",8,218,3200.000000,2050.000000,3300.000000,2100.000000,0.000000,"Moving Along"};
+item75[] = {"Nil___LastFiredT",4,218,2325.000000,1450.000000,2425.000000,1500.000000,3.000000,"Nil " \n "_LastFiredTime"};
+item76[] = {"No_ammo",4,250,2925.000000,1725.000000,3025.000000,1775.000000,1.000000,"No ammo"};
 item77[] = {"isBunker_",4,218,2715.496582,602.026672,2805.496582,652.026672,49.000000,"" \n "isBunker" \n ""};
 item78[] = {"Set_Vector",2,250,2715.517578,688.673157,2805.517578,738.673279,0.000000,"Set Vector"};
 item79[] = {"__isNil__relpos",4,218,2718.670410,781.264832,2808.670410,831.264709,0.000000,"!isNil _relpos"};
-item80[] = {"Timeout",4,218,2431.715332,1465.431274,2521.715332,1515.431274,1.000000,"Timeout"};
+item80[] = {"Timeout",4,218,2425.000000,1300.000000,2525.000000,1350.000000,1.000000,"Timeout"};
 item81[] = {"_",8,218,2260.548828,892.118347,2350.548828,942.118103,2.000000,""};
 item82[] = {"",7,210,3433.487305,923.608337,3441.487305,931.608337,0.000000,""};
-item83[] = {"",7,210,3061.281494,1867.149780,3069.281494,1875.149780,0.000000,""};
-item84[] = {"",7,210,3064.150635,1662.895142,3072.150635,1670.895142,0.000000,""};
+item83[] = {"",7,210,3308.500000,2071.000000,3316.500000,2078.999756,0.000000,""};
+item84[] = {"",7,210,3308.500000,1883.500000,3316.500000,1891.500000,0.000000,""};
 item85[] = {"",7,210,2227.042236,2034.140015,2235.042236,2042.140503,0.000000,""};
-item86[] = {"",7,210,2465.700195,2070.656250,2473.700195,2078.656250,0.000000,""};
-item87[] = {"",7,210,2567.879639,2070.310547,2575.879639,2078.310547,0.000000,""};
-item88[] = {"",7,210,2564.984375,1830.386108,2580.984375,1846.386108,0.000000,""};
+item86[] = {"",7,210,2821.000000,2071.000000,2829.000000,2079.000000,0.000000,""};
+item87[] = {"",7,210,2921.000000,2071.000000,2929.000000,2079.000000,0.000000,""};
+item88[] = {"",7,210,2917.000000,1829.500000,2933.000000,1845.500000,0.000000,""};
 item89[] = {"",7,210,2115.457520,2034.273315,2123.457520,2042.273315,0.000000,""};
 item90[] = {"",7,210,2115.278320,1789.095215,2123.278320,1797.095215,0.000000,""};
-item91[] = {"",7,210,2350.935547,2034.235718,2358.935547,2042.235718,0.000000,""};
-item92[] = {"",7,210,2353.057373,1745.927856,2361.057373,1753.927856,0.000000,""};
-item93[] = {"Reset_Target",2,250,2185.323975,1715.970215,2275.323975,1765.970215,0.000000,"Reset" \n "Target"};
+item91[] = {"",7,210,2696.000000,2033.500000,2704.000000,2041.500000,0.000000,""};
+item92[] = {"",7,210,2358.500000,1571.000000,2366.500000,1579.000000,0.000000,""};
+item93[] = {"Reset_Target",2,250,2175.000000,1550.000000,2275.000000,1600.000000,0.000000,"Reset" \n "Target"};
 item94[] = {"",7,210,2115.507813,2104.385498,2123.507813,2112.385498,0.000000,""};
 item95[] = {"",7,210,708.454163,227.542389,724.454163,243.542389,0.000000,""};
 item96[] = {"",7,210,1305.172852,402.541016,1321.172852,418.541016,0.000000,""};
@@ -153,9 +153,9 @@ item148[] = {"",7,210,140.175537,1013.486694,148.175537,1021.486694,0.000000,""}
 item149[] = {"",7,210,-88.930550,688.247009,-80.930534,696.247009,0.000000,""};
 item150[] = {"",7,210,458.628326,894.547729,466.628326,902.547729,0.000000,""};
 item151[] = {"_",8,218,2185.779785,1826.959351,2275.779785,1876.959351,0.000000,""};
-item152[] = {"Enemy_not__in_ra",4,218,2650.764404,1194.596436,2740.764404,1244.596436,2.000000,"Enemy not " \n "in range"};
-item153[] = {"",7,210,2360.438477,1296.712158,2368.438477,1304.712158,0.000000,""};
-item154[] = {"",7,210,2368.697510,1532.016479,2376.697510,1540.016479,0.000000,""};
+item152[] = {"Enemy_not__in_ra",4,218,2725.000000,1150.000000,2825.000000,1200.000000,2.000000,"Enemy not " \n "in range"};
+item153[] = {"",7,210,2371.000000,1171.000000,2379.000000,1179.000000,0.000000,""};
+item154[] = {"",7,210,2371.000000,1358.500000,2379.000000,1366.500000,0.000000,""};
 item155[] = {"Check_Enemies",4,218,-130.484283,1060.085205,-40.484283,1110.085205,9.000000,"Check Enemies"};
 item156[] = {"Refresh_Enemy_Ar",2,250,-247.561005,1057.201172,-157.560974,1107.201172,0.000000,"Refresh Enemy" \n "Array"};
 item157[] = {"Target_Set",4,218,-333.187408,1574.849487,-271.441132,1624.849487,2.000000,"Target" \n "Set"};
@@ -231,7 +231,39 @@ item226[] = {"",7,210,2170.497070,1429.786621,2178.497070,1437.786621,0.000000,"
 item227[] = {"No_Radio",8,218,-428.556183,1724.225220,-366.052490,1774.225220,2.000000,"No" \n "Radio"};
 item228[] = {"",7,210,2174.219727,954.151917,2182.219727,962.151917,0.000000,""};
 item229[] = {"",7,210,2307.741699,1083.804443,2315.741699,1091.804443,0.000000,""};
-item230[] = {"____FAKE____",9,100,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+item230[] = {"Burst",4,218,2975.000000,1900.000000,3075.000000,1950.000000,3.000000,"Burst"};
+item231[] = {"Infantry",4,218,3100.000000,1625.000000,3200.000000,1675.000000,2.000000,"Infantry"};
+item232[] = {"Vehicle",4,218,3275.000000,1625.000000,3375.000000,1675.000000,1.000000,"Vehicle"};
+item233[] = {"_",8,218,2900.000000,1225.000000,3000.000000,1275.000000,0.000000,""};
+item234[] = {"Check_LOS",2,250,2900.000000,1300.000000,3000.000000,1350.000000,0.000000,"Check LOS"};
+item235[] = {"",7,210,3408.500000,2108.500000,3416.500000,2116.500000,0.000000,""};
+item236[] = {"Timeout",4,218,3450.000000,1900.000000,3550.000000,1950.000000,1.000000,"Timeout"};
+item237[] = {"CombatMode___Tar_1",2,250,3425.000000,1800.000000,3525.000000,1850.000000,0.000000,"CombatMode" \n "& Target"};
+item238[] = {"No_ammo",4,218,3575.000000,1800.000000,3675.000000,1850.000000,2.000000,"No ammo"};
+item239[] = {"Infantry_or_Veh",2,250,2625.000000,1525.000000,2725.000000,1575.000000,0.000000,"Infantry or Veh"};
+item240[] = {"Infantry",4,218,2775.000000,1600.000000,2875.000000,1650.000000,2.000000,"Infantry"};
+item241[] = {"Vehicle",4,218,2375.000000,1600.000000,2475.000000,1650.000000,1.000000,"Vehicle"};
+item242[] = {"",7,210,2358.500000,1983.500000,2366.500000,1991.500000,0.000000,""};
+item243[] = {"",7,210,2346.000000,2033.500000,2354.000000,2041.500000,0.000000,""};
+item244[] = {"Check_LOS_1",2,250,3050.000000,1150.000000,3150.000000,1200.000000,0.000000,"Check LOS"};
+item245[] = {"Cant_See",4,218,3200.000000,950.000000,3300.000000,1000.000000,5.000000,"Cant See"};
+item246[] = {"Aimed",4,218,3550.000000,1900.000000,3650.000000,1950.000000,0.000000,"Aimed"};
+item247[] = {"Aimed_1",2,250,3550.000000,1975.000000,3650.000000,2025.000000,0.000000,"Aimed"};
+item248[] = {"Moving_Along",8,218,3550.000000,2050.000000,3650.000000,2100.000000,0.000000,"Moving Along"};
+item249[] = {"",7,210,3658.500000,2071.000000,3666.500000,2079.000000,0.000000,""};
+item250[] = {"",7,210,3658.500000,1883.500000,3666.500000,1891.500000,0.000000,""};
+item251[] = {"Burst",4,218,3325.000000,1900.000000,3425.000000,1950.000000,3.000000,"Burst"};
+item252[] = {"CombatMode",2,250,3100.000000,1525.000000,3200.000000,1575.000000,0.000000,"CombatMode"};
+item253[] = {"Timeout",4,218,2425.000000,1775.000000,2525.000000,1825.000000,1.000000,"Timeout"};
+item254[] = {"Supress_last__known_1",2,250,2400.000000,1675.000000,2500.000000,1725.000000,0.000000,"Supress last " \n "known" \n "position"};
+item255[] = {"No_ammo",4,218,2550.000000,1675.000000,2650.000000,1725.000000,2.000000,"No ammo"};
+item256[] = {"Aimed",4,218,2525.000000,1775.000000,2625.000000,1825.000000,0.000000,"Aimed"};
+item257[] = {"Aimed_2",2,250,2525.000000,1850.000000,2625.000000,1900.000000,0.000000,"Aimed"};
+item258[] = {"Moving_Along",8,218,2525.000000,1925.000000,2625.000000,1975.000000,0.000000,"Moving Along"};
+item259[] = {"",7,210,2633.500000,1946.000000,2641.500000,1954.000000,0.000000,""};
+item260[] = {"",7,210,2633.500000,1758.500000,2641.500000,1766.500000,0.000000,""};
+item261[] = {"Burst",4,218,2300.000000,1775.000000,2400.000000,1825.000000,3.000000,"Burst"};
+item262[] = {"____FAKE____",9,134200,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
 version=1;
 class LayoutItems
 {
@@ -345,47 +377,47 @@ link51[] = {38,39};
 link52[] = {38,152};
 link53[] = {39,40};
 link54[] = {40,41};
-link55[] = {40,43};
-link56[] = {40,44};
-link57[] = {41,42};
-link58[] = {42,56};
-link59[] = {43,70};
-link60[] = {44,45};
-link61[] = {45,46};
-link62[] = {45,50};
-link63[] = {45,80};
-link64[] = {46,40};
-link65[] = {47,49};
-link66[] = {48,81};
-link67[] = {49,94};
-link68[] = {50,55};
-link69[] = {51,53};
-link70[] = {52,93};
-link71[] = {53,54};
-link72[] = {53,57};
-link73[] = {53,76};
-link74[] = {54,91};
-link75[] = {55,51};
-link76[] = {55,52};
-link77[] = {55,75};
-link78[] = {56,60};
-link79[] = {57,58};
-link80[] = {58,59};
-link81[] = {59,86};
-link82[] = {60,61};
-link83[] = {60,62};
-link84[] = {61,42};
-link85[] = {62,63};
-link86[] = {63,64};
-link87[] = {63,65};
-link88[] = {64,68};
-link89[] = {65,63};
-link90[] = {66,67};
-link91[] = {68,69};
-link92[] = {69,82};
-link93[] = {70,47};
-link94[] = {70,71};
-link95[] = {70,72};
+link55[] = {40,233};
+link56[] = {41,244};
+link57[] = {42,56};
+link58[] = {43,252};
+link59[] = {44,45};
+link60[] = {45,46};
+link61[] = {45,50};
+link62[] = {45,80};
+link63[] = {46,234};
+link64[] = {47,49};
+link65[] = {48,81};
+link66[] = {49,94};
+link67[] = {50,55};
+link68[] = {51,239};
+link69[] = {52,93};
+link70[] = {53,54};
+link71[] = {53,57};
+link72[] = {53,76};
+link73[] = {54,91};
+link74[] = {55,51};
+link75[] = {55,52};
+link76[] = {55,75};
+link77[] = {56,60};
+link78[] = {57,58};
+link79[] = {58,59};
+link80[] = {59,86};
+link81[] = {60,61};
+link82[] = {60,62};
+link83[] = {61,42};
+link84[] = {62,63};
+link85[] = {63,64};
+link86[] = {63,65};
+link87[] = {64,68};
+link88[] = {65,63};
+link89[] = {66,67};
+link90[] = {68,69};
+link91[] = {69,82};
+link92[] = {70,47};
+link93[] = {70,71};
+link94[] = {70,72};
+link95[] = {70,230};
 link96[] = {71,70};
 link97[] = {72,73};
 link98[] = {73,74};
@@ -406,7 +438,7 @@ link112[] = {87,88};
 link113[] = {88,53};
 link114[] = {89,90};
 link115[] = {90,107};
-link116[] = {91,85};
+link116[] = {91,243};
 link117[] = {92,93};
 link118[] = {93,151};
 link119[] = {94,89};
@@ -566,10 +598,52 @@ link272[] = {227,185};
 link273[] = {228,81};
 link274[] = {229,221};
 link275[] = {229,223};
-link276[] = {189,230};
-link277[] = {230,189};
-globals[] = {0.000000,0,0,0,0,640,480,2,872,6316128,1,-583.728882,734.691528,1502.983154,599.434814,1179,808,1};
-window[] = {0,-1,-1,-1,-1,1033,-1830,-112,53,1,1197};
+link276[] = {230,49};
+link277[] = {231,70};
+link278[] = {232,237};
+link279[] = {233,234};
+link280[] = {234,43};
+link281[] = {234,44};
+link282[] = {235,49};
+link283[] = {236,235};
+link284[] = {237,236};
+link285[] = {237,238};
+link286[] = {237,246};
+link287[] = {237,251};
+link288[] = {238,237};
+link289[] = {239,240};
+link290[] = {239,241};
+link291[] = {240,53};
+link292[] = {241,254};
+link293[] = {242,243};
+link294[] = {243,85};
+link295[] = {244,43};
+link296[] = {244,245};
+link297[] = {245,42};
+link298[] = {246,247};
+link299[] = {247,248};
+link300[] = {248,249};
+link301[] = {249,250};
+link302[] = {250,237};
+link303[] = {251,235};
+link304[] = {252,231};
+link305[] = {252,232};
+link306[] = {253,242};
+link307[] = {254,253};
+link308[] = {254,255};
+link309[] = {254,256};
+link310[] = {254,261};
+link311[] = {255,254};
+link312[] = {256,257};
+link313[] = {257,258};
+link314[] = {258,259};
+link315[] = {259,260};
+link316[] = {260,254};
+link317[] = {261,242};
+link318[] = {189,262};
+link319[] = {262,189};
+globals[] = {0.000000,0,0,0,0,640,480,2,917,6316128,1,2116.375488,3220.108887,1429.698975,673.275391,1179,808,1};
+window[] = {0,-1,-1,-1,-1,1006,-1894,-176,26,1,1197};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -660,19 +734,19 @@ class FSM
                         itemno = 4;
                         init = /*%FSM<STATEINIT""">*/"_BasicCheckTime = time;" \n
                          "_RandomTick = (random 10);" \n
-                         "_LastTimeCheck = diag_ticktime;" \n
-                         "_LastTimeCheck2 = diag_ticktime;" \n
-                         "_LastTimeCheck3 = diag_ticktime;" \n
-                         "_LastTimeCheck4 = diag_ticktime;" \n
-                         "_LastTimeCheck5 = diag_ticktime;" \n
-                         "_LastTimeCheck6 = diag_ticktime;" \n
-                         "_LastTimeCheck7 = diag_ticktime;" \n
-                         "_LastTimeCheck8 = diag_ticktime;" \n
-                         "_LastTimeCheckMedic = diag_ticktime;" \n
-                         "_checkEnemytime = diag_ticktime;" \n
-                         "_leaderchecktime = diag_ticktime;" \n
-                         "_leadertime = diag_ticktime;" \n
-                         "_leadertime2 = diag_ticktime;" \n
+                         "_LastTimeCheck = CBA_MissionTime;" \n
+                         "_LastTimeCheck2 = CBA_MissionTime;" \n
+                         "_LastTimeCheck3 = CBA_MissionTime;" \n
+                         "_LastTimeCheck4 = CBA_MissionTime;" \n
+                         "_LastTimeCheck5 = CBA_MissionTime;" \n
+                         "_LastTimeCheck6 = CBA_MissionTime;" \n
+                         "_LastTimeCheck7 = CBA_MissionTime;" \n
+                         "_LastTimeCheck8 = CBA_MissionTime;" \n
+                         "_LastTimeCheckMedic = CBA_MissionTime;" \n
+                         "_checkEnemytime = CBA_MissionTime;" \n
+                         "_leaderchecktime = CBA_MissionTime;" \n
+                         "_leadertime = CBA_MissionTime;" \n
+                         "_leadertime2 = CBA_MissionTime;" \n
                          "" \n
                          "//Danger FSM" \n
                          "//[_unit] execFSM ""modules\headless_ai\functions\PZAI\FSM\AIDangerTest.fsm"";" \n
@@ -773,7 +847,7 @@ class FSM
                                         priority = 100.000000;
                                         to="Leader_init";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"((_leaderchecktime + 4) < diag_ticktime) && ((leader _group) isEqualto _unit) && {PZAI_LeaderExecuteCurrent <= PZAI_LeaderExecuteLimit}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_leaderchecktime + 4) < CBA_MissionTime) && ((leader _group) isEqualto _unit) && {PZAI_LeaderExecuteCurrent <= PZAI_LeaderExecuteLimit}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"PZAI_LeaderExecuteCurrent = PZAI_LeaderExecuteCurrent + 1;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -796,8 +870,8 @@ class FSM
                                         priority = 50.000000;
                                         to="Main_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_LastTimeCheck8 < (diag_ticktime - 2)) && {(_InitialWaypointSet)} && {(PZAI_SightAid)} && {({_x distance2d _unit < PZAI_SightAid_Distance} count allPlayers > 0)}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck8 = diag_ticktime;" \n
+                                        condition=/*%FSM<CONDITION""">*/"(_LastTimeCheck8 < (CBA_MissionTime - 2)) && {(_InitialWaypointSet)} && {(PZAI_SightAid)} && {({_x distance2d _unit < PZAI_SightAid_Distance} count allPlayers > 0)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck8 = CBA_MissionTime;" \n
                                          "[_unit] spawn PZAI_fnc_SightAid;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -850,7 +924,9 @@ class FSM
                         itemno = 24;
                         init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
                          "_t = time;" \n
-                         "diag_log format [""sim pause for %1"",_unit];"/*%FSM</STATEINIT""">*/;
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""sim pause for %1"",_unit];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -888,7 +964,9 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
                          "_t = time;" \n
                          "diag_log format [""temp halt for %1"",_unit];" \n
-                         "_MyNearestEnemy = _Unit call PZAI_fnc_ClosestEnemy;"/*%FSM</STATEINIT""">*/;
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "_MyNearestEnemy = _Unit call PZAI_fnc_ClosestEnemy;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -923,7 +1001,7 @@ class FSM
                 {
                         name = "Begin_Basic_Checks";
                         itemno = 32;
-                        init = /*%FSM<STATEINIT""">*/"private _t = diag_ticktime;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"private _t = CBA_MissionTime;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -946,8 +1024,8 @@ class FSM
                                         priority = 57.000000;
                                         to="Begin_Basic_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_Unit getUnitTrait ""Medic"") && {_LastTimeCheckMedic < (diag_ticktime - 10)}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_LastTimeCheckMedic = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_Unit getUnitTrait ""Medic"") && {_LastTimeCheckMedic < (CBA_MissionTime - 10)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_LastTimeCheckMedic = CBA_MissionTime;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "__5_SECONDS_">*/
@@ -957,8 +1035,8 @@ class FSM
                                         priority = 56.000000;
                                         to="Begin_Basic_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck7 < (diag_ticktime - 45)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck7 = diag_ticktime;" \n
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck7 < (CBA_MissionTime - 45)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck7 = CBA_MissionTime;" \n
                                          ""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -969,9 +1047,9 @@ class FSM
                                         priority = 55.000000;
                                         to="Begin_Basic_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_LastTimeCheck6 + _RandomTick) < diag_ticktime"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_LastTimeCheck6 + _RandomTick) < CBA_MissionTime"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"_RandomTick = (random 10);" \n
-                                         "_LastTimeCheck6 = diag_ticktime;" \n
+                                         "_LastTimeCheck6 = CBA_MissionTime;" \n
                                          ""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -982,8 +1060,8 @@ class FSM
                                         priority = 54.000000;
                                         to="Begin_Basic_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck4 < (diag_ticktime - 120)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck4 = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck4 < (CBA_MissionTime - 120)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck4 = CBA_MissionTime;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "__0_SECONDS_">*/
@@ -993,8 +1071,8 @@ class FSM
                                         priority = 53.000000;
                                         to="Begin_Basic_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck3 < (diag_ticktime - 60)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck3 = diag_ticktime;" \n
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck3 < (CBA_MissionTime - 60)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck3 = CBA_MissionTime;" \n
                                          "" \n
                                          "_PZAI_FLANKING = false;" \n
                                          "_Unit spawn PZAI_fnc_RearmSelf;" \n
@@ -1010,8 +1088,8 @@ class FSM
                                         priority = 52.000000;
                                         to="Begin_Basic_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck < (diag_ticktime - 20)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck < (CBA_MissionTime - 20)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck = CBA_MissionTime;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "__0_SECONDS__1">*/
@@ -1021,8 +1099,8 @@ class FSM
                                         priority = 51.000000;
                                         to="Begin_Basic_Checks";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck2 < (diag_ticktime - 30)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck2 = diag_ticktime;"/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_LastTimeCheck2 < (CBA_MissionTime - 30)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_LastTimeCheck2 = CBA_MissionTime;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                         };
@@ -1033,8 +1111,8 @@ class FSM
                 {
                         name = "Set_Basic_1";
                         itemno = 35;
-                        init = /*%FSM<STATEINIT""">*/"_LastTimeCheckB = diag_ticktime;" \n
-                         ""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_LastTimeCheckB = CBA_MissionTime;" \n
+                         "_burstcount = 0;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1045,7 +1123,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Bunker_Checks_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(diag_ticktime > 10) && (diag_ticktime > (_LastTimeCheckB + 4 + _randomtimedelay))"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(CBA_MissionTime > 10) && (CBA_MissionTime > (_LastTimeCheckB + 2 + _randomtimedelay))"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1068,12 +1146,15 @@ class FSM
                 {
                         name = "Bunker_Checks_";
                         itemno = 38;
-                        init = /*%FSM<STATEINIT""">*/"_t = diag_ticktime;" \n
+                        init = /*%FSM<STATEINIT""">*/"_t = CBA_MissionTime;" \n
                          "_EnemyArray = [];" \n
                          "_EnemyInRange = [];" \n
                          "_EnemyArray = _Unit call PZAI_fnc_EnemyArray;" \n
                          "if (count _EnemyArray > 0) then {" \n
-                         "	_EnemyInRange = _EnemyArray select {(_unit distance2d _x) < PZAI_Bunker_Distance};" \n
+                         "	_EnemyInRange = _EnemyArray select {((vehicle _unit) distance2d _x) < PZAI_Bunker_Distance};" \n
+                         "};" \n
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 enemy array: %2"",_Unit,_EnemyArray];" \n
                          "};" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -1085,7 +1166,7 @@ class FSM
                                 {
                                         itemno = 39;
                                         priority = 3.000000;
-                                        to="Check___Reveal";
+                                        to="Check_Nearby_Ene";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(count _EnemyInRange > 0)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1109,22 +1190,23 @@ class FSM
                                         priority = 1.000000;
                                         to="Set_Basic_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_t + 4 + _randomtimedelay)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t + 4 + _randomtimedelay)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                         };
                 };
                 /*%FSM</STATE>*/
-                /*%FSM<STATE "Check___Reveal">*/
-                class Check___Reveal
+                /*%FSM<STATE "Check_Nearby_Ene">*/
+                class Check_Nearby_Ene
                 {
-                        name = "Check___Reveal";
+                        name = "Check_Nearby_Ene";
                         itemno = 40;
-                        init = /*%FSM<STATEINIT""">*/"_NearestEnemyBunker = [_EnemyInRange,_unit] call PZAI_fnc_ClosestObject;" \n
-                         "_cansee = [_Unit,_NearestEnemyBunker] call PZAI_fnc_LOSCheck;" \n
-                         "_BunkerEnemyDistance = (_unit distance2d _NearestEnemyBunker);" \n
-                         ""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_NearestEnemyBunker = [_EnemyInRange,(vehicle _unit)] call PZAI_fnc_ClosestObject;" \n
+                         "_BunkerEnemyDistance = ((vehicle _unit) distance2d _NearestEnemyBunker);" \n
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 nearest enemy: %2 distance: %3 position: %4"",_Unit,_NearestEnemyBunker,_BunkerEnemyDistance, getposASL _NearestEnemyBunker];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1132,32 +1214,21 @@ class FSM
                                 class Enemy_Close
                                 {
                                         itemno = 41;
-                                        priority = 5.000000;
-                                        to="Release_from_Bun";
+                                        priority = 2.000000;
+                                        to="Check_LOS_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_BunkerEnemyDistance < PZAI_BUNKER_RELEASE_DIST) && (PZAI_BUNKER_RELEASE) && (!_cansee)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_BunkerEnemyDistance < PZAI_BUNKER_RELEASE_DIST) && {(PZAI_BUNKER_RELEASE)}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "Cansee">*/
-                                class Cansee
+                                /*%FSM<LINK "_">*/
+                                class _
                                 {
-                                        itemno = 43;
-                                        priority = 4.000000;
-                                        to="CombatMode___Tar";
+                                        itemno = 233;
+                                        priority = 0.000000;
+                                        to="Check_LOS";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_cansee"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_t3 = diag_ticktime;"/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Cant_See">*/
-                                class Cant_See
-                                {
-                                        itemno = 44;
-                                        priority = 3.000000;
-                                        to="Remove_Cantsee_";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(!_cansee)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1177,7 +1248,7 @@ class FSM
                          "_unit enableAI ""FSM"";" \n
                          "_unit forcespeed -1;" \n
                          "_unit setunitpos ""AUTO"";" \n
-                         "_releaseTime = diag_ticktime;" \n
+                         "_releaseTime = CBA_MissionTime;" \n
                          "if (leader group _unit isEqualTo _unit) then {" \n
                          "	[group _unit, position _unit, 20, ""SAD"", ""COMBAT"", ""RED""] call CBA_fnc_addWaypoint;" \n
                          "};" \n
@@ -1193,7 +1264,7 @@ class FSM
                                         priority = 2.000000;
                                         to="Recheck__Enemies";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_releaseTime + 60)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_releaseTime + 60)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1227,7 +1298,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Recheck_Time";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_t + 2 + _randomtimedelay)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t + 10 + _randomtimedelay)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1236,7 +1307,7 @@ class FSM
                                 {
                                         itemno = 46;
                                         priority = 0.000000;
-                                        to="Check___Reveal";
+                                        to="Check_LOS";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(count _EnemyInRange > 0)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1277,43 +1348,49 @@ class FSM
                         itemno = 53;
                         init = /*%FSM<STATEINIT""">*/"_laserTarget setposASL _lastknowntargetpos;" \n
                          "[_unit,_laserTarget] call PZAI_fnc_WatchEnemy;" \n
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 recently shot, trying to suppress: %2"",_Unit,_lastknowntargetpos];" \n
+                         "};" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 54;
+                                        priority = 2.000000;
+                                        to="Check_Recent";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t2 + 4)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                                         "diag_log format [""%1 timed out of bunker suppressing for: %2"",_Unit,_NearestEnemyBunker];" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "No_ammo">*/
                                 class No_ammo
                                 {
                                         itemno = 76;
-                                        priority = 2.000000;
+                                        priority = 1.000000;
                                         to="Supress_last__known";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_unit ammo (currentWeapon _unit) == 0)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_unit setAmmo [primaryWeapon _unit, 10000];"/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_unit ammo currentMuzzle _unit) == 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"(vehicle _unit) setAmmo [primaryWeapon (vehicle _unit), 10000];" \n
+                                         ""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Aimed">*/
                                 class Aimed
                                 {
                                         itemno = 57;
-                                        priority = 1.000000;
+                                        priority = 0.000000;
                                         to="Fire_Weapon";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"((_unit weaponDirection (currentWeapon _unit) vectorCos ((_lastknowntargetpos) vectorDiff (eyepos _unit))) > 0.980 min (0.975 + (0.00024 * (_unit distance _lastknowntargetpos))))" \n
-                                         "&& ({" \n
-                                         "	!([getPosATL _unit, getDir _unit, 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
-                                         "} foreach _otherfriendlies)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Timeout">*/
-                                class Timeout
-                                {
-                                        itemno = 54;
-                                        priority = 0.000000;
-                                        to="Check_Recent";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_t2 + 10)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((((vehicle _unit) weaponDirection (currentWeapon (vehicle _unit)) vectorCos ((getposASL _laserTarget) vectorDiff (eyepos _unit))) > 0.999 min (0.975 + (0.00024 * ((vehicle _unit) distance _laserTarget))))" \n
+                                         "&& {({" \n
+                                         "	!([getPosATL (vehicle _unit), getDir (vehicle _unit), 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
+                                         "} foreach _otherfriendlies)})"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1325,7 +1402,7 @@ class FSM
                 {
                         name = "Recheck_Time";
                         itemno = 55;
-                        init = /*%FSM<STATEINIT""">*/"_t2 = diag_ticktime;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_t2 = CBA_MissionTime;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1347,7 +1424,7 @@ class FSM
                                         priority = 2.000000;
                                         to="Reset_Target";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_LastFiredTime + 20)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_LastFiredTime + 20)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1356,9 +1433,9 @@ class FSM
                                 {
                                         itemno = 51;
                                         priority = 1.000000;
-                                        to="Supress_last__known";
+                                        to="Infantry_or_Veh";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime <= (_LastFiredTime + 20)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime <= (_LastFiredTime + 20)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1370,8 +1447,10 @@ class FSM
                 {
                         name = "Fire_Weapon";
                         itemno = 58;
-                        init = /*%FSM<STATEINIT""">*/"_unit forceWeaponFire [currentWeapon _unit,currentWeaponMode _unit];" \n
-                         ""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 attempting to suppress fire"",_Unit];" \n
+                         "};" \n
+                         "_unit forceWeaponFire [currentWeapon (vehicle _unit), currentWeaponMode _unit];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1435,7 +1514,7 @@ class FSM
                         itemno = 63;
                         init = /*%FSM<STATEINIT""">*/"(group _unit) setBehaviour ""AWARE"";" \n
                          "_unit doMove _oldtrenchpos;" \n
-                         "_releaseMoveTime = diag_ticktime;" \n
+                         "_releaseMoveTime = CBA_MissionTime;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1458,7 +1537,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Return_to_Trench";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_releaseMoveTime + 2)" \n
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_releaseMoveTime + 2)" \n
                                          ""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"_trycount = _trycount + 1;"/*%FSM</ACTION""">*/;
                                 };
@@ -1516,16 +1595,30 @@ class FSM
                 {
                         name = "CombatMode___Tar";
                         itemno = 70;
-                        init = /*%FSM<STATEINIT""">*/"_unit setCombatMode ""RED"";" \n
-                         "_unit setBehaviour ""COMBAT"";" \n
-                         "_getposTarget = getposASL _NearestEnemyBunker;" \n
-                         "_targetpos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 1];" \n
+                        init = /*%FSM<STATEINIT""">*/"_getposTarget = getposASL _NearestEnemyBunker;" \n
+                         "_targetpos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 2];" \n
                          "_laserTarget setposASL _targetpos;" \n
+                         "[_unit,_laserTarget] call PZAI_fnc_WatchEnemy;" \n
                          "_group setvariable [""PZAI_CurrentTarget"",_NearestEnemyBunker];" \n
-                         "[_unit,_laserTarget] call PZAI_fnc_WatchEnemy;"/*%FSM</STATEINIT""">*/;
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 watching enemy: %2"",_Unit,_NearestEnemyBunker];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "Burst">*/
+                                class Burst
+                                {
+                                        itemno = 230;
+                                        priority = 3.000000;
+                                        to="Check_Recent";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_burstcount > 5"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                                         "diag_log format [""%1 exiting bunker targeting on burst: %2"",_Unit,_NearestEnemyBunker];" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "No_ammo">*/
                                 class No_ammo
                                 {
@@ -1533,47 +1626,53 @@ class FSM
                                         priority = 2.000000;
                                         to="CombatMode___Tar";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_unit ammo (currentWeapon _unit) == 0)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"_unit setAmmo [currentWeapon _unit, 10000];"/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Aimed">*/
-                                class Aimed
-                                {
-                                        itemno = 72;
-                                        priority = 1.000000;
-                                        to="Fire_Weapon_1";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"((_unit weaponDirection (currentWeapon _unit) vectorCos ((getposASL _NearestEnemyBunker) vectorDiff (eyepos _unit))) > 0.999 min (0.975 + (0.00024 * (_unit distance _NearestEnemyBunker))))" \n
-                                         "&& ({" \n
-                                         "	!([getPosATL _unit, getDir _unit, 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
-                                         "} foreach _otherfriendlies)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_unit ammo currentMuzzle _unit) == 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"(vehicle _unit) setAmmo [primaryWeapon (vehicle _unit), 10000];"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Timeout">*/
                                 class Timeout
                                 {
                                         itemno = 47;
-                                        priority = 0.000000;
+                                        priority = 1.000000;
                                         to="Check_Recent";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_t3 + 4)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t3 + 4)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                                         "diag_log format [""%1 timed out of bunker targeting for: %2"",_Unit,_NearestEnemyBunker];" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Aimed">*/
+                                class Aimed
+                                {
+                                        itemno = 72;
+                                        priority = 0.000000;
+                                        to="Aimed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((((vehicle _unit) weaponDirection (currentWeapon (vehicle _unit)) vectorCos ((getposASL _laserTarget) vectorDiff (eyepos _unit))) > 0.999 min (0.975 + (0.00024 * ((vehicle _unit) distance _laserTarget))))" \n
+                                         "&& {({" \n
+                                         "	!([getPosATL (vehicle _unit), getDir (vehicle _unit), 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
+                                         "} foreach _otherfriendlies)})"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                         };
                 };
                 /*%FSM</STATE>*/
-                /*%FSM<STATE "Fire_Weapon_1">*/
-                class Fire_Weapon_1
+                /*%FSM<STATE "Aimed">*/
+                class Aimed
                 {
-                        name = "Fire_Weapon_1";
+                        name = "Aimed";
                         itemno = 73;
-                        init = /*%FSM<STATEINIT""">*/"_unit forceWeaponFire [currentWeapon _unit,currentWeaponMode _unit];" \n
-                         "_LastFiredTime = diag_ticktime;" \n
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 attempting to fire"",_Unit];" \n
+                         "};" \n
+                         "_unit forceWeaponFire [currentWeapon (vehicle _unit), currentWeaponMode _unit];" \n
+                         "_LastFiredTime = CBA_MissionTime;" \n
+                         "_burstcount = _burstcount + 1;" \n
                          "_getposTarget = getposASL _NearestEnemyBunker;" \n
-                         "_lastknowntargetpos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 1];" \n
+                         "_lastknowntargetpos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 2];" \n
                          "_laserTarget setposASL _lastknowntargetpos;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1605,7 +1704,6 @@ class FSM
                          "_oldunitpos = unitpos _unit;" \n
                          "_oldgroup = group _unit;" \n
                          "_otherfriendlies = (units (group _unit));" \n
-                         "_otherfriendlies = _otherfriendlies - [_unit];" \n
                          "_laserTarget = ""Sign_Sphere100cm_F"" createVehicleLocal [0,0,0];" \n
                          "if (!PZAI_UseMarkers) then {" \n
                          "	_laserTarget setobjecttexture [0,""""];" \n
@@ -1615,7 +1713,6 @@ class FSM
                          "[_unit,_laserTarget] call PZAI_fnc_WatchEnemy;" \n
                          "_randomtimedelay = (random 2);" \n
                          "_unit disableAI ""PATH"";" \n
-                         "_unit disableAI ""AIMINGERROR"";" \n
                          "_unit disableAI ""FSM"";" \n
                          "_oldgroup setBehaviour ""AWARE"";" \n
                          "_group setvariable [""PZAI_Mission"",""BUNKER""];" \n
@@ -1690,7 +1787,7 @@ class FSM
                                         priority = 2.000000;
                                         to="Radio_Check_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime <= (_LastFiredTime + 20)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime <= (_LastFiredTime + 20)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1701,7 +1798,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Reset_Vector_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_LastFiredTime + 20)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_LastFiredTime + 20)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1713,12 +1810,16 @@ class FSM
                 {
                         name = "Leader_init";
                         itemno = 117;
-                        init = /*%FSM<STATEINIT""">*/"_leadertime = diag_ticktime;" \n
+                        init = /*%FSM<STATEINIT""">*/"_leadertime = CBA_MissionTime;" \n
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
                          "diag_log format [""checking leader for %1"",_group];" \n
+                         "};" \n
                          "_currentmission = _group getvariable [""PZAI_Mission"",""NONE""];" \n
                          "_InitialWaypointSet = _group getvariable [""InitialWPSet"",false];" \n
                          "_currenttarget = _group getvariable [""PZAI_CurrentTarget"",objnull];" \n
-                         "diag_log format [""check %1 mission: %2 WPSet: %3 target: %4"",_group,_currentmission,_InitialWaypointSet,_currenttarget];"/*%FSM</STATEINIT""">*/;
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""check %1 mission: %2 WPSet: %3 target: %4"",_group,_currentmission,_InitialWaypointSet,_currenttarget];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1740,7 +1841,7 @@ class FSM
                                         priority = 9.000000;
                                         to="Refresh_Enemy_Ar";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(diag_ticktime > (_checkEnemytime + 6)) && (_InitialWaypointSet)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(CBA_MissionTime > (_checkEnemytime + 6)) && (_InitialWaypointSet)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1762,7 +1863,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Main_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime + 4)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_leadertime + 4)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"PZAI_LeaderExecuteCurrent = PZAI_LeaderExecuteCurrent - 1;" \n
                                          "_leaderchecktime = time;"/*%FSM</ACTION""">*/;
                                 };
@@ -1790,7 +1891,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1817,7 +1918,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1844,7 +1945,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1871,7 +1972,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1883,7 +1984,7 @@ class FSM
                 {
                         name = "Check_WP";
                         itemno = 132;
-                        init = /*%FSM<STATEINIT""">*/"_leadertime2 = diag_ticktime;" \n
+                        init = /*%FSM<STATEINIT""">*/"_leadertime2 = CBA_MissionTime;" \n
                          "_wait = 15;" \n
                          "" \n
                          "_group	= group _Unit;" \n
@@ -1972,7 +2073,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1998,7 +2099,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2023,7 +2124,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2035,7 +2136,7 @@ class FSM
                 {
                         name = "Refresh_Enemy_Ar";
                         itemno = 156;
-                        init = /*%FSM<STATEINIT""">*/"_checkEnemytime = diag_ticktime;" \n
+                        init = /*%FSM<STATEINIT""">*/"_checkEnemytime = CBA_MissionTime;" \n
                          "_ClosestTarget = _unit findNearestEnemy _unit;" \n
                          "" \n
                          "" \n
@@ -2050,7 +2151,7 @@ class FSM
                                         priority = 2.000000;
                                         to="Timed_Delay";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(diag_ticktime > _checkEnemytime + 1)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(CBA_MissionTime > _checkEnemytime + 1)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2121,7 +2222,7 @@ class FSM
                 {
                         name = "Leader_Check";
                         itemno = 169;
-                        init = /*%FSM<STATEINIT""">*/"_leadertime2 = diag_ticktime;" \n
+                        init = /*%FSM<STATEINIT""">*/"_leadertime2 = CBA_MissionTime;" \n
                          "" \n
                          "if (PZAI_AIDEBUG isEqualto 1) then {" \n
                          "	diag_log format [""_group: %1 leadercheck"",_group];" \n
@@ -2198,7 +2299,7 @@ class FSM
                                         priority = 2.000000;
                                         to="Try_to_Radio";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_LastCallTime + _RadioWait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_LastCallTime + _RadioWait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2209,7 +2310,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime <= (_LastCallTime + _RadioWait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime <= (_LastCallTime + _RadioWait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2430,7 +2531,7 @@ class FSM
                                         priority = 2.000000;
                                         to="Try_to_Radio_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_LastCallTime + _RadioWait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_LastCallTime + _RadioWait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2441,7 +2542,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Set_Basic_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime <= (_LastCallTime + _RadioWait)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime <= (_LastCallTime + _RadioWait)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2516,11 +2617,344 @@ class FSM
                         };
                 };
                 /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_LOS">*/
+                class Check_LOS
+                {
+                        name = "Check_LOS";
+                        itemno = 234;
+                        init = /*%FSM<STATEINIT""">*/"_cansee = [(vehicle _Unit),_NearestEnemyBunker] call PZAI_fnc_LOSCheck;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Cansee">*/
+                                class Cansee
+                                {
+                                        itemno = 43;
+                                        priority = 4.000000;
+                                        to="CombatMode";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_cansee"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cant_See">*/
+                                class Cant_See
+                                {
+                                        itemno = 44;
+                                        priority = 3.000000;
+                                        to="Remove_Cantsee_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(!_cansee)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "CombatMode___Tar_1">*/
+                class CombatMode___Tar_1
+                {
+                        name = "CombatMode___Tar_1";
+                        itemno = 237;
+                        init = /*%FSM<STATEINIT""">*/"_getposTarget = getposASL _NearestEnemyBunker;" \n
+                         "_targetpos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 2];" \n
+                         "_laserTarget setposASL _targetpos;" \n
+                         "_unit doSuppressiveFire _laserTarget;" \n
+                         "_unit suppressFor 5;" \n
+                         "_group setvariable [""PZAI_CurrentTarget"",_NearestEnemyBunker];" \n
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 watching enemy: %2"",_Unit,_NearestEnemyBunker];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Burst">*/
+                                class Burst
+                                {
+                                        itemno = 251;
+                                        priority = 3.000000;
+                                        to="Check_Recent";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_burstcount > 5"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                                         "diag_log format [""%1 exiting bunker targeting on burst: %2"",_Unit,_NearestEnemyBunker];" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "No_ammo">*/
+                                class No_ammo
+                                {
+                                        itemno = 238;
+                                        priority = 2.000000;
+                                        to="CombatMode___Tar_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(((vehicle _unit) ammo currentMuzzle (gunner (vehicle _unit))) == 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"(vehicle _unit) setVehicleAmmo 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 236;
+                                        priority = 1.000000;
+                                        to="Check_Recent";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t3 + 4)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                                         "diag_log format [""%1 timed out of bunker targeting for: %2"",_Unit,_NearestEnemyBunker];" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Aimed">*/
+                                class Aimed
+                                {
+                                        itemno = 246;
+                                        priority = 0.000000;
+                                        to="Aimed_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(((vehicle _unit) aimedAtTarget [_laserTarget]) > 0.75)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Infantry_or_Veh">*/
+                class Infantry_or_Veh
+                {
+                        name = "Infantry_or_Veh";
+                        itemno = 239;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Infantry">*/
+                                class Infantry
+                                {
+                                        itemno = 240;
+                                        priority = 2.000000;
+                                        to="Supress_last__known";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle _unit == _unit)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Vehicle">*/
+                                class Vehicle
+                                {
+                                        itemno = 241;
+                                        priority = 1.000000;
+                                        to="Supress_last__known_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle _unit != _unit)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_LOS_1">*/
+                class Check_LOS_1
+                {
+                        name = "Check_LOS_1";
+                        itemno = 244;
+                        init = /*%FSM<STATEINIT""">*/"_cansee = [(vehicle _Unit),_NearestEnemyBunker] call PZAI_fnc_LOSCheck;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Cant_See">*/
+                                class Cant_See
+                                {
+                                        itemno = 245;
+                                        priority = 5.000000;
+                                        to="Release_from_Bun";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(!_cansee)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Cansee">*/
+                                class Cansee
+                                {
+                                        itemno = 43;
+                                        priority = 4.000000;
+                                        to="CombatMode";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_cansee"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Aimed_1">*/
+                class Aimed_1
+                {
+                        name = "Aimed_1";
+                        itemno = 247;
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 attempting to fire"",_Unit];" \n
+                         "};" \n
+                         "(vehicle _unit) fireAtTarget [objnull];" \n
+                         "(vehicle _unit) fireAtTarget [objnull];" \n
+                         "(vehicle _unit) fireAtTarget [objnull];" \n
+                         "_LastFiredTime = CBA_MissionTime;" \n
+                         "_burstcount = _burstcount + 1;" \n
+                         "_getposTarget = getposASL _NearestEnemyBunker;" \n
+                         "_lastknowntargetpos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 2];" \n
+                         "_laserTarget setposASL _lastknowntargetpos;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Moving_Along">*/
+                                class Moving_Along
+                                {
+                                        itemno = 248;
+                                        priority = 0.000000;
+                                        to="CombatMode___Tar_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "CombatMode">*/
+                class CombatMode
+                {
+                        name = "CombatMode";
+                        itemno = 252;
+                        init = /*%FSM<STATEINIT""">*/"_unit setCombatMode ""RED"";" \n
+                         "_unit setBehaviour ""COMBAT"";" \n
+                         "_burstcount = 0;" \n
+                         "_t3 = CBA_MissionTime;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Infantry">*/
+                                class Infantry
+                                {
+                                        itemno = 231;
+                                        priority = 2.000000;
+                                        to="CombatMode___Tar";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle _unit == _unit)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Vehicle">*/
+                                class Vehicle
+                                {
+                                        itemno = 232;
+                                        priority = 1.000000;
+                                        to="CombatMode___Tar_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(vehicle _unit != _unit)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Supress_last__known_1">*/
+                class Supress_last__known_1
+                {
+                        name = "Supress_last__known_1";
+                        itemno = 254;
+                        init = /*%FSM<STATEINIT""">*/"_laserTarget setposASL _lastknowntargetpos;" \n
+                         "_unit doSuppressiveFire _laserTarget;" \n
+                         "_unit suppressFor 5;" \n
+                         "if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 watching enemy: %2"",_Unit,_NearestEnemyBunker];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Burst">*/
+                                class Burst
+                                {
+                                        itemno = 261;
+                                        priority = 3.000000;
+                                        to="Check_Recent";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_burstcount > 5"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                                         "diag_log format [""%1 exiting bunker targeting on burst: %2"",_Unit,_NearestEnemyBunker];" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "No_ammo">*/
+                                class No_ammo
+                                {
+                                        itemno = 255;
+                                        priority = 2.000000;
+                                        to="Supress_last__known_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(((vehicle _unit) ammo currentMuzzle (gunner (vehicle _unit))) == 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"(vehicle _unit) setVehicleAmmo 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Timeout">*/
+                                class Timeout
+                                {
+                                        itemno = 253;
+                                        priority = 1.000000;
+                                        to="Check_Recent";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t2 + 4)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                                         "diag_log format [""%1 timed out of bunker targeting for: %2"",_Unit,_NearestEnemyBunker];" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Aimed">*/
+                                class Aimed
+                                {
+                                        itemno = 256;
+                                        priority = 0.000000;
+                                        to="Aimed_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(((vehicle _unit) aimedAtTarget [_laserTarget]) > 0.75)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Aimed_2">*/
+                class Aimed_2
+                {
+                        name = "Aimed_2";
+                        itemno = 257;
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_AIDEBUG isEqualto 1) then {" \n
+                         "diag_log format [""%1 attempting to suppress fire"",_Unit];" \n
+                         "};" \n
+                         "(vehicle _unit) fireAtTarget [objnull];" \n
+                         "(vehicle _unit) fireAtTarget [objnull];" \n
+                         "(vehicle _unit) fireAtTarget [objnull];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Moving_Along">*/
+                                class Moving_Along
+                                {
+                                        itemno = 258;
+                                        priority = 0.000000;
+                                        to="Supress_last__known_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
                 /*%FSM<STATE "____FAKE____">*/
                 class ____FAKE____
                 {
                         name = "____FAKE____";
-                        itemno = 230;
+                        itemno = 262;
                         init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

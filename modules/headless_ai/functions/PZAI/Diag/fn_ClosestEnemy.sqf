@@ -10,7 +10,7 @@ _Array1 = [];
 	if ([_UnitSide, _TargetSide] call BIS_fnc_sideIsEnemy) then {_Array1 pushback _x;};
 } forEach allUnits;
 
-_ReturnedEnemy = [_Array1,_Unit] call PZAI_fnc_ClosestObject;
+_ReturnedEnemy = [_Array1,(vehicle _Unit)] call PZAI_fnc_ClosestObject;
 if (isNil "_ReturnedEnemy") then {_ReturnedEnemy = [0,0,0]};
 
 //_Unit setVariable ["PZAI_CLOSESTENEMY",_ReturnedEnemy,false];

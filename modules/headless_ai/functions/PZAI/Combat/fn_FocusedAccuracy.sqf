@@ -2,7 +2,7 @@ private ["_Unit", "_TargetPosition", "_unit", "_NewPosition", "_Accuracy", "_Sha
 
 params ["_Unit","_PZAI_DiagLastCheck","_TargetPosition"];
 
-_PZAI_DiagLastCheck = diag_ticktime;
+_PZAI_DiagLastCheck = CBA_MissionTime;
 if (_TargetPosition isEqualTo [0,0,0]) then
 {
 	//_target = assignedTarget _unit;

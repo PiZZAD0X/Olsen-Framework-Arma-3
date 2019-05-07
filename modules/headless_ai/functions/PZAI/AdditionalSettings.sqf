@@ -3,9 +3,9 @@ PZAI_STATICGARRISON = 1;
 //Should we let AI use flanking manuevers? false means they can flank
 PZAI_REINFORCE = false;
 //Should AI use smoke grenades? Besides default A3 behavior?
-PZAI_USESMOKE = true;
+PZAI_USESMOKE = false;
 //Chance of AI using grenades
-PZAI_GRENADECHANCE = 35;
+PZAI_GRENADECHANCE = 45;
 //AI will automatically disembark from vehicles when in combat.
 PZAI_AIDisembark = true;
 //How low should an AI's mag count be for them to consider finding more ammo? This DOES NOT include the mag loaded in the gun already.
@@ -37,10 +37,10 @@ PZAI_IRLaser = true;
 //The longer an AI's target stays in 1 location, the more accurate and aware of the target the AI becomes.DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
 PZAI_IncreasingAccuracy = true;
 //PZAI_SideBasedMovement- Remove sides from the array below to force that specific AI side to not execute any advance movement code. (I.E. Moving to reinforce allies, being alerted by distant gunshots and etc). AI with this will still react normally in combat. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
-PZAI_SideBasedMovement = [WEST,EAST,INDEPENDENT];
+PZAI_SideBasedMovement = [EAST,INDEPENDENT];
 //PZAI_SideBasedExecution- Remove sides from the array below to remove that specific AI side from executing any of the VCOMAI scripts at all. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
-PZAI_SideBasedExecution = [WEST,EAST,INDEPENDENT];
+PZAI_SideBasedExecution = [EAST,INDEPENDENT];
 //Whether the AI will set up campfires at night if they are set to "DISMISS" waypoint
-PZAI_Campfires = true;
+PZAI_Campfires = false;
 //Distance the AI will attempt to flank around the enemy. I.E. How far off a waypoint, or around the enemy squad, the AI are willing to go in combat.
 PZAI_WaypointDistance = 300;

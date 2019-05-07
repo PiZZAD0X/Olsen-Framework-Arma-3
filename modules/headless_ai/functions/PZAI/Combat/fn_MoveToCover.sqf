@@ -46,13 +46,13 @@ waitUntil {PZAI_CurrentlyMoving < PZAI_CurrentlyMovingLimit};
 			};
 		};
 	
-		_WaitTime = diag_ticktime + 35;
+		_WaitTime = CBA_MissionTime + 35;
 		_Unit doWatch ObjNull;
 		_Unit disableAI "TARGET";
 		_Unit disableAI "AUTOTARGET";																									
 		_Unit disableAI "SUPPRESSION";				
 		_Unit disableAI "AUTOCOMBAT";				
-		While {alive _Unit && diag_ticktime < _WaitTime && (_Unit distance _CoverPos) > 3} do 
+		While {alive _Unit && CBA_MissionTime < _WaitTime && (_Unit distance _CoverPos) > 3} do 
 		{
 					_Unit forcespeed -1;
 					_Unit domove _CoverPos;

@@ -10,13 +10,13 @@ if (PZAI_CurrentlySuppressing < PZAI_CurrentlySuppressingLimit) then
 {
 	PZAI_CurrentlySuppressing = PZAI_CurrentlySuppressing + 1;
 	_TimeShot = _unit getVariable "PZAI_FiredTime";
-	if ((diag_tickTime - _TimeShot) > 25) then 
+	if ((CBA_MissionTime - _TimeShot) > 25) then 
 	{
 		
 
 	
 		
-		_unit setVariable ["PZAI_FiredTime",diag_tickTime,true];
+		_unit setVariable ["PZAI_FiredTime",CBA_MissionTime,true];
 		
 		_pos = cursorTarget;
 		if (isNull _pos) then 

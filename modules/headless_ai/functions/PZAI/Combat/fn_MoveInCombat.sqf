@@ -11,12 +11,12 @@ if (PZAI_CurrentlyMoving < PZAI_CurrentlyMovingLimit) then
 	_PZAI_VisuallyCanSee = _this select 5;
 	_PZAI_ActivelyClearing = _this select 6;
 	_PZAI_StartedInside = _this select 7;
-	_FiredRecently = _unit getVariable ["PZAI_FiredTime",diag_ticktime];
+	_FiredRecently = _unit getVariable ["PZAI_FiredTime",CBA_MissionTime];
 	
 	//systemchat "EXECUTED COMBAT MOVEMENT!";
-	//systemchat format ["%1",(diag_tickTime - _FiredRecently)];
+	//systemchat format ["%1",(CBA_MissionTime - _FiredRecently)];
 	
-	if (_PZAI_MovedRecentlyCover || {(diag_tickTime - _FiredRecently) < 3} || {_PZAI_VisuallyCanSee} || {_PZAI_ActivelyClearing} || {_PZAI_StartedInside} || {_PZAI_GARRISONED} || {_PZAI_MovedRecently}) exitWith {_ReturnVariable = [false,false,false];PZAI_CurrentlyMoving = PZAI_CurrentlyMoving - 1;_ReturnVariable};
+	if (_PZAI_MovedRecentlyCover || {(CBA_MissionTime - _FiredRecently) < 3} || {_PZAI_VisuallyCanSee} || {_PZAI_ActivelyClearing} || {_PZAI_StartedInside} || {_PZAI_GARRISONED} || {_PZAI_MovedRecently}) exitWith {_ReturnVariable = [false,false,false];PZAI_CurrentlyMoving = PZAI_CurrentlyMoving - 1;_ReturnVariable};
 	_Squadlead = leader _Unit;
 	
 	if (_Squadlead distance _Unit > 60) then
@@ -97,8 +97,8 @@ if (PZAI_CurrentlyMoving < PZAI_CurrentlyMovingLimit) then
 							_Unit disableAI "AUTOTARGET";																									
 							_Unit disableAI "SUPPRESSION";				
 							_Unit disableAI "AUTOCOMBAT";								
-							_WaitTime = diag_ticktime + 35;
-							While {alive _Unit && diag_ticktime < _WaitTime && (_Unit distance _CoverPos) > 3} do 
+							_WaitTime = CBA_MissionTime + 35;
+							While {alive _Unit && CBA_MissionTime < _WaitTime && (_Unit distance _CoverPos) > 3} do 
 							{
 										_Unit forcespeed -1;							
 										_Unit domove _CoverPos;

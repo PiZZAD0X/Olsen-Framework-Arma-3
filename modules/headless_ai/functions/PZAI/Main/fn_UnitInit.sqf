@@ -13,4 +13,6 @@ if (PZAI_REINFORCE) then {
 	_Group setvariable ["PZAI_REINFORCE",false];
 };
 
+if (PZAI_AIDEBUG isEqualto 1) then {
 diag_log format ["unit %1 completed UnitInit",_unit];
+};
