@@ -1,17 +1,15 @@
-#ifdef framework
-	
-	#include "init.sqf"
-	
-#endif
-
 #ifdef description_functions
-	
-	#include "functions\CfgFunctions.hpp"
-	
+	#include "CfgFunctions.hpp"
 #endif
 
 #ifdef description
+	#include "CfgRemoteExec.hpp"
+#endif
 
-	#include "functions\CfgRemoteExec.hpp"
+#ifdef description_XEH_PreInit
+	#include "cfgXEH\PreInit.hpp"
+#endif
 
+#ifdef description_XEH_InitPost_CAManBase
+	#include "cfgXEH\InitPost.hpp"
 #endif

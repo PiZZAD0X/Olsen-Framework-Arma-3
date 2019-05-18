@@ -1,72 +1,119 @@
+#include "script_macros.hpp"
 //This module enables live spawning of arrays including AI on the HC machine locally.
-//designed to spawn HC locally in order to improve performance, as well as enabling the 
-//option of having randomized enemy composition, size, etc, or to allow for live spawning 
+//designed to spawn HC locally in order to improve performance, as well as enabling the
+//option of having randomized enemy composition, size, etc, or to allow for live spawning
 //of reinforcements or subsequent AOs.
 
+//Array objects
+_ArrayObjects = ["ree"];
+
 //Initial spawns are spawned upon init, at the start of the mission.
-_InitialSpawn = ["ArrayName"];
+_InitialSpawn = [];
 
 //Custom viewdistance for the AI
-HC_viewdistance = 2500;
-
+GVAR(HCviewdistance) = 2500;
 //Forces Time on the HC to simulate better AI [HOUR,MINUTE]
 //Comment out to disable
-HC_ForceTime = [12,00];
+GVAR(ForceTime) = [12,00];
 
 //Custom AI Skill settings for all spawned AI
-HC_customskill = true;
-HC_aimingspeed = 1;
-HC_spotdistance = 1;
-HC_aimingaccuracy = 0.65;
-HC_aimingshake = 0.8;
-HC_spottime = 1;
-HC_reloadspeed = 1;
-HC_commanding = 1;
-HC_endurance = 1;
-HC_general = 1;
-HC_courage = 1;
+GVAR(customskill) = true;
+GVAR(aimingspeed) = 1;
+GVAR(spotdistance) = 1;
+GVAR(aimingaccuracy) = 0.65;
+GVAR(aimingshake) = 0.8;
+GVAR(spottime) = 1;
+GVAR(reloadspeed) = 1;
+GVAR(commanding) = 1;
+GVAR(endurance) = 1;
+GVAR(general) = 1;
+GVAR(courage) = 1;
 
 //PZAI settings
-PZAI_Enabled = true;
+GVAR(Enabled) = true;
 //The distance a unit needs to be away for PZAI scripts to temporary disable itself upon the unit? The AI unit will also need to be out of combat.
-PZAI_DisableDistance = 3000;
+GVAR(DisableDistance) = 3000;
 //Aid to the AI spotting distance and time
-PZAI_SightAid = true;
+GVAR(SightAid) = true;
 //Distance at which the AI will start seeings enemies in LOS of them
-PZAI_SightAid_Distance = 800;
+GVAR(SightAid_Distance) = 1200;
 //Minimum reveal value per increase +n reveal value per check every 5 seconds of targets in LOS of enemies.
-PZAI_SightAid_MinIncrease = 2;
+GVAR(SightAid_MinIncrease) = 2;
 //Distance at which the AI will force engage the enemies
-PZAI_SightAid_EngageDistance = 400;
+GVAR(SightAid_EngageDistance) = 400;
 //How far can the AI hear gunshots from?
-PZAI_HearingDistance = 1400;
+GVAR(HearingDistance) = 2000;
 //How revealed an enemy is from a gunshot report
-PZAI_HearingMinIncrease = 1;
+GVAR(HearingMinIncrease) = 1;
 //Distance a bunker enemy can see/engage the enemy
-PZAI_Bunker_Distance = 900;
+GVAR(Bunker_Distance) = 900;
 //Whether Bunker AI get released and act normally/free to move if enemies get too close
-PZAI_Bunker_Release = true;
+GVAR(Bunker_Release) = true;
 //Sensitivity/Sightlevel needed for Bunker AI to engage - lower is more sensitive.
-PZAI_Bunker_Sightlevel = 0.25;
+GVAR(Bunker_Sightlevel) = 0.25;
 //Distance at which AI are released from bunker
-PZAI_Bunker_Release_Dist = 25;
+GVAR(Bunker_Release_Dist) = 25;
 //Distance AI will respond to call of help from each other
-PZAI_Radio_Distance = 1200;
+GVAR(Radio_Distance) = 1200;
 //Whether or not AI need ACRE radios to broadcast info to other groups
-PZAI_Radio_NeedRadio = false;
+GVAR(Radio_NeedRadio) = false;
 //Distance the AI will patrol to by default when set to "GUARD" waypoint
-PZAI_PatrolDistance = 200;
+GVAR(PatrolDistance) = 200;
 //Whether the AI will patrol between garrison positions. Pretty buggy, but nice for 'mersion
-PZAI_GarrisonPatrol = true;
-//Turn this on to see certain debug messages. 1 is on
-PZAI_AIDEBUG = 1;
+GVAR(GarrisonPatrol) = false;
+//Turn this on to see certain debug messages.
+GVAR(Debug) = true;
 //Turn on map markers that track AI movement
-PZAI_UseMarkers = true;
-
-//More obscure settings are found in:
-#include "functions\PZAI\AdditionalSettings.sqf"
-
-
-
-
-
+GVAR(UseMarkers) = true;
+//Default group reinforcement behaviour
+GVAR(Reinforce) = true;
+//Default distance for radio reinforcment calls
+GVAR(Reinforce_Distance) = 2500;
+//Default distance for radio reinforcment calls for QRF
+GVAR(QRF_Distance) = 2500;
+//Will AI garrison static weapons nearby?
+GVAR(STATICGARRISON) = 1;
+//Should we let AI use flanking manuevers? false means they can flank
+GVAR(REINFORCE) = false;
+//Should AI use smoke grenades? Besides default A3 behavior?
+GVAR(USESMOKE) = false;
+//Chance of AI using grenades
+GVAR(GRENADECHANCE) = 45;
+//AI will automatically disembark from vehicles when in combat.
+GVAR(AIDisembark) = true;
+//How low should an AI's mag count be for them to consider finding more ammo? This DOES NOT include the mag loaded in the gun already.
+GVAR(AIMagLimit) = 2;
+//Should the rain impact accuracy of AI? DEFAULT = true;
+GVAR(RainImpact) = true;
+//How much should rain impact the accuracy of AI? Default = 3. Default formula is -> _WeatherCheck = (rain)/3; "rain" is on a scale from 0 to 1. 1 Being very intense rain.
+GVAR(RainPercent) = 3;
+//Should AI and players have an additional layer of suppression that decreases aiming when suppressed? Default = true;
+GVAR(Suppression) = false;
+//How much should suppression impact both AI and player aiming? Default is 5. Normal ArmA is 1.
+GVAR(SuppressionVar) = 5;
+//Should AI/players be impacted by adrenaline? This provides players and AI with a small speed boost to animations to assist with cover seeking and positioning for a short time. Default = true;
+GVAR(Adrenaline) = false;
+//How much of a speed boost should players/AI recieve? Default = 1.35; (1 is ArmA's normal speed).
+GVAR(AdrenalineVar) = 1.35;
+//How many AI UNITS can be calculating cover positions at once?
+GVAR(CurrentlyMovingLimit) = 24;
+//How many AI UNITS can be suppressing others at once?
+GVAR(CurrentlySuppressingLimit) = 40;
+//How many AI can be checking roles/equipment/additional commands at once? This will impact FPS of AI in and out of battle. The goal is to limit how many benign commands are being run at once and bogging down a server with over a couple HUNDRED AI.
+GVAR(BasicCheckLimit) = 40;
+//How many squad leaders can be executing advanced code at once.
+GVAR(LeaderExecuteLimit) = 20;
+//How low should the FPS be, before Vcom pauses simulation. This will not disable simulation on AI - they will run default Bohemia AI.
+GVAR(FPSFreeze) = 10;
+//Should the AI notice IR lasers?
+GVAR(IRLaser) = true;
+//The longer an AI's target stays in 1 location, the more accurate and aware of the target the AI becomes.DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
+GVAR(IncreasingAccuracy) = true;
+//GVAR(SideBasedMovement)- Remove sides from the array below to force that specific AI side to not execute any advance movement code. (I.E. Moving to reinforce allies, being alerted by distant gunshots and etc). AI with this will still react normally in combat. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
+GVAR(SideBasedMovement) = [EAST,INDEPENDENT,CIVILIAN,BLUFOR];
+//GVAR(SideBasedExecution)- Remove sides from the array below to remove that specific AI side from executing any of the VCOMAI scripts at all. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
+GVAR(SideBasedExecution) = [EAST,INDEPENDENT,CIVILIAN,BLUFOR];
+//Whether the AI will set up campfires at night if they are set to "DISMISS" waypoint
+GVAR(Campfires) = false;
+//Distance the AI will attempt to flank around the enemy. I.E. How far off a waypoint, or around the enemy squad, the AI are willing to go in combat.
+GVAR(WaypointDistance) = 300;
