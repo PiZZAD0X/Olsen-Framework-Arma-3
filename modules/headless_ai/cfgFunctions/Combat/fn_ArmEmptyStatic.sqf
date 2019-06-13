@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 if (PZAI_STATICGARRISON isEqualTo 0) exitWith {};
 _Unit = _this;
   _Position = getPosATL _Unit;

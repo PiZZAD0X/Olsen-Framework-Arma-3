@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //This function will determine if an AI is low on ammo and needs to re-arm.
 //This script passes _this. _this should be the AI unit.
 _AL = PZAI_AIMagLimit;
@@ -21,7 +24,7 @@ if (_TC < _AL) then {
 	{
 		if (alive _x && _x isKindOf "Man") then {_FB = _FB - [_x];};
 	} foreach _FB;
-	
+
 	//If menz are around see if we can take ammo from them first.
 	_Stop = false;
 	if (count _FB != 0) then {
@@ -36,7 +39,7 @@ if (_TC < _AL) then {
 			if (isNil "_mags") then {_mags = [];};
 			{
 				if (_x isEqualTo _CM) exitwith {
-					[_this,_Unit] spawn PZAI_fnc_RearmGo; 
+					[_this,_Unit] spawn PZAI_fnc_RearmGo;
 					_Stop = true;
 				};
 			} foreach _mags;

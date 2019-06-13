@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //Script used to make AI attach explosives to buildings and bring them down if players garrison them.
 params ["_Unit","_SatchelArray"];
 

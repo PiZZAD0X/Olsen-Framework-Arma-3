@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 
 private _UnitSide = side (group _this);
 private _Array1 = [];

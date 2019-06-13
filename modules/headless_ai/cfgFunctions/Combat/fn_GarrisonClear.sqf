@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 private ["_Enemy", "_nBuilding", "_Locations"];
 
 _Unit = _this select 0;
@@ -30,4 +33,3 @@ _Locations = [_nBuilding] call BIS_fnc_buildingPositions;
 		[_Locations,_x,_PZAI_InCover,_PZAI_ActivelyClearing,_Enemy] spawn PZAI_fnc_GarrisonClearPatrol;
 	};
 } foreach units (group _Unit);
-

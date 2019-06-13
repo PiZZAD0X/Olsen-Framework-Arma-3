@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 private ["_nBuilding", "_Buildingarray" , "_GrabVariable", "_GroupUnits", "_BuildingPositions" , "_BuildingLocation", "_CurrentPos", "_rnd", "_dist", "_dir", "_positions"];
 //Created on ???
 // Modified on :8/15/14 - 8/3/15 - 9/10/15

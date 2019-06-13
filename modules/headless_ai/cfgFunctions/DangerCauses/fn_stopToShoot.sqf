@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 params ["_unit","_enemy"];
 
 //go prone if target is far and I have no cover - might need to improve this

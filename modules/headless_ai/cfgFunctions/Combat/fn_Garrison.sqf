@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 params ["_Unit","_Group","","_thisFSM"];
 
 _Group setVariable ["PZAI_Mission","GARRISON"];
@@ -27,20 +30,20 @@ private _WaypointIs = "HOLD";
 while {_WaypointIs isEqualTo "HOLD"} do
 {
 	private _index = currentWaypoint _Group;
-	private _WaypointIs = waypointType [_Group,_index];		
+	private _WaypointIs = waypointType [_Group,_index];
 	private _TempA = _BuildingPositions;
 	if (count _TempA > 0) then
 	{
 		{
 			private _Foot = isNull objectParent _x;
 			if (_Foot) then
-			{		
+			{
 			private _BuildingLocation = selectRandom _TempA;
 			if !(isNil "_BuildingLocation") then
 			{
 				_x doMove _BuildingLocation;
 				_x setUnitPos "UP";
-				[_x,_BuildingLocation] spawn 
+				[_x,_BuildingLocation] spawn
 				{
 					params ["_unit","_BuildingLocation"];
 					if (isNil "_BuildingLocation") exitWith {};
@@ -52,9 +55,9 @@ while {_WaypointIs isEqualTo "HOLD"} do
 				};
 			};
 			true;
-		} count _GroupUnits;		
-		
-		
+		} count _GroupUnits;
+
+
 	};
 	sleep (30 + (random 60));
 };

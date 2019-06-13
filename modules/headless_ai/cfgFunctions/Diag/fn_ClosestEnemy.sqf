@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 private ["_Unit", "_UnitSide", "_Array1", "_ReturnedEnemy"];
 //Created on ???
 // Modified on : 8/19/14 - 8/3/15

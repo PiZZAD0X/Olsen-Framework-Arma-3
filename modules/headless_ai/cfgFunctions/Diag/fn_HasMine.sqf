@@ -1,4 +1,7 @@
-//This function will determine if the unit has a mine, satchel, or another explosive that could be used to blow shit up. 
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
+//This function will determine if the unit has a mine, satchel, or another explosive that could be used to blow shit up.
 //Edited on: 8/13/2017 @ 0137
 
 
@@ -12,10 +15,10 @@ private _SatchelArray = [];
 {
 	private _Magazine = _x select 0;
 	private _value = (configfile >> "CfgMagazines" >> _Magazine >> "nameSound") call BIS_fnc_getCfgData;
-	
-	if (_value isEqualTo "satchelcharge") then 
+
+	if (_value isEqualTo "satchelcharge") then
 	{
-		
+
 		_SatchelArray pushback [((configfile >> "CfgMagazines" >> _Magazine >> "ammo") call BIS_fnc_getCfgData),_Magazine];
 		_PZAI_HASSATCHEL = true;
 
@@ -23,10 +26,10 @@ private _SatchelArray = [];
 	if (_value isEqualTo "mine") then
 	{
 		_PZAI_HasMine = true;
-		_ActualObj pushback [((configfile >> "CfgMagazines" >> _Magazine >> "ammo") call BIS_fnc_getCfgData),_Magazine];		
+		_ActualObj pushback [((configfile >> "CfgMagazines" >> _Magazine >> "ammo") call BIS_fnc_getCfgData),_Magazine];
 	};
-	
-	
+
+
 } forEach _magazinesAmmo;
 
 _PushArray = [_PZAI_HASSATCHEL,_ActualObj,_PZAI_HasMine,_SatchelArray];

@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //This script will dictate how the loiter WP works for the AI
 private ["_Unitleader", "_UnitArray"];
 
@@ -20,5 +23,3 @@ _UnitArray = units _Group;
 
 //This function will automatically regroup soldiers if they get more than 1 waypoint.
 [_UnitArray,side _Unitleader] spawn PZAI_fnc_ReGroup;
-
-

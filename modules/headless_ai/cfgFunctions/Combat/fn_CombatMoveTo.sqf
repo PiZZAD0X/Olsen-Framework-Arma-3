@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //PZAI_fnc_CombatMoveTo
 
 params ["_Group","_currenttarget","_enemydir"];
@@ -21,4 +24,3 @@ _Group setvariable ["PZAI_Mission","ATTACK"];
 //	_Group setvariable ["PZAI_Mission","FLANK"];
 //	[_Group,false] spawn PZAI_fnc_FlankManeuver;
 //};
-

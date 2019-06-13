@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 if (PZAI_MineLayChance < (random 100)) exitWith {};
 
 private _Unit = _this select 0;
@@ -25,7 +28,7 @@ if (_NearestEnemy distance _Unit < 200) then
 else
 {
 	_NearRoads = _Unit nearRoads 50;
-	if (count _NearRoads > 0) then 
+	if (count _NearRoads > 0) then
 	{
 		private _ClosestRoad = [_NearRoads,_Unit] call PZAI_fnc_ClosestObject;
 		_Unit doMove (getpos _ClosestRoad);
@@ -47,20 +50,20 @@ _UnitSide = (side _Unit);
 
 if (_mine isEqualTo "") exitWith {};
 
-[_mine,_UnitSide] spawn 
+[_mine,_UnitSide] spawn
 {
 	params ["_Mine","_UnitSide"];
-	
+
 	_NotSafe = true;
-	
-	while {alive _mine && _NotSafe} do 
+
+	while {alive _mine && _NotSafe} do
 	{
-		
+
 		private _Array1 = (allUnits select {!(side _x isEqualTo _UnitSide)});
 		private _ClosestEnemy = [0,0,0];
 		_ClosestEnemy = [_Array1,_Mine] call PZAI_fnc_ClosestObject;
 		if (_ClosestEnemy distance _Mine < 2.5) then {_NotSafe = false;};
-		sleep 0.15;	
+		sleep 0.15;
 	};
 	_Mine setdamage 1;
 };

@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 params ["_list","_object"];
 
 private _position = [0,0,0];

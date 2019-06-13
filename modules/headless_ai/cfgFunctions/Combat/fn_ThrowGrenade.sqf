@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 private ["_Unit", "_RandomChance", "_myNearestEnemy", "_PZAI_GRENADETHROWN", "_CheckDistance", "_DirectionSet", "_Directionset"];
 
 _Unit = _this select 0;

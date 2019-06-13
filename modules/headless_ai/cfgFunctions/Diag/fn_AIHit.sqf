@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //Function that executes on AI when they are hit.
 //Updated on 08/17/17 @ 1725
 

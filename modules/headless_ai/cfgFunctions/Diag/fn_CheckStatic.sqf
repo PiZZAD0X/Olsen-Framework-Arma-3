@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 private ["_Returned","_weapon"];
 
 _weapon = nearestObject [(getposATL _this),"StaticWeapon"];

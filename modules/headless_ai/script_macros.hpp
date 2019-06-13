@@ -24,6 +24,7 @@
 #define SETPLPVAR(var1,var2) player SETPVAR_SYS(var1,var2)
 
 #define GVAR(varName) DOUBLES(COMPONENT,varName)
+#define EGVAR(compName,varName) DOUBLES(compName,varName)
 
 #define UGROUP (group _unit)
 

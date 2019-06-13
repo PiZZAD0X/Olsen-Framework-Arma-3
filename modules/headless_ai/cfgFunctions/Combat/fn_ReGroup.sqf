@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 params ["_GroupUnits","_Group"];
 
 {
@@ -7,7 +10,7 @@ params ["_GroupUnits","_Group"];
 	{
 		_x setVariable ["PZAI_FLANKING",false,false];
 	};
-	_x setVariable ["PZAI_MovedRecently",false,false];	
+	_x setVariable ["PZAI_MovedRecently",false,false];
 } foreach _GroupUnits;
 
 _Group setvariable ["PZAI_Mission","DEFEND"];

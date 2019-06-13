@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //This script will dictate how the loiter WP works for the AI
 params ["_unit","_Group","_wp","_thisFSM"];
 
@@ -56,4 +59,3 @@ for "_i" from 1 to _count do {
 	waituntil {((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])};
 	[_Group] call PZAI_fnc_CombatResponse;
 };
-

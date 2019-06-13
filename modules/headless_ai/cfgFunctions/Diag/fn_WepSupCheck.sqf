@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //Created on 8/4/2016: Detecting if a unit has a suppressor or not.
 _ItemList = weaponsitems _this;
 _Return = true;

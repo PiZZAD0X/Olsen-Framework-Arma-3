@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 private ["_nBuilding", "_Buildingarray" , "_GrabVariable", "_GroupUnits", "_BuildingPositions" , "_BuildingLocation", "_CurrentPos", "_rnd", "_dist", "_dir", "_positions"];
 //Created on ???
 // Modified on :8/15/14 - 8/3/15 - 9/10/15
@@ -58,7 +61,7 @@ _GroupUnits = units _group;
 		params ["_unit","_BuildingLocation","_BuildingPositions"];
 		private _group	= group _Unit;
 		private _index = currentWaypoint _group;
-		private _WaypointIs = waypointType [_group,_index];	
+		private _WaypointIs = waypointType [_group,_index];
 		if (PZAI_GarrisonPatrol) then {
 			while {_WaypointIs isEqualTo "HOLD"} do {
 				waitUntil {_unit distance _BuildingLocation < 1.3};
@@ -69,7 +72,7 @@ _GroupUnits = units _group;
 				//_unit forcespeed -1;
 				_BuildingLocation = selectRandom _BuildingPositions;
 				_unit doMove _BuildingLocation;
-				_unit setUnitPos "UP";			
+				_unit setUnitPos "UP";
 			};
 		} else {
 			waitUntil {_unit distance _BuildingLocation < 1.3};
@@ -78,4 +81,3 @@ _GroupUnits = units _group;
 		};
 	};
 } foreach _GroupUnits;
-

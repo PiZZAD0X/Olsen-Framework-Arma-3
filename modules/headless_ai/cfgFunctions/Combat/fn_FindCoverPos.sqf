@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 private ["_Unit", "_MovePosition", "_NearestEnemy", "_TypeListFinal", "_TypeList", "_Type", "_type", "_BoundingArray", "_p1", "_p2", "_maxWidth", "_maxLength", "_maxHeight", "_ClosestCover", "_GuessLocation", "_coverObjectspos","_WeakListFinal","_MovePos"];
 
 _Unit = _this select 0;
@@ -36,10 +39,10 @@ _Roads = _MovePosition nearRoads 30;
 			_maxHeight = abs ((_p2 select 2) - (_p1 select 2));
 			if (_maxWidth > 2 && _maxLength > 2 && _maxHeight > 2) then
 			{
-				if (_type isEqualTo "") then 
+				if (_type isEqualTo "") then
 				{
 					_WeakListFinal pushback _x
-				} 
+				}
 				else
 				{
 					_TypeListFinal pushback _x;

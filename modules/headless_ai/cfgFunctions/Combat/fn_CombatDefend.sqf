@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //PZAI_fnc_CombatDefend
 
 params ["_Group","_currenttarget","_enemydir"];

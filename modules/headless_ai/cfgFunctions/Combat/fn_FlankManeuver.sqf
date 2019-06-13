@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 Private ["_Unit", "_NoFlanking", "_myNearestEnemy", "_GroupUnit", "_myEnemyPos", "_ResetWaypoint", "_OverWatch", "_rnd", "_dist", "_dir", "_positions", "_myPlaces", "_RandomArray", "_RandomLocation", "_index", "_waypoint0", "_waypoint1", "_waypoint2", "_index2", "_wPos", "_UnitPosition", "_x1", "_y1", "_x2", "_y2", "_Midpoint", "_group_array", "_GroupCount", "_CoverCount", "_RandomUnit","_locationPos4","_nearestHill"];
 //AI Waypoint Mock up using select best.
 params ["_group",["_PZAI_Flanking",false]];
@@ -23,7 +26,7 @@ if (isNull _myNearestEnemy) exitWith
 
 	if ((count (waypoints (group _Unit))) < 2) then
 	{
-		
+
 		_wPos = waypointPosition [_group, 1];
 		_WType = waypointType [_group,1];
 		_speed = waypointSpeed [_group,1];
@@ -40,14 +43,14 @@ if (isNull _myNearestEnemy) exitWith
 		_waypoint2 setWaypointSpeed _speed;
 		_waypoint2 setWaypointBehaviour _Beh;
 		//_group setCurrentWaypoint [_group, _waypoint2 select 1];
-		_this spawn PZAI_fnc_FlankManeuver;	
+		_this spawn PZAI_fnc_FlankManeuver;
 	};
 
 };
 
 
 if (isNil "_myNearestEnemy" || {(typeName _myNearestEnemy) isEqualTo "ARRAY"}) exitWith {};
- 
+
 if (_PZAI_Flanking) exitWith {};
 
 if ((count (waypoints (group _Unit))) >= 3) exitWith {};
@@ -69,7 +72,7 @@ _myEnemyPos = (getposATL _myNearestEnemy);
 if (_myEnemyPos isEqualTo [0,0,0]) exitWith
 {
 	sleep 30;
-	[_Unit,_PZAI_Flanking] spawn PZAI_fnc_FlankManeuver;	
+	[_Unit,_PZAI_Flanking] spawn PZAI_fnc_FlankManeuver;
 };
 
 _RandomChance = random 100;
@@ -82,21 +85,21 @@ if (_RandomChance < 25) then
 		deleteWaypoint ((waypoints _group) select 0);
 		sleep 0.25;
 		};
-		
-	
+
+
 		_waypoint2 = _group addwaypoint[_myEnemyPos,1];
 		_waypoint2 setwaypointtype "MOVE";
 		_waypoint2 setWaypointSpeed "NORMAL";
 		_waypoint2 setWaypointBehaviour "COMBAT";
-	
+
 	if (GVAR(Debug)) then
 	{
 		[_Unit,"Flank Waypoint set. I am a good leader >:D!!",30,20000] remoteExec ["3DText",0];
-	};		
-
-	
 	};
-	
+
+
+	};
+
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//systemchat format ["%1 RAWR C",side _unit];

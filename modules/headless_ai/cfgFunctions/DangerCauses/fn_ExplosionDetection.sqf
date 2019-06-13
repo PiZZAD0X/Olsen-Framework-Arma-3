@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 private ["_CraterList"];
 
 _CraterList = position _this nearObjects ["#crater",100];

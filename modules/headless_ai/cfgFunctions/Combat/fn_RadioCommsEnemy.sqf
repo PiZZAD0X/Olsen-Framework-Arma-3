@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 params ["_groupcaller","_enemycaller","_sidecaller"];
 
 if (GVAR(Debug)) then {

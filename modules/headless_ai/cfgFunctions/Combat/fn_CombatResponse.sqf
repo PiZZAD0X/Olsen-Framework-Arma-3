@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //PZAI_fnc_CombatResponse
 
 params ["_Group",["_RadioEnemy",objnull],["_reinforcement",false]];

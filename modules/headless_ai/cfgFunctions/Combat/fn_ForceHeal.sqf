@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //Heal any hurt friendlies nearby.
 //Potential for ace healing
 //_damageVar = player getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]; [player, "selection", (_damageVar select (["selection"] call ace_medical_fnc_selectionNameToNumber)) + _newDamage, player, "TypeOfDammage", -1] call ace_medical_fnc_handleDamage;
@@ -6,17 +9,17 @@ private _USide = side _Unitgroup;
 private _Friendlies = allUnits select {Side _x isEqualTo _USide && (_x distance _this) < 50};
 
 {
-	if (damage _x > 0) exitWith 
+	if (damage _x > 0) exitWith
 	{
-			while {alive _x && {alive _this} && {_this distance _x > 3}} do 
+			while {alive _x && {alive _this} && {_this distance _x > 3}} do
 			{
 				_this domove (getposATL _x);
-				_this forcespeed -1;				
+				_this forcespeed -1;
 				sleep 5;
 				if (GVAR(Debug)) then
 				{
 					[_this,"Moving to heal. Like a good medic.",5,20000] remoteExec ["3DText",0];
-				};				
+				};
 			};
 			if (alive _x && alive _this && _this distance _x <= 3) then
 			{
@@ -26,7 +29,7 @@ private _Friendlies = allUnits select {Side _x isEqualTo _USide && (_x distance 
 				if (GVAR(Debug)) then
 				{
 					[_this,"Healing. Like a good medic.",15,20000] remoteExec ["3DText",0];
-				};				
+				};
 			};
-	}; 
+	};
 } foreach _Friendlies;

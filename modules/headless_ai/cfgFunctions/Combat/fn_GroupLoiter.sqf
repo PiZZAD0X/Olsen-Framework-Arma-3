@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //This script will dictate how the loiter WP works for the AI
 params ["_Unit", "_Group","_thisFSM"];
 
@@ -23,6 +26,3 @@ private _UnitArray = units _Group;
 	waituntil {({if ((behaviour _x) in ["COMBAT","STEALTH","AWARE"]) then {if (true) exitwith {true}} else {if (true) exitwith {false}}} foreach _UnitArray) || !((_group getvariable ["PZAI_CurrentTarget",objnull]) isEqualto objnull)};
 	[_Group] call PZAI_fnc_CombatResponse;
 };
-
-
-

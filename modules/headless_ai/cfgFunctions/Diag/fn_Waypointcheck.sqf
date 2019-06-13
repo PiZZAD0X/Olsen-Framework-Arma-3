@@ -1,3 +1,6 @@
+#include "..\..\script_macros.hpp"
+AI_EXEC_CHECK(SERVERHC);
+
 //This will tell our scripts if certain waypoints are set or not
 //_WaypointCheck = _group call PZAI_fnc_Waypointcheck;
 _GroupToInspect = _this;
@@ -13,4 +16,3 @@ _WaypointIs = waypointType [_GroupToInspect,_index];
 
 
 _WaypointsToIncriminate
-
