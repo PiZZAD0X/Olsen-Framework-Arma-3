@@ -25,7 +25,7 @@ _vehicle lock _locked;
     _x params [["_class","",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
     _vehicle setMagazineTurretAmmo [_class,_ammo,_path];
 } forEach _turretMags;
-if !(_vehName isEqualto "") then {
+if !(_vehName isEqualTo "") then {
     missionNamespace setVariable [_vehName, _vehicle];
 };
 //if (UO_FW_AutoTrackAsset_Enabled) then {
@@ -36,7 +36,7 @@ if !(_vehName isEqualto "") then {
 //        case civilian: {EGVAR(Core,TeamName_Civ)};
 //        default {""};
 //    };
-//    if !(_team isEqualto "") then {
+//    if !(_team isEqualTo "") then {
 //        private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _vehicle));
 //        if (isText(_vehCfg >> "displayName")) then {
 //            [QEGVAR(Core,TrackAssetEvent),[_vehicle, getText(_vehCfg >> "displayName"), _team]] call CBA_fnc_serverEvent;

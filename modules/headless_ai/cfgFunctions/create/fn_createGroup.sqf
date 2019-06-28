@@ -24,7 +24,8 @@ if !(_tasks isEqualTo []) then {
     _tasks = _tasks call FUNC(taskRemoveZoneActivated);
 };
 if !(_tasks isEqualTo []) then {GVAR(taskedGroups) pushBack [_ngrp];};
-if (count _waypoints > 2) then {
+if (count _waypoints > 1) then {
+    LOG_2("Setting %1 to manual wp mode with: %2",_ngrp,_waypoints);
     [_ngrp,_waypoints] call FUNC(createWaypoints);
 } else {
     if (!(_tasks isEqualTo []) && {(_ngrp getVariable [QGVAR(TaskTimer),0]) isEqualTo 0}) then {
@@ -32,7 +33,7 @@ if (count _waypoints > 2) then {
     } else {
         _ngrp setVariable [QGVAR(CurrentTaskEndTime),(CBA_MissionTime + _taskTimer)];
         private _passarray = [_task,_ngrp,_gpos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
-        [{!((count waypoints (_this select 1)) isEqualto 0)},{
+        [{!((count waypoints (_this select 1)) isEqualTo 0)},{
             _this call FUNC(taskAssign);
         },_passarray] call CBA_fnc_waitUntilAndExecute;
     };

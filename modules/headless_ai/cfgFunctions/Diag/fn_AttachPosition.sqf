@@ -3,14 +3,14 @@ AI_EXEC_CHECK(SERVERHC);
 
 _Unit = _this select 0;
 _AttachObject = _this select 1;
-_PZAI_GRENADETHROWN = _this select 2;
+_GRENADETHROWN = _this select 2;
 
 _GuessLocation = _Unit getHideFrom _NearestEnemy;
 
 if (isNull _NearestEnemy) exitWith
 {
 	//Throw grenades and seek for any kind of cover
-	[_Unit,_PZAI_GRENADETHROWN] spawn PZAI_fnc_ThrowGrenade;
+	[_Unit,_GRENADETHROWN] spawn FUNC(ThrowGrenade);
 };
 
 _coverObjectsClosest = [];

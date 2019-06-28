@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-params ["_grp",["_tasks",[],[[]]],["_task",objNull,[objNull]],["_taskOrdered",false,[false]]];
+params ["_group",["_tasks",[],[[]]],["_task",objNull,[objNull]],["_taskOrdered",false,[false]]];
 private _activeTasks = [];
 for "_i" from 0 to (count _tasks) do {
     private _taskSet = (_tasks select _i) call FUNC(getTaskParams);
@@ -12,17 +12,17 @@ for "_i" from 0 to (count _tasks) do {
     };
 };
 if (_activeTasks isEqualTo []) then {
-    [_grp] call FUNC(taskGroup);
+    [_group] call FUNC(taskGroup);
 } else {
     _activeTasks sort true;
     if (_taskOrdered) then {
         _task = (_activeTasks select 0 select 2);
-        _grp setVariable [QGVAR(groupTaskOrder),[true,_activeTasks]];
+        _group setVariable [QGVAR(groupTaskOrder),[true,_activeTasks]];
     } else {
         _task = (_activeTasks select 0 select 2);
     };
 };
 if (!isNull _task) then {
-    [_grp,_task] call FUNC(taskSet);
+    [_group,_task] call FUNC(taskSet);
 };
 true

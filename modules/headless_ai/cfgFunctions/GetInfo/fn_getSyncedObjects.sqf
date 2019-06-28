@@ -12,7 +12,7 @@ LOG_1("_synced %1",_synced);
             (_entities select 2) pushback ([_obj] call FUNC(getDetailsThing));
         };
         if (_obj isKindOf "StaticWeapon" || _obj isKindOf "Static" || _obj isKindOf "Air" || _obj isKindOf "Ship" || _obj isKindOf "LandVehicle") then {
-            private _grp = if (_obj isKindOf "StaticWeapon" || _obj isKindOf "Static") then {group (gunner _obj)} else {group (driver _obj)};
+            private _grp = group ((crew _obj) select 0);
             if (isNull _grp) then {
                 (_entities select 1) pushback ([_obj] call FUNC(getDetailsVehicleEmpty));
             };

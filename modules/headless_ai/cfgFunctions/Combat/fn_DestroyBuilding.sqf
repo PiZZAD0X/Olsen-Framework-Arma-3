@@ -7,7 +7,7 @@ params ["_Unit","_SatchelArray"];
 private _SatchelObj = _SatchelArray select 0;
 private _SatchelMag = _SatchelArray select 1;
 
-private _Point = _Unit call PZAI_fnc_ClosestEnemy;
+private _Point = _Unit call FUNC(ClosestEnemy);
 if (_Point isEqualTo [] || isNil "_Point" || _Point isEqualTo [0,0,0]) exitWith {};
 
 if ((_Unit distance _Point) < 200) then {
@@ -55,7 +55,7 @@ if ((_Unit distance _Point) < 200) then {
 				{
 					_Array1 pushback _x;
 				} foreach (allUnits select {(side _x) isEqualTo _UnitSide && (alive _x)});
-				private _ClosestFriendly = [_Array1,_PlantPosition] call PZAI_fnc_ClosestObject;
+				private _ClosestFriendly = [_Array1,_PlantPosition] call FUNC(ClosestObject);
 				if (_ClosestFriendly distance _PlantPosition > 15) then {_NotSafe = false;};
 				sleep 5;
 			};

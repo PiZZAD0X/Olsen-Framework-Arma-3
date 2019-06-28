@@ -4,14 +4,14 @@ AI_EXEC_CHECK(SERVERHC);
 private ["_Enemy", "_Offset", "_ToWorld1", "_ToWorld2", "_PointHeight", "_PointHeightC", "_LookVar", "_dgn_returnvariable"];
 
 _Unit = _this select 0;
-_PZAI_MovedRecentlyCover = _this select 1;
-_PZAI_ActivelyClearing = _this select 2;
-_PZAI_StartedInside = _this select 3;
+_MovedRecentlyCover = _this select 1;
+_ActivelyClearing = _this select 2;
+_StartedInside = _this select 3;
 
-if (_PZAI_MovedRecentlyCover || {_PZAI_ActivelyClearing} || {_PZAI_StartedInside}) exitWith {_dgn_returnvariable = false;_dgn_returnvariable};
+if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside}) exitWith {_dgn_returnvariable = false;_dgn_returnvariable};
 
 //systemchat format ["A %1",_Unit];
-_Enemy = _Unit call PZAI_fnc_ClosestEnemy;
+_Enemy = _Unit call FUNC(ClosestEnemy);
 if (isNil "_Enemy") exitWith {};
 
 if ((typeName _Enemy) isEqualTo "ARRAY") exitWith {_dgn_returnvariable = false;_dgn_returnvariable};

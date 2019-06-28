@@ -13,8 +13,7 @@ if (TypeName _object isEqualTo "ARRAY") then {_position = _object;};
 private _DistanceArray = [];
 
 {
-	if !(isNil "_x") then
-	{
+	if !(isNil "_x") then {
 		private _CompareObjectPos = [0,0,0];
 		if (TypeName _x isEqualTo "OBJECT") then {_CompareObjectPos = getPosWorld _x;};
 		if (TypeName _x isEqualTo "STRING") then {_CompareObjectPos = getMarkerPos _x;};

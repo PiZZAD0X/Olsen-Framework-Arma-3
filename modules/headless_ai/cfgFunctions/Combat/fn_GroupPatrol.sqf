@@ -8,8 +8,8 @@ _Unitleader = leader _unit;
 _wpPos = waypointPosition [_group, _wp];
 
 //mission var
-_Group setVariable ["PZAI_Mission","PATROLLING"];
-_Group setvariable ["InitialWPSet",true];
+SETVAR(_Group,Mission,"PATROLLING");
+SETVAR(_Group,InitialWPSet,true);
 
 //CBA backup
 //[_Unitleader, _wpPos, PZAI_PatrolDistance] call CBA_fnc_taskPatrol;
@@ -33,7 +33,7 @@ _Group setCombatMode "YELLOW";
 
 //!((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])
 //Move to separate function?
-//_randomposition = [_unit,_wpPos] call PZAI_fnc_getRandomPos;
+//_randomposition = [_unit,_wpPos] call FUNC(getRandomPos);
 private _count = 6;
 private _step = 360 / _count;
 private _offset = random _step;
@@ -57,5 +57,5 @@ for "_i" from 1 to _count do {
 [_Group,_Unitleader] spawn {
 	params ["_Group","_Unitleader"];
 	waituntil {((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])};
-	[_Group] call PZAI_fnc_CombatResponse;
+	[_Group] call FUNC(CombatResponse);
 };

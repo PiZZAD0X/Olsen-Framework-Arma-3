@@ -2,7 +2,7 @@
 AI_EXEC_CHECK(SERVERHC);
 
 params [
-    "_grp",
+    "_group",
     "_pos",
     ["_radius",30,[0]],
     ["_wait",3,[0]],
@@ -17,11 +17,10 @@ params [
     "_i"
 ];
 
-{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
-_grp call CBA_fnc_clearWaypoints;
-_pos = [_pos,_grp] select (_pos isEqualTo []);
+_group call CBA_fnc_clearWaypoints;
+_pos = [_pos,_group] select (_pos isEqualTo []);
 _pos = _pos call CBA_fnc_getPos;
-private _forwards = (vectorDir (leader _grp)) vectorMultiply _radius;
+private _forwards = (vectorDir (leader _group)) vectorMultiply _radius;
 private _sideways = [_forwards select 1, -(_forwards select 0), 0];
 private _poswp1 = _pos vectorAdd _sideways;
 private _poswp2 = _poswp1 vectorAdd _forwards;
@@ -38,7 +37,8 @@ _this2 set [1,_poswp1];
 _this2 set [2,0];
 _this2 set [8, "CYCLE"];
 _this2 call FUNC(createWaypoint);
-deleteWaypoint ((waypoints _grp) select 0);
-_grp setvariable ["InitialWPSet",true];
-_grp setVariable [QGVAR(Mission),"PATROLLING PERIMETER"];
+deleteWaypoint ((waypoints _group) select 0);
+SETVAR(_group,InitialWPSet,true);
+_group setVariable [QGVAR(Mission),"PATROLLING PERIMETER"];
+[_group] call FUNC(taskForceSpeed);
 true

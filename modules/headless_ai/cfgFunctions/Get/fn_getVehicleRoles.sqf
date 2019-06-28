@@ -18,7 +18,7 @@ switch (_role) do {
         private _vehConfig = configfile >> "cfgvehicles" >> _veh;
         private _driverIsCommander = getNumber(_vehConfig >> "driverIsCommander");
         if (getNumber(_vehConfig >> "hasDriver") > 0) then {
-            _roles pushBack "driver"
+            _roles pushBack "driver";
         };
     };
     case "cargo": {
@@ -34,9 +34,9 @@ switch (_role) do {
         private _driverIsCommander = getNumber(_vehConfig >> "driverIsCommander");
         if (getNumber(_vehConfig >> "hasDriver") > 0) then {
             if (_driverIsCommander > 0) then {
-                _roles set[(_roles find "commander"),"driver"];
+                _roles set [(_roles find "commander"),"driver"];
             } else {
-                _roles pushBack "driver"
+                _roles pushBack "driver";
             };
         };
         for "_i" from 0 to (getNumber (_vehConfig >> "transportSoldier")) step 1 do {

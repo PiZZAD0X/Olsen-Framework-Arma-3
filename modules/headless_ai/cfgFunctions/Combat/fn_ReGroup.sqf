@@ -5,12 +5,11 @@ params ["_GroupUnits","_Group"];
 
 {
 	[_x] joinSilent _group;
-	_x setVariable ["PZAI_LOITERING",false];
-	if (_x isEqualTo (leader _x)) then
-	{
-		_x setVariable ["PZAI_FLANKING",false,false];
+	SETVAR(_x,LOITERING,false);
+	if (_x isEqualTo (leader _x)) then {
+		SETVAR(_x,FLANKING,false);
 	};
-	_x setVariable ["PZAI_MovedRecently",false,false];
+	SETVAR(_x,MovedRecently,false);
 } foreach _GroupUnits;
 
-_Group setvariable ["PZAI_Mission","DEFEND"];
+SETVAR(_Group,Mission,"DEFEND");

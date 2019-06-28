@@ -4,32 +4,32 @@ AI_EXEC_CHECK(SERVERHC);
 params ["_groupcaller","_enemycaller","_sidecaller"];
 
 if (GVAR(Debug)) then {
-	diag_log format ["radiocomms fnc _this: %1",_this];
+	TRACE_3("radiocomms params",_groupcaller,_enemycaller,_sidecaller);
 };
 
 {
-	_x params ["_side","_group","_leader","_groupcount","_behaviourtasking","_behaviour","_target","_position","_hasRadio"];
+	_x params ["_side","_group","_leader","_groupcount","_behaviourtasking","_behaviour","_target","_position","_hasRadio","_areaAssigned", "_assetType"];
 	if (GVAR(Debug)) then {
-		diag_log format ["radiocomms fnc _group: %1",_group];
+		TRACE_1("radiocomms fnc",_group);
 	};
-	if (!(_groupcaller isEqualto _group)) then {
+	if (!(_groupcaller isEqualTo _group)) then {
 		private _isFriendly = [_sidecaller, _side] call BIS_fnc_sideIsFriendly;
 		if (GVAR(Debug)) then {
-			diag_log format ["radiocomms fnc _group: %1 _isFriendly: %2",_group,_isFriendly];
+			TRACE_2("radiocomms fnc",_group,_isFriendly);
 		};
 		if (_isFriendly) then {
-			if (!(_enemycaller isEqualto _target) && {((_enemycaller distance _target) > 100)}) then {
-				if ((_hasRadio) || !(PZAI_Radio_NeedRadio)) then {
+			if (!(_enemycaller isEqualTo _target) && {((_enemycaller distance _target) > 100)}) then {
+				if ((_hasRadio) || !(PZAI_RadioNeedRadio)) then {
 					private _distanceToUnit = _enemycaller distance2d _leader;
-					if (_distanceToUnit <= PZAI_Radio_Distance) then {
-						private _needReinforcement = [_groupcaller,_enemycaller,CBA_MissionTime,_group] call PZAI_fnc_ReinforcementResponse;
-						[_Group,_enemycaller,_needReinforcement] call PZAI_fnc_CombatResponse;
+					if (_distanceToUnit <= PZAI_RadioDistance) then {
+						private _needReinforcement = [_groupcaller,_enemycaller,CBA_MissionTime,_group] call FUNC(ReinforcementResponse);
+						[_Group,_enemycaller,_needReinforcement] call FUNC(CombatResponse);
 						if (GVAR(Debug)) then {
-							diag_log format ["_group: %1 called combatresponse",_group];
+							LOG_1("_group: %1 called combatresponse",_group);
 						};
 					};
 				};
 			};
 		};
 	};
-} foreach PZAI_GroupArray;
+} foreach GVAR(GroupArray);

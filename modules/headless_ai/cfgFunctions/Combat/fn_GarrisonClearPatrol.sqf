@@ -1,12 +1,12 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-private ["_Locations", "_Unit", "_PZAI_InCover", "_Enemy", "_RefinedBuildingArray", "_UnitPosition", "_AcceptableRange", "_ClosestPos"];
+private ["_Locations", "_Unit", "_InCover", "_Enemy", "_RefinedBuildingArray", "_UnitPosition", "_AcceptableRange", "_ClosestPos"];
 
 //Stop the AI - and then tell them to move to the house
 _Locations = _this select 0;
 _Unit = _this select 1;
-_PZAI_InCover = _this select 2;
+_InCover = _this select 2;
 _Enemy = _this select 4;
 
 sleep (random 5);
@@ -28,7 +28,7 @@ sleep (random 5);
 
 
 			//Define the closest position to be edited
-			if (_RefinedBuildingArray isEqualTo []) then {_ClosestPos = [_Locations,_Enemy] call PZAI_fnc_ClosestObject;} else {_ClosestPos = [_RefinedBuildingArray,_Enemy] call PZAI_fnc_ClosestObject;};
+			if (_RefinedBuildingArray isEqualTo []) then {_ClosestPos = [_Locations,_Enemy] call FUNC(ClosestObject);} else {_ClosestPos = [_RefinedBuildingArray,_Enemy] call FUNC(ClosestObject);};
 
 
 if (isNil "_closestpos") exitWith {};
@@ -54,7 +54,7 @@ while {(_Unit distance _ClosestPos) > 3 && alive _Unit} do
 
 
 			//Define the closest position to be edited
-			if (_RefinedBuildingArray isEqualTo []) then {_ClosestPos = [_Locations,_Enemy] call PZAI_fnc_ClosestObject;} else {_ClosestPos = [_RefinedBuildingArray,_Enemy] call PZAI_fnc_ClosestObject;};
+			if (_RefinedBuildingArray isEqualTo []) then {_ClosestPos = [_Locations,_Enemy] call FUNC(ClosestObject);} else {_ClosestPos = [_RefinedBuildingArray,_Enemy] call FUNC(ClosestObject);};
 
 
 };

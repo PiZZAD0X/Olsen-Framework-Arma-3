@@ -3,5 +3,5 @@ AI_EXEC_CHECK(SERVERHC);
 
 //Currently not being used
 {
-		[_x,false,false,false,false] spawn PZAI_fnc_MoveToCover;
+		[_x,false,false,false,false] spawn FUNC(MoveToCover);
 } foreach (units (group _this));

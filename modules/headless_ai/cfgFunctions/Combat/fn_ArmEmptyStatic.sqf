@@ -1,24 +1,30 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-if (PZAI_STATICGARRISON isEqualTo 0) exitWith {};
-_Unit = _this;
-  _Position = getPosATL _Unit;
+params ["_unit"];
 
-  _weapon = nearestObject [_Position,"StaticWeapon"];
-  if (isNull _weapon || {(_weapon distance _Unit) > 100}) exitWith {};
+if !(GVAR(MountStatics)) exitWith {};
+if (GVAR(MountStaticsDistance) > 100) then {
+    GVAR(MountStaticsDistance) = 100;
+};
 
-  _AssignedGunner = assignedGunner _weapon;
-  if (isNull _AssignedGunner) then
-  {
-    _Unit doMove (getposATL _weapon);
-    _Unit assignAsGunner _weapon;
-    [_Unit] orderGetIn true;
-    _Waiting = 0;
-    while {_Waiting isEqualTo 0} do
-    {
-    sleep 1;
-      if ((_Unit distance _Weapon) < 3) then {_Waiting = 1};
-    };
-    _Unit moveInGunner _weapon;
-  };
+private _pos = getPosATL _unit;
+private _weapon = nearestObject [_pos,"StaticWeapon"];
+
+if (isNull _weapon || {(_weapon distance _unit) > GVAR(MountStaticsDistance)}) exitWith {};
+
+if (isNull (assignedGunner _weapon)) then {
+    LOG_2("%1 attempting to mount empty static weapon: %2",_unit,_weapon);
+    _unit doMove (getposATL _weapon);
+    _unit assignAsGunner _weapon;
+    [_unit] orderGetIn true;
+    [{(((_this select 0) distance (_this select 1)) < 3) && {isNull (assignedGunner _weapon)}}, {
+        params ["_unit","_weapon"];
+        _unit moveInGunner _weapon;
+        LOG_2("%1 mounting empty static weapon: %2",_unit,_weapon);
+    }, [_unit,_weapon], 10, {
+        params ["_unit","_weapon"];
+        private _assignedGunner = assignedGunner _weapon;
+        LOG_3("%1 failed to mount empty static weapon: %2 gunner of weapon: %3",_unit,_weapon,_assignedGunner);
+    }] call CBA_fnc_waitUntilAndExecute;
+};

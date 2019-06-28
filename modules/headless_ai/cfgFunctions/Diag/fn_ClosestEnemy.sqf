@@ -1,20 +1,17 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-private ["_Unit", "_UnitSide", "_Array1", "_ReturnedEnemy"];
-//Created on ???
-// Modified on : 8/19/14 - 8/3/15
+params ["_unit"];
 
-_Unit = _this;
-_UnitSide = (side _Unit);
-_Array1 = [];
+private _UnitSide = (side _Unit);
+private _Array1 = [];
 {
-	_TargetSide = side _x;
+	private _TargetSide = side _x;
 	if ([_UnitSide, _TargetSide] call BIS_fnc_sideIsEnemy) then {_Array1 pushback _x;};
 } forEach allUnits;
 
-_ReturnedEnemy = [_Array1,(vehicle _Unit)] call PZAI_fnc_ClosestObject;
+private _ReturnedEnemy = [_Array1,_Unit] call FUNC(ClosestObject);
 if (isNil "_ReturnedEnemy") then {_ReturnedEnemy = [0,0,0]};
 
-//_Unit setVariable ["PZAI_CLOSESTENEMY",_ReturnedEnemy,false];
+//GETVAR(_Unit,CLOSESTENEMY,_ReturnedEnemy);
 _ReturnedEnemy

@@ -10,11 +10,8 @@ if (!isNull _logic) then {
             if (_unit isKindOf "Man") then {
                 _syncedUnits pushBack _unit;
             };
-            if (_unit isKindOf "Air" || _unit isKindOf "Ship" || _unit isKindOf "LandVehicle") then {
-                _syncedUnits pushBack (driver _unit);
-            };
-            if (_unit isKindOf "StaticWeapon" || _unit isKindOf "Static") then {
-                _syncedUnits pushBack (gunner _unit);
+            if (_unit isKindOf "Air" || _unit isKindOf "Ship" || _unit isKindOf "LandVehicle" || _unit isKindOf "StaticWeapon" || _unit isKindOf "Static") then {
+                _syncedUnits pushBack ((crew _unit) select 0);
             };
         };
     } foreach _synced;

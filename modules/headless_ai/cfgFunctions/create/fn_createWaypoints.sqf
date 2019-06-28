@@ -1,10 +1,10 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-params ["_grp",["_waypoints",[],[[]]]];
+params ["_group",["_waypoints",[],[[]]]];
 {
     private _currentWaypoint = _x;
-    private _wp = _grp addWaypoint [(_currentWaypoint select 2),5,(_currentWaypoint select 0 select 1),(_currentWaypoint select 1)];
+    private _wp = _group addWaypoint [(_currentWaypoint select 2),5,(_currentWaypoint select 0 select 1),(_currentWaypoint select 1)];
     _wp setWaypointType (_currentWaypoint select 3);
     _wp setWaypointBehaviour (_currentWaypoint select 4);
     _wp setWaypointCombatMode (_currentWaypoint select 5);
@@ -19,5 +19,10 @@ params ["_grp",["_waypoints",[],[[]]]];
     _wp setWaypointScript (_currentWaypoint select 14);
     _wp setWaypointStatements (_currentWaypoint select 15);
 } foreach _waypoints;
-deleteWaypoint ((waypoints _grp) select 0);
+//delete initial wp
+deleteWaypoint ((waypoints _group) select 0);
+//set manual waypoint mission mode
+SETVAR(_group,InitialWPSet,true);
+SETVAR(_group,Mission,"MANUAL");
+[_group] call FUNC(taskForceSpeed);
 true

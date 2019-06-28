@@ -2,7 +2,7 @@
 AI_EXEC_CHECK(SERVERHC);
 
 params [
-    "_grp",
+    "_group",
     "_pos",
     ["_radius",30,[0]],
     ["_wait",3,[0]],
@@ -17,10 +17,9 @@ params [
     "_i"
 ];
 
-{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 {
     _x setvariable [QGVAR(BUNKER),true];
-} foreach (units _grp);
-_grp setvariable ["InitialWPSet",true];
-_grp setVariable [QGVAR(Mission),"BUNKER"];
+} foreach (units _group);
+SETVAR(_group,InitialWPSet,true);
+_group setVariable [QGVAR(Mission),"BUNKER"];
 true

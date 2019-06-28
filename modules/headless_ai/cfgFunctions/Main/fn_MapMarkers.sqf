@@ -4,40 +4,35 @@ AI_EXEC_CHECK(SERVERHC);
 
 LOG("Starting Map Marker Function");
 
-GVAR(MARKERARRAY) = [];
+GVAR(MarkerArray) = [];
 if (isNil QGVAR(TrackedUnits)) then {
     GVAR(TrackedUnits) = [];
 };
 
 GVAR(MapMarkersPFH) = [{
     {
-        _x params ["_side","_group","_leader","_groupcount","_behaviourtasking","_behaviour","_target","_position","_hasRadio"];
-        LOG_1("_group: %1",_group);
-        LOG_1("_groupcount: %1",_groupcount);
-        LOG_1("_leader: %1",_leader);
+        _x params ["_side","_group","_leader","_groupcount","_behaviourtasking","_behaviour","_target","_position","_hasRadio","_areaAssigned", "_assetType"];
         if (!(alive _leader) || !(local _leader)) then {
-            LOG_1("%1 is invalid clearing marker",_groupcount);
             private _lastname = name _leader;
             private _trackername = format["trk_%1_%2",_lastname,_leader];
-            if (_trackername in GVAR(MARKERARRAY)) then {
+            if (_trackername in GVAR(MarkerArray)) then {
                 deletemarker _trackername;
-                GVAR(MARKERARRAY) = GVAR(MARKERARRAY) - [_trackername];
+                GVAR(MarkerArray) = GVAR(MarkerArray) - [_trackername];
             };
             private _destname = format["dest_%1_%2",_lastname,_leader];
-            if (_destname in GVAR(MARKERARRAY)) then {
+            if (_destname in GVAR(MarkerArray)) then {
                 deletemarker _destname;
-                GVAR(MARKERARRAY) = GVAR(MARKERARRAY) - [_destname];
+                GVAR(MarkerArray) = GVAR(MarkerArray) - [_destname];
             };
             private _targetname = format["target_%1_%2",_lastname,_leader];
-            if (_targetname in GVAR(MARKERARRAY)) then {
+            if (_targetname in GVAR(MarkerArray)) then {
                 deletemarker _targetname;
-                GVAR(MARKERARRAY) = GVAR(MARKERARRAY) - [_targetname];
+                GVAR(MarkerArray) = GVAR(MarkerArray) - [_targetname];
             };
         } else {
-            LOG_1("%1 is valid",_groupcount);
             private _rankshort = [rank _leader,"displayNameShort"] call BIS_fnc_rankparams;
             private _lastname = name _leader;
-            private _trackername = format["trk_%1_%2",_lastname,_leader];
+            private _trackername = format ["trk_%1_%2",_lastname,_leader];
             private _markercolour = (switch (_side) do {
                 case west: {"ColorBlue"};
                 case east: {"ColorRed"};
@@ -45,9 +40,9 @@ GVAR(MapMarkersPFH) = [{
                 case civilian: {"ColorYellow"};
                 default {"ColorBlack"};
             });
-            if (!(_trackername in GVAR(MARKERARRAY))) then {
+            if (!(_trackername in GVAR(MarkerArray))) then {
                 private _markerlead = createMarker [_trackername,[0,0]];
-                GVAR(MARKERARRAY) pushback _trackername;
+                GVAR(MarkerArray) pushback _trackername;
                 private _drawicon = switch (true) do {
                     case (_leader isKindOf "Man"): {"b_inf"};
                     case (_leader isKindOf "LandVehicle"): {"b_motor_inf"};
@@ -74,25 +69,26 @@ GVAR(MapMarkersPFH) = [{
                 case "HOLD": {false;};
                 case "FORCE HOLD": {false;};
                 case "NONE": {false;};
+                case "MANUAL": {true;};
                 case "BLD MOVE": {true;};
                 case "BLD DEFEND": {false;};
                 case "BLD SEARCH": {true;};
                 default {false};
             };
             private _usetarget = false;
-            if (_target isEqualto objnull) then {
-                _target = "No Target";
+            if (_target isEqualTo objnull) then {
+                _target = "NONE";
             } else {
                 _usetarget = true;
             };
-            private _text = format ["%1. %2 - Grpcount: %3 - Mission: %4 - CombatMode: %5 - Target: %6",_rankshort, _lastname,_groupcount,_behaviourtasking,_behaviour,_target];
-            LOG_1("MarkerText: %1",_text);
+            private _text = format ["%1. %2 - Grpcount: %3 - Area: %7 - Type: %8 - Mission: %4 - CombatMode: %5 - Target: %6",_rankshort, _lastname, _groupcount, _behaviourtasking, _behaviour, _target, _areaAssigned, _assetType];
+            //LOG_1("MarkerText: %1",_text);
             _trackername setMarkerText _text;
             if (_usedest) then {
                 private _destname = format["dest_%1_%2",_lastname,_leader];
-                if (!(_destname in GVAR(MARKERARRAY))) then {
+                if (!(_destname in GVAR(MarkerArray))) then {
                     private _markerobj = createMarker[_destname,[0,0]];
-                    GVAR(MARKERARRAY) pushback _destname;
+                    GVAR(MarkerArray) pushback _destname;
                     private _wptext = format ["%1. %2",_rankshort, _lastname];
                     _destname setMarkerShape "ICON";
                     _destname setMarkerType "mil_marker";
@@ -110,16 +106,16 @@ GVAR(MapMarkersPFH) = [{
                 };
             } else {
                 private _destname = format["dest_%1_%2",_lastname,_leader];
-                if (_destname in GVAR(MARKERARRAY)) then {
+                if (_destname in GVAR(MarkerArray)) then {
                     deletemarker _destname;
-                    GVAR(MARKERARRAY) = GVAR(MARKERARRAY) - [_destname];
+                    GVAR(MarkerArray) = GVAR(MarkerArray) - [_destname];
                 };
             };
             if (_usetarget) then {
                 private _targetname = format["target_%1_%2",_lastname,_leader];
-                if (!(_targetname in GVAR(MARKERARRAY))) then {
+                if (!(_targetname in GVAR(MarkerArray))) then {
                     private _markertarget = createMarker[_targetname,[0,0]];
-                    GVAR(MARKERARRAY) pushback _targetname;
+                    GVAR(MarkerArray) pushback _targetname;
                     private _targettext = format ["%1. %2",_rankshort, _lastname];
                     _targetname setMarkerShape "ICON";
                     _targetname setMarkerType "mil_objective";
@@ -130,9 +126,9 @@ GVAR(MapMarkersPFH) = [{
                 _targetname setMarkerPos [(getpos _target select 0),(getpos _target select 1)];
             } else {
                 private _targetname = format["target_%1_%2",_lastname,_leader];
-                if (_targetname in GVAR(MARKERARRAY)) then {
+                if (_targetname in GVAR(MarkerArray)) then {
                     deletemarker _targetname;
-                    GVAR(MARKERARRAY) = GVAR(MARKERARRAY) - [_targetname];
+                    GVAR(MarkerArray) = GVAR(MarkerArray) - [_targetname];
                 };
             };
         };

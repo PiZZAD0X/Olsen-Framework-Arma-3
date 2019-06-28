@@ -2,10 +2,6 @@
 	#include "CfgFunctions.hpp"
 #endif
 
-#ifdef description
-	#include "CfgRemoteExec.hpp"
-#endif
-
 #ifdef description_XEH_PreInit
 	#include "cfgXEH\PreInit.hpp"
 #endif

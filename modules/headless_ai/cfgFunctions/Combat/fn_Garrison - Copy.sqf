@@ -16,7 +16,7 @@ _Buildingarray = nearestObjects [_wpPos, ["House", "Building"], 100];
 if (count _Buildingarray < 1) exitwith {[_Unit, _Unit, 200] call CBA_fnc_taskPatrol;};
 
 //Lets find out if the unit is already garrisoned or not. If he is, exit the script
-_GrabVariable = _Unit getVariable ["PZAI_GARRISONED",false];
+_GrabVariable = GETVAR(_Unit,GARRISONED,false);
 
 _BuildingPositions = [];
 
@@ -54,7 +54,7 @@ _GroupUnits = units _group;
 	//_BuildingPositions = _BuildingPositions - [_BuildingLocation];
 	_BuildingLocation = _BuildingPositions select _foreachindex;
 	_x doMove _BuildingLocation;
-	_x setVariable ["PZAI_GARRISONED",true,false];
+	SETVAR(_x,GARRISONED,true);
 	[_x,_BuildingLocation,_BuildingPositions] spawn {
 		params ["_unit","_BuildingLocation","_BuildingPositions"];
 		private _group	= group _Unit;

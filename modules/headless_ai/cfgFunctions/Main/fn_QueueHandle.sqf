@@ -7,17 +7,17 @@ GVAR(UnitQueue) = [];
 GVAR(QueueHandlePFH) = [{
     if (GVAR(UnitQueue) isEqualTo []) exitwith {};
     private _ConsideringUnit = GVAR(UnitQueue) select 0;
-    private _Disabled = _ConsideringUnit getVariable ["PZAI_NOAI",false];
-    if ((typeOf _ConsideringUnit) == "HeadlessClient_F") then {
+    private _Disabled = GETVAR(_ConsideringUnit,NOAI,false);
+    if ((typeOf _ConsideringUnit) isEqualTo "HeadlessClient_F") then {
         _Disabled = true;
     };
     if ((vehicle _ConsideringUnit) isKindOf "Plane") then {
         _Disabled = true;
-        _ConsideringUnit setvariable ["PZAI_NOAI",true];
+        SETVAR(_ConsideringUnit,NOAI,true);
     };
     if (!(isNull _ConsideringUnit) && {!(_Disabled)}) then {
         private _leader = leader _ConsideringUnit;
-        if ((side _leader in GVAR(SideBasedExecution)) || (((INDEPENDENT in GVAR(SideBasedExecution)) || (RESISTANCE in GVAR(SideBasedExecution))) && (str(side _leader) isEqualto "GUER"))) then {
+        if ((side _leader in GVAR(SideBasedExecution)) || (((INDEPENDENT in GVAR(SideBasedExecution)) || (RESISTANCE in GVAR(SideBasedExecution))) && (str(side _leader) isEqualTo "GUER"))) then {
             diag_log format ["adding %1 to FSM",_ConsideringUnit];
             [_ConsideringUnit] execFSM "modules\headless_ai\cfgFunctions\FSM\AIBEHAVIORTEST.fsm";
         } else {

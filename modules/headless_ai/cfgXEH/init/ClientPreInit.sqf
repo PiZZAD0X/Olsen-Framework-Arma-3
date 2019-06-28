@@ -3,7 +3,7 @@ AI_EXEC_CHECK(CLIENTHC);
 
 LOG("HC Client Pre Init");
 
-["Headless AI", "Spawns AI locally on the HC through arrays and executes AI scripts", "PIZZADOX"] call FNC_RegisterModule;
+["Headless AI", "Spawns AI via logic sync and provides custom AI system", "PIZZADOX"] call FNC_RegisterModule;
 
 //[QGVAR(ClientEvent), {
 //

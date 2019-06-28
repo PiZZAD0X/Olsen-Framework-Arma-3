@@ -3,7 +3,7 @@ AI_EXEC_CHECK(SERVERHC);
 
 Private ["_Unit", "_NoFlanking", "_myNearestEnemy", "_GroupUnit", "_myEnemyPos", "_ResetWaypoint", "_OverWatch", "_rnd", "_dist", "_dir", "_positions", "_myPlaces", "_RandomArray", "_RandomLocation", "_index", "_waypoint0", "_waypoint1", "_waypoint2", "_index2", "_wPos", "_UnitPosition", "_x1", "_y1", "_x2", "_y2", "_Midpoint", "_group_array", "_GroupCount", "_CoverCount", "_RandomUnit","_locationPos4","_nearestHill"];
 //AI Waypoint Mock up using select best.
-params ["_group",["_PZAI_Flanking",false]];
+params ["_group",["_Flanking",false]];
 
 _Unit = leader _group;
 
@@ -11,13 +11,13 @@ _Unit = leader _group;
 //if ((count (waypoints (group _Unit))) >= 3 && !(((velocityModelSpace _Unit) select 1) isEqualTo 0) ) exitWith {};
 if ((count (waypoints (group _Unit))) >= 3) exitWith {};
 
-_WaypointCheck = _group call PZAI_fnc_Waypointcheck;
+_WaypointCheck = _group call FUNC(Waypointcheck);
 if (count _WaypointCheck > 0) exitWith {};
 
-_NoFlanking = _group getVariable ["PZAI_REINFORCE",false];
+_NoFlanking = GETVAR(_group,REINFORCE,false);
 if (_NoFlanking) exitWith {};
 
-//_myNearestEnemy = _Unit call PZAI_fnc_ClosestEnemy;
+//_myNearestEnemy = _Unit call FUNC(ClosestEnemy);
 _myNearestEnemy = _Unit findNearestEnemy _Unit;
 
 if (isNull _myNearestEnemy) exitWith
@@ -43,7 +43,7 @@ if (isNull _myNearestEnemy) exitWith
 		_waypoint2 setWaypointSpeed _speed;
 		_waypoint2 setWaypointBehaviour _Beh;
 		//_group setCurrentWaypoint [_group, _waypoint2 select 1];
-		_this spawn PZAI_fnc_FlankManeuver;
+		_this spawn FUNC(FlankManeuver);
 	};
 
 };
@@ -51,7 +51,7 @@ if (isNull _myNearestEnemy) exitWith
 
 if (isNil "_myNearestEnemy" || {(typeName _myNearestEnemy) isEqualTo "ARRAY"}) exitWith {};
 
-if (_PZAI_Flanking) exitWith {};
+if (_Flanking) exitWith {};
 
 if ((count (waypoints (group _Unit))) >= 3) exitWith {};
 
@@ -72,7 +72,7 @@ _myEnemyPos = (getposATL _myNearestEnemy);
 if (_myEnemyPos isEqualTo [0,0,0]) exitWith
 {
 	sleep 30;
-	[_Unit,_PZAI_Flanking] spawn PZAI_fnc_FlankManeuver;
+	[_Unit,_Flanking] spawn FUNC(FlankManeuver);
 };
 
 _RandomChance = random 100;
@@ -104,7 +104,7 @@ if (_RandomChance < 25) then
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//systemchat format ["%1 RAWR C",side _unit];
 sleep 0.25;
-if (_myEnemyPos isEqualTo [0,0,0]) exitWith {_PZAI_Flanking = false;[_Unit,_PZAI_Flanking] spawn PZAI_fnc_FlankManeuver;_PZAI_Flanking = true;};
+if (_myEnemyPos isEqualTo [0,0,0]) exitWith {_Flanking = false;[_Unit,_Flanking] spawn FUNC(FlankManeuver);_Flanking = true;};
 
 while {(count (waypoints _group)) > 0} do
 {

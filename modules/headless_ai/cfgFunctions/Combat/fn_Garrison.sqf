@@ -3,8 +3,8 @@ AI_EXEC_CHECK(SERVERHC);
 
 params ["_Unit","_Group","","_thisFSM"];
 
-_Group setVariable ["PZAI_Mission","GARRISON"];
-_Group setvariable ["InitialWPSet",true];
+SETVAR(_Group,Mission,"GARRISON");
+SETVAR(_Group,InitialWPSet,true);
 
 private _UnitLeader = _Unit;
 private _nBuildingLst = nearestObjects [_UnitLeader, ["House", "Building"], 50];
@@ -24,8 +24,8 @@ if ((_nBuilding distance2D _UnitLeader) > 50) exitWith {};
 
 //Find the units in the group!
 _GroupUnits = units _Group;
-_Unit setVariable ["PZAI_GARRISONED",true];
-_Group setVariable ["PZAI_GARRISONED",true];
+SETVAR(_Unit,GARRISONED,true);
+SETVAR(_Group,GARRISONED,true);
 private _WaypointIs = "HOLD";
 while {_WaypointIs isEqualTo "HOLD"} do
 {
@@ -65,5 +65,5 @@ while {_WaypointIs isEqualTo "HOLD"} do
 [_Group,_Unitleader] spawn {
 	params ["_Group","_Unitleader"];
 	waituntil {((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])};
-	[_Group] call PZAI_fnc_CombatResponse;
+	[_Group] call FUNC(CombatResponse);
 };

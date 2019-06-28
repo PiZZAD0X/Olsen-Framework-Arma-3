@@ -9,7 +9,7 @@ LOG_2("SpawnArray _Array: %1 _initial: %2",_arrayName,_initial);
 private _logic = (call compile (_arrayName));
 private _entities = (([_arrayName,GVAR(zoneEntities)] call FUNC(getDetails)) select 1);
 
-if !(_entities isEqualto []) then {
+if !(_entities isEqualTo []) then {
     if (!isMultiplayer) then {
         LOG("!isMultiplayer, createZone function executed");
         [_initial,[_logic,_entities]] call FUNC(createZone);

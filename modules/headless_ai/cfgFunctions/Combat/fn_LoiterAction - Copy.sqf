@@ -7,9 +7,9 @@ _Unit = _this select 0;
 _UnitGroup = _this select 1;
 
 
-While {_Unit getvariable ["PZAI_LOITERING",true] && alive _Unit} do
+While {GETVAR(_Unit,LOITERING,true) && alive _Unit} do
 {
-	_CurrentAction = _Unit getvariable ["PZAI_LOITERINGACT",0];
+	_CurrentAction = GETVAR(_Unit,LOITERINGACT,0);
 
 	_RandomAction = ([1,2,3,4] - [_CurrentAction]) call BIS_fnc_selectrandom;
 	switch (_RandomAction) do
@@ -18,7 +18,7 @@ While {_Unit getvariable ["PZAI_LOITERING",true] && alive _Unit} do
 			{
 				//Wander around and play random animation
 				//Get random position
-				_Unit setVariable ["PZAI_LOITERINGACT",1];
+				SETVAR(_Unit,LOITERINGACT,1);
 				_rnd = random 10;
 				_dist = (_rnd + 5);
 				_dir = random 360;
@@ -31,9 +31,9 @@ While {_Unit getvariable ["PZAI_LOITERING",true] && alive _Unit} do
 			};
 			case 2:
 			{
-				_Unit setVariable ["PZAI_LOITERINGACT",2];
-				_ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call PZAI_fnc_ClosestObject;
-				_ClosestUnit setVariable ["PZAI_LOITERINGACT",2];
+				SETVAR(_Unit,LOITERINGACT,2);
+				_ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call FUNC(ClosestObject);
+				SETVAR(_ClosestUnit,LOITERINGACT,2);
 
 				_rnd = random 10;
 				_dist = (_rnd + 5);
@@ -66,9 +66,9 @@ While {_Unit getvariable ["PZAI_LOITERING",true] && alive _Unit} do
 			};
 			case 3:
 			{
-				_Unit setVariable ["PZAI_LOITERINGACT",3];
-				_ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call PZAI_fnc_ClosestObject;
-				_ClosestUnit setVariable ["PZAI_LOITERINGACT",3];
+				SETVAR(_Unit,LOITERINGACT,3);
+				_ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call FUNC(ClosestObject);
+				SETVAR(_ClosestUnit,LOITERINGACT,3);
 
 				_rnd = random 10;
 				_dist = (_rnd + 5);
@@ -132,7 +132,7 @@ While {_Unit getvariable ["PZAI_LOITERING",true] && alive _Unit} do
 			{
 				//Wander around and sitdown
 				//Get random position
-				_Unit setVariable ["PZAI_LOITERINGACT",4];
+				SETVAR(_Unit,LOITERINGACT,4);
 				_rnd = random 10;
 				_dist = (_rnd + 5);
 				_dir = random 360;

@@ -3,7 +3,7 @@ AI_EXEC_CHECK(SERVERHC);
 
 params [
     ["_task",4,[0]],
-    ["_grp",grpNull,[grpNull]],
+    ["_group",grpNull,[grpNull]],
     ["_pos",[],[[]]],
     ["_radius",50,[0]],
     ["_wait",3,[0]],
@@ -16,10 +16,10 @@ params [
     ["_blds",[],[[]]]
 ];
 
-private _taskSet = [_grp,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
-private _taskSetBasic = [_grp,_behaviour,_combat,_speed,_formation];
-private _taskSetBld = [_bld,_grp,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
-private _taskSetBlds = [_blds,_grp,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
+private _taskSet = [_group,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
+private _taskSetBasic = [_group,_behaviour,_combat,_speed,_formation];
+private _taskSetBld = [_bld,_group,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
+private _taskSetBlds = [_blds,_group,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
 
 switch (_task) do {
     case 0: {
@@ -29,78 +29,78 @@ switch (_task) do {
         _taskSetBasic spawn FUNC(taskHoldUntil);
     };     //Hold Until
     case 2: {
-        _taskSet spawn FUNC(taskSentry);
+        _taskSet call FUNC(taskSentry);
     };                //Sentry
     case 3: {
-        _taskSetBasic spawn FUNC(taskPlacement);
+        _taskSetBasic call FUNC(taskPlacement);
     };        //Stationary
     case 4: {
-        _taskSet spawn FUNC(taskPatrol);
+        _taskSet call FUNC(taskPatrol);
     };                //Patrol
     case 5: {
-        _taskSet spawn FUNC(taskPatrolPerimeter);
+        _taskSet call FUNC(taskPatrolPerimeter);
     };    //Patrol Perimeter
     case 6: {
         switch (_occupyOption) do {
             case 2: {
-                _taskSetBld spawn FUNC(taskMoveNearestBuildingPatrol);
+                _taskSetBld call FUNC(taskMoveNearestBuildingPatrol);
             };
             case 3: {
-                _taskSetBld spawn FUNC(taskMoveRandomBuildingPatrol);
+                _taskSetBld call FUNC(taskMoveRandomBuildingPatrol);
             };
             case 4: {
-                _taskSetBlds spawn FUNC(taskMoveGroupBuildingsPatrol);
+                _taskSetBlds call FUNC(taskMoveGroupBuildingsPatrol);
             };
             case 5: {
-                _taskSetBlds spawn FUNC(taskMoveRandomGroupBuildingsPatrol);
+                _taskSetBlds call FUNC(taskMoveRandomGroupBuildingsPatrol);
             };
             case 6: {
-                _taskSetBlds spawn FUNC(taskMoveMultipleBuildingsPatrol);
+                _taskSetBlds call FUNC(taskMoveMultipleBuildingsPatrol);
             };
             case 7: {
-                _taskSetBlds spawn FUNC(taskMoveRandomMultipleBuildingsPatrol);
+                _taskSetBlds call FUNC(taskMoveRandomMultipleBuildingsPatrol);
             };
             default {
-                _taskSetBld spawn FUNC(taskMoveNearestBuildingPatrol);
+                _taskSetBld call FUNC(taskMoveNearestBuildingPatrol);
             };
         };
     };
     case 7: {
         switch (_occupyOption) do {
             case 2: {
-                _taskSetBld spawn FUNC(taskMoveNearestBuildingDefend);
+                _taskSetBld call FUNC(taskMoveNearestBuildingDefend);
             };
             case 3: {
-                _taskSetBld spawn FUNC(taskMoveRandomBuildingDefend);
+                _taskSetBld call FUNC(taskMoveRandomBuildingDefend);
             };
             case 4: {
-                _taskSetBlds spawn FUNC(taskMoveGroupBuildingsDefend);
+                _taskSetBlds call FUNC(taskMoveGroupBuildingsDefend);
             };
             case 5: {
-                _taskSetBlds spawn FUNC(taskMoveRandomGroupBuildingsDefend);
+                _taskSetBlds call FUNC(taskMoveRandomGroupBuildingsDefend);
             };
             case 6: {
-                _taskSetBlds spawn FUNC(taskMoveMultipleBuildingsDefend);
+                _taskSetBlds call FUNC(taskMoveMultipleBuildingsDefend);
             };
             case 7: {
-                _taskSetBlds spawn FUNC(taskMoveRandomMultipleBuildingsDefend);
+                _taskSetBlds call FUNC(taskMoveRandomMultipleBuildingsDefend);
             };
             default {
-                _taskSetBld spawn FUNC(taskMoveNearestBuildingDefend);
+                _taskSetBld call FUNC(taskMoveNearestBuildingDefend);
             };
         };
     };
     case 8: {
-        _taskSet spawn FUNC(TaskSetBunker);
+        _taskSet call FUNC(TaskSetBunker);
     };    //Entrenched
     case 9: {
-        _taskSet spawn {};
+        _taskSet call {};
     };    //Reinforcements
     case 10: {
-        _taskSet spawn {};
+        _taskSet call {};
     };    //NONE
     default {
-        _taskSet spawn FUNC(taskPatrol);
+        _taskSet call FUNC(taskPatrol);
     };
 };
 true

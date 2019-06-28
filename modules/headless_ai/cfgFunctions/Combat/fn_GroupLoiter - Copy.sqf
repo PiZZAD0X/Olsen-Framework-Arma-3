@@ -14,12 +14,12 @@ _UnitArray = units _Group;
 	{
 		//Each AI will need to join their own group. The plan is to make them re-form when combat starts.
 		[_x] joinsilent grpnull;
-		_x setVariable ["PZAI_LOITERING",true];
-		_x setVariable ["PZAI_LOITERINGACT",0];
-		[_x,_UnitArray] spawn PZAI_fnc_LoiterAction;
+		SETVAR(_x,LOITERING,true);
+		SETVAR(_x,LOITERINGACT,0);
+		[_x,_UnitArray] spawn FUNC(LoiterAction);
 	};
 } foreach _UnitArray;
 
 
 //This function will automatically regroup soldiers if they get more than 1 waypoint.
-[_UnitArray,side _Unitleader] spawn PZAI_fnc_ReGroup;
+[_UnitArray,side _Unitleader] spawn FUNC(ReGroup);

@@ -1,19 +1,19 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-//PZAI_fnc_CombatResponse
+//FUNC(CombatResponse)
 
 params ["_Group",["_RadioEnemy",objnull],["_reinforcement",false]];
 
 private _leader = leader _group;
-private _currentmission = _group getVariable ["PZAI_Mission","NONE"];
-if (behaviour _leader isEqualto "SAFE") then {
+private _currentmission = GETVAR(_group,Mission,"NONE");
+if (behaviour _leader isEqualTo "SAFE") then {
 	_group setbehaviour "AWARE";
 };
-private _currenttarget = _group getvariable ["PZAI_CurrentTarget",objnull];
-if (!(_RadioEnemy isEqualto objnull) && {(_currenttarget isEqualto objnull)}) then {
+private _currenttarget = GETVAR(_group,CurrentTarget,objnull);
+if (!(_RadioEnemy isEqualTo objnull) && {(_currenttarget isEqualTo objnull)}) then {
 	_currenttarget = _RadioEnemy;
-	_group setvariable ["PZAI_CurrentTarget",_RadioEnemy];
+	SETVAR(_group,CurrentTarget,_RadioEnemy);
 };
 private _enemydir = _leader getdir _currenttarget;
 private _enemydist = _leader distance _currenttarget;
@@ -25,30 +25,30 @@ switch (_currentmission) do {
 	case "DEFAULT PATROLLING": {
 			if (_enemydist < 150) then {
 				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatAttack;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatAttack);
 				} else {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 				};
 			} else {
 				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatMoveTo;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatMoveTo);
 				} else {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 				};
 			};
 		};
 	case "PATROLLING": {
 			if (_enemydist < 150) then {
 				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatAttack;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatAttack);
 				} else {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 				};
 			} else {
 				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatMoveTo;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatMoveTo);
 				} else {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 				};
 			};
 		};
@@ -56,53 +56,53 @@ switch (_currentmission) do {
 			_Group setSpeedMode "FULL";
 			{_x setUnitPos "AUTO";} foreach (units _group);
 			if (_reinforcement) then {
-				[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatAttack;
+				[_Group,_currenttarget,_enemydir] call FUNC(CombatAttack);
 			} else {
-				[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+				[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 			};
 		}; //regroups unit via a different function
 	case "IDLE": {
 			if (_enemydist < 150) then {
 				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatAttack;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatAttack);
 				} else {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 				};
 			} else {
 				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatMoveTo;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatMoveTo);
 				} else {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 				};
 			};
 		};
 	case "NONE": {
 			if (_enemydist < 150) then {
 				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatAttack;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatAttack);
 				} else {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 				};
 			} else {
 				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatMoveTo;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatMoveTo);
 				} else {
-					[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 				};
 			};
 		};
 	default {
 		if (_enemydist < 150) then {
 			if (_reinforcement) then {
-				[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatAttack;
+				[_Group,_currenttarget,_enemydir] call FUNC(CombatAttack);
 			} else {
-				[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+				[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 			};
 		} else {
 			if (_reinforcement) then {
-				[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatMoveTo;
+				[_Group,_currenttarget,_enemydir] call FUNC(CombatMoveTo);
 			} else {
-				[_Group,_currenttarget,_enemydir] call PZAI_fnc_CombatDefend;
+				[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
 			};
 		};
 	};

@@ -34,8 +34,8 @@ if ((_locationPos distance _Unit) < 500) exitWith
 	};
 
 	//Set the units variable so they dont try changing formations too frequently.
-	_PZAI_CHANGEDFORMATION = true;
-	_PZAI_CHANGEDFORMATION
+	_CHANGEDFORMATION = true;
+	_CHANGEDFORMATION
 
 };
 
@@ -54,8 +54,8 @@ if ((_locationPos2 distance _Unit) < 500) exitWith
 		_group setFormation "STAG COLUMN";
 	};
 
-		_PZAI_CHANGEDFORMATION = true;
-		_PZAI_CHANGEDFORMATION
+		_CHANGEDFORMATION = true;
+		_CHANGEDFORMATION
 
 };
 
@@ -74,8 +74,8 @@ if ((_locationPos4 distance _Unit) < 500) exitWith
 		_group setFormation "LINE";
 	};
 
-	_PZAI_CHANGEDFORMATION = true;
-	_PZAI_CHANGEDFORMATION
+	_CHANGEDFORMATION = true;
+	_CHANGEDFORMATION
 
 };
 
@@ -94,14 +94,14 @@ if ((_locationPos3 distance _Unit) < 300) exitWith
 		_group setFormation "COLUMN";
 	};
 
-	_PZAI_CHANGEDFORMATION = true;
-	_PZAI_CHANGEDFORMATION
+	_CHANGEDFORMATION = true;
+	_CHANGEDFORMATION
 };
 
 
 //Execute this code only when all the above were NOT true. Return to wedge formation
 _group setFormation "WEDGE";
 
-_PZAI_CHANGEDFORMATION = true;
+_CHANGEDFORMATION = true;
 
-_PZAI_CHANGEDFORMATION
+_CHANGEDFORMATION

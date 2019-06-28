@@ -1,7 +1,8 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-params["_arr"];
+params ["_arr"];
+
 {
     private _vehicle = _x;
     if (!(_vehicle isKindOf "Logic") && {!isNull _vehicle}) then {

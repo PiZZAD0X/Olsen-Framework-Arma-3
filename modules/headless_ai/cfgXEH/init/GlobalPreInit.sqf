@@ -5,8 +5,10 @@ LOG("HC Global Pre Init");
 
 [] call FUNC(checkifHC);
 
+//exit clients
+if (hasInterface) exitwith {};
+
 [QGVAR(PlayerShotEvent), {
-    if (hasInterface) exitwith {};
     params ["_firer","_weapon","_ammo"];
     allUnits select {
         (!isplayer _x)

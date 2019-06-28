@@ -4,18 +4,18 @@ AI_EXEC_CHECK(SERVERHC);
 //Created on ???
 // Modified on : 9/7/14 - 8/4/15  - Added a check building distance stat.
 _Unit = _this select 0;
-_PZAI_MovedRecentlyCover = _this select 1;
-_PZAI_ActivelyClearing = _this select 2;
-_PZAI_StartedInside = _this select 3;
+_MovedRecentlyCover = _this select 1;
+_ActivelyClearing = _this select 2;
+_StartedInside = _this select 3;
 
-if (_PZAI_MovedRecentlyCover || {_PZAI_ActivelyClearing} || {_PZAI_StartedInside} || {_Unit getVariable "PZAI_GARRISONED"}) exitWith {};
+if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside} || {_Unit getVariable "PZAI_GARRISONED"}) exitWith {};
 _Group = (group _Unit);
 _UnitsGroup = units _Group;
 _SpecificUnit = _UnitsGroup select 0;
 
 
 //systemchat format ["G %1",_Unit];
-_ClosestEnemy = _Unit call PZAI_fnc_ClosestEnemy;
+_ClosestEnemy = _Unit call FUNC(ClosestEnemy);
 if (isNil "_ClosestEnemy" || {_ClosestEnemy isEqualTo []}) exitWith {};
 
 _nBuilding = nearestBuilding _ClosestEnemy;

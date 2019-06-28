@@ -9,29 +9,21 @@ if (_FrameRateCheck <= GVAR(FPSFreeze)) exitWith {};
 
 _unit = (_this select 0) select 0;
 
-if (GVAR(CurrentlySuppressing) < GVAR(CurrentlySuppressingLimit)) then
-{
+if (GVAR(CurrentlySuppressing) < GVAR(CurrentlySuppressingLimit)) then {
 	GVAR(CurrentlySuppressing) = GVAR(CurrentlySuppressing) + 1;
 	_TimeShot = _unit getVariable "GVAR(FiredTime)";
-	if ((CBA_MissionTime - _TimeShot) > 25) then
-	{
+	if ((CBA_MissionTime - _TimeShot) > 25) then {
 		_unit setVariable ["GVAR(FiredTime)",CBA_MissionTime,true];
 		private _pos = cursorTarget;
-		if (isNull _pos) then
-		{
-			if (isPlayer _Unit) then
-			{
+		if (isNull _pos) then {
+			if (isPlayer _Unit) then {
 				//Remember, screenToWorld is using UI coordinates!
 				_pos = screenToWorld [0.5,0.5];
-			}
-			else
-			{
+			} else {
 				_pos = assignedTarget _Unit;
 				if (isNull _pos) then {_pos = getPosATL _Unit};
 			};
-		}
-		else
-		{
+		} else {
 			_pos = getPosATL _pos;
 		};
 
@@ -47,25 +39,21 @@ if (GVAR(CurrentlySuppressing) < GVAR(CurrentlySuppressingLimit)) then
 		{
 				_CheckDistance = (_pos distance _x);
 				private _Kn = _unit knowsAbout _x;
-				if (_CheckDistance < 4 && (_Kn > 3.5)) then
-				{
-					if (GVAR(Suppression)) then
-					{
-						if (isPlayer _x) then {remoteExec ["PSup",_x];}
-						else
-						{
-							_x setCustomAimCoef GVAR(SuppressionVar);
-							_x spawn {sleep 8; _this setCustomAimCoef 1;};
-						};
+				if (_CheckDistance < 4 && {(_Kn > 3.5)}) then {
+					if (GVAR(Suppression)) then {
+						_x setCustomAimCoef GVAR(SuppressionVar);
+						_x spawn {
+                            sleep 8; _this setCustomAimCoef 1;
+                        };
 					};
-					if (GVAR(Adrenaline)) then
-					{
+					if (GVAR(Adrenaline)) then {
 						_x setAnimSpeedCoef GVAR(AdrenalineVar);
-						_x spawn {sleep 8; _this setAnimSpeedCoef 1;};
+						_x spawn {
+                            sleep 8; _this setAnimSpeedCoef 1;
+                        };
 					};
-					if (GVAR(Debug) isEqualTo 1) then
-					{
-						[_x,"I am suppressed!",30,20000] remoteExec ["3DText",0];
+					if (GVAR(Debug)) then {
+						LOG_1("%1 is suppressed",_unit);
 					};
 
 				};

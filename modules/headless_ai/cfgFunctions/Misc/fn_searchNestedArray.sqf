@@ -2,7 +2,7 @@
 AI_EXEC_CHECK(SERVERHC);
 
 /**
-Zen_ArrayGetNestedIndex
+searchNestedArray
 
 Gets the index of the first nested array in (1) that contains (2) at index (3).  Also matches
 nested nested arrays.  Use -1 as an index wildcard, and the function will search every
@@ -14,14 +14,11 @@ Params: 1: Array, the array to search for nested arrays in
 Return: Scalar, -1 if there is no match
 */
 
-private ["_givenSearchValue", "_givenSearchArray", "_desiredIndex", "_index", "_nestedArray", "_currentIndex"];
-
-_givenSearchArray = _this select 0;
-_givenSearchValue = _this select 1;
-_desiredIndex = _this select 2;
+params ["_givenSearchArray","_givenSearchValue",["_desiredIndex",0,[0]]];
+private ["_nestedArray", "_currentIndex"];
 
 scopeName "main";
-_index = -1;
+private _index = -1;
 
 {
     _currentIndex = _forEachIndex;
@@ -40,4 +37,4 @@ _index = -1;
     };
 } forEach _givenSearchArray;
 
-(_index)
+_index

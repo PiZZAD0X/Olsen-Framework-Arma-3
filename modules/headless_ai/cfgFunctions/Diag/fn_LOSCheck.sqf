@@ -6,7 +6,7 @@ params ["_unit","_target"];
 private ["_cansee"];
 
 private _canseeReturn = false;
-private _sightLevel = _unit getVariable ["PZAI_Unit_Bunker_Sightlevel", (PZAI_Bunker_Sightlevel)];
+private _sightLevel = _unit getVariable ["PZAI_Unit_BunkerSightlevel", (PZAI_BunkerSightlevel)];
 
 private _getpos1 = getPosWorld (vehicle _unit);
 private _getposTarget = if (vehicle _target == _target) then {
@@ -14,9 +14,9 @@ private _getposTarget = if (vehicle _target == _target) then {
 } else {
     getPosWorld (vehicle _target)
 };
-private _unitdirtotarget = (vehicle _unit) getdir (vehicle _unit);
-private _aheadUnit = (vehicle _unit) getpos [10,_unitdirtotarget];
-private _eyeP1 = [_aheadUnit select 0, _aheadUnit select 1, (_getpos1 select 2) + 0.5];
+//private _unitdirtotarget = (vehicle _unit) getdir (vehicle _unit);
+//private _aheadUnit = (vehicle _unit) getpos [10,_unitdirtotarget];
+//private _eyeP1 = [_aheadUnit select 0, _aheadUnit select 1, (_getpos1 select 2) + 0.5];
 private _eyeP2 = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 0.5];
 
 if ((vehicle _unit) != _unit) then {

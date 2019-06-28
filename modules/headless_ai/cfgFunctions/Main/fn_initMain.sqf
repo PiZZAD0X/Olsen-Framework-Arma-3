@@ -1,6 +1,8 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
+#include "..\..\settings.sqf"
+
 GVAR(UnitQueue) = [];
 GVAR(ActiveList) = [];
 GVAR(TrackedUnits) = [];
@@ -8,33 +10,39 @@ GVAR(zoneEntities) = [];
 GVAR(BasicCheckCurrent) = 0;
 GVAR(LeaderExecuteCurrent) = 0;
 
-//Lets gets the queue handler going
-[] call FUNC(QueueHandle);
-[] call FUNC(ActiveHandler);
-[] call FUNC(GroupHandler);
-
-//leader/group behavior handling loop
-//[] spawn PZAI_fnc_MainLoop;
-
-#include "..\..\settings.sqf"
-
 //Gathers HC Arrays
-if (!isNil "_ArrayObjects") then {
-	LOG_1("_ArrayObjects %1",_ArrayObjects);
+if !(GVAR(ArrayObjects) isEqualTo []) then {
+	private _ArrayObjects = GVAR(ArrayObjects);
+	LOG_1("ArrayObjects %1",_ArrayObjects);
 	[{
 		params ["_ArrayObjects"];
+		LOG_1("passed ArrayObjects %1",_ArrayObjects);
 		{
 			LOG_1("Getting Array data for %1",_x);
-			private _entities = [(call compile (_x))] call PZAI_fnc_getSyncedObjects;
+			private _entities = [(call compile (_x))] call FUNC(getSyncedObjects);
 			LOG_1("_entities %1",count _entities);
 	        GVAR(zoneEntities) pushBack [_x,_entities];
 		} foreach _ArrayObjects;
 	}, [_ArrayObjects]] call CBA_fnc_execNextFrame;
 };
 
+//Lets gets the queue handler going
+[{
+	[] call FUNC(QueueHandle);
+	[] call FUNC(ActiveHandler);
+	[] call FUNC(GroupHandler);
+}, [], 2] call CBA_fnc_waitAndExecute;
+
+if (GVAR(CommanderEnabled)) then {
+	[{
+		[] call FUNC(CommanderHandler);
+	}, []] call CBA_fnc_execNextFrame;
+};
+
 //Spawns initial HC arrays
-if (!isNil "_InitialSpawn") then {
-	LOG_1("_InitialSpawn %1",_InitialSpawn);
+if !(GVAR(InitialSpawn) isEqualTo []) then {
+	private _InitialSpawn = GVAR(InitialSpawn);
+	LOG_1("InitialSpawn %1",_InitialSpawn);
 	[{
 		params ["_InitialSpawn"];
 		LOG_1("zoneEntities %1",GVAR(zoneEntities));
@@ -55,10 +63,10 @@ if (GVAR(UseMarkers)) then {
 };
 
 //ForceTime
-if !(hasInterface) then {
-	setViewDistance GVAR(HCviewdistance);
+if (!(hasInterface) && {!(isServer)}) then {
+	setViewDistance GVAR(AIViewDistance);
 	setTerrainGrid 50;
-	if !(isNil QGVAR(ForceTime)) then {
+	if (GVAR(ForceTimeEnable)) then {
 		private _forcedDate = [date select 0, date select 1, date select 2, GVAR(ForceTime) select 0, GVAR(ForceTime) select 1];
 		GVAR(TimeHandlePFH) = [{
 			params ["_argNested", "_idPFH"];

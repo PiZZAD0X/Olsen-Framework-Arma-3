@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-private ["_dgn_returnvariable", "_Position", "_Array","_PZAI_StartedInside"];
+private ["_dgn_returnvariable", "_Position", "_Array","_StartedInside"];
 
 _dgn_returnvariable = false;
 
@@ -18,13 +18,13 @@ _Array = lineIntersectsObjs [_Position,[_Position select 0,_Position select 1,(_
 
 if (_dgn_returnvariable) then
 {
-	_PZAI_StartedInside = true;
-	_this setvariable ["PZAI_StartedInside",true];
+	_StartedInside = true;
+	SETVAR(_this,StartedInside,true);
 }
 else
 {
-	_PZAI_StartedInside = false;
+	_StartedInside = false;
 };
 
 
-_PZAI_StartedInside
+_StartedInside

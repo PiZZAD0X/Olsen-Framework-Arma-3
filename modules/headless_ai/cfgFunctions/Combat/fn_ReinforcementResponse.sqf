@@ -11,14 +11,14 @@ private _groupQRF = _group getVariable ["PZAI_Group_QRF", false];
 private _groupReinforcementDistance = if (_groupQRF) then {
     _group getVariable ["PZAI_Group_QRF_Distance", (PZAI_QRF_Distance)];
 } else {
-    _group getVariable ["PZAI_Group_Reinforce_Distance", (PZAI_Reinforce_Distance)];
+    _group getVariable ["PZAI_Group_ReinforceDistance", (PZAI_ReinforceDistance)];
 };
 private _distance = (leader _group) distance2d _enemycaller;
 
 if (!(_groupReinforcement) && {!(_groupQRF)}) exitwith {false};
 if (_distance > _groupReinforcementDistance) exitwith {false};
 
-private _currenttarget = _group getvariable ["PZAI_CurrentTarget",objnull];
+private _currenttarget = GETVAR(_group,CurrentTarget,objnull);
 private _currenttargetDist = (leader _group) distance2d _currenttarget;
 
 if (isNull _currenttarget) exitwith {

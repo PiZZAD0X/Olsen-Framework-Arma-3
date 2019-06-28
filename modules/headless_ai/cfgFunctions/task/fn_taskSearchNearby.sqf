@@ -5,11 +5,10 @@ params ["_group"];
 
 private _leader = leader _group;
 private _buildings = nearestObjects [_leader, ["House", "Building"], 50, true];
-if (_buildings isEqualto []) exitWith {};
+if (_buildings isEqualTo []) exitWith {};
 private _screenedBuildings = _buildings select {(count ([_x] call BIS_fnc_buildingPositions)) >= 2};
-if (_screenedBuildings isEqualto []) exitWith {};
+if (_screenedBuildings isEqualTo []) exitWith {};
 private _building = selectRandom _screenedBuildings;
-if !(local _group) exitWith {};
 _group = _group call CBA_fnc_getGroup;
 if !(local _group) exitWith {}; // Don't create waypoints on each machine
 
@@ -19,14 +18,14 @@ private _otask = _group getvariable [QGVAR(Mission),"NONE"];
     params ["_group","_building","_otask"];
     private _leader = leader _group;
 
-        {_x forcespeed -1; _x enableAI "Path";} foreach units _group;
-        _group setvariable ["InitialWPSet",true];
+        SETVAR(_Group,InitialWPSet,true);
         _group setVariable [QGVAR(Mission),"BLD SEARCH"];
+        [_group] call FUNC(taskForceSpeed);
 
     // Add a waypoint to regroup after the search
     _group lockWP true;
     private _wp = _group addWaypoint [getPos _leader, 0, currentWaypoint _group];
-    private _cond = "({unitReady _x || !(alive _x)} count thisList) isEqualto count thisList";
+    private _cond = "({unitReady _x || !(alive _x)} count thisList) isEqualTo count thisList";
     private _comp = format ["this setFormation '%1'; this setBehaviour '%2'; deleteWaypoint [group this, currentWaypoint (group this)];",(formation _group),(behaviour _leader)];
     _wp setWaypointStatements [_cond,_comp];
 

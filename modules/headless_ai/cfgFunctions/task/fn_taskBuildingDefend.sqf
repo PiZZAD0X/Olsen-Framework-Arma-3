@@ -3,15 +3,13 @@ AI_EXEC_CHECK(SERVERHC);
 
 params ["_unit",["_bld",objNull,[objNull]],["_bldPos",[],[[]]],["_wpWait",5,[0]],["_uSet",[],[[]]],["_sec",[],[[]]],["_error",false,[false]],["_m",0,[0]],"_i"];
 _uSet params [["_behave","safe",[""]],["_combat","red",[""]],["_speed","limited",[""]],["_formation","wedge",[""]]];
-if (isNull _bld || _bldPos isEqualto []) then {
+if (isNull _bld || _bldPos isEqualTo []) then {
     if (isNull _bld) then {
         _bld = [(getposATL _unit),100,false] call FUNC(getNearestBuilding);
     };
     _bldPos = _bld buildingPos -1;
 };
 if (isNull _bld) then {_error = true};
-_unit enableAI "Path";
-_unit forcespeed -1;
 _unit setBehaviour _behave;
 _unit setCombatMode _combat;
 _unit setSpeedMode _speed;
@@ -29,6 +27,8 @@ while {alive _unit && !_error && ((getPosATL _unit) distance _pos) > 2 && (_unit
 };
 doStop _unit;
 _unit disableAI "Path";
-(group _unit) setvariable ["InitialWPSet",true];
-(group _unit) setVariable [QGVAR(Mission),"BLD DEFEND"];
+private _group = (group _unit);
+SETVAR(_group,InitialWPSet,true);
+SETVAR(_group,Mission,"BLD DEFEND");
+[_group] call FUNC(taskForceSpeed);
 true

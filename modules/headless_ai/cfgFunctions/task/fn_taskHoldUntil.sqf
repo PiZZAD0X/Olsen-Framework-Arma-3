@@ -2,7 +2,7 @@
 AI_EXEC_CHECK(SERVERHC);
 
 params [
-    "_grp",
+    "_group",
     "_pos",
     ["_radius",30,[0]],
     ["_wait",3,[0]],
@@ -15,19 +15,19 @@ params [
     ["_compradius",0,[0]],
     ["_wpcount",10,[0]]
 ];
-{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 
-_grp call CBA_fnc_clearWaypoints;
-_grp setBehaviour _behave;
-_grp setCombatMode _combat;
-_grp setSpeedMode _speed;
-_grp setFormation _formation;
-private _units = units _grp;
+_group call CBA_fnc_clearWaypoints;
+_group setBehaviour _behave;
+_group setCombatMode _combat;
+_group setSpeedMode _speed;
+_group setFormation _formation;
+private _units = units _group;
 for "_i" from 0 to (count _units) do {
     private _u = _units select _i;
     _u doWatch ((getPosATL _u) vectorAdd((vectorDir _u) vectorMultiply 100));
     doStop _u;
 };
-_grp setvariable ["InitialWPSet",true];
-_grp setVariable [QGVAR(Mission),"HOLD"];
+SETVAR(_Group,InitialWPSet,true);
+_group setVariable [QGVAR(Mission),"HOLD"];
+[_group] call FUNC(taskForceSpeed);
 true

@@ -46,7 +46,7 @@ private _Vehicle = (vehicle _Driver);
 					//_x leaveVehicle _Vehicle;
 					unassignVehicle _U;
 					sleep 1;
-					//[_x,false,false,false,false] spawn PZAI_fnc_MoveToCover;
+					//[_x,false,false,false,false] spawn FUNC(MoveToCover);
 					if (GVAR(Debug)) then
 					{
 						[_U,"Disembark! Scatter!",30,20000] remoteExec ["3DText",0];
@@ -58,7 +58,7 @@ private _Vehicle = (vehicle _Driver);
 							_waypoint2 setWaypointSpeed "NORMAL";
 							_waypoint2 setWaypointBehaviour "AWARE";
 					};
-					[_U,false,false,false,false] spawn PZAI_fnc_MoveToCover;
+					[_U,false,false,false,false] spawn FUNC(MoveToCover);
 				} foreach _CargoList;
 				_Driver enableAI "AUTOTARGET";
 				_Driver enableAI "TARGET";
@@ -87,7 +87,7 @@ private _Vehicle = (vehicle _Driver);
 						//_x leaveVehicle _Vehicle;
 						unassignVehicle _U;
 						sleep 1;
-						//[_x,false,false,false,false] spawn PZAI_fnc_MoveToCover;
+						//[_x,false,false,false,false] spawn FUNC(MoveToCover);
 						if (GVAR(Debug)) then
 						{
 							[_U,"Disembark! Scatter!",30,20000] remoteExec ["3DText",0];
@@ -99,7 +99,7 @@ private _Vehicle = (vehicle _Driver);
 								_waypoint2 setWaypointSpeed "NORMAL";
 								_waypoint2 setWaypointBehaviour "AWARE";
 						};
-						[_U,false,false,false,false] spawn PZAI_fnc_MoveToCover;
+						[_U,false,false,false,false] spawn FUNC(MoveToCover);
 					} foreach _CargoList;
 					_Driver enableAI "AUTOTARGET";
 					_Driver enableAI "TARGET";
@@ -115,7 +115,7 @@ private _Vehicle = (vehicle _Driver);
 
 		if ((count (units _UnitGroup)) > 1) then
 		{
-				[_Driver,false,false,(_Driver getvariable ["PZAI_StartedInside",false]),false] spawn PZAI_fnc_FlankManeuver;
+				[_Driver,false,false,(GETVAR(_Driver,StartedInside,false)),false] spawn FUNC(FlankManeuver);
 
 
 			_GroupLeader = leader _Driver;

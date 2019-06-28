@@ -9,7 +9,7 @@ _blds = [_spos,_taskRadius,_occupyOption,(count _grpMem)] call FUNC(getBuildingL
 _blds params [["_bld",[],[[]]],["_bldPos",[],[[]]]];
 private _ngrp = createGroup _side;
 {
-    if !(_bld isEqualto []) then {
+    if !(_bld isEqualTo []) then {
         private _setBldPos = [_occupyOption,_foreachIndex,_bld,_bldPos] call FUNC(setBuildingPos);
         _setBldPos params [["_hpos",[],[[]]]];
         _spos = _hpos;
@@ -38,7 +38,7 @@ if (!(_tasks isEqualTo []) && {_taskTimer isEqualTo 0}) then {
         {_x setvariable[QGVAR(Occupy),true]} forEach (units _ngrp);
         _ngrp setVariable[QGVAR(CurrentTaskEndTime),(CBA_MissionTime + _taskTimer)];
         private _passarray = [_task,_ngrp,_spos,_taskRadius,_wait,_behave,_combat,_speed,_formation];
-        [{!((count waypoints (_this select 1)) isEqualto 0)},{
+        [{!((count waypoints (_this select 1)) isEqualTo 0)},{
             _this call FUNC(taskAssign);
         },_passarray] call CBA_fnc_waitUntilAndExecute;
     };

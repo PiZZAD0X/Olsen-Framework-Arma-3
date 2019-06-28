@@ -3,20 +3,20 @@ AI_EXEC_CHECK(SERVERHC);
 
 private ["_Unit", "_TargetPosition", "_unit", "_NewPosition", "_Accuracy", "_Shake", "_Speed", "_SpotTime", "_SpotDistance", "_RankReturn"];
 
-params ["_Unit","_PZAI_DiagLastCheck","_TargetPosition"];
+params ["_Unit","_DiagLastCheck","_TargetPosition"];
 
-_PZAI_DiagLastCheck = CBA_MissionTime;
+_DiagLastCheck = CBA_MissionTime;
 if (_TargetPosition isEqualTo [0,0,0]) then
 {
 	//_target = assignedTarget _unit;
-	private _target = _Unit call PZAI_fnc_ClosestEnemy;
+	private _target = _Unit call FUNC(ClosestEnemy);
 	if (_target isEqualTo [0,0,0]) exitwith {};
 	_TargetPosition = getpos _target;
 }
 else
 {
 	//_target = assignedTarget _unit;
-	private _target = _Unit call PZAI_fnc_ClosestEnemy;if (_target isEqualTo [0,0,0]) exitwith {};
+	private _target = _Unit call FUNC(ClosestEnemy);if (_target isEqualTo [0,0,0]) exitwith {};
 	_NewPosition = getpos _Target;
 
 
@@ -85,6 +85,6 @@ else
 	_TargetPosition = _NewPosition;
 };
 
-private _ReturnedArray = [_PZAI_DiagLastCheck,_TargetPosition];
+private _ReturnedArray = [_DiagLastCheck,_TargetPosition];
 
 _ReturnedArray

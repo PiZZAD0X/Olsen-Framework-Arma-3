@@ -5,13 +5,13 @@ private ["_Unit", "_MovePosition", "_NearestEnemy", "_TypeListFinal", "_TypeList
 
 _Unit = _this select 0;
 _MovePos = _this select 1;
-_PZAI_GARRISONED = _this select 2;
-_PZAI_MovedRecentlyCover = _this select 3;
-_PZAI_ActivelyClearing = _this select 4;
-_PZAI_StartedInside = _this select 5;
+_GARRISONED = _this select 2;
+_MovedRecentlyCover = _this select 3;
+_ActivelyClearing = _this select 4;
+_StartedInside = _this select 5;
 _NearestEnemy = _this select 6;
 
-if (_PZAI_MovedRecentlyCover || {_PZAI_ActivelyClearing} || {_PZAI_StartedInside} || {_PZAI_GARRISONED}) exitWith {};
+if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside} || {_GARRISONED}) exitWith {};
 
 
 //systemchat format ["E %1",_Unit];
@@ -55,7 +55,7 @@ _Roads = _MovePosition nearRoads 30;
 
 
 if (_TypeListFinal isEqualTo [] && _WeakListFinal isEqualTo []) exitWith {};
-//_ClosestCover = [_TypeListFinal,_this] call PZAI_fnc_ClosestObject;
+//_ClosestCover = [_TypeListFinal,_this] call FUNC(ClosestObject);
 if !(_TypeListFinal isEqualTo []) then {_ClosestCover = _TypeListFinal call BIS_fnc_selectRandom;} else {_ClosestCover = _WeakListFinal call BIS_fnc_selectRandom;};
 
 

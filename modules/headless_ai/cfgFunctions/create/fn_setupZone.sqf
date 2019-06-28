@@ -38,7 +38,7 @@ if (_initial) then {
     _entities = (([_logic,GVAR(zoneEntities)] call FUNC(getDetails)) select 1);
 };
 LOG_2("_logic: %1 _entities: %2",_logic,_entities);
-if !(_entities isEqualto []) then {
+if !(_entities isEqualTo []) then {
     if (!isMultiplayer) then {
         LOG("!isMultiplayer, createZone function executed");
         [[_logic,_entities,_delay,_code],_initial] call FUNC(createZone);
@@ -63,7 +63,7 @@ private _syncedRespawn = ([_logic,[QGVAR(RespawnModule)]] call FUNC(getSyncedMod
 private _syncedPosition = ([_logic,[QGVAR(PositionModule)]] call FUNC(getSyncedModules));
 private _syncedTemplate= ([_logic,[QGVAR(TemplateModule)]] call FUNC(getSyncedModules));
 
-if !(_syncedPosition isEqualto []) then {
+if !(_syncedPosition isEqualTo []) then {
     LOG_2("_logic: %1 position getSyncedModules: %2",_logic,_syncedPosition);
     {
         if !(_syncedTemplate isEqualTo []) then {
@@ -81,7 +81,7 @@ if !(_syncedPosition isEqualto []) then {
 //        [(_tempModules select _t),((_tempModules select _t) getVariable QGVAR(Template)),_delay,{}] spawn FUNC(createZone);
 //    };
 //};
-if !(_syncedRespawn isEqualto []) then {
+if !(_syncedRespawn isEqualTo []) then {
     LOG_2("_logic: %1 respawn getSyncedModules: %2",_logic,_syncedRespawn);
     {
         _x spawn FUNC(setRespawn);

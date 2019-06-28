@@ -1,10 +1,10 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-private ["_Unit", "_RandomChance", "_myNearestEnemy", "_PZAI_GRENADETHROWN", "_CheckDistance", "_DirectionSet", "_Directionset"];
+private ["_Unit", "_RandomChance", "_myNearestEnemy", "_GRENADETHROWN", "_CheckDistance", "_DirectionSet", "_Directionset"];
 
 _Unit = _this select 0;
-_PZAI_GRENADETHROWN = _this select 1;
+_GRENADETHROWN = _this select 1;
 
 _RandomChance = (round (random 100));
 
@@ -13,11 +13,11 @@ if (_RandomChance > PZAI_GRENADECHANCE) exitwith {};
 if (isNil "_Unit" || {isNull _Unit}) exitWith {};
 
 //systemchat format ["K %1",_Array1];
-_myNearestEnemy = _Unit call PZAI_fnc_ClosestEnemy;
+_myNearestEnemy = _Unit call FUNC(ClosestEnemy);
 if (isNil "_myNearestEnemy") exitWith {};
 if (typeName _myNearestEnemy isEqualTo "ARRAY") exitWith {};
 
-if !(_PZAI_GRENADETHROWN) then {
+if !(_GRENADETHROWN) then {
 	_CheckDistance = (_Unit distance _myNearestEnemy);
 	//private _cansee = [_Unit, "VIEW"] checkVisibility [eyePos _Unit, eyePos _myNearestEnemy];
 

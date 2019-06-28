@@ -6,7 +6,7 @@ private _objectInit = (GETVAR(_obj,AI_unitInit,""));
 if (typename _objectInit isEqualTo "STRING") then {_objectInit = compile _objectInit;};
 if (_pos isEqualTo []) then {_pos = (getposATL _obj)};
 [typeOf _obj,
-_pos,
+getpos _obj,
 vectorDir _obj,
 vectorUp _obj,
 damage _obj,

@@ -3,21 +3,27 @@
 class PZAI {
 	tag = "PZAI";
 
+	CFGFUNCFOLDER(PZAI,Commander);
+		CFGFUNC(PZAI,assignToArea);
+	CFGFUNCFOLDEREND;
+
 	CFGFUNCFOLDER(PZAI,Main);
 		CFGFUNC(PZAI,ActiveHandler);
 		CFGFUNC(PZAI,GroupHandler);
 		CFGFUNC(PZAI,initMain);
 		CFGFUNC(PZAI,MapMarkers);
+		CFGFUNC(PZAI,CommanderHandler);
 		CFGFUNC(PZAI,QueueHandle);
-		CFGFUNC(PZAI,checkifHC);
 	CFGFUNCFOLDEREND;
 
 	CFGFUNCFOLDER(PZAI,Misc);
+		CFGFUNC(PZAI,checkifHC);
 		CFGFUNC(PZAI,playerInit);
 		CFGFUNC(PZAI,setunitskill);
 		CFGFUNC(PZAI,UnitInit);
 		CFGFUNC(PZAI,SetInit);
 		CFGFUNC(PZAI,deleteVehicles);
+		CFGFUNC(PZAI,searchNestedArray);
 	CFGFUNCFOLDEREND;
 
 	CFGFUNCFOLDER(PZAI,Eventhandlers);
@@ -41,11 +47,9 @@ class PZAI {
 	CFGFUNCFOLDEREND;
 
 	CFGFUNCFOLDER(PZAI,Diag);
-		CFGFUNC(PZAI,AIHit);
 		CFGFUNC(PZAI,AttachPosition);
 		CFGFUNC(PZAI,BuildingCheck);
 		CFGFUNC(PZAI,BuildingSpawnCheck);
-		CFGFUNC(PZAI,CheckStatic);
 		CFGFUNC(PZAI,Classvehicle);
 		CFGFUNC(PZAI,ClosestEnemy);
 		CFGFUNC(PZAI,ClosestObject);
@@ -55,10 +59,7 @@ class PZAI {
 		CFGFUNC(PZAI,HasRadioGroup);
 		CFGFUNC(PZAI,IRCheck);
 		CFGFUNC(PZAI,LOSCheck);
-		CFGFUNC(PZAI,NearEnemies);
-		CFGFUNC(PZAI,searchNestedArray);
 		CFGFUNC(PZAI,StanceModifier);
-		CFGFUNC(PZAI,SuppressedEffect);
 		CFGFUNC(PZAI,UnitCheck);
 		CFGFUNC(PZAI,VehicleHandle);
 		CFGFUNC(PZAI,Waypointcheck);
@@ -177,6 +178,7 @@ class PZAI {
 	    CFGFUNC(PZAI,taskLoiter);
 	    CFGFUNC(PZAI,taskHoldUntil);
 	    CFGFUNC(PZAI,taskInit);
+	    CFGFUNC(PZAI,taskForceSpeed);
 	    CFGFUNC(PZAI,taskBuildingPatrol);
 	    CFGFUNC(PZAI,taskBuildingDefend);
 	    CFGFUNC(PZAI,taskMonitor);

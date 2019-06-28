@@ -4,10 +4,10 @@ AI_EXEC_CHECK(SERVERHC);
 {
     private _task = _x;
     {
-        private _grp = _x;
-        _grp setVariable[QGVAR(isNotZoneActivated),false];
-        _grp setVariable[QGVAR(CurrentTaskEndTime),CBA_missionTime - 1];
-        [_grp,_task] call FUNC(taskSet);
+        private _group = _x;
+        _group setVariable[QGVAR(isNotZoneActivated),false];
+        _group setVariable[QGVAR(CurrentTaskEndTime),CBA_missionTime - 1];
+        [_group,_task] call FUNC(taskSet);
     } forEach (_task getVariable [QGVAR(taskGroups), []]);
 } forEach _this;
 true

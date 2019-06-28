@@ -39,7 +39,7 @@ if (_TC < _AL) then {
 			if (isNil "_mags") then {_mags = [];};
 			{
 				if (_x isEqualTo _CM) exitwith {
-					[_this,_Unit] spawn PZAI_fnc_RearmGo;
+					[_this,_Unit] spawn FUNC(RearmGo);
 					_Stop = true;
 				};
 			} foreach _mags;

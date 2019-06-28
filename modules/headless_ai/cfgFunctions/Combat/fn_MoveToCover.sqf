@@ -10,21 +10,21 @@ waitUntil {PZAI_CurrentlyMoving < PZAI_CurrentlyMovingLimit};
 
 	PZAI_CurrentlyMoving = PZAI_CurrentlyMoving + 1;
 
-	_PZAI_MovedRecentlyCover = _this select 1;
-	_PZAI_GRENADETHROWN = _this select 2;
-	_PZAI_InCover = _this select 3;
-	_PZAI_StartedInside = _this select 4;
+	_MovedRecentlyCover = _this select 1;
+	_GRENADETHROWN = _this select 2;
+	_InCover = _this select 3;
+	_StartedInside = _this select 4;
 
 	//Let's find the nearest enemy to his unit.
-	_NearestEnemy = _Unit call PZAI_fnc_ClosestEnemy;
+	_NearestEnemy = _Unit call FUNC(ClosestEnemy);
 	_DistanceCheck = _NearestEnemy distance _Unit;
 	if (isNil "_NearestEnemy" || {(typeName _NearestEnemy isEqualTo "ARRAY")} || {isNil "_Unit"} || {!(alive _NearestEnemy)} || {(_DistanceCheck) > 2000}) exitWith {_Unit forcespeed -1;PZAI_CurrentlyMoving = PZAI_CurrentlyMoving - 1;};
 
 
 
 	_MoveToPos = (getpos _Unit);
-	_PZAI_GARRISONED = _Unit getVariable ["PZAI_GARRISONED",false];
-	_CoverPos = [_Unit,_MoveToPos,_PZAI_GARRISONED,_PZAI_MovedRecentlyCover,false,_PZAI_StartedInside,_NearestEnemy] call PZAI_fnc_FindCoverPos;
+	_GARRISONED = GETVAR(_Unit,GARRISONED,false);
+	_CoverPos = [_Unit,_MoveToPos,_GARRISONED,_MovedRecentlyCover,false,_StartedInside,_NearestEnemy] call FUNC(FindCoverPos);
 
 	if !(isNil "_CoverPos") then
 	{

@@ -28,7 +28,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 		_unit doMove _pos;
 		Waituntil {sleep 4; unitReady _unit;};
 	};
-	_CurrentAction = _unit  getvariable ["PZAI_LOITERINGACT",0];
+	_CurrentAction = _unit GETVAR(,LOITERINGACT,0);
 	if (((behaviour _unit) == "COMBAT") || ((behaviour _unit) == "AWARE") || ((behaviour _unit) == "STEALTH")) then {  breakOut "SAFE_Loop1";};
 	_RandomAction = selectRandom ([1,3,4] - [_CurrentAction]);
 	switch (_RandomAction) do {
@@ -36,7 +36,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 		{
 			//Wander around and play random animation
 			//Get random position
-			_unit  setVariable ["PZAI_LOITERINGACT", 1];
+			SETVAR(_unit,LoiteringAct,1);
 			_rnd = random 10;
 			_dist = (_rnd + 5);
 			_dir = random 360;
@@ -63,9 +63,9 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 		case 3:
 		{
 			if (!(alive _unit ))exitWith {};
-			_unit  setVariable ["PZAI_LOITERINGACT",3];
-			_ClosestUnit = [(_UnitGroup - [_unit ]),_unit ] call PZAI_fnc_ClosestObject;
-			_ClosestUnit setVariable ["PZAI_LOITERINGACT",3];
+			SETVAR(_unit,LOITERINGACT,3);
+			_ClosestUnit = [(_UnitGroup - [_unit ]),_unit ] call FUNC(ClosestObject);
+			SETVAR(_ClosestUnit,LOITERINGACT,3);
 			if (((behaviour _unit) == "COMBAT") || ((behaviour _unit) == "AWARE") || ((behaviour _unit) == "STEALTH")) then {  breakOut "SAFE_Loop1";};
 			_rnd = random 10;
 			_dist = (_rnd + 5);
@@ -126,7 +126,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 		{
 			//Wander around and sitdown
 			//Get random position
-			_unit  setVariable ["PZAI_LOITERINGACT",4];
+			SETVAR(_unit,LOITERINGACT,4);
 			_rnd = random 10;
 			_dist = (_rnd + 5);
 			_dir = random 360;

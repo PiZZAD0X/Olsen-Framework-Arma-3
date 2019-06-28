@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-//PZAI_fnc_CombatMoveTo
+//FUNC(CombatMoveTo)
 
 params ["_Group","_currenttarget","_enemydir"];
 
@@ -12,15 +12,15 @@ if ((random 2) > 1) then {_group setformation "LINE";} else {_group setformation
 _group setformdir _enemydir;
 
 [_Group] call CBA_fnc_clearWaypoints;
-_Group setvariable ["PZAI_Mission","ATTACK"];
+SETVAR(_Group,Mission,"ATTACK");
 [_group, _position, _radius, "SAD", "AWARE", "RED"] call CBA_fnc_addWaypoint;
 
-//_NoFlanking = _Group getVariable ["PZAI_REINFORCE",false];
+//_NoFlanking = GETVAR(_Group,REINFORCE,false);
 //if (_NoFlanking) then {
 //	[_Group] call CBA_fnc_clearWaypoints;
-//	_Group setvariable ["PZAI_Mission","ATTACK"];
+//	SETVAR(_Group,Mission,"ATTACK");
 //	[_group, _position, _radius, "SAD", "COMBAT", "RED"] call CBA_fnc_addWaypoint;
 //} else {
-//	_Group setvariable ["PZAI_Mission","FLANK"];
-//	[_Group,false] spawn PZAI_fnc_FlankManeuver;
+//	SETVAR(_Group,Mission,"FLANK");
+//	[_Group,false] spawn FUNC(FlankManeuver);
 //};

@@ -1,25 +1,25 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-private ["_Unit", "_index", "_wPos", "_NearestEnemy", "_unit","_GuessLocation","_PZAI_MovedRecently","_PZAI_MovedRecentlyCover","_PZAI_InCover","_ReturnVariable"];
+private ["_Unit", "_index", "_wPos", "_NearestEnemy", "_unit","_GuessLocation","_MovedRecently","_MovedRecentlyCover","_InCover","_ReturnVariable"];
 _Unit = _this select 0;
-//systemchat format ["%1",((group _Unit) call PZAI_fnc_Waypointcheck)];
-//if ((count ((group _Unit) call PZAI_fnc_Waypointcheck)) > 0) exitwith {};
+//systemchat format ["%1",((group _Unit) call FUNC(Waypointcheck))];
+//if ((count ((group _Unit) call FUNC(Waypointcheck))) > 0) exitwith {};
 if (PZAI_CurrentlyMoving < PZAI_CurrentlyMovingLimit) then
 {
-	_PZAI_GARRISONED = _this select 1;
-	_PZAI_MovedRecently = _this select 2;
-	_PZAI_MovedRecentlyCover = _this select 3;
-	_PZAI_InCover = _this select 4;
-	_PZAI_VisuallyCanSee = _this select 5;
-	_PZAI_ActivelyClearing = _this select 6;
-	_PZAI_StartedInside = _this select 7;
-	_FiredRecently = _unit getVariable ["PZAI_FiredTime",CBA_MissionTime];
+	_GARRISONED = _this select 1;
+	_MovedRecently = _this select 2;
+	_MovedRecentlyCover = _this select 3;
+	_InCover = _this select 4;
+	_VisuallyCanSee = _this select 5;
+	_ActivelyClearing = _this select 6;
+	_StartedInside = _this select 7;
+	_FiredRecently = GETVAR(_unit,FiredTime,CBA_MissionTime);
 
 	//systemchat "EXECUTED COMBAT MOVEMENT!";
 	//systemchat format ["%1",(CBA_MissionTime - _FiredRecently)];
 
-	if (_PZAI_MovedRecentlyCover || {(CBA_MissionTime - _FiredRecently) < 3} || {_PZAI_VisuallyCanSee} || {_PZAI_ActivelyClearing} || {_PZAI_StartedInside} || {_PZAI_GARRISONED} || {_PZAI_MovedRecently}) exitWith {_ReturnVariable = [false,false,false];PZAI_CurrentlyMoving = PZAI_CurrentlyMoving - 1;_ReturnVariable};
+	if (_MovedRecentlyCover || {(CBA_MissionTime - _FiredRecently) < 3} || {_VisuallyCanSee} || {_ActivelyClearing} || {_StartedInside} || {_GARRISONED} || {_MovedRecently}) exitWith {_ReturnVariable = [false,false,false];PZAI_CurrentlyMoving = PZAI_CurrentlyMoving - 1;_ReturnVariable};
 	_Squadlead = leader _Unit;
 
 	if (_Squadlead distance _Unit > 60) then
@@ -40,15 +40,15 @@ if (PZAI_CurrentlyMoving < PZAI_CurrentlyMovingLimit) then
 			if (_Unit isEqualTo (leader _Unit)) then
 			{
 				_GroupDudes = units (group _Unit);
-				_NearestEnemy = _Unit call PZAI_fnc_ClosestEnemy;
+				_NearestEnemy = _Unit call FUNC(ClosestEnemy);
 				if (isNil "_NearestEnemy" || _NearestEnemy isEqualTo [0,0,0]) then {_NearestEnemy = _WPPosition;};
 				//systemchat format ["_NearestEnemy: %1",_NearestEnemy];
-				_PZAI_MovedRecentlyRETURN = true;
-				_PZAI_MovedRecentlyCoverRETURN = true;
-				_PZAI_InCoverRETURN = true;
-				_ReturnVariable = [_PZAI_MovedRecentlyRETURN,_PZAI_MovedRecentlyCoverRETURN,_PZAI_InCoverRETURN];
+				_MovedRecentlyRETURN = true;
+				_MovedRecentlyCoverRETURN = true;
+				_InCoverRETURN = true;
+				_ReturnVariable = [_MovedRecentlyRETURN,_MovedRecentlyCoverRETURN,_InCoverRETURN];
 				{
-					[_x,_WPPosition,_PZAI_GARRISONED,_PZAI_MovedRecentlyCover,_PZAI_ActivelyClearing,_PZAI_StartedInside,_NearestEnemy] spawn
+					[_x,_WPPosition,_GARRISONED,_MovedRecentlyCover,_ActivelyClearing,_StartedInside,_NearestEnemy] spawn
 					{
 						_Unit = _this select 0;
 						if !((vehicle _Unit) isEqualTo _Unit) exitWith {};
@@ -56,21 +56,21 @@ if (PZAI_CurrentlyMoving < PZAI_CurrentlyMovingLimit) then
 						PZAI_CurrentlyMoving = PZAI_CurrentlyMoving + 1;
 						sleep (random 10);
 						_Pos = _this select 1;
-						_PZAI_GARRISONED = _this select 2;
-						_PZAI_MovedRecentlyCover = _this select 3;
-						_PZAI_ActivelyClearing = _this select 4;
-						_PZAI_StartedInside = _this select 5;
+						_GARRISONED = _this select 2;
+						_MovedRecentlyCover = _this select 3;
+						_ActivelyClearing = _this select 4;
+						_StartedInside = _this select 5;
 						_NearestEnemy = _this select 6;
 
 
-						_MoveToPos = [_Unit,_Pos,_NearestEnemy] call PZAI_fnc_FragmentMove;
+						_MoveToPos = [_Unit,_Pos,_NearestEnemy] call FUNC(FragmentMove);
 						//systemchat format ["_MoveToPos: %1",_MoveToPos];
 						if !((vehicle _Unit) isEqualTo _Unit) exitWith
 						{
 							_Unit forceSpeed -1;
 							_Unit doMove _Pos;
 						};
-						_CoverPos = [_Unit,_MoveToPos,_PZAI_GARRISONED,_PZAI_MovedRecentlyCover,_PZAI_ActivelyClearing,_PZAI_StartedInside,_NearestEnemy] call PZAI_fnc_FindCoverPos;
+						_CoverPos = [_Unit,_MoveToPos,_GARRISONED,_MovedRecentlyCover,_ActivelyClearing,_StartedInside,_NearestEnemy] call FUNC(FindCoverPos);
 						//systemchat format ["_CoverPos: %1",_CoverPos];
 
 						if !(isNil "_CoverPos") then
@@ -124,18 +124,18 @@ if (PZAI_CurrentlyMoving < PZAI_CurrentlyMovingLimit) then
 					};
 				} foreach _GroupDudes;
 			};
-			_PZAI_MovedRecentlyRETURN = true;
-			_PZAI_MovedRecentlyCoverRETURN = true;
-			_PZAI_InCoverRETURN = true;
-			_ReturnVariable = [_PZAI_MovedRecentlyRETURN,_PZAI_MovedRecentlyCoverRETURN,_PZAI_InCoverRETURN];
-			//_Unit setVariable ["PZAI_InCover",true,false];
+			_MovedRecentlyRETURN = true;
+			_MovedRecentlyCoverRETURN = true;
+			_InCoverRETURN = true;
+			_ReturnVariable = [_MovedRecentlyRETURN,_MovedRecentlyCoverRETURN,_InCoverRETURN];
+			//GETVAR(_Unit,InCover,true);
 		}
 		else
 		{
-			_PZAI_MovedRecentlyRETURN = false;
-			_PZAI_MovedRecentlyCoverRETURN = false;
-			_PZAI_InCoverRETURN = false;
-			_ReturnVariable = [_PZAI_MovedRecentlyRETURN,_PZAI_MovedRecentlyCoverRETURN,_PZAI_InCoverRETURN];
+			_MovedRecentlyRETURN = false;
+			_MovedRecentlyCoverRETURN = false;
+			_InCoverRETURN = false;
+			_ReturnVariable = [_MovedRecentlyRETURN,_MovedRecentlyCoverRETURN,_InCoverRETURN];
 
 		};
 		PZAI_CurrentlyMoving = PZAI_CurrentlyMoving - 1;
