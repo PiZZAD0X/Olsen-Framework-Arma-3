@@ -6,7 +6,7 @@ if (GETPLVAR(hearingHandler,false)) exitwith {};
 player addEventHandler ["FiredMan",{
 	params ["_firer","_weapon","_muzzle","_mode","_ammo","_magazine","_projectile","_gunner"];
 	//check for lockout
-	if (CBA_MissionTime < (GETPLVAR(revealLockout,false))) exitWith {
+	if (CBA_MissionTime < (GETPLVAR(revealLockout,-1))) exitWith {
 		if (GVAR(UseMarkers)) then {
             //need debug
 		};
