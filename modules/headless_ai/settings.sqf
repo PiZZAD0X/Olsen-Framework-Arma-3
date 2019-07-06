@@ -5,7 +5,7 @@
 //of reinforcements or subsequent AOs.
 
 //Array objects
-GVAR(ArrayObjects) = ["hcTest"];
+GVAR(ArrayObjects) = ["hcTest","hcTest2"];
 
 //Initial spawns are spawned upon init, at the start of the mission.
 GVAR(InitialSpawn) = [];
@@ -30,7 +30,7 @@ GVAR(CustomSkill_general) = 1;
 GVAR(CustomSkill_courage) = 1;
 
 //AI commander options
-GVAR(CommanderEnabled) = true;
+GVAR(CommanderEnabled) = false;
 GVAR(CommanderSide) = "EAST";
 GVAR(CommanderDebug) = true;
 //"Random" "Aggressive" "Defensive" "Guerilla" "Probing"

@@ -78,7 +78,7 @@ item73[] = {"Moving_Along",8,218,3200.000000,2050.000000,3300.000000,2100.000000
 item74[] = {"Nil___LastFiredT",4,218,2325.000000,1450.000000,2425.000000,1500.000000,3.000000,"Nil " \n "_LastFiredTime"};
 item75[] = {"No_ammo",4,250,2925.000000,1725.000000,3025.000000,1775.000000,1.000000,"No ammo"};
 item76[] = {"isBunker_",4,218,2715.496582,602.026672,2805.496582,652.026672,49.000000,"" \n "isBunker" \n ""};
-item77[] = {"Set_Vector",2,4346,2715.517578,688.673157,2805.517578,738.673279,0.000000,"Set Vector"};
+item77[] = {"Set_Vector",2,250,2715.517578,688.673157,2805.517578,738.673279,0.000000,"Set Vector"};
 item78[] = {"__isNil__relpos",4,218,2718.670410,781.264832,2808.670410,831.264709,0.000000,"!isNil _relpos"};
 item79[] = {"Timeout",4,218,2425.000000,1300.000000,2525.000000,1350.000000,1.000000,"Timeout"};
 item80[] = {"_",8,218,2260.548828,892.118347,2350.548828,942.118103,2.000000,""};
@@ -242,7 +242,7 @@ item237[] = {"Burst",4,218,2300.000000,1775.000000,2400.000000,1825.000000,3.000
 item238[] = {"Dead",4,218,2600.000000,675.000000,2700.000000,725.000000,997.000000,"Dead"};
 item239[] = {"",7,210,2646.000000,608.500000,2654.000000,616.500000,0.000000,""};
 item240[] = {"",7,210,971.000000,596.000000,979.000000,604.000000,0.000000,""};
-item241[] = {"____FAKE____",9,18877496,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+item241[] = {"____FAKE____",9,986168,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
 version=1;
 class LayoutItems
 {
@@ -587,8 +587,8 @@ link291[] = {239,240};
 link292[] = {240,9};
 link293[] = {166,241};
 link294[] = {241,166};
-globals[] = {0.000000,0,0,0,0,640,480,2,920,6316128,1,2043.364746,3355.573242,1276.939697,377.649231,1179,808,1};
-window[] = {0,-1,-1,-1,-1,1058,-1842,-124,78,1,1197};
+globals[] = {0.000000,0,0,0,0,640,480,2,921,6316128,1,18.065063,2183.336426,1492.595215,8.680664,1179,808,1};
+window[] = {0,-1,-1,-32000,-32000,1032,-1868,-150,52,1,1197};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -643,7 +643,9 @@ class FSM
                                         to="Set_Vector";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"_IsBunkerCheck"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                         "diag_log format [""%1 is a bunker AI, entering bunker init"",_Unit];" \n
+                                         "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "_UseAI_YES">*/
@@ -840,8 +842,7 @@ class FSM
                 {
                         name = "NO_AI";
                         itemno = 11;
-                        init = /*%FSM<STATEINIT""">*/"_Unit setVariable [""FSMHandleEvents"",1,false];" \n
-                         "_unit forcespeed -1;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_unit forcespeed -1;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -853,9 +854,7 @@ class FSM
                 {
                         name = "Exit_FSM_1";
                         itemno = 13;
-                        init = /*%FSM<STATEINIT""">*/"//_Unit addEventHandler [""FiredMan"",{[_this] call PZAI_fnc_SuppressingShots;}];" \n
-                         "//_Unit addEventHandler [""FiredMan"",{[_this] call PZAI_fnc_HearingAids;}];" \n
-                         "_unit forcespeed -1;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_unit forcespeed -1;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1069,7 +1068,10 @@ class FSM
                                         to="Dead_Exit";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!alive _Unit || {isNull _Unit} || {isPlayer _Unit}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (!isNull _laserTarget) then {deletevehicle _laserTarget};" \n
+                                         "if (PZAI_FSMDEBUG) then {" \n
+                                         "diag_log format [""%1 is dead or null exiting from bunker init fsm"",_Unit];" \n
+                                         "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "reveal_check_">*/
@@ -1079,7 +1081,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Bunker_Checks_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(CBA_MissionTime > 10) && (CBA_MissionTime > (_LastTimeCheckB + 2 + _randomtimedelay))"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(CBA_MissionTime > 10) && {(CBA_MissionTime > (_LastTimeCheckB + 2 + _randomtimedelay))}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1211,8 +1213,7 @@ class FSM
                          "if (leader group _unit isEqualTo _unit) then {" \n
                          "	[group _unit, position _unit, 20, ""SAD"", ""COMBAT"", ""RED""] call CBA_fnc_addWaypoint;" \n
                          "};" \n
-                         "group _unit setvariable [""PZAI_Mission"",""BUNKER RELEASE""];" \n
-                         "_unit setvariable [""PZAI_Mission"",""BUNKER RELEASE""];"/*%FSM</STATEINIT""">*/;
+                         "group _unit setvariable [""PZAI_Mission"",""BUNKER RELEASE""];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1509,7 +1510,9 @@ class FSM
                 {
                         name = "Exit";
                         itemno = 66;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_FSMDEBUG) then {" \n
+                         "diag_log format [""%1 is dead from bunker exiting fsm"",_Unit];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -1530,7 +1533,6 @@ class FSM
                          "_laserTarget setposASL _laserPos;" \n
                          "[_unit,_laserTarget] call PZAI_fnc_WatchEnemy;" \n
                          "group _unit setvariable [""PZAI_Mission"",""BUNKER""];" \n
-                         "_unit setvariable [""PZAI_Mission"",""BUNKER""];" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1655,7 +1657,7 @@ class FSM
                 {
                         name = "Set_Vector";
                         itemno = 77;
-                        init = /*%FSM<STATEINIT""">*/"_vectordirandup = _unit getvariable [""vectordirandup"",[vectordir _unit, vectorup _unit]];" \n
+                        init = /*%FSM<STATEINIT""">*/"_vectordirandup = _unit getvariable [""PZAI_VecDirUp"",[(vectordir _unit), (vectorup _unit)]];" \n
                          "_vectordir = (_vectordirandup select 0);" \n
                          "_azimuth = (((_vectordir) select 0) atan2 ((_vectordir) select 1) + 360) % 360;" \n
                          "_relpos = _unit getPos [20, _azimuth];" \n
@@ -1675,6 +1677,7 @@ class FSM
                          "_group setvariable [""PZAI_Mission"",""BUNKER""];" \n
                          "_group setvariable [""PZAI_CurrentTarget"",objnull];" \n
                          "_group setvariable [""PZAI_InitialWPSet"",true];" \n
+                         "_unit forcespeed 0;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1687,7 +1690,10 @@ class FSM
                                         to="Dead_Exit";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!alive _Unit || {isNull _Unit} || {isPlayer _Unit}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (!isNull _laserTarget) then {deletevehicle _laserTarget};" \n
+                                         "if (PZAI_FSMDEBUG) then {" \n
+                                         "diag_log format [""%1 is dead or null exiting from bunker init fsm"",_Unit];" \n
+                                         "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "__isNil__relpos">*/

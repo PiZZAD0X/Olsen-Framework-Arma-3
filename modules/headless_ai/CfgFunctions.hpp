@@ -5,6 +5,7 @@ class PZAI {
 
 	CFGFUNCFOLDER(PZAI,Commander);
 		CFGFUNC(PZAI,assignToArea);
+		CFGFUNC(PZAI,CommanderHandler);
 	CFGFUNCFOLDEREND;
 
 	CFGFUNCFOLDER(PZAI,Main);
@@ -12,7 +13,6 @@ class PZAI {
 		CFGFUNC(PZAI,GroupHandler);
 		CFGFUNC(PZAI,initMain);
 		CFGFUNC(PZAI,MapMarkers);
-		CFGFUNC(PZAI,CommanderHandler);
 		CFGFUNC(PZAI,QueueHandle);
 	CFGFUNCFOLDEREND;
 
@@ -173,7 +173,6 @@ class PZAI {
 	    CFGFUNC(PZAI,taskCheck);
 	    CFGFUNC(PZAI,taskComplete);
 	    CFGFUNC(PZAI,taskForceFire);
-	    CFGFUNC(PZAI,taskForceHold);
 	    CFGFUNC(PZAI,taskGroup);
 	    CFGFUNC(PZAI,taskLoiter);
 	    CFGFUNC(PZAI,taskHoldUntil);

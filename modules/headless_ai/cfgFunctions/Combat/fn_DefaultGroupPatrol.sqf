@@ -8,7 +8,7 @@ _Unitleader = leader _unit;
 _wpPos = position _unit;
 
 //mission var
-SETVAR(_Group,Mission,"DEFAULT PATROLLING");
+SETVAR(_Group,Mission,"PATROL");
 SETVAR(_Group,InitialWPSet,true);
 
 //CBA backup

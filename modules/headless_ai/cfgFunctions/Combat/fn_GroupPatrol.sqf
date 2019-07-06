@@ -8,7 +8,7 @@ _Unitleader = leader _unit;
 _wpPos = waypointPosition [_group, _wp];
 
 //mission var
-SETVAR(_Group,Mission,"PATROLLING");
+SETVAR(_Group,Mission,"PATROL");
 SETVAR(_Group,InitialWPSet,true);
 
 //CBA backup

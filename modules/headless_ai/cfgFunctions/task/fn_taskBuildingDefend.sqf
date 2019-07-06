@@ -29,6 +29,6 @@ doStop _unit;
 _unit disableAI "Path";
 private _group = (group _unit);
 SETVAR(_group,InitialWPSet,true);
-SETVAR(_group,Mission,"BLD DEFEND");
+SETVAR(_group,Mission,"BLDDEFEND");
 [_group] call FUNC(taskForceSpeed);
 true

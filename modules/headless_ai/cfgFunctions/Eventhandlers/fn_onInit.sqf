@@ -10,3 +10,4 @@ if (isNil QGVAR(UnitQueue)) then {
 } else {
     GVAR(UnitQueue) append [_unit];
 };
+LOG_1("UnitQueue: %1",GVAR(UnitQueue));

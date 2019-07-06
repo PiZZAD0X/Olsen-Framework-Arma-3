@@ -19,7 +19,7 @@ private _otask = _group getvariable [QGVAR(Mission),"NONE"];
     private _leader = leader _group;
 
         SETVAR(_Group,InitialWPSet,true);
-        _group setVariable [QGVAR(Mission),"BLD SEARCH"];
+        _group setVariable [QGVAR(Mission),"BLDSEARCH"];
         [_group] call FUNC(taskForceSpeed);
 
     // Add a waypoint to regroup after the search

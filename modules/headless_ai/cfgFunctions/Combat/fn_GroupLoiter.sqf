@@ -5,7 +5,7 @@ AI_EXEC_CHECK(SERVERHC);
 params ["_Unit", "_Group","_thisFSM"];
 
 private _Unitleader = leader _Group;
-SETVAR(_Group,Mission,"LOITERING");
+SETVAR(_Group,Mission,"LOITER");
 SETVAR(_Group,InitialWPSet,true);
 
 //We need a list of actions that the AI can do for loitering.

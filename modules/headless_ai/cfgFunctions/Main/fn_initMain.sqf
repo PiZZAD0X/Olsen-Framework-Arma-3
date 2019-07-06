@@ -3,9 +3,6 @@ AI_EXEC_CHECK(SERVERHC);
 
 #include "..\..\settings.sqf"
 
-GVAR(UnitQueue) = [];
-GVAR(ActiveList) = [];
-GVAR(TrackedUnits) = [];
 GVAR(zoneEntities) = [];
 GVAR(BasicCheckCurrent) = 0;
 GVAR(LeaderExecuteCurrent) = 0;
@@ -16,7 +13,6 @@ if !(GVAR(ArrayObjects) isEqualTo []) then {
 	LOG_1("ArrayObjects %1",_ArrayObjects);
 	[{
 		params ["_ArrayObjects"];
-		LOG_1("passed ArrayObjects %1",_ArrayObjects);
 		{
 			LOG_1("Getting Array data for %1",_x);
 			private _entities = [(call compile (_x))] call FUNC(getSyncedObjects);
@@ -45,11 +41,7 @@ if !(GVAR(InitialSpawn) isEqualTo []) then {
 	LOG_1("InitialSpawn %1",_InitialSpawn);
 	[{
 		params ["_InitialSpawn"];
-		LOG_1("zoneEntities %1",GVAR(zoneEntities));
-		LOG_1("_InitialSpawn next frame %1",_InitialSpawn);
 		{
-			LOG_1("Attempting to initial spawn %1",_x);
-			LOG_1("zoneEntities %1",GVAR(zoneEntities));
 			[_x] call FUNC(spawnArray);
 		} foreach _InitialSpawn;
 	}, [_InitialSpawn]] call CBA_fnc_execNextFrame;

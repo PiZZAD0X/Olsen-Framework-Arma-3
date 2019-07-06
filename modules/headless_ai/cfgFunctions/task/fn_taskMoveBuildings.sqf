@@ -30,7 +30,7 @@ if (_patrol) then {
 };
 if (GETMVAR(Debug,false)) then {
     if (_patrol) then {
-        [_group,_bpos,"BLD ERROR PATROL","ColorOPFOR"] call FUNC(debugCreateMarker);
+        [_group,_bpos,"BLDERROR PATROL","ColorOPFOR"] call FUNC(debugCreateMarker);
     } else {
         {
             [_group,(getposatl _x),format["gBldP%1",_forEachIndex]] call FUNC(debugCreateMarker);
@@ -38,6 +38,6 @@ if (GETMVAR(Debug,false)) then {
     };
 };
 SETVAR(_group,InitialWPSet,true);
-_group setVariable [QGVAR(Mission),"BLD MOVE"];
+_group setVariable [QGVAR(Mission),"BLDMOVE"];
 [_group] call FUNC(taskForceSpeed);
 true

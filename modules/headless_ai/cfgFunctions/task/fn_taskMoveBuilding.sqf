@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-params["_getBld","_bldTask","_groupSet"];
+params ["_getBld","_bldTask","_groupSet"];
 _groupSet params [["_bld",objNull,[objNull]],"_group","_pos",["_radius",0,[0]],["_wait",3,[0]],["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],["_Type","MOVE",[""]],["_oncomplete","",[""]],["_compradius",0,[0]],["_bldPos",[],[[]]],["_patrol",false,[false]]];
 _group call CBA_fnc_clearWaypoints;
 private _bpos = _pos;
@@ -29,12 +29,12 @@ if (_patrol) then {
 };
 if (GETMVAR(Debug,false)) then {
     if (_patrol) then {
-        [_group,_bpos,"BLD ERROR PATROL","ColorOPFOR"] call FUNC(debugCreateMarker);
+        [_group,_bpos,"BLDERROR PATROL","ColorOPFOR"] call FUNC(debugCreateMarker);
     } else {
         [_group,_bpos,"rBldP"] call FUNC(debugCreateMarker);
     };
 };
 SETVAR(_group,InitialWPSet,true);
-_group setVariable [QGVAR(Mission),"BLD MOVE"];
+_group setVariable [QGVAR(Mission),"BLDMOVE"];
 [_group] call FUNC(taskForceSpeed);
 true

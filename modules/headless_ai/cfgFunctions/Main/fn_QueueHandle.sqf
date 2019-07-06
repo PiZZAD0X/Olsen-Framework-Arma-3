@@ -4,31 +4,34 @@ AI_EXEC_CHECK(SERVERHC);
 LOG("Starting UnitQueue Function");
 
 GVAR(UnitQueue) = [];
+
 GVAR(QueueHandlePFH) = [{
     if (GVAR(UnitQueue) isEqualTo []) exitwith {};
-    private _ConsideringUnit = GVAR(UnitQueue) select 0;
-    private _Disabled = GETVAR(_ConsideringUnit,NOAI,false);
-    if ((typeOf _ConsideringUnit) isEqualTo "HeadlessClient_F") then {
+    LOG_1("UnitQueue:%1 check",GVAR(UnitQueue));
+    private _unit = GVAR(UnitQueue) select 0;
+    private _Disabled = GETVAR(_unit,Unit_NoAI,false);
+    if ((typeOf _unit) isEqualTo "HeadlessClient_F") then {
         _Disabled = true;
     };
-    if ((vehicle _ConsideringUnit) isKindOf "Plane") then {
+    if ((vehicle _unit) isKindOf "Plane") then {
         _Disabled = true;
-        SETVAR(_ConsideringUnit,NOAI,true);
+        SETVAR(_unit,Unit_NoAI,true);
     };
-    if (!(isNull _ConsideringUnit) && {!(_Disabled)}) then {
-        private _leader = leader _ConsideringUnit;
+    LOG_3("Unit:%1 FSM check disabled: %2 isNull: %3",_unit,_Disabled,(isNull _unit));
+    if (!(isNull _unit) && {!(_Disabled)}) then {
+        private _leader = leader _unit;
         if ((side _leader in GVAR(SideBasedExecution)) || (((INDEPENDENT in GVAR(SideBasedExecution)) || (RESISTANCE in GVAR(SideBasedExecution))) && (str(side _leader) isEqualTo "GUER"))) then {
-            diag_log format ["adding %1 to FSM",_ConsideringUnit];
-            [_ConsideringUnit] execFSM "modules\headless_ai\cfgFunctions\FSM\AIBEHAVIORTEST.fsm";
+            LOG_1("Unit:%1 added to FSM",_unit);
+            [_unit] execFSM "modules\headless_ai\cfgFunctions\FSM\AIBEHAVIORTEST.fsm";
+            GVAR(ActiveList) pushback _unit;
         } else {
-            diag_log format ["invalid unit %1 not added to FSM",_ConsideringUnit];
-            _ConsideringUnit forcespeed -1;
+            LOG_1("Unit:%1 invalid for FSM",_unit);
+            _unit forcespeed -1;
         };
-            GVAR(ActiveList) pushback _ConsideringUnit;
             GVAR(UnitQueue) deleteAt 0;
     } else {
             GVAR(UnitQueue) deleteAt 0;
-            _ConsideringUnit forcespeed -1;
+            _unit forcespeed -1;
+            LOG_1("Unit:%1 invalid for FSM",_unit);
     };
-    GVAR(UnitQueue) deleteAt 0;
 }, 1] call CBA_fnc_addPerFrameHandler;

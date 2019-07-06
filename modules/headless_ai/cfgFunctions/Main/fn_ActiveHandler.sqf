@@ -1,6 +1,8 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
+GVAR(ActiveList) = [];
+
 GVAR(ActiveHandlePFH) = [{
     if (isNil QGVAR(ActiveList)) exitwith {GVAR(ActiveList) = [];};
     {

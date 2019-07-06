@@ -11,7 +11,7 @@ params [
     ["_speed","LIMITED",[""]],
     ["_formation","WEDGE",[""]],
     ["_Type","MOVE",[""]],
-    ["_oncomplete",QUOTE(this call FUNC(taskSearchNearby)),[""]],
+    ["_oncomplete","",[""]],
     ["_compradius",0,[0]],
     ["_wpcount",10,[0]]
 ];
@@ -21,11 +21,10 @@ _group setCombatMode _combat;
 _group setSpeedMode _speed;
 _group setFormation _formation;
 private _units = units _group;
-for "_i" from 0 to (count _units) do {
-    private _u = _units select _i;
-    _u doWatch ((getPosATL _u) vectorAdd((vectorDir _u) vectorMultiply 100));
-    _u disableAI "MOVE";
-};
+{
+    _x doWatch ((getPosATL _x) vectorAdd((vectorDir _x) vectorMultiply 100));
+    _x disableAI "MOVE";
+} foreach _units;
 SETVAR(_group,InitialWPSet,true);
 SETVAR(_group,Mission,"STATIONARY");
 true

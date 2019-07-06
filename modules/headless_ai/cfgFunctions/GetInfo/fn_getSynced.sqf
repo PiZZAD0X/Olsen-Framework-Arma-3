@@ -17,5 +17,5 @@ LOG_1("command _synced %1",_synced);
     };
 } foreach _synced;
 _synced = _synced arrayIntersect _synced;
-LOG_1("return _synced %1",_synced);
+//LOG_1("return _synced %1",_synced);
 _synced

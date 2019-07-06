@@ -25,6 +25,7 @@ LOG_1("_synced %1",_synced);
                 private _units = units _grp;
                 private _group = [str _grp,[],[]];
                 private _gx = _grp getVariable [QGVAR(multiplier),0];
+                //LOG_2("_grp: %1 _gx: %2",_grp,_gx);
                 private _grpPosArray = [];
                 private _grpPosNew = _grpPos;
                 if (_grp getVariable [QGVAR(createRadius),0] > 1) then {
@@ -38,13 +39,17 @@ LOG_1("_synced %1",_synced);
                 {
                     private _unit = _x;
                     private _unitpos = getPosATL _unit;
+                    //LOG_2("_unit: %1 _unitpos: %2",_unit,_unitpos);
                     if (!(_grpPosNew isEqualTo _grpPos)) then {
                         _unitpos = [_grpPosNew,_grpldr,_unit] call FUNC(getNewPos);
+                        //LOG_3("GroupPos not equal to groupPosNew, getting new unit pos for: %1 OldPos: %2 NewPos: %3",_unit,(getPosATL _unit),_unitpos);
                     };
                     private _veh = assignedVehicle _unit;
                     if (!isNull _veh) then {
                         private _vehPos = getposATL _veh;
-                        if (!(_grpPosNew isEqualTo _grpPos)) then {_vehPos = _grpPosNew;};
+                        if (!(_grpPosNew isEqualTo _grpPos)) then {
+                            _vehPos = _grpPosNew;
+                        };
                         if (!(_veh in _vehLog)) then {
                             (_group select 2) pushBack ([_veh,_vehPos] call FUNC(getDetailsVehicle));
                             _vehLog pushBack _veh;
@@ -55,16 +60,20 @@ LOG_1("_synced %1",_synced);
                             (_group select 1) pushback _x;
                         } forEach ([_unit,_grpPosNew] call FUNC(getDetailsGroup));
                     };
-                    (_group select 2) pushback ([_unit,_unitpos,_veh] call FUNC(getDetailsUnit));
+                    private _unitArray = [_unit,_unitpos,_veh] call FUNC(getDetailsUnit);
+                    //LOG_1("_unitArray: %1",_unitArray);
+                    (_group select 2) pushback _unitArray;
+                    //LOG_1("_group select 2: %1",(_group select 2));
                 } foreach _units;
                 private _occupy = ((_group select 1) select 15);
                 private _newOccupy = [(_grp getVariable [QGVAR(multiOccupy),0]),_gx] call FUNC(setMultiOccupy);
+                //LOG_2("_grp: %1 _newOccupy: %2",_grp,_newOccupy);
                 private _currentPos = ((_group select 1) select 1);
                 for "_g" from 0 to _gx step 1 do {
-                    if (_newOccupy isEqualTo 0 && {_gx isEqualTo 1}) then {
+                    if (_newOccupy isEqualTo 0 && {_gx isEqualTo 0}) then {
                         (_entities select 0) pushback _group;
                     } else {
-                        if (_gx > 1) then {
+                        if (_gx > 0) then {
                             if (!(_grpPosArray isEqualTo [])) then {
                                 private _index = (floor random (count _grpPosArray));
                                 _currentPos = _grpPosArray select _index;
@@ -77,7 +86,9 @@ LOG_1("_synced %1",_synced);
                             (_newgroup select 1) set [1, _currentPos];
                             (_newgroup select 1) set [15, _occupy];
                             {
-                                _x set [2,(_currentPos vectorAdd [-3 + random 3, -3 + random 3, 0])];
+                                private _unit = _x;
+                                _unit params ["","","_unitPos"];
+                                _unit set [2,(_unitPos vectorAdd [-3 + random 3, -3 + random 3, 0])];
                             } foreach (_newgroup select 2);
                             (_entities select 0) pushback _newgroup;
                         } else {
@@ -86,7 +97,9 @@ LOG_1("_synced %1",_synced);
                             (_newgroup select 1) set [1, _currentPos];
                             (_newgroup select 1) set [15, 0];
                             {
-                                _x set [2,(_currentPos vectorAdd [-3 + random 3, -3 + random 3, 0])];
+                                private _unit = _x;
+                                _unit params ["","","_unitPos"];
+                                _unit set [2,(_unitPos vectorAdd [-3 + random 3, -3 + random 3, 0])];
                             } foreach (_newgroup select 2);
                             (_entities select 0) pushback _newgroup;
                         };
@@ -96,8 +109,8 @@ LOG_1("_synced %1",_synced);
         };
     };
 } foreach _synced;
-LOG_1("Deleting Objects for Logic: %1",_logic);
+//LOG_1("Deleting Objects for Logic: %1",_logic);
 [_synced] call FUNC(deleteVehicles);
-LOG_1("Deleting %1 Objects",count _synced);
-LOG_1("return _entities %1",_entities);
+//LOG_1("Deleting %1 Objects",count _synced);
+//LOG_1("return _entities %1",_entities);
 _entities

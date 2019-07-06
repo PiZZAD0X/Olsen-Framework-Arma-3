@@ -5,7 +5,7 @@ params [["_grp",grpNull,[grpNull]],["_target",objNull,[objNull]]];
 LOG_1("RETURN tracker | %1",_this);
 LOG_1("RETURN group alive | %1",count ((units _grp) select {alive _x}) > 0);
 if (count ((units _grp) select {alive _x}) > 0) then {
-    sleep (_grp getVariable [QGVAR(waypointWait),10]);
+    sleep (_grp getVariable [QGVAR(taskWait),10]);
     private _leader = leader _grp;
     private _playerDistances = allPlayers apply { [_x distance _leader, _x]};
     _playerDistances sort true;

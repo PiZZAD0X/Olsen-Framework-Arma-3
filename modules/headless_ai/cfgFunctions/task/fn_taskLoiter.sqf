@@ -13,7 +13,7 @@ params [
 ];
 
 SETVAR(_group,InitialWPSet,true);
-_group setVariable [QGVAR(Mission),"LOITERING"];
+_group setVariable [QGVAR(Mission),"LOITER"];
 
 //We need a list of actions that the AI can do for loitering.
 private _UnitArray = units _group;

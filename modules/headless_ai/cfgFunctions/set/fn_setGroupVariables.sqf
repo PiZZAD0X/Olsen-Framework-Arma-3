@@ -22,26 +22,22 @@ _grpSet params [
     /*16*/    "_vehAssigned",
     /*17*/    "_waypoints",
     /*18*/    "_onWater",
-    /*19*/    "_tasks",
-    /*20*/    "_fl",
-    /*21*/    "_surrender",
-    /*22*/    "_tracker"
+    /*19*/    "_fl",
+    /*20*/    "_surrender"
     ];
-_grp setVariable [QGVAR(GroupPos),_gpos];
-_grp setVariable [QGVAR(behaviour),_behave];
-_grp setVariable [QGVAR(combatMode),_combat];
-_grp setVariable [QGVAR(speed),_speed];
-_grp setVariable [QGVAR(formation),_formation];
-_grp setVariable [QGVAR(patrolRadius),_taskRadius];
-_grp setVariable [QGVAR(waypointWait),_wait];
-_grp setVariable [QGVAR(task),_task];
-_grp setVariable [QGVAR(TaskTimer),_taskTimer];
-_grp setVariable [QGVAR(occupyOption),_occupyOption];
-_grp setVariable [QGVAR(Waypoints),_waypoints];
-_grp setVariable [QGVAR(tasks),_tasks];
-_grp setVariable [QGVAR(forceLights),_fl];
-_grp setVariable [QGVAR(surrender),_surrender];
-_grp setVariable [QGVAR(Tracker),_tracker];
+_grp setVariable [QGVAR(group_Pos),_gpos];
+_grp setVariable [QGVAR(group_behaviour),_behave];
+_grp setVariable [QGVAR(group_combatMode),_combat];
+_grp setVariable [QGVAR(group_speed),_speed];
+_grp setVariable [QGVAR(group_formation),_formation];
+_grp setVariable [QGVAR(group_taskRadius),_taskRadius];
+_grp setVariable [QGVAR(group_taskWait),_wait];
+_grp setVariable [QGVAR(group_task),_task];
+_grp setVariable [QGVAR(group_TaskTimer),_taskTimer];
+_grp setVariable [QGVAR(group_occupyOption),_occupyOption];
+_grp setVariable [QGVAR(group_Waypoints),_waypoints];
+_grp setVariable [QGVAR(group_forceLights),_fl];
+_grp setVariable [QGVAR(group_surrender),_surrender];
 //_grp call CBA_fnc_clearWaypoints;
 [_grp,_behave,_combat,_speed,_formation] call FUNC(setGroupBehaviour);
 {

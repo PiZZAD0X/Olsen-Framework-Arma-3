@@ -22,7 +22,7 @@ switch (_currentmission) do {
 	case "GARRISON": {};
 	case "STATIONARY": {};
 	case "BUNKER": {};
-	case "DEFAULT PATROLLING": {
+	case "PATROL": {
 			if (_enemydist < 150) then {
 				if (_reinforcement) then {
 					[_Group,_currenttarget,_enemydir] call FUNC(CombatAttack);
@@ -37,22 +37,7 @@ switch (_currentmission) do {
 				};
 			};
 		};
-	case "PATROLLING": {
-			if (_enemydist < 150) then {
-				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call FUNC(CombatAttack);
-				} else {
-					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
-				};
-			} else {
-				if (_reinforcement) then {
-					[_Group,_currenttarget,_enemydir] call FUNC(CombatMoveTo);
-				} else {
-					[_Group,_currenttarget,_enemydir] call FUNC(CombatDefend);
-				};
-			};
-		};
-	case "LOITERING": {
+	case "LOITER": {
 			_Group setSpeedMode "FULL";
 			{_x setUnitPos "AUTO";} foreach (units _group);
 			if (_reinforcement) then {

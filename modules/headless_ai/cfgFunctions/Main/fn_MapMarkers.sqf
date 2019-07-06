@@ -4,10 +4,8 @@ AI_EXEC_CHECK(SERVERHC);
 
 LOG("Starting Map Marker Function");
 
+GVAR(TrackedUnits) = [];
 GVAR(MarkerArray) = [];
-if (isNil QGVAR(TrackedUnits)) then {
-    GVAR(TrackedUnits) = [];
-};
 
 GVAR(MapMarkersPFH) = [{
     {
@@ -55,8 +53,8 @@ GVAR(MapMarkersPFH) = [{
             _trackername setmarkerpos [getpos _leader select 0, getpos _leader select 1];
             private _usedest = switch (_behaviourtasking) do {
                 case "GARRISON": {false;};
-                case "PATROLLING": {true;};
-                case "PATROLLING PERIMETER": {true;};
+                case "PATROL": {true;};
+                case "PERIMPATROL": {true;};
                 case "SENTRY": {true;};
                 case "ATTACK": {true;};
                 case "ASSAULT": {true;};
@@ -64,15 +62,15 @@ GVAR(MapMarkersPFH) = [{
                 case "MOVE": {true;};
                 case "DEFEND": {false;};
                 case "BUNKER": {false;};
-                case "LOITERING": {false;};
+                case "LOITER": {false;};
                 case "STATIONARY": {false;};
                 case "HOLD": {false;};
-                case "FORCE HOLD": {false;};
+                case "FORCEHOLD": {false;};
                 case "NONE": {false;};
                 case "MANUAL": {true;};
-                case "BLD MOVE": {true;};
-                case "BLD DEFEND": {false;};
-                case "BLD SEARCH": {true;};
+                case "BLDMOVE": {true;};
+                case "BLDDEFEND": {false;};
+                case "BLDSEARCH": {true;};
                 default {false};
             };
             private _usetarget = false;

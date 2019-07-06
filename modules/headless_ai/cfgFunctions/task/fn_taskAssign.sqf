@@ -2,7 +2,7 @@
 AI_EXEC_CHECK(SERVERHC);
 
 params [
-    ["_task",4,[0]],
+    ["_task","PATROL",["PATROL"]],
     ["_group",grpNull,[grpNull]],
     ["_pos",[],[[]]],
     ["_radius",50,[0]],
@@ -21,85 +21,59 @@ private _taskSetBasic = [_group,_behaviour,_combat,_speed,_formation];
 private _taskSetBld = [_bld,_group,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
 private _taskSetBlds = [_blds,_group,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
 
+_task = toUpper _task;
+LOG_2("group:%1 set to task: %2,",_group,_task);
 switch (_task) do {
-    case 0: {
-        _taskSet spawn FUNC(taskLoiter);
-    };     //Loiter
-    case 1: {
-        _taskSetBasic spawn FUNC(taskHoldUntil);
-    };     //Hold Until
-    case 2: {
-        _taskSet call FUNC(taskSentry);
-    };                //Sentry
-    case 3: {
-        _taskSetBasic call FUNC(taskPlacement);
-    };        //Stationary
-    case 4: {
-        _taskSet call FUNC(taskPatrol);
-    };                //Patrol
-    case 5: {
-        _taskSet call FUNC(taskPatrolPerimeter);
-    };    //Patrol Perimeter
-    case 6: {
-        switch (_occupyOption) do {
-            case 2: {
-                _taskSetBld call FUNC(taskMoveNearestBuildingPatrol);
-            };
-            case 3: {
-                _taskSetBld call FUNC(taskMoveRandomBuildingPatrol);
-            };
-            case 4: {
-                _taskSetBlds call FUNC(taskMoveGroupBuildingsPatrol);
-            };
-            case 5: {
-                _taskSetBlds call FUNC(taskMoveRandomGroupBuildingsPatrol);
-            };
-            case 6: {
-                _taskSetBlds call FUNC(taskMoveMultipleBuildingsPatrol);
-            };
-            case 7: {
-                _taskSetBlds call FUNC(taskMoveRandomMultipleBuildingsPatrol);
-            };
-            default {
-                _taskSetBld call FUNC(taskMoveNearestBuildingPatrol);
-            };
-        };
-    };
-    case 7: {
-        switch (_occupyOption) do {
-            case 2: {
-                _taskSetBld call FUNC(taskMoveNearestBuildingDefend);
-            };
-            case 3: {
-                _taskSetBld call FUNC(taskMoveRandomBuildingDefend);
-            };
-            case 4: {
-                _taskSetBlds call FUNC(taskMoveGroupBuildingsDefend);
-            };
-            case 5: {
-                _taskSetBlds call FUNC(taskMoveRandomGroupBuildingsDefend);
-            };
-            case 6: {
-                _taskSetBlds call FUNC(taskMoveMultipleBuildingsDefend);
-            };
-            case 7: {
-                _taskSetBlds call FUNC(taskMoveRandomMultipleBuildingsDefend);
-            };
-            default {
-                _taskSetBld call FUNC(taskMoveNearestBuildingDefend);
-            };
-        };
-    };
-    case 8: {
-        _taskSet call FUNC(TaskSetBunker);
-    };    //Entrenched
-    case 9: {
-        _taskSet call {};
-    };    //Reinforcements
-    case 10: {
-        _taskSet call {};
-    };    //NONE
     default {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "MANUAL": {};
+    case "GARRISON": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "PATROL": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "PERIMPATROL": {
+        _taskSet call FUNC(taskPatrolPerimeter);
+    };
+    case "SENTRY": {
+        _taskSet call FUNC(taskSentry);
+    };
+    case "ATTACK": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "ASSAULT": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "MOVE": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "DEFEND": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "BUNKER": {
+        _taskSet call FUNC(taskSetBunker);
+    };
+    case "LOITER": {
+        _taskSet call FUNC(taskLoiter);
+    };
+    case "STATIONARY": {
+        _taskSet call FUNC(taskPlacement);
+    };
+    case "HOLD": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "NONE": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "BLDMOVE": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "BLDDEFEND": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    case "BLDSEARCH": {
         _taskSet call FUNC(taskPatrol);
     };
 };
