@@ -88,7 +88,7 @@ GVAR(BunkerReleaseDist) = 25;
 GVAR(RadioDistance) = 1200;
 //Whether or not AI need ACRE radios to broadcast info to other groups
 GVAR(RadioNeedRadio) = false;
-//Distance the AI will patrol to by default when set to "GUARD" waypoint
+//Distance the AI will patrol to by default
 GVAR(PatrolDistance) = 200;
 //Whether the AI will patrol between garrison positions. Pretty buggy, but nice for 'mersion
 GVAR(GarrisonPatrol) = false;

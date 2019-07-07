@@ -34,10 +34,6 @@ if !(canSuspend) then {
 } else {
     _unit spawn _unitInit;
 };
-_unit setUnitPos _unitStance;
-[_unit, "Hit", {
-    _this call FUNC(onAIHit);
-}] call CBA_fnc_addBISEventHandler;
 if (_vehicleAssigned && {!isNull _currentVeh}) then {
     [_unit,_vr,_currentVeh] call FUNC(setAssignedVehicle);
 };
@@ -52,5 +48,11 @@ if !(_storedVars isEqualTo []) then {
         _unit setvariable [_varName,_varValue];
     } foreach _varNameList;
 };
+
+[{
+	_this params ["_unit","_unitStance"];
+    LOG_2("setting %1 to %2",_unit,_unitStance);
+    _unit setUnitPos _unitStance;
+}, [_unit,_unitStance], 1] call CBA_fnc_waitAndExecute;
 
 _unit

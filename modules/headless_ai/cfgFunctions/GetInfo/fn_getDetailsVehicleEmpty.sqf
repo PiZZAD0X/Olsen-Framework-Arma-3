@@ -6,7 +6,7 @@ private _vehInit = (GETVAR(_veh,unit_Init,""));
 if (typename _vehInit isEqualTo "STRING") then {_vehInit = compile _vehInit;};
 if (_pos isEqualTo []) then {_pos = (getposATL _veh)};
 [typeOf _veh,
-getpos _veh,
+getposATL _veh,
 vectorDir _veh,
 vectorUp _veh,
 damage _veh,

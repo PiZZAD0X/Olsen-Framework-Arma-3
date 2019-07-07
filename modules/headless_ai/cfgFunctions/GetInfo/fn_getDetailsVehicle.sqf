@@ -7,7 +7,7 @@ if (typename _vehInit isEqualTo "STRING") then {_vehInit = compile _vehInit;};
 if (_pos isEqualTo []) then {_pos = getPosATL _veh;};
 [false,
 typeOf _veh,
-getpos _veh,
+getposATL _veh,
 vectorDir _veh,
 vectorUp _veh,
 damage _veh,

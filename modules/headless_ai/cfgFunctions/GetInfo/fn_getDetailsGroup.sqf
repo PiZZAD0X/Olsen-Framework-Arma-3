@@ -9,7 +9,7 @@ if (_occupy isEqualTo 1) then {_occupy = floor(random [2,5,7])};
 if (typename _groupInit isEqualTo "STRING") then {_groupInit = compile _groupInit;};
 private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
 [side _unit,
-getpos _unit,
+getposATL _unit,
 behaviour _unit,
 combatMode _group,
 speedMode _group,
