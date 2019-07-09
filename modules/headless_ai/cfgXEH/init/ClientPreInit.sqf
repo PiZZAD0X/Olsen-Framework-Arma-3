@@ -9,6 +9,6 @@ LOG("HC Client Pre Init");
 //
 //}] call CBA_fnc_addEventHandler;
 
-if !(hasInterface) then {
-    [] call FUNC(initMain);
-};
+AI_EXEC_CHECK(HC);
+
+[] call FUNC(initMain);

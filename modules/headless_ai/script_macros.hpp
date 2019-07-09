@@ -1,7 +1,7 @@
 #define PREFIX HC
 #define COMPONENT PZAI
 #define DEBUG_MODE_FULL
-#include "\x\cba\addons\Main\script_macros_common.hpp"
+#include "\x\cba\addons\main\script_macros_mission.hpp"
 
 #define QUOTEIN(var1) QUOTE(QUOTE(var1))
 #define QUOTE3(var1) QUOTE(QUOTE(QUOTE(var1)))

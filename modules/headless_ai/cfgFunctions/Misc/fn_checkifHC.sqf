@@ -19,7 +19,7 @@ GVAR(HC_isHC) = false;
 GVAR(HC_ID) = false;
 
 //listen server and SP
-if ((!isMultiplayer) || ((isMultiplayer) && (isServer) && (hasinterface))) then {
+if ((!isMultiplayer) || ((isMultiplayer) && {isServer} && {hasinterface})) then {
     _hc = true;
     GVAR(HC_isHC) = true;
     SETMPVAR(HC_ID,clientowner);

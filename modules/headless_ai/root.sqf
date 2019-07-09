@@ -6,6 +6,6 @@
 	#include "cfgXEH\PreInit.hpp"
 #endif
 
-#ifdef description_XEH_InitPost_CAManBase
+#ifdef description_XEH_InitPost
 	#include "cfgXEH\InitPost.hpp"
 #endif

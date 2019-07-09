@@ -11,4 +11,20 @@ LOG("HC Server Pre Init");
 //
 //}] call CBA_fnc_addEventHandler;
 
-[] call FUNC(initMain);
+//Gathers HC Arrays
+if !(GVAR(ArrayObjects) isEqualTo []) then {
+	private _ArrayObjects = GVAR(ArrayObjects);
+	LOG_1("ArrayObjects %1",_ArrayObjects);
+	[{
+		params ["_ArrayObjects"];
+		{
+			LOG_1("Getting Array data for %1",_x);
+			private _entities = [(call compile (_x))] call FUNC(getSyncedObjects);
+			LOG_1("_entities %1",count _entities);
+	        GVAR(zoneEntities) pushBack [_x,_entities];
+		} foreach _ArrayObjects;
+		if (isMultiplayer) then {
+			GVAR(HC_ID) publicVariableClient QGVAR(zoneEntities);
+		};
+	}, [_ArrayObjects]] call CBA_fnc_execNextFrame;
+};

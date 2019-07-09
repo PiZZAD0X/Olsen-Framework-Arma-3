@@ -1,26 +1,8 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-#include "..\..\settings.sqf"
-
-GVAR(zoneEntities) = [];
 GVAR(BasicCheckCurrent) = 0;
 GVAR(LeaderExecuteCurrent) = 0;
-
-//Gathers HC Arrays
-if !(GVAR(ArrayObjects) isEqualTo []) then {
-	private _ArrayObjects = GVAR(ArrayObjects);
-	LOG_1("ArrayObjects %1",_ArrayObjects);
-	[{
-		params ["_ArrayObjects"];
-		{
-			LOG_1("Getting Array data for %1",_x);
-			private _entities = [(call compile (_x))] call FUNC(getSyncedObjects);
-			LOG_1("_entities %1",count _entities);
-	        GVAR(zoneEntities) pushBack [_x,_entities];
-		} foreach _ArrayObjects;
-	}, [_ArrayObjects]] call CBA_fnc_execNextFrame;
-};
 
 //Lets gets the queue handler going
 [{
@@ -41,9 +23,12 @@ if !(GVAR(InitialSpawn) isEqualTo []) then {
 	LOG_1("InitialSpawn %1",_InitialSpawn);
 	[{
 		params ["_InitialSpawn"];
-		{
-			[_x] call FUNC(spawnArray);
-		} foreach _InitialSpawn;
+		[{
+			params ["_InitialSpawn"];
+			{
+				[_x] call FUNC(spawnArray);
+			} foreach _InitialSpawn;
+		}, [_InitialSpawn]] call CBA_fnc_execNextFrame;
 	}, [_InitialSpawn]] call CBA_fnc_execNextFrame;
 };
 

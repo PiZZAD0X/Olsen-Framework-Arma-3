@@ -50,9 +50,9 @@ if !(_storedVars isEqualTo []) then {
 };
 
 [{
-	_this params ["_unit","_unitStance"];
+	params ["_unit","_unitStance"];
     LOG_2("setting %1 to %2",_unit,_unitStance);
     _unit setUnitPos _unitStance;
-}, [_unit,_unitStance], 1] call CBA_fnc_waitAndExecute;
+}, [_unit,_unitStance], 3] call CBA_fnc_waitAndExecute;
 
 _unit
