@@ -24,7 +24,9 @@ if !(GVAR(ArrayObjects) isEqualTo []) then {
 	        GVAR(zoneEntities) pushBack [_x,_entities];
 		} foreach _ArrayObjects;
 		if (isMultiplayer) then {
-			GVAR(HC_ID) publicVariableClient QGVAR(zoneEntities);
+			[{GVAR(HC_ID) isEqualType 0}, {
+				GVAR(HC_ID) publicVariableClient QGVAR(zoneEntities);
+			}] call CBA_fnc_waitUntilAndExecute
 		};
 	}, [_ArrayObjects]] call CBA_fnc_execNextFrame;
 };

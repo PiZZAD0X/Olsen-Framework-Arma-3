@@ -9,26 +9,32 @@ GVAR(GroupArray) = [];
 GVAR(GroupHandlerPFH) = [{
     {
         private _group = _x;
-        if (units _group isEqualTo []) then {
+        private _units = units _group;
+        private _aliveUnits = _units select {alive _x};
+        LOG_2("group: %1 units: %2",_group,_aliveUnits);
+        if (_aliveUnits isEqualTo []) then {
+            LOG_1("deleting empty group: %1",_group);
             deleteGroup _group;
         } else {
             private _index = [GVAR(GroupArray),_group,1] call FUNC(searchNestedArray);
             private _inArray = if (_index isEqualTo -1) then {false} else {true};
             //TRACE_2("checking group",_group,_inArray);
-            private _leader = leader _group;
+            private _leader = _aliveUnits select 0;
+            private _leaderAlive = alive _leader;
+            LOG_3("group: %1 leader: %2 alive: %3",_group,_leader,_leaderAlive);
             if (!(isNull _leader) &&
                 {!(isPlayer _leader)} &&
                 {(alive _leader)} &&
                 {(side _leader) in GVAR(SideBasedExecution)} &&
-                {!(_leader getVariable [QGVAR(NOAI),false])}
+                {!(GETVAR(_leader,NOAI,false))}
             ) then {
                 private _side = side _leader;
                 //TRACE_1("checking side",_side);
                 private _behaviourtasking = (_Group getVariable [QGVAR(Mission),"NONE"]);
-                private _groupcount = (count units _group);
+                private _groupcount = {alive _x} count (units _group);
                 private _behaviour = behaviour _leader;
                 private _target = GETVAR(_group,CurrentTarget,objnull);
-                private _position = getposASL _leader;
+                private _position = getposATL _leader;
                 private _hasradio = GETVAR(_group,HasRadio,false);
                 private _areaAssigned = GETVAR(_group,areaAssigned,"");
                 if (_areaAssigned isEqualTo "") then {
@@ -52,8 +58,10 @@ GVAR(GroupHandlerPFH) = [{
                     };
                 };
             } else {
-                //LOG_1("exiting check for group: %1",_group);
-                GVAR(GroupArray) deleteAt _index;
+                if (_inArray) then {
+                    LOG_1("group invalid removing from array: %1",_group);
+                    GVAR(GroupArray) deleteAt _index;
+                };
             };
         };
     } forEach allGroups;
