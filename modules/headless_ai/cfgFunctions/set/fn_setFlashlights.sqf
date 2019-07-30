@@ -1,17 +1,17 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-params ["_grp"];
+params ["_group"];
 {
-    private _u = _x;
-    private _items = _u weaponAccessories primaryWeapon _u;
-    _u removePrimaryWeaponItem (_items select 1);
-    private _nvg = hmd _u;
+    private _unit = _x;
+    private _items = _unit weaponAccessories primaryWeapon _unit;
+    _unit removePrimaryWeaponItem (_items select 1);
+    private _nvg = hmd _unit;
     if (count _nvg > 2) then {
-        _u unassignItem "NVGoggles";
-        _u removeItem "NVGoggles";
+        _unit unassignItem "NVGoggles";
+        _unit removeItem "NVGoggles";
     };
-    _u addPrimaryWeaponItem "acc_flashlight";
-    _u enablegunlights "forceOn";
-} forEach (units _grp);
+    _unit addPrimaryWeaponItem "acc_flashlight";
+    _unit enablegunlights "forceOn";
+} forEach (units _group);
 true

@@ -2,7 +2,7 @@
 AI_EXEC_CHECK(SERVERHC);
 
 params["_getBld","_bldTask","_groupSet"];
-_groupSet params [["_blds",[],[[]]],"_group","_pos",["_radius",0,[0]],["_wait",3,[0]],["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],["_Type","MOVE",[""]],["_oncomplete","",[""]],["_compradius",0,[0]],["_bldPos",[],[[]]],["_bpos",[],[[]]],["_patrol",false,[false]]];
+_groupSet params [["_blds",[],[[]]],"_group","_pos",["_radius",0,[0]],["_wait",3,[0]],["_behaviour","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],["_Type","MOVE",[""]],["_oncomplete","",[""]],["_compradius",0,[0]],["_bldPos",[],[[]]],["_bpos",[],[[]]],["_patrol",false,[false]]];
 _group call CBA_fnc_clearWaypoints;
 private _bpos = _pos;
 if (count _blds < 1) then {
@@ -16,7 +16,7 @@ if (count _blds < 1) then {
 };
 if (_patrol) then {
     if (_radius < 1) then {_radius = 30;};
-    [_group,_bpos,_radius,_wait,_behave,_combat,_speed,_formation] spawn FUNC(taskPatrol);
+    [_group,_bpos,_radius,_wait,_behaviour,_combat,_speed,_formation] spawn FUNC(taskPatrol);
 } else {
     [0,"ARRAY",1,_bpos,_this] call FUNC(createWaypointModified);
     deleteWaypoint ((waypoints _group) select 0);
@@ -25,7 +25,7 @@ if (_patrol) then {
         _x setvariable[QGVAR(Occupy),true];
         private _uBld = _blds select (_forEachIndex % (count _blds));
         _bldPos = _uBld buildingPos -1;
-        [_x,_uBld,_bldPos,_wait,[_behave,_combat,_speed,_formation]] spawn _bldTask;
+        [_x,_uBld,_bldPos,_wait,[_behaviour,_combat,_speed,_formation]] spawn _bldTask;
     } forEach (units _group);
 };
 if (GETMVAR(Debug,false)) then {

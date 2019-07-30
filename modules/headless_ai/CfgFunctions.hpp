@@ -156,6 +156,11 @@ class PZAI {
 	    class getSyncedObjects {};
 	};
 
+	class GroupHandler {
+		file = "modules\headless_ai\cfgFunctions\GroupHandler";
+	    class onInitEntered {};
+	};
+
 	class set {
 		file = "modules\headless_ai\cfgFunctions\set";
 	    class setAssignedVehicle {};
@@ -174,6 +179,10 @@ class PZAI {
 	    class setTracker {};
 	    class setVehicle {};
 	    class setZone {};
+	};
+
+	class Settings {
+		file = "modules\headless_ai\cfgFunctions\Settings";
 	};
 
 	class task {

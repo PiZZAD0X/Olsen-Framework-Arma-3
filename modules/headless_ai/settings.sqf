@@ -8,7 +8,7 @@
 GVAR(ArrayObjects) = ["hcTest","hcTest2"];
 
 //Initial spawns are spawned upon init, at the start of the mission.
-GVAR(InitialSpawn) = [];
+GVAR(InitialSpawn) = ["hcTest"];
 
 //Custom viewdistance for the AI
 GVAR(AIViewDistance) = 2500;
@@ -29,7 +29,7 @@ GVAR(CustomSkill_endurance) = 1;
 GVAR(CustomSkill_general) = 1;
 GVAR(CustomSkill_courage) = 1;
 
-//AI commander options
+//AI commander options -WIP
 GVAR(CommanderEnabled) = false;
 GVAR(CommanderSide) = "EAST";
 GVAR(CommanderDebug) = true;

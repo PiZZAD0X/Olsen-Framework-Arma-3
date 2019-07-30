@@ -3,7 +3,7 @@ AI_EXEC_CHECK(SERVERHC);
 
 params ["_group",["_newTask",objNull,[objNull]],["_setTime",0,[0]]];
 if (!isNull _newTask) then {
-    (_newTask call FUNC(getTaskParams)) params ["_newTask","_cond","_prior","_time","_onComp","_TaskId","_radius","_task","_occupy","_wait","_behave","_combat","_speed","_form","_stance"];
+    (_newTask call FUNC(getTaskParams)) params ["_newTask","_cond","_prior","_time","_onComp","_TaskId","_radius","_task","_occupy","_wait","_behaviour","_combat","_speed","_form","_stance"];
     if (_time isEqualTo 0) then {
         _setTime = 1E10;
     } else {
@@ -20,7 +20,7 @@ if (!isNull _newTask) then {
             _x setUnitPos _stance;
         } forEach (units _group);
     };
-    private _newBehave = if (_behave isEqualTo "unchanged") then {(behaviour (leader _group))} else {_behave};
+    private _newBehave = if (_behaviour isEqualTo "unchanged") then {(behaviour (leader _group))} else {_behaviour};
     private _newCombat = if (_combat isEqualTo "unchanged") then {(combatMode _group)} else {_combat};
     private _newSpeed = if (_speed isEqualTo "unchanged") then {(speedMode _group)} else {_speed};
     private _newForm = if (_form isEqualTo "unchanged") then {(formation _group)} else {_form};

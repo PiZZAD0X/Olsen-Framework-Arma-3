@@ -6,7 +6,7 @@ params [
     "_pos",
     ["_radius",30,[0]],
     ["_wait",3,[0]],
-    ["_behave","SAFE",[""]],
+    ["_behaviour","SAFE",[""]],
     ["_combat","RED",[""]],
     ["_speed","LIMITED",[""]],
     ["_formation","WEDGE",[""]],
@@ -16,7 +16,7 @@ params [
     ["_wpcount",10,[0]]
 ];
 
-_group setBehaviour _behave;
+_group setBehaviour _behaviour;
 _group setCombatMode _combat;
 _group setSpeedMode _speed;
 _group setFormation _formation;

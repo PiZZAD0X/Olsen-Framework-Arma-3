@@ -2,7 +2,7 @@
 AI_EXEC_CHECK(SERVERHC);
 
 params ["_unit",["_bld",objNull,[objNull]],["_bldPos",[],[[]]],["_wpWait",5,[0]],["_uSet",[],[[]]],["_sec",[],[[]]],["_error",false,[false]],["_m",0,[0]],"_i"];
-_uSet params [["_behave","safe",[""]],["_combat","red",[""]],["_speed","limited",[""]],["_formation","wedge",[""]]];
+_uSet params [["_behaviour","safe",[""]],["_combat","red",[""]],["_speed","limited",[""]],["_formation","wedge",[""]]];
 if (isNull _bld || _bldPos isEqualTo []) then {
     if (isNull _bld) then {
         _bld = [(getposATL _unit),100,false] call FUNC(getNearestBuilding);
@@ -10,7 +10,7 @@ if (isNull _bld || _bldPos isEqualTo []) then {
     _bldPos = _bld buildingPos -1;
 };
 if (isNull _bld) then {_error = true};
-_unit setBehaviour _behave;
+_unit setBehaviour _behaviour;
 _unit setCombatMode _combat;
 _unit setSpeedMode _speed;
 _unit setFormation _formation;

@@ -1,16 +1,16 @@
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
-params ["_grp","_gpos",["_grpSet",[],[[]]]];
-_grpSet params [
+params ["_group","_gpos",["_groupSet",[],[[]]]];
+_groupSet params [
     /*0*/    "_side",
     /*1*/    "_pos",
-    /*2*/    "_behave",
+    /*2*/    "_behaviour",
     /*3*/    "_combat",
     /*4*/    "_speed",
     /*5*/    "_formation",
-    /*6*/    "_grpStance",
-    /*7*/    "_grpInit",
+    /*6*/    "_groupStance",
+    /*7*/    "_groupInit",
     /*8*/    "_createRadius",
     /*9*/    "_taskRadius",
     /*10*/    "_wait",
@@ -24,27 +24,51 @@ _grpSet params [
     /*18*/    "_onWater",
     /*19*/    "_fl",
     /*20*/    "_surrender"
-    ];
-_grp setVariable [QGVAR(group_Pos),_gpos];
-_grp setVariable [QGVAR(group_behaviour),_behave];
-_grp setVariable [QGVAR(group_combatMode),_combat];
-_grp setVariable [QGVAR(group_speed),_speed];
-_grp setVariable [QGVAR(group_formation),_formation];
-_grp setVariable [QGVAR(group_taskRadius),_taskRadius];
-_grp setVariable [QGVAR(group_taskWait),_wait];
-_grp setVariable [QGVAR(group_task),_task];
-_grp setVariable [QGVAR(group_TaskTimer),_taskTimer];
-_grp setVariable [QGVAR(group_occupyOption),_occupyOption];
-_grp setVariable [QGVAR(group_Waypoints),_waypoints];
-_grp setVariable [QGVAR(group_forceLights),_fl];
-_grp setVariable [QGVAR(group_surrender),_surrender];
-//_grp call CBA_fnc_clearWaypoints;
-[_grp,_behave,_combat,_speed,_formation] call FUNC(setGroupBehaviour);
+];
+private _settings = [] call CBA_fnc_hashCreate;
+
+[_settings, "side", _side] call CBA_fnc_hashSet;
+[_settings, "pos", _pos] call CBA_fnc_hashSet;
+[_settings, "behaviour", _behaviour] call CBA_fnc_hashSet;
+[_settings, "combatMode", _combat] call CBA_fnc_hashSet;
+[_settings, "speed", _speed] call CBA_fnc_hashSet;
+[_settings, "formation", _formation] call CBA_fnc_hashSet;
+[_settings, "groupStance", _groupStance] call CBA_fnc_hashSet;
+[_settings, "groupInit", _groupInit] call CBA_fnc_hashSet;
+[_settings, "_taskRadius", _taskRadius] call CBA_fnc_hashSet;
+[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
+[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
+[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
+[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
+[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
+
+SETVAR(_group,group_Pos,_gpos);
+SETVAR(_group,group_behaviour,_behaviour);
+SETVAR(_group,group_combatMode,_combat);
+SETVAR(_group,group_speed,_speed);
+SETVAR(_group,group_formation,_formation);
+SETVAR(_group,group_taskRadius,_taskRadius);
+SETVAR(_group,group_taskWait,_wait);
+SETVAR(_group,group_task,_task);
+SETVAR(_group,group_TaskTimer,_taskTimer);
+SETVAR(_group,group_occupyOption,_occupyOption);
+SETVAR(_group,group_Waypoints,_waypoints);
+SETVAR(_group,group_forceLights,_fl);
+SETVAR(_group,group_surrender,_surrender);
+SETVAR(_group,Group_Spawned,true);
+//_group call CBA_fnc_clearWaypoints;
+[_group,_behaviour,_combat,_speed,_formation] call FUNC(setGroupBehaviour);
 {
-    _x setUnitPos _grpStance;
-    if (!isNull(assignedVehicle _x)) then {[_x] orderGetIn true;};
-} forEach (units _grp);
-if (_fl) then {[_grp] call FUNC(setFlashlights);};
-if (_surrender) then {[_grp] call FUNC(setSurrender);};
-_grp spawn _grpinit;
+    if !(isNull (assignedVehicle _x)) then {
+        [_x] orderGetIn true;
+    };
+} forEach (units _group);
+if (_groupStance != "auto") then {
+    {
+        _x setUnitPos _groupStance;
+    } forEach (units _group);
+};
+if (_fl) then {[_group] call FUNC(setFlashlights);};
+if (_surrender) then {[_group] call FUNC(setSurrender);};
+_group call _groupinit;
 true

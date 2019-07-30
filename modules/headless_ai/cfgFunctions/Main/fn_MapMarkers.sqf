@@ -1,10 +1,8 @@
-//Prints and updates markers for all in GVAR(TrackedUnits) array
 #include "..\..\script_macros.hpp"
 AI_EXEC_CHECK(SERVERHC);
 
 LOG("Starting Map Marker Function");
 
-GVAR(TrackedUnits) = [];
 GVAR(MarkerArray) = [];
 
 GVAR(MapMarkersPFH) = [{

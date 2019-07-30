@@ -4,18 +4,17 @@ AI_EXEC_CHECK(SERVERHC);
 GVAR(BasicCheckCurrent) = 0;
 GVAR(LeaderExecuteCurrent) = 0;
 
-//Lets gets the queue handler going
-[{
-	[] call FUNC(QueueHandle);
-	[] call FUNC(ActiveHandler);
-	[] call FUNC(GroupHandler);
-}, [], 2] call CBA_fnc_waitAndExecute;
+//[{
+//	[] call FUNC(QueueHandle);
+//	[] call FUNC(ActiveHandler);
+//	[] call FUNC(GroupHandler);
+//}, [], 2] call CBA_fnc_waitAndExecute;
 
-if (GVAR(CommanderEnabled)) then {
-	[{
-		[] call FUNC(CommanderHandler);
-	}, []] call CBA_fnc_execNextFrame;
-};
+//if (GVAR(CommanderEnabled)) then {
+//	[{
+//		[] call FUNC(CommanderHandler);
+//	}, []] call CBA_fnc_execNextFrame;
+//};
 
 //Spawns initial HC arrays
 if !(GVAR(InitialSpawn) isEqualTo []) then {

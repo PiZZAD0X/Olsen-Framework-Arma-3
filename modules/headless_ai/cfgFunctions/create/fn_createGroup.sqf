@@ -3,7 +3,7 @@ AI_EXEC_CHECK(SERVERHC);
 
 params ["_args",["_initmode",false,[false]]];
 _args params ["","_grpSet","_grpMem",["_currentVeh",objNull,[objNull]]];
-_grpSet params ["_side","_gpos","_behave","_combat","_speed","_formation","_grpStance","_grpInit","_createRadius","_taskRadius","_wait","_startBld","_task","_taskTimer", "_multi", "_occupyOption", "_vehAssigned","_waypoints","_onWater","_fl","_surrender","_storedVars"];
+_grpSet params ["_side","_gpos","_behaviour","_combat","_speed","_formation","_grpStance","_grpInit","_createRadius","_taskRadius","_wait","_startBld","_task","_taskTimer", "_multi", "_occupyOption", "_vehAssigned","_waypoints","_onWater","_fl","_surrender","_storedVars"];
 private _ngrp = createGroup _side;
 {
     if ((_x select 0)) then {
@@ -29,7 +29,7 @@ if (count _waypoints > 1) then {
     [_ngrp,_waypoints] call FUNC(createWaypoints);
 } else {
     LOG_2("Setting %1 to task: %2",_ngrp,_task);
-    private _passarray = [_task,_ngrp,_gpos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
+    private _passarray = [_task,_ngrp,_gpos,_taskRadius,_wait,_behaviour,_combat,_speed,_formation,_occupyOption];
     [{!((count waypoints (_this select 1)) isEqualTo 0)},{
         _this call FUNC(taskAssign);
     },_passarray] call CBA_fnc_waitUntilAndExecute;
@@ -37,7 +37,7 @@ if (count _waypoints > 1) then {
     //    [_ngrp,_tasks] call FUNC(taskInit);
     //} else {
     //    _ngrp setVariable [QGVAR(CurrentTaskEndTime),(CBA_MissionTime + _taskTimer)];
-    //    private _passarray = [_task,_ngrp,_gpos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
+    //    private _passarray = [_task,_ngrp,_gpos,_taskRadius,_wait,_behaviour,_combat,_speed,_formation,_occupyOption];
     //    [{!((count waypoints (_this select 1)) isEqualTo 0)},{
     //        _this call FUNC(taskAssign);
     //    },_passarray] call CBA_fnc_waitUntilAndExecute;

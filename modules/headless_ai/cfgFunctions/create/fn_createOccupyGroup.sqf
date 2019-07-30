@@ -3,7 +3,7 @@ AI_EXEC_CHECK(SERVERHC);
 
 params ["_args",["_initmode",false,[false]]];
 _args params ["","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uBld",objNull,[objNull]]];
-_grpSet params ["_side","_gpos","_behave","_combat","_speed","_formation","","","","_taskRadius","_wait","_startBld","_task","_taskTimer","","_occupyOption","","","","_tasks",""];
+_grpSet params ["_side","_gpos","_behaviour","_combat","_speed","_formation","","","","_taskRadius","_wait","_startBld","_task","_taskTimer","","_occupyOption","","","","_tasks",""];
 private _spos = _gpos;
 _blds = [_spos,_taskRadius,_occupyOption,(count _grpMem)] call FUNC(getBuildingList);
 _blds params [["_bld",[],[[]]],["_bldPos",[],[[]]]];
@@ -19,7 +19,7 @@ private _ngrp = createGroup _side;
     _u enableAI "Path";
     if (_task isEqualTo 2 || _task isEqualTo 4 || _task isEqualTo 5) then {
         _u setvariable[QGVAR(Occupy),true];
-        [_u,_uBld,_bldPos,_wait,[_behave,_combat,_speed,_formation]] spawn FUNC(taskBuildingPatrol);
+        [_u,_uBld,_bldPos,_wait,[_behaviour,_combat,_speed,_formation]] spawn FUNC(taskBuildingPatrol);
     };
     if (canSuspend) then {
         sleep 0.25;
@@ -37,7 +37,7 @@ if (!(_tasks isEqualTo []) && {_taskTimer isEqualTo 0}) then {
     if (_task isEqualTo 0 || _task isEqualTo 1 || _task isEqualTo 3) then {
         {_x setvariable[QGVAR(Occupy),true]} forEach (units _ngrp);
         _ngrp setVariable[QGVAR(CurrentTaskEndTime),(CBA_MissionTime + _taskTimer)];
-        private _passarray = [_task,_ngrp,_spos,_taskRadius,_wait,_behave,_combat,_speed,_formation];
+        private _passarray = [_task,_ngrp,_spos,_taskRadius,_wait,_behaviour,_combat,_speed,_formation];
         [{!((count waypoints (_this select 1)) isEqualTo 0)},{
             _this call FUNC(taskAssign);
         },_passarray] call CBA_fnc_waitUntilAndExecute;
