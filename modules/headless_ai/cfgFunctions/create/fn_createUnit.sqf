@@ -49,10 +49,9 @@ if !(_storedVars isEqualTo []) then {
     } foreach _varNameList;
 };
 
-[{
+[{!isNull (_this select 0)},{
 	params ["_unit","_unitStance"];
-    LOG_2("setting %1 to %2",_unit,_unitStance);
-    _unit setUnitPos _unitStance;
-}, [_unit,_unitStance], 3] call CBA_fnc_waitAndExecute;
+    [QGVAR(StanceChangeEvent), [_unit,_unitStance], _unit] call CBA_fnc_targetEvent;
+}, [_unit,_unitStance]] call CBA_fnc_waitUntilAndExecute;
 
 _unit

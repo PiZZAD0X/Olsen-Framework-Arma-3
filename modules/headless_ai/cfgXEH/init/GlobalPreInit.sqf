@@ -47,3 +47,25 @@ GVAR(zoneEntities) = [];
         LOG_2("Did not find array %1 on %2",_logic,clientowner);
     };
 }] call CBA_fnc_addEventHandler;
+
+[QGVAR(StanceChangeEvent), {
+    params ["_unit","_stance"];
+    private _initialStance = toUpper(stance _unit);
+    private _unitstance = switch (_initialStance) do {
+        default {"AUTO"};
+        case "STAND": {
+            "UP";
+        };
+        case "CROUCH": {
+            "MIDDLE";
+        };
+        case "PRONE": {
+            "DOWN";
+        };
+    };
+    LOG_3("Unit %1 stance %2 unitstance %3",_unit,_stance,_unitstance);
+    if (_unitstance != _stance) then {
+        _unit setUnitPos _stance;
+        LOG_2("setting %1 to %2",_unit,_stance);
+    };
+}] call CBA_fnc_addEventHandler;

@@ -1220,7 +1220,7 @@ class FSM
                          "_unit enableAI ""AIMINGERROR"";" \n
                          "_unit enableAI ""FSM"";" \n
                          "_unit forcespeed -1;" \n
-                         "_unit setunitpos ""AUTO"";" \n
+                         "_unit setunitposWeak ""AUTO"";" \n
                          "_releaseTime = CBA_MissionTime;" \n
                          "if (leader group _unit isEqualTo _unit) then {" \n
                          "	[group _unit, position _unit, 20, ""SAD"", ""COMBAT"", ""RED""] call CBA_fnc_addWaypoint;" \n
@@ -1541,7 +1541,7 @@ class FSM
                          "_unit disableAI ""FSM"";" \n
                          "_unit forcespeed 0;" \n
                          "_unit setposATL _oldtrenchpos;" \n
-                         "_unit setunitpos _oldunitpos;" \n
+                         "_unit setunitposWeak _oldunitpos;" \n
                          "_laserTarget setposASL _laserPos;" \n
                          "[_unit,_laserTarget] call PZAI_fnc_WatchEnemy;" \n
                          "group _unit setvariable [""PZAI_Mission"",""BUNKER""];" \n
