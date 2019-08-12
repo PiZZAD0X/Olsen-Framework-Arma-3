@@ -12,6 +12,7 @@ PZAI_fnc_StanceToInit = {
 		if ((_init find _unitstance) isEqualto -1) then {
 			if !((_init find "UP") isEqualto -1) then {
 				_init = [_init,"UP",_unitstance] call CBA_fnc_replace;
+			} else {
 				if !((_init find "MIDDLE") isEqualto -1) then {
 					_init = [_init,"MIDDLE",_unitstance] call CBA_fnc_replace;
 				} else {
