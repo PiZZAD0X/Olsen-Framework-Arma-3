@@ -1,12 +1,12 @@
 <p align="center">
-    <img src="https://github.com/EM-Creations/RapidRabbit-Framework-Arma-3/blob/master/core/olsen-logo.png">
+    <img src="https://github.com/EM-Creations/RapidRabbit-Framework-ArmA-3/blob/master/core/olsen-logo.png">
 </p>
 <p align="center">
-    <a href="https://github.com/EM-Creations/RapidRabbit-Framework-Arma-3/releases/latest">
+    <a href="https://github.com/EM-Creations/RapidRabbit-Framework-ArmA-3/releases/latest">
         <img src="https://img.shields.io/badge/Version-3.3.3-blue.svg" alt="RapidRabbit Framework Version">
     </a>
-    <a href="https://github.com/EM-Creations/RapidRabbit-Framework-Arma-3/issues">
-        <img src="https://img.shields.io/github/issues-raw/EM-Creations/RapidRabbit-Framework-Arma-3.svg?label=Issues" alt="RapidRabbit Framework Issues">
+    <a href="https://github.com/EM-Creations/RapidRabbit-Framework-ArmA-3/issues">
+        <img src="https://img.shields.io/github/issues-raw/EM-Creations/RapidRabbit-Framework-ArmA-3.svg?label=Issues" alt="RapidRabbit Framework Issues">
     </a>
 </p>
 

@@ -7,7 +7,7 @@ _info = "
 The RapidRabbit Framework is a simple framework designed for ArmA 3, based on the Olsen Framework. It supports modules and is easy to configure.<br/>
 <br/>
 Find out more about the framework on GitHub.<br/>
-github.com/EM-Creations/RapidRabbit-Framework-Arma-3<br/>
+github.com/EM-Creations/RapidRabbit-Framework-ArmA-3<br/>
 <br/>
 Current Version: 3.3.4 DEV
 ";
