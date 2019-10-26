@@ -143,6 +143,5 @@ if (handgunWeapon _unit != "") then {
 	};
 } forEach handgunItems _unit;
 
-
 copyToClipboard _script;
 hint "Gear script exported to the clipboard!";
