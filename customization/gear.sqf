@@ -15,6 +15,7 @@ FW_enableOverfill = false;
 _unit call FNC_RemoveAllGear;
 
 switch (_type) do {
+  //#include "loadouts\Insurgent.sqf"
 	//#include "loadouts\USMCRiflePlatoon.sqf"
 	//#include "loadouts\RURiflePlatoon.sqf"
 	//#include "loadouts\BAF.sqf"
