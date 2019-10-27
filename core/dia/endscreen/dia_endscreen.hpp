@@ -1,5 +1,5 @@
-//Do not edit unless you know what you are doing
-//because you are on the highway to the danger zone!
+// Do not edit unless you know what you are doing
+// because you are on the highway to the danger zone!
 
 class DIA_ENDSCREEN {
 	idd = 300;
@@ -19,6 +19,7 @@ class DIA_ENDSCREEN {
 		w = 4;
 		h = 4;
 	};
+
 	class TEXT_TITLE: RscStructuredText
 	{
 		idc = 3001;
@@ -27,6 +28,7 @@ class DIA_ENDSCREEN {
 		w = 0.525 * safezoneW;
 		h = 0.140031 * safezoneH;
 	};
+
 	class TEXT_LEFT: RscStructuredText
 	{
 		idc = 3002;
@@ -35,6 +37,7 @@ class DIA_ENDSCREEN {
 		w = 0.2625 * safezoneW;
 		h = 0.560125 * safezoneH;
 	};
+
 	class TEXT_RIGHT: RscStructuredText
 	{
 		idc = 3003;
@@ -43,6 +46,7 @@ class DIA_ENDSCREEN {
 		w = 0.2625 * safezoneW;
 		h = 0.560125 * safezoneH;
 	};
+
 	class TEXT_BOTTOM_LEFT: RscStructuredText
 	{
 		idc = 3004;
@@ -51,6 +55,7 @@ class DIA_ENDSCREEN {
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
 	};
+
 	class TEXT_BOTTOM_MIDDLE: RscStructuredText
 	{
 		idc = 3005;
@@ -59,6 +64,7 @@ class DIA_ENDSCREEN {
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
 	};
+
 	class TEXT_BOTTOM_RIGHT: RscStructuredText
 	{
 		idc = 3006;
@@ -67,4 +73,5 @@ class DIA_ENDSCREEN {
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
 	};
+
 };
