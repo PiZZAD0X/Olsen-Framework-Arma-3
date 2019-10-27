@@ -68,7 +68,7 @@ SET_GROUP(ITEMS)
 END_GROUP;
 
 case (package + "OP_SL"): {
-	["V_BandollierB_blk"] call FNC_AddItem;  //Vest
+	["V_BandollierB_blk"] call FNC_AddItem;  // Vest
 
 	ADD_GROUP(OP_SL_UNIFORM);
 	ADD_GROUP(ITEMS);
@@ -102,7 +102,7 @@ case (package + "OP_Marksman"): {
 };
 
 case (package + "OP_MG"): {
-	["UK3CB_V_Belt_Rig_Lite_KHK"] call FNC_AddItem;  //Vest
+	["UK3CB_V_Belt_Rig_Lite_KHK"] call FNC_AddItem;  // Vest
 
 	ADD_GROUP(OP_MG_UNIFORM);
 	ADD_GROUP(ITEMS);
@@ -125,12 +125,12 @@ case (package + "OP_Rifleman"): {
 	["rhs_30Rnd_762x39mm_bakelite", 5] call FNC_AddItem; // Magazines
   ["rhs_30Rnd_762x39mm_bakelite_tracer", 2] call FNC_AddItem; // Magazines
 
-	["rhs_weap_akms"] call FNC_AddItem; //Primary rifle
+	["rhs_weap_akms"] call FNC_AddItem; // Primary rifle
 
 };
 
 case (package + "IND_SL"): {
-	["V_BandollierB_blk"] call FNC_AddItem;  //Vest
+	["V_BandollierB_blk"] call FNC_AddItem;  // Vest
 
 	ADD_GROUP(IND_SL_UNIFORM);
 	ADD_GROUP(ITEMS);
@@ -187,6 +187,6 @@ case (package + "IND_Rifleman"): {
 	["rhs_30Rnd_762x39mm_bakelite", 5] call FNC_AddItem; // Magazines
   ["rhs_30Rnd_762x39mm_bakelite_tracer", 2] call FNC_AddItem; // Magazines
 
-	["rhs_weap_akms"] call FNC_AddItem; //Primary rifle
+	["rhs_weap_akms"] call FNC_AddItem; // Primary rifle
 
 };

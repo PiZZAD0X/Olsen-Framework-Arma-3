@@ -1,14 +1,14 @@
 #define description
 
-#include "core\description.hpp" //DO NOT REMOVE
-#include "modules\modules.sqf" //DO NOT REMOVE
+#include "core\description.hpp" // DO NOT REMOVE
+#include "modules\modules.sqf" // DO NOT REMOVE
 
 #undef description
 #define description_functions
 
 class CfgFunctions {
-	#include "core\description.hpp" //DO NOT REMOVE
-	#include "modules\modules.sqf" //DO NOT REMOVE
+	#include "core\description.hpp" // DO NOT REMOVE
+	#include "modules\modules.sqf" // DO NOT REMOVE
 
 };
 
@@ -16,8 +16,8 @@ class CfgFunctions {
 #define description_titles
 
 class rscTitles {
-	#include "core\description.hpp" //DO NOT REMOVE
-	#include "modules\modules.sqf" //DO NOT REMOVE
+	#include "core\description.hpp" // DO NOT REMOVE
+	#include "modules\modules.sqf" // DO NOT REMOVE
 
 };
 
@@ -25,8 +25,8 @@ class rscTitles {
 #define description_notifications
 
 class CfgNotifications {
-	#include "core\description.hpp" //DO NOT REMOVE
-	#include "modules\modules.sqf" //DO NOT REMOVE
+	#include "core\description.hpp" // DO NOT REMOVE
+	#include "modules\modules.sqf" // DO NOT REMOVE
 
 };
 
@@ -35,8 +35,8 @@ class CfgNotifications {
 #define description_sounds
 
 class CfgSounds {
-	#include "core\description.hpp" //DO NOT REMOVE
-	#include "modules\modules.sqf" //DO NOT REMOVE
+	#include "core\description.hpp" // DO NOT REMOVE
+	#include "modules\modules.sqf" // DO NOT REMOVE
 
 };
 
@@ -45,8 +45,8 @@ class CfgSounds {
 #define description_insignia
 
 class CfgUnitInsignia {
-	#include "core\description.hpp" //DO NOT REMOVE
-	#include "modules\modules.sqf" //DO NOT REMOVE
+	#include "core\description.hpp" // DO NOT REMOVE
+	#include "modules\modules.sqf" // DO NOT REMOVE
 
 };
 
@@ -55,8 +55,8 @@ class CfgUnitInsignia {
 #define description_params
 
 class Params {
-	#include "core\description.hpp" //DO NOT REMOVE
-	#include "modules\modules.sqf" //DO NOT REMOVE
+	#include "core\description.hpp" // DO NOT REMOVE
+	#include "modules\modules.sqf" // DO NOT REMOVE
 
 };
 

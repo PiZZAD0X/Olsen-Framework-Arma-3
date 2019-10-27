@@ -26,7 +26,6 @@ targets = [];
 
 {
 	if (!(_x getVariable "FW_Dead")) then {
-
 		targets set [count targets, _x];
 
 	}
@@ -291,13 +290,11 @@ _keydown_mouseZ = (findDisplay 46) displayAddEventHandler ["mousezchanged", "
 "];
 
 while {(player getVariable ["FW_Spectating", false])} do {
-
 	targets = [];
 
 	{
 
 		if (!(_x getVariable ["FW_Dead", false])) then {
-
 			targets set [count targets, _x];
 
 		}

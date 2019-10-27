@@ -6,7 +6,6 @@
 #include "core\dia\debug\dia_debug.sqf" // DO NOT REMOVE
 
 if (isServer) then {
-
 	"" call FNC_StartingCount; //DO NOT REMOVE
 
 	[] spawn { // Spawns code running in parallel

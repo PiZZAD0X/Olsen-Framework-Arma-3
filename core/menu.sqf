@@ -9,7 +9,7 @@ The RapidRabbit Framework is a simple framework designed for ArmA 3, based on th
 Find out more about the framework on GitHub.<br/>
 github.com/EM-Creations/RapidRabbit-Framework-ArmA-3<br/>
 <br/>
-Current Version: 3.3.4 DEV
+Current Version: 4.0.0 DEV
 ";
 
 player createDiaryRecord ["FW_Menu", ["Framework Info", _info]];

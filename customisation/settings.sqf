@@ -47,6 +47,14 @@ if (!isDedicated) then {
 		case west: {
 			FW_RespawnTickets = 0; // If respawn is enabled you must create empty game logics, for respawn points, following the name format fw_side_respawn. Example: fw_west_respawn
 		};
-		// Add more cases for other factions here
+
+		case east: {
+			// Do something.
+		};
+
+		case resistance: {
+			// Do something.
+		};
+		// Add more cases for other factions here..
 	};
 };
