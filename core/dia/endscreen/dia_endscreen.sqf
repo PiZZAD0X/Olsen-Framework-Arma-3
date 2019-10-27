@@ -51,7 +51,6 @@ _textSide = 0;
 	};
 
 	if (count _destroyed != 0) then {
-
 		_temp = _temp + "<br />Destroyed assets:<br />";
 
 		{
@@ -64,12 +63,10 @@ _textSide = 0;
 	_temp = _temp + "<br />";
 
 	if (_textSide == 0) then {
-
 		_textSide = 1;
 		_leftText = _leftText + _temp;
 
 	} else {
-
 		_textSide = 0;
 		_rightText = _rightText + _temp;
 
@@ -80,11 +77,9 @@ _textSide = 0;
 _endTitleText = _scenario;
 
 if (_timeLimit != 0) then {
-
 	_time = ceil(time / 60);
 
 	if (_time >= _timeLimit) then {
-
 		_time = _timeLimit;
 
 	};
@@ -112,7 +107,6 @@ _dia = uiNamespace getVariable "FW_EndScreen";
 (_dia displayCtrl _bottomRight) ctrlSetStructuredText parseText _bottomTextRight;
 
 for "_x" from 1 to 120 do {
-
 	(_dia displayCtrl _bg) ctrlSetBackgroundColor [0, 0, 0, (_x * (1/120))];
 	sleep(0.01);
 

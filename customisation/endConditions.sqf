@@ -2,13 +2,11 @@ private _bluForCasualty = "BLUFOR" call FNC_CasualtyPercentage; // Gets the casu
 private _opForCasualty = "OPFOR" call FNC_CasualtyPercentage; // Gets the casualty percentage of team "OPFOR"
 
 if (_bluForCasualty >= 50) exitWith {
-
 	"OPFOR VICTORY<br />BLUFOR has retreated due to casualties." call FNC_EndMission;
 
 };
 
 if (_opForCasualty >= 75) exitWith {
-
 	"BLUFOR VICTORY<br />OPFOR has retreated due to casualties." call FNC_EndMission;
 
 };
