@@ -2,11 +2,12 @@
 // Author: StatusRed (EM-Creations.co.uk)
 
 #ifdef framework
-	[] execVM "VcomInit.sqf";
+	["Vcom AI 3.3.3", "AI Modification: Faster, Smarter, and Deadlier AI.", "genesis92x | StatusRed (Module)"] call FNC_RegisterModule;
+	[] execVM "modules\VCom\VcomInit.sqf";
 #endif
 
 #ifdef preinit
-	VCM_CBASettings = call compile preprocessFileLineNumbers "Functions\VCM_CBASettings.sqf";
+	VCM_CBASettings = call compile preprocessFileLineNumbers "modules\VCom\Functions\VCM_CBASettings.sqf";
 #endif
 
 #ifdef description_functions
