@@ -34,3 +34,8 @@
 	#include "dia\endscreen\dia_endscreen.hpp" //Must have for the end screen to work, if removed Arma 3 will crash on mission load
 
 #endif
+
+#ifdef description_params
+	// Do nothing.
+
+#endif
