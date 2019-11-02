@@ -1,4 +1,4 @@
-["EG Spectator Mode", "Replaces the Olsen Framework spectator script with the Vanilla Spectator.", "BI, Perfk &amp; BlackHawk"] call FNC_RegisterModule;
+["EG Spectator Mode", "Replaces The Bear Cave spectator script with the Vanilla Spectator.", "BI, Perfk &amp; BlackHawk"] call FNC_RegisterModule;
 
 #define DEBUG_MSG(MSG)
 //systemchat MSG;\
@@ -19,9 +19,9 @@ if (!isDedicated) then {
 			};
 		};
 	};
-	
+
 	eg_keyHandler_display_hidden = false;
-	
+
 	eg_keyHandler = {
 		params ["_control", "_code", "_shift", "_control", "_alt"];
 
@@ -34,7 +34,7 @@ if (!isDedicated) then {
 				call _action;
 			};
 		};
-		
+
 		if (_code == 35 && !_shift && _control && !_alt) then {
 			if (!eg_keyHandler_display_hidden) then {
 				(findDisplay 60492) closedisplay 1;
@@ -42,17 +42,17 @@ if (!isDedicated) then {
 			};
 		};
 	};
-	
+
 	eg_keyHandler2 = {
 		params ["_control", "_code", "_shift", "_control", "_alt"];
-		
+
 		if (_code == 35 && !_shift && _control && !_alt &&
 		!isNil "eg_keyHandler_display_hidden" &&
 		{eg_keyHandler_display_hidden}
 		) then {
 			([] call BIS_fnc_displayMission) createDisplay "RscDisplayEGSpectator";
 			eg_keyHandler_display_hidden = false;
-			
+
 			eg_keyHandle = (findDisplay 60492) displayAddEventHandler ["keyDown", {call eg_keyHandler;}];
 			if (killcam_active) then {
 				killcam_keyHandle = (findDisplay 60492) displayAddEventHandler ["keyDown", {call killcam_toggleFnc;}];
@@ -82,10 +82,10 @@ if (!isDedicated) then {
 			params ["_unit", "_killer"];
 			//let's remove hit EH, it's not needed
 			player removeEventHandler ["hit", killcam_hitHandle];
-			
-			//we check if player didn't kill himself or died for unknown reasons
+
+			//we check if player didn't kill themselves or died for unknown reasons
 			if (vehicle _killer != vehicle _unit && _killer != objNull) then {
-			
+
 				//this is the standard case (killed EH got triggered by getting shot)
 				DEBUG_MSG("using killed EH")
 				killcam_unit_pos = ASLtoAGL eyePos _unit;
@@ -98,7 +98,7 @@ if (!isDedicated) then {
 				if (!isNil "killcam_LastHit") then {
 					_last_hit_info = killcam_LastHit;
 				};
-				
+
 				//hit info retrieved, now we check if it's not caused by fall damage etc.
 				//also we won't use info that's over 10 seconds old
 				private _damage = 0.5;
@@ -141,7 +141,7 @@ if (!isDedicated) then {
 					sleep 1.01-_damage;
 					0 fadeSound 0;
 					sleep 0.89+_damage;
-					
+
 					["<t color='#FF0000'>YOU ARE DEAD</t>", 0, 0.4, 2, 0.5, 0, 1000] spawn BIS_fnc_dynamicText;
 
 				} else {
@@ -160,7 +160,7 @@ if (!isDedicated) then {
 					call BIS_fnc_VRFadeIn;
 				};
 			};
-			
+
 		}];
 		//END OF KILLED EH///////////
 
@@ -218,7 +218,7 @@ if (!isDedicated) then {
 
 	FNC_SpectatingRemoteFunc = {
 		player setVariable ["FW_Dead", true, true]; //Tells the framework the player is dead
-		
+
 		player hideObjectGlobal true;
 		player setCaptive true;
 		player allowDamage false;
@@ -254,7 +254,7 @@ if (!isDedicated) then {
 			//we set default pos in case all methods fail and we end up with 0,0,0
 			private _pos = [2000, 2000, 100];
 			private _dir = 0;
-			
+
 			if (getMarkerColor eg_spectator_marker == "") then {
 				if (!isNull killcam_body) then {
 					//set camera pos on player body
@@ -264,12 +264,12 @@ if (!isDedicated) then {
 			} else {
 				_pos = getmarkerpos eg_spectator_marker;
 			};
-			
+
 			if (abs(_pos select 0) < 2 && abs(_pos select 1) < 2) then {
 				_pos = [2000, 2000, 100];
 			};
 
-			["Initialize", 
+			["Initialize",
 				[
 				player,
 				eg_Whitelisted_Sides,
@@ -283,18 +283,18 @@ if (!isDedicated) then {
 				eg_Show_Entities_And_Locations_Lists
 				]
 			] call BIS_fnc_EGSpectator;
-			
+
 			private _cam = missionNamespace getVariable ["BIS_EGSpectatorCamera_camera", objNull];
-			
+
 			if (_cam != objNull) then {
-				
+
 				[{!isNull (findDisplay 60492)}, {
 						DEBUG_MSG("Display loaded, attaching key EH")
 						eg_keyHandle = (findDisplay 60492) displayAddEventHandler ["keyDown", {call eg_keyHandler;}];
 						eg_keyHandle = (findDisplay 46) displayAddEventHandler ["keyDown", {call eg_keyHandler2}];
 				}, []] call CBA_fnc_waitUntilAndExecute;
-				
-				
+
+
 				if (!killcam_active) then {
 					//we move 2 meters back so player's body is visible
 					_pos = ([_pos, -2, _dir] call BIS_fnc_relPos);
@@ -303,24 +303,24 @@ if (!isDedicated) then {
 				}
 				else {
 					missionNamespace setVariable ["killcam_toggle", false];
-					
+
 					//this cool piece of code adds key handler to spectator display
 					//it takes some time for display to create, so we have to delay it.
 					[{!isNull (findDisplay 60492)}, {
 						DEBUG_MSG("Display loaded, attaching key EH")
 						killcam_keyHandle = (findDisplay 60492) displayAddEventHandler ["keyDown", {call killcam_toggleFnc;}];
 					}, []] call CBA_fnc_waitUntilAndExecute;
-					
+
 					if (!isNull killcam_killer) then {
 						DEBUG_MSG("found valid killer")
 						killcam_distance = killcam_killer distance killcam_body;
 						_pos = ([_pos, -1.8, ([killcam_body, killcam_killer] call BIS_fnc_dirTo)] call BIS_fnc_relPos);
 						_cam setposATL _pos;
-						
+
 						//vector magic
 						_temp1 = ([getposASL _cam, getposASL killcam_killer] call BIS_fnc_vectorFromXToY);
 						_temp = (_temp1 call CBA_fnc_vect2Polar);
-						
+
 						//we check if camera is not pointing up, just in case
 						if (abs(_temp select 2) > 89) then {_temp set [2, 0]};
 						[_cam, [_temp select 1, _temp select 2]] call BIS_fnc_setObjectRotation;
@@ -330,15 +330,15 @@ if (!isDedicated) then {
 						_cam setposATL _pos;
 						_cam setDir _dir;
 					};
-					
+
 					killcam_texture = "a3\ui_f\data\gui\cfg\debriefing\enddeath_ca.paa";
-					
+
 					killcam_drawHandle = addMissionEventHandler ["Draw3D", {
 						//we don't draw hud unless we toggle it by keypress
 						if (missionNamespace getVariable ["killcam_toggle", false]) then {
-						
+
 							if ((killcam_killer_pos select 0) != 0) then {
-								
+
 								_u = killcam_unit_pos;
 								_k = killcam_killer_pos;
 								if ((_u distance _k) < 2000) then {
@@ -361,16 +361,16 @@ if (!isDedicated) then {
 					}];//draw EH
 				};//killcam (not) active
 			};//checking camera
-			
+
 			private _killcam_msg = "";
 			if (killcam_active) then {
 				_killcam_msg = "Press <t color='#FFA500'>K</t> to toggle indicator showing location where you were killed from.<br/>";
 			};
 			private _text = format ["<t size='0.5' color='#ffffff'>%1
 			Close spectator HUD by pressing <t color='#FFA500'>CTRL+H</t>.<br/>
-			Press <t color='#FFA500'>SHIFT</t>, <t color='#FFA500'>ALT</t> or <t color='#FFA500'>SHIFT+ALT</t> to modify camera speed. Open map by pressing <t color='#FFA500'>M</t> and click anywhere to move camera to that postion.<br/> 
+			Press <t color='#FFA500'>SHIFT</t>, <t color='#FFA500'>ALT</t> or <t color='#FFA500'>SHIFT+ALT</t> to modify camera speed. Open map by pressing <t color='#FFA500'>M</t> and click anywhere to move camera to that postion.<br/>
 			Spectator controls can be customized in game <t color='#FFA500'>options->controls->'Camera'</t> tab.</t>", _killcam_msg];
-			
+
 			[_text, 0.55, 0.8, 20, 1] spawn BIS_fnc_dynamicText;
 
 			[] spawn {

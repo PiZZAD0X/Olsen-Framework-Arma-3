@@ -36,7 +36,7 @@
 
 //			["aimingspeed", 0.9,["Group",group General]] call FNC_setAISkill;
 //			This example will change all AI which are in the group of General
-//			Usecase: Generals Bodyguard is the only one affected and other ai around him are not changed
+//			Usecase: Generals Bodyguard is the only one affected and other ai around them are not changed
 
 //			["aimingspeed", 0.9,["Vehicle"]] call FNC_setAISkill;
 //			This Example will change all AI which are inside a Vehicle
