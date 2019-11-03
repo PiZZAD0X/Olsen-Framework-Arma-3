@@ -8,7 +8,7 @@ switch (side player) do {
 
 	case west: {
 		//JIPTYPE
-		//How should JIPs be handled, options are: DENY: Player is killed and put in spectator. TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport.
+		//How should JIPs be handled, options are: DENY: Player is killed and put in spectator. TELEPORT: Player can teleport to their squad. TRANSPORT: Player can send a hint to all group leaders requesting transport.
 		FW_JIPTYPE = "TELEPORT";
 
 		//JIPDISTANCE
@@ -22,7 +22,7 @@ switch (side player) do {
 
 	case east: {
 		//JIPTYPE
-		//How should JIPs be handled, options are: DENY: Player is killed and put in spectator. TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport.
+		//How should JIPs be handled, options are: DENY: Player is killed and put in spectator. TELEPORT: Player can teleport to their squad. TRANSPORT: Player can send a hint to all group leaders requesting transport.
 		FW_JIPTYPE = "TELEPORT";
 
 		//JIPDISTANCE
@@ -36,7 +36,7 @@ switch (side player) do {
 
 	case independent: {
 		//JIPTYPE
-		//How should JIPs be handled, options are: DENY: Player is killed and put in spectator. TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport.
+		//How should JIPs be handled, options are: DENY: Player is killed and put in spectator. TELEPORT: Player can teleport to their squad. TRANSPORT: Player can send a hint to all group leaders requesting transport.
 		FW_JIPTYPE = "TELEPORT";
 
 		//JIPDISTANCE
@@ -47,10 +47,10 @@ switch (side player) do {
 		//If you move SPAWNDISTANCE away from your spawn position you loose the option to teleport or request transport.
 		FW_SPAWNDISTANCE = 200;
 	};
-	
+
 		case civilian: {
 		//JIPTYPE
-		//How should JIPs be handled, options are: DENY: Player is killed and put in spectator. TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport.
+		//How should JIPs be handled, options are: DENY: Player is killed and put in spectator. TELEPORT: Player can teleport to their squad. TRANSPORT: Player can send a hint to all group leaders requesting transport.
 		FW_JIPTYPE = "TELEPORT";
 
 		//JIPDISTANCE

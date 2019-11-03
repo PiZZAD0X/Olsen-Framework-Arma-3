@@ -20,10 +20,10 @@ For changes edit the params.cpp file
 For adding additional custom parameters follow the same schema as the params.cpp file and the init.sqf at the bottom (Or consult Sacher).
 
 How to Use:
-Place down a unit and name it. Give him waypoints on how you want the ai to attack. Then register the path to the attack system use ["Path Identifier as String",unit which has the waypoints] call FNC_AtkRegisterPath;
+Place down a unit and name it. Give them waypoints on how you want the ai to attack. Then register the path to the attack system use ["Path Identifier as String",unit which has the waypoints] call FNC_AtkRegisterPath;
 On mission start the path will be cached and the ai unit deleted;
 
-To register Ai units for spawning use ["Unit Identifier","Classname of unit to spawn","Olsen framework Gearscript name"] call FNC_AtkRegisterUnit;
+To register Ai units for spawning use ["Unit Identifier","Classname of unit to spawn","The Bear Cave framework Gearscript name"] call FNC_AtkRegisterUnit;
 You can register as many units and paths as you want but try to keep it low as it will increase computation and memory.
 
 To start the attack use [paths as array,units as array,side of unit classname,min ammount of units to spawn,maxUnits to spawn,max ammount of units in field,delay from mission start,delay between spawns,should clean corpses] call FNC_AtkRandomStart;
@@ -38,7 +38,7 @@ Register Unit:
   Params:
 	ident - String - unique identifier for the Unit
 	classname - String - classname of the unit to spawn
-	gearscript -String - olsen framework gearscript identifier : "" for none
+	gearscript -String - The Bear Cave framework gearscript identifier : "" for none
 	skill - float(0,1) - skill level of unit
 
 	Notes:  for standard west use	 "B_Soldier_F"
