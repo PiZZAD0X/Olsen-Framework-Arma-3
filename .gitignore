@@ -58,3 +58,4 @@ release/*
 # Arma
 *.pbo
 texHeaders.bin
+/TBCF_Logo_Big.psd
