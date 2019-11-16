@@ -1,4 +1,4 @@
-["Firemission", "Custom Artillery Strike Missions", "Sacher"] call FNC_RegisterModule;
+["Firemission", "1.0", "Custom Artillery Strike Missions", "Sacher"] call FNC_RegisterModule;
 
 //to say the truth, this code is a goddamm mess
 

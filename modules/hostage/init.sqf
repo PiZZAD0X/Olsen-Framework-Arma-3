@@ -1,4 +1,4 @@
-["Hostage", "Allows the mission maker to easily add hostages to their missions.", "Starfox64"] call FNC_RegisterModule;
+["Hostage", "1.0", "Allows the mission maker to easily add hostages to their missions.", "Starfox64"] call FNC_RegisterModule;
 
 FNC_RescueHostage = {
 

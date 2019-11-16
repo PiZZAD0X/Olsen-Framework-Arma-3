@@ -1,4 +1,4 @@
-["Ambient Effects", "Fire and Particles!", "TinfoilHate"] call FNC_RegisterModule;
+["Ambient Effects", "1.0", "Fire and Particles!", "TinfoilHate"] call FNC_RegisterModule;
 
 	FNC_hideHelperObject = {
 		_this hideObject true
@@ -63,7 +63,7 @@
 		_hideArray = [];
 
 		{	//Large Pink Arrows - Burning Vehicle
-			_delay = random 1; 
+			_delay = random 1;
 			[[_x,[
 				["FireSparks", [0,-2,0]],
 				["AmmoSmokeParticles2", [0,-2,-1]],
@@ -71,8 +71,8 @@
 				["AmmoSmokeParticles2", [0,2,-1]],
 				["AmmoSmokeParticles2", [0,0,-1]]
 			]],"FNC_particleEffect",true,true] spawn BIS_fnc_MP;
-			[{[_this,"FNC_audio_carBurning2",true,true] spawn BIS_fnc_MP},_x,_delay] call CBA_fnc_waitAndExecute;	
-			
+			[{[_this,"FNC_audio_carBurning2",true,true] spawn BIS_fnc_MP},_x,_delay] call CBA_fnc_waitAndExecute;
+
 			_hideArray set [count _hideArray,_x];
 		} forEach (allMissionObjects "Sign_Arrow_Large_Pink_F");
 

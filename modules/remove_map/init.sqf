@@ -1,10 +1,10 @@
-["Remove Maps", "Removes maps and compasses from specific gear cases.", "TinfoilHate"] call FNC_RegisterModule;
+["Remove Maps", "1.0", "Removes maps and compasses from specific gear cases.", "TinfoilHate"] call FNC_RegisterModule;
 
 	[{time > 1}, {
 		#include "settings.sqf"
 
 		_keepMapClasses = _keepMapClasses + _keepCompassClasses;
-		
+
 		{
 			_unit = _x;
 			_gear = _unit getVariable ["FW_Loadout", ""];

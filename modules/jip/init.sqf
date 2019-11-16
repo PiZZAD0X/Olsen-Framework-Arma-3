@@ -1,4 +1,4 @@
-["JIP Manager", "Handles JIPs in different ways depending on the module's settings.", "Olsen &amp; Starfox64"] call FNC_RegisterModule;
+["JIP Manager", "1.0", "Handles JIPs in different ways depending on the module's settings.", "Olsen &amp; Starfox64"] call FNC_RegisterModule;
 
 #include "settings.sqf"
 

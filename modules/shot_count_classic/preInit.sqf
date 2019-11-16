@@ -1,10 +1,10 @@
-["Ammo Counter", "Counts ammunition types fired and displays it in the mission endscreen.", "TinfoilHate"] call FNC_RegisterModule;
+["Ammo Counter", "1.0", "Counts ammunition types fired and displays it in the mission endscreen.", "TinfoilHate"] call FNC_RegisterModule;
 
 //Ammo Counter Initilization
 //Much script by beta, some script by TinfoilHate
 //Sets up ammo counting
 
-	
+
 		#include "settings.sqf"
 
     if (isServer) then {
@@ -87,7 +87,7 @@
 
 				if (_count > 0) then {_munitionsRED set [count _munitionsRED,[_count,_name]]};
 			} forEach aCount_redArray;
-			
+
 			["aCount_event_scoreScreen", [_munitionsBLU,_munitionsRED]] call CBA_fnc_globalEvent;
 		};
 	};
@@ -110,9 +110,9 @@
 
 					aCount_textRED = aCount_textRED + "<br/>" +  _label + ": " + str(_count) + "<br/>";
 				} forEach _arrayRED;
-				
+
 				aCount_textRES = "";
-			};		
+			};
 		};
 
 		["aCount_event_scoreScreen",aCount_shotDisplay] call CBA_fnc_addEventHandler;

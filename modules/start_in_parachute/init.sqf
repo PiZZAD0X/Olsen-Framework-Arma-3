@@ -1,11 +1,11 @@
-["Start in Parachute", "Starts players in parachutes", "Briland"] call FNC_RegisterModule;
+["Start in Parachute", "1.0", "Starts players in parachutes", "Briland"] call FNC_RegisterModule;
 
 FNC_DOPARACHUTE = {
 
-	private ["_target", "_elev", "_rand", "_stear", "_class"];	
+	private ["_target", "_elev", "_rand", "_stear", "_class"];
 
 	if (!isDedicated) then {
-	
+
 		_target = _this select 0;
 		_elev = _this select 1;
 		_rand = 100;
@@ -14,15 +14,15 @@ FNC_DOPARACHUTE = {
 		_doPara = false;
 
 		if (count _this > 2) then {
-			
+
 			_rand = _this select 2;
-			
+
 		};
 
 		if (count _this > 3) then {
-			
+
 			_stear = _this select 3;
-			
+
 		};
 
 		if (_stear) then {
@@ -51,7 +51,7 @@ FNC_DOPARACHUTE = {
 				};
 
 			} foreach _target;
-			
+
 		};
 
 		if (typeName _target == "OBJECT") then {
@@ -61,7 +61,7 @@ FNC_DOPARACHUTE = {
 				_doPara = true;
 
 			};
-		
+
 		};
 
 		if (!_doPara) exitwith {};
@@ -74,8 +74,8 @@ FNC_DOPARACHUTE = {
 
 			waitUntil {!isnull player};
 			_random = floor (random _randelev);
-			_chute = _classname createVehicle [0,0,0]; 
-			_chute setPosATL [getPosatl player select 0, getPosatl player select 1, _elevation + _random]; 
+			_chute = _classname createVehicle [0,0,0];
+			_chute setPosATL [getPosatl player select 0, getPosatl player select 1, _elevation + _random];
 			player moveIndriver _chute;
 
 		};

@@ -1,4 +1,4 @@
-["AI drivers", "Adds AI commanded by players as drivers to vehicles.", "BlackHawk"] call FNC_RegisterModule;
+["AI drivers", "1.0", "Adds AI commanded by players as drivers to vehicles.", "BlackHawk"] call FNC_RegisterModule;
 
 #include "settings.sqf"
 
@@ -15,7 +15,7 @@ aidrivers_removeUnit = {
     params ["_target"];
 
     private _driver = _target getVariable ["aidrivers_driver", objNull];
-    
+
     if (!isNull _driver) then {
         deleteVehicle _driver;
         private _handle = _target getVariable ["aidrivers_pfhID", []];
@@ -30,12 +30,12 @@ aidrivers_removeUnit = {
 
 aidrivers_createUnit = {
     params ["_target", "_caller"];
-    
+
     if (!isNull driver _target) exitWith {};
     private _turret = (assignedVehicleRole _caller) select 1;
     _caller moveInDriver _target;
     _caller moveInTurret [_target, _turret];
-    
+
     private _class = "B_Soldier_F";
     if (side _caller == EAST) then {
         _class = "O_Soldier_F";
@@ -51,16 +51,16 @@ aidrivers_createUnit = {
     removeVest _unit;
     removeHeadgear _unit;
     removeGoggles _unit;
-    
+
     _unit forceAddUniform uniform _caller;
     _unit addVest vest _caller;
     _unit addHeadGear headGear _caller;
-    
+
     _target setVariable ["aidrivers_driver", _unit, true];
 
     _unit moveInDriver _target;
     _unit setBehaviour "COMBAT";
-    
+
     doStop _unit;
 
     FW_AidriverLastTimeIn = time;
@@ -98,11 +98,11 @@ FNC_toggleDriverCam = {
         FW_driverCam camCommit 0;
 
         FW_pipNvEnabled = false;
-        
+
         _veh = vehicle player;
         _mempoint = getText ( configfile >> "CfgVehicles" >> (typeOf _veh) >> "memoryPointDriverOptics" );
         FW_driverCam attachTo [_veh,[0,0,0], _mempoint];
-        
+
         with uiNamespace do {
             "FW_pipDriver" cutRsc ["RscTitleDisplayEmpty", "PLAIN"];
             FW_pipDisplay = uiNamespace getVariable "RscTitleDisplayEmpty";
