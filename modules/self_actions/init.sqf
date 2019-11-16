@@ -1,4 +1,4 @@
-["Self actions", "Allows players to check their own team color, view other's maps and cut grass.", "TinfoilHate"] call FNC_RegisterModule;
+["Self actions", "1.0", "Allows players to check their own team color, view other's maps and cut grass.", "TinfoilHate"] call FNC_RegisterModule;
 
 #include "settings.sqf"
 
@@ -27,10 +27,10 @@ if (!isDedicated && hasInterface) then {
 		if (ENABLE_VIEWING_MAP) then {
 			private _shareMap = ["shareMap_class", "View Map", "", {
 				params ["_target", "_player"];
-	
+
 				player linkItem "ItemMap";
 				openMap true;
-	
+
 				[
 					{!visibleMap || (_this select 0) distance (_this select 1) > 3},
 					{openMap false; player unlinkItem "ItemMap";},
@@ -55,18 +55,18 @@ if (!isDedicated && hasInterface) then {
 						mis_macheteDone = true;
 					};
 				}];
-	
+
 				[player,"AinvPknlMstpSlayWrflDnon_medic"] remoteExec ['playMove'];
-	
+
 				[{mis_macheteDone}, {
 					_cutter = createVehicle ["ClutterCutter_small_EP1", [getposATL player, 1, getDir player] call BIS_fnc_relPos, [], 0, "CAN_COLLIDE"];
 					player removeEventHandler ["AnimDone", _this];
-	
+
 					mis_macheteDone = false;
 				}, _macheteEH] call CBA_fnc_waitUntilAndExecute;
 			}, {stance player == "CROUCH"}] call ace_interact_menu_fnc_createAction;
 			[player, 1, ["ACE_SelfActions"], _machete] call ace_interact_menu_fnc_addActionToObject;
 		};
-		
+
 	}, []] call CBA_fnc_waitUntilAndExecute;
 };

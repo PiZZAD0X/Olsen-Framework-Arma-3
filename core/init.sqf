@@ -82,9 +82,9 @@ if (!isDedicated) then {
 
 	player setVariable ["FW_Dead", false, true]; // Tells the framework the player is alive
 	player setVariable ["FW_Spectating", false, true]; // Player is not spectating
-	player setVariable ["FW_Body", player, true]; // Remembers his old body for spectating his dead body
+	player setVariable ["FW_Body", player, true]; // Remembers their old body for spectating their dead body
 
-	// Makes the player go into spectator mode when dead or respawn if he has respawn tickets
+	// Makes the player go into spectator mode when dead or respawn if they have respawn tickets
 	FW_KilledEh = player addEventHandler ["Killed", {"" spawn FNC_SpectateCheck;}];
 	FW_RespawnEh = player addEventHandler ["Respawn", {_this call FNC_SpectatePrep;}];
 

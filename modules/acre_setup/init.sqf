@@ -1,4 +1,4 @@
-["ACRE setup", "Module for all ACRE settings.", "BlackHawk"] call FNC_RegisterModule;
+["ACRE setup", "1.0", "Module for all ACRE settings.", "BlackHawk"] call FNC_RegisterModule;
 
 FW_Presets = ["default2", "default3", "default4", "default"];
 
@@ -52,7 +52,7 @@ if(isServer && {FW_enable_addRacks}) then {
 					(format ["(ACRE_SETUP_MODULE) [ERR]: DEFAULTING TO 'inside' and 'all'"]) call FNC_DebugMessage;
 					_whitelistedPositions = ["inside", "all"];
 				} else {
-					if(_whitelistedPositions isEqualTo _blacklistedPositions) then { 
+					if(_whitelistedPositions isEqualTo _blacklistedPositions) then {
 						(format ["(ACRE_SETUP_MODULE) [ERR]: ALL POSITIONS ARE WHITELISTED AND BLACKLISTED"]) call FNC_DebugMessage;
 						(format ["(ACRE_SETUP_MODULE) [ERR]: DEFAULTING WHITELISTED POSITIONS TO: 'inside'"]) call FNC_DebugMessage;
 						_whitelistedPositions = ["inside"];
@@ -61,7 +61,7 @@ if(isServer && {FW_enable_addRacks}) then {
 				};
 				if(!(isNil "_faction") && {FW_enable_scramble}) then {
 					private _faction_i = 3;
-					switch (_faction) do { 
+					switch (_faction) do {
 						case west: {_faction_i = 0};
 						case east: {_faction_i = 1};
 						case independent: {_faction_i = 2};
@@ -77,7 +77,7 @@ if(isServer && {FW_enable_addRacks}) then {
 				if(FW_enable_addRackDebug) then {(format ["ACRE_SETUP: RACK ADDED: %1 %2", _x, _longRack]) call FNC_DebugMessage;};
 			};
 		} forEach FW_ORRList;
-		
+
 	},[],30,{(format ["ACRE_SETUP: UNABLE TO ADD RACKS"]) call FNC_DebugMessage;}] call CBA_fnc_waitUntilAndExecute;
 };
 
@@ -107,46 +107,46 @@ if(!isDedicated && hasInterface) then {
 			};
 			private _v = 0.7;
 			switch (FW_Acre_Volume_Value) do {
-				case -2: {_v = 0.1;}; 
-				case -1: {_v = 0.2;}; 
-				case 0: {_v = 0.4;}; 
-				case 1: {_v = 0.7;}; 
-				case 2: {_v = 1.0;}; 
-				default {_v = 0.4;}; 
+				case -2: {_v = 0.1;};
+				case -1: {_v = 0.2;};
+				case 0: {_v = 0.4;};
+				case 1: {_v = 0.7;};
+				case 2: {_v = 1.0;};
+				default {_v = 0.4;};
 			};
 			[_v] call acre_api_fnc_setSelectableVoiceCurve;
 			acre_sys_gui_VolumeControl_Level = FW_Acre_Volume_Value;
-			
+
 			[] spawn {
 				sleep 1;
 				acre_sys_gui_VolumeControl_Level = FW_Acre_Volume_Value;
 			};
 		};
-		
-		
+
+
 		if (!isNil "_customSide") then {
 			_side = _customSide;
 		};
-		
+
 		private _side_i = 3;
-		switch (_side) do { 
-			case west: { 
+		switch (_side) do {
+			case west: {
 				_side_i = 0;
 			};
-			case east: { 
+			case east: {
 				_side_i = 1;
 			};
-			case independent: { 
+			case independent: {
 				_side_i = 2;
 			};
-			default { 
+			default {
 				_side_i = 3;
 			};
 		};
-		
+
 		if (FW_enable_scramble) then {
 			private _preset = FW_Presets select _side_i;
-			
+
 			["ACRE_PRC343", _preset ] call acre_api_fnc_setPreset;
 			["ACRE_PRC77", _preset ] call acre_api_fnc_setPreset;
 			["ACRE_PRC117F", _preset ] call acre_api_fnc_setPreset;
@@ -158,20 +158,20 @@ if(!isDedicated && hasInterface) then {
 
 		if (FW_enable_babel) then {
 			{_x call acre_api_fnc_babelAddLanguageType;} foreach FW_all_languages;
-			
+
 			(FW_languages_babel select _side_i) call acre_api_fnc_babelSetSpokenLanguages;
-		
+
 			private _languages = player getVariable ["FW_Languages", []];
 
 			if (count _languages > 0) then {
-				
+
 				_languages call acre_api_fnc_babelSetSpokenLanguages;
-				
+
 			};
 		};
-		
+
 		waitUntil {[] call acre_api_fnc_isInitialized};
-		
+
 		private _channels = player getVariable ["FW_Channels", []];
 
 		{
@@ -186,7 +186,7 @@ if(!isDedicated && hasInterface) then {
 				[_radioID, _spatial] call acre_api_fnc_setRadioSpatial;
 			};
 		} foreach _channels;
-		
+
 	};
-	
+
 };
