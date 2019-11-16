@@ -1,4 +1,4 @@
-["Marker Control", "Allows the mission maker to create markers visible to a single side.", "Olsen"] call FNC_RegisterModule;
+["Marker Control", "1.0", "Allows the mission maker to create markers visible to a single side.", "Olsen"] call FNC_RegisterModule;
 
 #define SYSTEM sideLogic
 
@@ -11,7 +11,7 @@ if !(markerType NAME == "") then { \
 };
 
 if (!isDedicated) then {
-	
+
 	private ["_markers"];
 
 	_markers = [];

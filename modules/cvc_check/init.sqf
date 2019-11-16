@@ -11,7 +11,7 @@
 //Syntax:		[UNIT,CVC CLASS] call FNC_CVCCHECK;
 //Example: 		[player, "rhsusf_cvc_green_helmet"] call FNC_CVCCHECK;
 
-["cvcCheck", "Checks if a unit is a crewman in an armored vehicle, adds/removes CVC as appropriate.", "TinfoilHate"] call FNC_RegisterModule;
+["cvcCheck", "1.0", "Checks if a unit is a crewman in an armored vehicle, adds/removes CVC as appropriate.", "TinfoilHate"] call FNC_RegisterModule;
 
 #include "settings.sqf"
 
@@ -103,6 +103,6 @@ if PLAYERCLIENT then {
 			case east: {[_x, EASTCVC] call FNC_CVCCHECK};
 			case resistance: {[_x, GUERCVC] call FNC_CVCCHECK};
 			default {[_x, CIVCVC] call FNC_CVCCHECK};
-		};		
+		};
 	} forEach AIUNITLIST;
 };

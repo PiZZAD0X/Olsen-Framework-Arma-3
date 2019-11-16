@@ -1,35 +1,35 @@
-["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk &amp; PIZZADOX"] call FNC_RegisterModule;
+["Cover Map", "1.0", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk &amp; PIZZADOX"] call FNC_RegisterModule;
 
 if (hasinterface) then {
 
 	["CBA_loadingScreenDone", {
 		CBA_LoadedIntoMission = true;
 	}] call CBA_fnc_addEventHandler;
-	
+
 	//contains _AOMarkers array
 	#include "settings.sqf"
-	
+
 	if (isNil "CBA_LoadedIntoMission") then {
 		CBA_LoadedIntoMission = false;
 	};
-	
+
 	//make all AOmarkers invisible
 	{
 		(_x select 0) setMarkerAlphaLocal 0;
 	} foreach _AOMarkers;
-	
+
 	//initial marker array define
 	FW_map_cover = [];
 	FW_map_currentAO = 0;
-	
+
 	//briefing map cover and center
 	(_AOMarkers select 0) call CoverMap_fnc_CoverMapBriefing;
-	
+
 	[_AOMarkers] spawn {
 		params ["_AOMarkers"];
 		waituntil {visibleMap};
 		(_AOMarkers select 0) call CoverMap_fnc_CoverMapLive;
-		
+
 		//Add self interact option on map to switch AOs
 		if (count _AOMarkers > 1) then {
 			params ["_AOMarkers"];
@@ -43,5 +43,5 @@ if (hasinterface) then {
 			} foreach _AOMarkers;
 		};
 	};
-	
+
 };

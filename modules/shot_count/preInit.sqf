@@ -1,4 +1,4 @@
-["Ammo Counter", "Counts ammunition types fired and displays it in the mission endscreen.", "TinfoilHate"] call FNC_RegisterModule;
+["Ammo Counter", "1.0", "Counts ammunition types fired and displays it in the mission endscreen.", "TinfoilHate"] call FNC_RegisterModule;
 
 //Ammo Counter Initilization
 //Much script by beta, some script by TinfoilHate

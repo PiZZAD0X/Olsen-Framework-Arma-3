@@ -1,4 +1,4 @@
-["Task Control", "Utility to help with Arma 3 Tasks", "Briland"] call FNC_RegisterModule;
+["Task Control", "1.0", "Utility to help with Arma 3 Tasks", "Briland"] call FNC_RegisterModule;
 
 //private ["_month", "_hour", "_min", "_startTextArray", "_line", "_unparsedText"];
 

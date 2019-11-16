@@ -1,4 +1,4 @@
-["Radio Messaging", "Radio text messages for simulated communications.", "TinfoilHate"] call FNC_RegisterModule;
+["Radio Messaging", "1.0", "Radio text messages for simulated communications.", "TinfoilHate"] call FNC_RegisterModule;
 
 #include "settings.sqf"
 
