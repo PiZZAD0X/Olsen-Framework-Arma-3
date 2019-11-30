@@ -1,4 +1,4 @@
-["ACRE setup", "1.0", "Module for all ACRE settings.", "BlackHawk"] call FNC_RegisterModule;
+["ACRE setup", "1.1", "Module for all ACRE settings.", "BlackHawk, StatusRed"] call FNC_RegisterModule;
 
 FW_Presets = ["default2", "default3", "default4", "default"];
 

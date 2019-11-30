@@ -46,3 +46,5 @@
 //#include "start_text\root.sqf"
 //#include "task_control\root.sqf"
 //#include "start_in_vehicle\root.sqf"
+//#include "knock_down\root.sqf"
+//#include "weapon_helper\root.sqf"
