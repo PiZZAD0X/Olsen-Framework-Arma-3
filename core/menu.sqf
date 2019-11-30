@@ -11,7 +11,7 @@ The Bear Cave Framework is a simple framework designed for ArmA 3, based on the 
 Find out more about the framework on GitHub.<br/>
 github.com/EM-Creations/TheBearCave-Framework-ArmA-3<br/>
 <br/>
-Current Version: 4.1.0
+Current Version: 4.2.0 DEV
 ";
 
 player createDiaryRecord ["FW_Menu", ["Framework Info", _info]];

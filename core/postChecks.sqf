@@ -44,11 +44,11 @@ if (!isDedicated) then {
 			private _sideTickets = 0;
 
 			switch (side player) do {
-				case west: {
+				case blufor: {
 					_sideTickets = FW_RespawnTicketsWest;
 				};
 
-				case east: {
+				case opfor: {
 					_sideTickets = FW_RespawnTicketsEast;
 				};
 
