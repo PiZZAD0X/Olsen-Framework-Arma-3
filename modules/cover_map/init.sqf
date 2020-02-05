@@ -1,4 +1,4 @@
-["Cover Map", "1.1", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk, PIZZADOX &amp; StatusRed"] call FNC_RegisterModule;
+["Cover Map", "1.1", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk, PiZZADOX &amp; StatusRed"] call FNC_RegisterModule;
 
 if (hasinterface) then {
 	["CBA_loadingScreenDone", {

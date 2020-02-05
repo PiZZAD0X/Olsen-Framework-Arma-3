@@ -1,6 +1,6 @@
 //Covers Map outside marker and centers map on marker center in game map
 if (!hasinterface) exitwith {};
-params ["_marker", ["_centered", true], ["_zoomlevel",0.4], ["_name","AO"], ["_AOnumber", 1], ["_bgColour", "colorKhaki"]];
+params ["_marker", ["_centered", true], ["_zoomlevel",0.4], ["_name","AO"], ["_AOnumber", 1], ["_bgColour", "colorGrey"]];
 
 //delete old markers if present
 if (count FW_map_cover > 0) then {

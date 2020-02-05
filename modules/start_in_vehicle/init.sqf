@@ -1,4 +1,4 @@
-["Start in Vehicle", "1.0", "Moves units into specific vehicle slots upon mission start, includes JiP timeout", "PIZZADOX"] call FNC_RegisterModule;
+["Start in Vehicle", "1.0", "Moves units into specific vehicle slots upon mission start, includes JiP timeout", "PiZZADOX"] call FNC_RegisterModule;
 
 if (isNil "CBA_LoadedIntoMission") then {
 	CBA_LoadedIntoMission = false;
