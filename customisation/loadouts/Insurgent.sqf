@@ -57,6 +57,7 @@ SET_GROUP(MEDS)
 	["ACE_morphine", 2, "uniform"] call FNC_AddItem;
 	["ACE_epinephrine", 2, "uniform"] call FNC_AddItem;
 	["ACE_tourniquet", 1, "uniform"] call FNC_AddItem;
+  ["ACE_splint", 1] call FNC_AddItem;
 END_GROUP;
 
 SET_GROUP(ITEMS)
