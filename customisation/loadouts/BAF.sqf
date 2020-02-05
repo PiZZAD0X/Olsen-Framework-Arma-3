@@ -56,6 +56,7 @@ SET_GROUP(IFAK)
 	["ACE_morphine", 1, "uniform"] call FNC_AddItem;
 	["ACE_epinephrine", 1, "uniform"] call FNC_AddItem;
 	["ACE_tourniquet", 1, "uniform"] call FNC_AddItem;
+	["ACE_splint", 1] call FNC_AddItem;
 END_GROUP;
 
 //odds and sods
@@ -159,6 +160,7 @@ case (package + "MED"): {
 	["ACE_salineIV_500", 1, "backpack"] call FNC_AddItem;
 	["ACE_surgicalKit", 3, "backpack"] call FNC_AddItem;
 	["ACE_personalAidKit", 3, "backpack"] call FNC_AddItem;
+	["ACE_splint", 3] call FNC_AddItem;
 
 };
 
