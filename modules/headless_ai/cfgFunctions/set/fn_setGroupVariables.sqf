@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
 
-params ["_group","_gpos",["_groupSet",[],[[]]]];
+
+params ["_group",["_groupSet",[],[[]]]];
 _groupSet params [
     /*0*/    "_side",
     /*1*/    "_pos",
@@ -35,27 +35,25 @@ private _settings = [] call CBA_fnc_hashCreate;
 [_settings, "formation", _formation] call CBA_fnc_hashSet;
 [_settings, "groupStance", _groupStance] call CBA_fnc_hashSet;
 [_settings, "groupInit", _groupInit] call CBA_fnc_hashSet;
-[_settings, "_taskRadius", _taskRadius] call CBA_fnc_hashSet;
+[_settings, "taskRadius", _taskRadius] call CBA_fnc_hashSet;
 [_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
-[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
-[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
-[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
-[_settings, "createRadius", _createRadius] call CBA_fnc_hashSet;
+SETVAR(_group,settings,_settings);
 
-SETVAR(_group,group_Pos,_gpos);
-SETVAR(_group,group_behaviour,_behaviour);
-SETVAR(_group,group_combatMode,_combat);
-SETVAR(_group,group_speed,_speed);
-SETVAR(_group,group_formation,_formation);
-SETVAR(_group,group_taskRadius,_taskRadius);
-SETVAR(_group,group_taskWait,_wait);
-SETVAR(_group,group_task,_task);
-SETVAR(_group,group_TaskTimer,_taskTimer);
-SETVAR(_group,group_occupyOption,_occupyOption);
-SETVAR(_group,group_Waypoints,_waypoints);
-SETVAR(_group,group_forceLights,_fl);
-SETVAR(_group,group_surrender,_surrender);
-SETVAR(_group,Group_Spawned,true);
+SETVAR(_group,Pos,_gpos);
+SETVAR(_group,behaviour,_behaviour);
+SETVAR(_group,combatMode,_combat);
+SETVAR(_group,speed,_speed);
+SETVAR(_group,formation,_formation);
+SETVAR(_group,taskRadius,_taskRadius);
+SETVAR(_group,taskWait,_wait);
+SETVAR(_group,task,_task);
+SETVAR(_group,TaskTimer,_taskTimer);
+SETVAR(_group,occupyOption,_occupyOption);
+SETVAR(_group,Waypoints,_waypoints);
+SETVAR(_group,forceLights,_fl);
+SETVAR(_group,surrender,_surrender);
+SETVAR(_group,Spawned,true);
+
 //_group call CBA_fnc_clearWaypoints;
 [_group,_behaviour,_combat,_speed,_formation] call FUNC(setGroupBehaviour);
 {
@@ -63,11 +61,6 @@ SETVAR(_group,Group_Spawned,true);
         [_x] orderGetIn true;
     };
 } forEach (units _group);
-if (_groupStance != "auto") then {
-    {
-        _x setUnitPos _groupStance;
-    } forEach (units _group);
-};
 if (_fl) then {[_group] call FUNC(setFlashlights);};
 if (_surrender) then {[_group] call FUNC(setSurrender);};
 _group call _groupinit;

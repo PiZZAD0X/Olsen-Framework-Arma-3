@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params["_value"];
 private _leader = leader ((get3DENSelected 'Group') select 0);

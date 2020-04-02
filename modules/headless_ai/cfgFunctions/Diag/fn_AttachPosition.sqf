@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 _Unit = _this select 0;
 _AttachObject = _this select 1;

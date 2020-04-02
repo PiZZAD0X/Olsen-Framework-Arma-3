@@ -1,17 +1,30 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
 
-params ["_unit"];
 
-private _UnitSide = (side _Unit);
-private _Array1 = [];
+params ["_unit",["_randomSelect",true,[true]]];
+
+private _UnitSide = (side _unit);
+private _enemyArray = allUnits select {
+	!(_x isKindOf "TargetSoldierBase") && 
+	{[_UnitSide, (side _x)] call BIS_fnc_sideIsEnemy}
+};
+
+private _distanceArray = [];
+
 {
-	private _TargetSide = side _x;
-	if ([_UnitSide, _TargetSide] call BIS_fnc_sideIsEnemy) then {_Array1 pushback _x;};
-} forEach allUnits;
+	private _enemyUnit = _x;
+	private _enemyDistance = _unit distance2d _enemyUnit;
+	_distanceArray pushback [_enemyDistance,_enemyUnit];
+} foreach _enemyArray;
 
-private _ReturnedEnemy = [_Array1,_Unit] call FUNC(ClosestObject);
-if (isNil "_ReturnedEnemy") then {_ReturnedEnemy = [0,0,0]};
+_distanceArray sort true;
 
-//GETVAR(_Unit,CLOSESTENEMY,_ReturnedEnemy);
-_ReturnedEnemy
+private _selectIndex = if (_randomSelect) then {
+	random ((count _distanceArray) / 2)
+} else {
+	0
+};
+
+private _ClosestEnemy = ((_distanceArray select _selectIndex) select 1);
+
+_ClosestEnemy

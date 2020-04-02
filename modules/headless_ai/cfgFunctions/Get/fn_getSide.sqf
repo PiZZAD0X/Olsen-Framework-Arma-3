@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params [["_select",0,[0]],["_side",[],[[]]]];
 switch (_select) do {

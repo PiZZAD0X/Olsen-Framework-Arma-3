@@ -1,13 +1,15 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
 
-params [["_u",objNull,[objNull]],["_groupStance","auto",[""]],["_unitStance","auto",[""]]];
-if (_groupStance != _unitStance) then {
-    if (_groupStance != 'auto') then {
-        _u setUnitPos _groupStance;
-    };
-    if (_unitStance != _groupStance) then {
-        _u setUnitPos _unitStance;
+params [["_unit", objNull, [objNull]], ["_groupStance", "AUTO", [""]], ["_unitStance", "AUTO", [""]]];
+
+if (_groupStance == _unitStance) then {
+    _unit setUnitPos _groupStance;
+} else {
+    if (_unitStance == 'AUTO') then {
+        _unit setUnitPos _unitStance;
+    } else {
+        _unit setUnitPos _groupStance;
     };
 };
+
 true

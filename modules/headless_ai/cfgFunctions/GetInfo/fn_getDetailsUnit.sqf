@@ -1,30 +1,12 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_unit",["_pos",[],[[]]],"_vehicle"];
-private _unitInit = (GETVAR(_unit,unit_Init,""));
+private _unitInit = (GETVAR(_unit,Init,""));
 if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
-private _stance = "AUTO";
-if !((_unit getvariable ["unitpos",""]) isEqualTo "") then {
-    _stance = (_unit getvariable ["unitpos",""]);
-} else {
-    private _initialStance = toUpper(stance _unit);
-    _stance = switch (_initialStance) do {
-        default {"AUTO"};
-        case "STAND": {
-            "UP";
-        };
-        case "CROUCH": {
-            "MIDDLE";
-        };
-        case "PRONE": {
-            "DOWN";
-        };
-    };
-};
-LOG_2("_unit:%1 stance:%2",_unit,_stance);
-LOG_4("_unit:%1 name:%2 pos: %3 passedpos: %4",_unit,(name _unit),(getpos _unit),_pos);
+private _stance = _unit getvariable ["unitpos","AUTO"];
+
 [true,
 typeOf _unit,
 getposATL _unit,
@@ -37,9 +19,9 @@ assignedVehicleRole _unit,
 _vehAssigned,
 _unit getVariable ["ACE_captives_isHandcuffed",false],
 surfaceIsWater (getposATL _unit),
-GETVAR(_unit,unit_Persistent,true),
+GETVAR(_unit,Persistent,true),
 _stance,
 _unitInit,
-GETVAR(_unit,unit_Name,""),
-GETVAR(_unit,unit_Identity,""),
+GETVAR(_unit,Name,""),
+GETVAR(_unit,Identity,""),
 GETVAR(_unit,storedVars,[])]

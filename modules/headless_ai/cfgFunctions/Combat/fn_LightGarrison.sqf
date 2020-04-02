@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //Created on ???
 // Modified on : 9/7/14 - 8/4/15  - Added a check building distance stat.

@@ -1,3 +1,7 @@
+#ifdef description
+	#include "StateMachines.hpp"
+#endif
+
 #ifdef description_functions
 	#include "CfgFunctions.hpp"
 #endif
@@ -6,6 +10,7 @@
 	#include "cfgXEH\PreInit.hpp"
 #endif
 
-#ifdef description_XEH_InitPost
+#ifdef description_XEH_InitPost_CAManBase
 	#include "cfgXEH\InitPost.hpp"
 #endif
+

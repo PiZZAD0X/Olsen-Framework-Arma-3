@@ -33,6 +33,7 @@ class PZAI {
 		class ReinforcementResponse {};
 		class ReGroup {};
 		class SightAid {};
+		class FireWeapon {};
 		class SuppressingShots {};
 		class ThrowGrenade {};
 		class WatchEnemy {};
@@ -42,6 +43,46 @@ class PZAI {
 		file = "modules\headless_ai\cfgFunctions\Commander";
 		class assignToArea {};
 		class CommanderHandler {};
+	};
+	
+	class CommanderSM {
+		file = "modules\headless_ai\cfgFunctions\CommanderSM";
+		class CM_OnStateInitial {};
+	};
+    
+    class GroupHandlerSM {
+		file = "modules\headless_ai\cfgFunctions\GroupHandlerSM";
+		class GH_OnStateInitial {};
+		class GH_OnStateGroupCheck {};
+	};
+	
+	class SightAidSM {
+		file = "modules\headless_ai\cfgFunctions\SightAidSM";
+		class SA_OnSECheckNearbyEnemies {};
+		class SA_OnSECombatMode {};
+		class SA_onSEEnemyInRange {};
+		class SA_OnSERemoveCantSeeEnemy {};
+	};
+	
+	class UnitStanceSM {
+		file = "modules\headless_ai\cfgFunctions\UnitStanceSM";
+		class US_onSEInitial {};
+		class US_onSEResetStance {};
+		class US_onSEStanceCheck {};
+		class US_onSEUnitChecks {};
+	};
+	
+	//class UnitCombatSM {
+	//	file = "modules\headless_ai\cfgFunctions\UnitCombatSM";
+	//	class UC_onSECheckNearbyEnemies {};
+	//	class UC_onSEUnitChecks {};
+	//};
+    
+    class CachingSM {
+		file = "modules\headless_ai\cfgFunctions\CachingSM";
+		class CH_onSEDistanceCheck {};
+		class CH_transCacheGroup {};
+		class CH_transUnCacheGroup {};
 	};
 
 	class Main {
@@ -63,12 +104,32 @@ class PZAI {
 		class deleteVehicles {};
 		class searchNestedArray {};
 	};
+	
+	class BunkerSM {
+		file = "modules\headless_ai\cfgFunctions\BunkerSM";
+		class OnSEInitial {};
+		class OnSECheckNearbyEnemies {};
+		class OnSERemoveCantSeeEnemy {};
+		class OnSEEnemyInRange {};
+		class OnSECombatMode {};
+		class OnSETarget {};
+		class OnSEFire {};
+		class OnSETimeOutReset {};
+		class OnSEBurstReset {};
+		class CondBurstCount {};
+	};
+	
+	//class GroupHandlerSM {
+	//	file = "modules\headless_ai\cfgFunctions\GroupHandlerSM";
+	//	class GH_OnStateInitial {};
+	//};
 
 	class Eventhandlers {
 		file = "modules\headless_ai\cfgFunctions\Eventhandlers";
 		class onAIHit {};
 		class playerInit {};
 		class onInit {};
+		class onInitPost {};
 	};
 
 	class create {
@@ -78,6 +139,8 @@ class PZAI {
 	    class createOccupyGroup {};
 	    class createUnit {};
 	    class createVehicle {};
+	    class createEmptyVehicle {};
+	    class createObject {};
 	    class createWaypoint {};
 	    class createWaypointModified {};
 	    class createWaypoints {};
@@ -91,14 +154,17 @@ class PZAI {
 		class AttachPosition {};
 		class BuildingCheck {};
 		class BuildingSpawnCheck {};
+		class checkView {};
 		class Classvehicle {};
 		class ClosestEnemy {};
 		class ClosestObject {};
 		class DriverCheck {};
 		class EnemyArray {};
+		class getStance {};
 		class HasMine {};
 		class HasRadioGroup {};
 		class IRCheck {};
+		class isAimed {};
 		class LOSCheck {};
 		class StanceModifier {};
 		class UnitCheck {};
@@ -156,10 +222,10 @@ class PZAI {
 	    class getSyncedObjects {};
 	};
 
-	class GroupHandler {
-		file = "modules\headless_ai\cfgFunctions\GroupHandler";
-	    class onInitEntered {};
-	};
+	//class GroupHandler {
+	//	file = "modules\headless_ai\cfgFunctions\GroupHandler";
+	//    class onInitEntered {};
+	//};
 
 	class set {
 		file = "modules\headless_ai\cfgFunctions\set";

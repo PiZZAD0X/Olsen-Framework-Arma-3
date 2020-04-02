@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params [
     "_group",
@@ -18,7 +18,7 @@ params [
 ];
 
 {
-    _x setvariable [QGVAR(Unit_BUNKER),true];
+    _x setvariable [QGVAR(BUNKER),true];
 } foreach (units _group);
 SETVAR(_group,InitialWPSet,true);
 _group setVariable [QGVAR(Mission),"BUNKER"];

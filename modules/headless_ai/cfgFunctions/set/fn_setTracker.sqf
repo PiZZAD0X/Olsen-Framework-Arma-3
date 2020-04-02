@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params [["_grp",grpNull,[grpNull]],["_target",objNull,[objNull]]];
 LOG_1("RETURN tracker | %1",_this);

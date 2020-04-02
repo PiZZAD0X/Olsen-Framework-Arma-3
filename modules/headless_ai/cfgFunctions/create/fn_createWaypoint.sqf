@@ -1,8 +1,8 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params [
-    "_grp",
+    "_group",
     ["_pos",[],[[]]],
     ["_radius",0,[0]],
     ["_wait",3,[0]],
@@ -16,9 +16,9 @@ params [
 ];
 
 private _timeout = [_wait*0.5,_wait,_wait*1.5];
-_grp = _grp call CBA_fnc_getGroup;
+_group = _group call CBA_fnc_getGroup;
 _pos = _pos call CBA_fnc_getPos;
-private _wp = _grp addWaypoint [_pos,_radius];
+private _wp = _group addWaypoint [_pos,_radius];
 _wp setWaypointType _Type;
 _wp setWaypointBehaviour _behaviour;
 _wp setWaypointCombatMode _combat;

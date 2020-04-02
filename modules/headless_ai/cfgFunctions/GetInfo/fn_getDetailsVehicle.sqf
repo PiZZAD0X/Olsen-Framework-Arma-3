@@ -1,8 +1,8 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_veh",["_pos",[],[[]]]];
-private _vehInit = (GETVAR(_veh,unit_Init,""));
+private _vehInit = (GETVAR(_veh,Init,""));
 if (typename _vehInit isEqualTo "STRING") then {_vehInit = compile _vehInit;};
 if (_pos isEqualTo []) then {_pos = getPosATL _veh;};
 [false,
@@ -15,8 +15,9 @@ fuel _veh,
 magazinesAllTurrets _veh,
 locked _veh,
 surfaceIsWater (getposATL _veh),
-(GETVAR(_veh,unit_Name,"")),
-(GETVAR(_veh,unit_Persistent,true)),
+(GETVAR(_veh,Name,"")),
+(GETVAR(_veh,Persistent,true)),
 _vehInit,
-(GETVAR(_veh,unit_Flying,false)),
-(GETVAR(_veh,unit_FlyInHeight,250))]
+(GETVAR(_veh,Flying,false)),
+(GETVAR(_veh,FlyInHeight,250)),
+(GETVAR(_veh,StoredVars,[]))]

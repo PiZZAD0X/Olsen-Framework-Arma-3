@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_multiOccupy","_gx"];
 private _return = switch (_multiOccupy) do {

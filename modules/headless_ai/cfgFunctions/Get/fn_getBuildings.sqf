@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_pos",["_radius",100,[0]],["_blds",[],[[]]]];
 private _getblds = (_pos nearObjects ["building",_radius]) select {count(_x buildingPos -1) > 0};

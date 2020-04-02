@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params[["_zoneModules",[],[[]]],["_status",0,[0]]];
 if (count _zoneModules > 0) then {

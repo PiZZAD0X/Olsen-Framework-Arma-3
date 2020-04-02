@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 private ["_Unit", "_WayPointPosition", "_UnitPos", "_direction", "_SetPosition","_MovementDistance","_NearestEnemy"];
 

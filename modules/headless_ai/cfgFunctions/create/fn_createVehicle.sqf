@@ -1,8 +1,8 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
 
-params ["_pos","_vehArgs","_side",["_initmode",false,[false]]];
-_vehArgs params ["_uv","_vehClass","_vehpos","_vectorDir","_vectorUp","_damage","_fuel","_turretMags","_locked","_vehInWater","_vehName","_persistent","_vehInit","_fly","_flyInHeight"];
+
+params ["_pos","_vehArgs","_side"];
+_vehArgs params ["_uv","_vehClass","_vehpos","_vectorDir","_vectorUp","_damage","_fuel","_turretMags","_locked","_vehInWater","_vehName","_persistent","_vehInit","_fly","_flyInHeight", "_storedVars"];
 LOG_1("_vehArgs: %1",_vehArgs);
 private _flying = "NONE";
 if (_fly && {(_vehClass isKindOf "Air")}) then {
@@ -15,7 +15,7 @@ private _vehicle = createVehicle [_vehClass, _pos,[],0,_flying];
 _vehicle setVectorDirAndUp [_vectorDir,_vectorUp];
 _vehicle setPosATL _pos;
 if (_fly) then {
-    _vehicle FlyInHeight _flyInHeight;
+    _vehicle flyInHeight _flyInHeight;
     _vehicle setVelocity [((velocity _vehicle) select 0) + (sin (getDir _vehicle) * 80),((velocity _vehicle) select 1) + (cos (getDir _vehicle) * 80),((velocity _vehicle) select 2)];
 };
 _vehicle setDamage _damage;
@@ -28,25 +28,15 @@ _vehicle lock _locked;
 if !(_vehName isEqualTo "") then {
     missionNamespace setVariable [_vehName, _vehicle];
 };
-//if (UO_FW_AutoTrackAsset_Enabled) then {
-//    private _team = switch (_side) do {
-//        case west: {EGVAR(Core,TeamName_Blufor)};
-//        case east: {EGVAR(Core,TeamName_Opfor)};
-//        case independent: {EGVAR(Core,TeamName_Indfor)};
-//        case civilian: {EGVAR(Core,TeamName_Civ)};
-//        default {""};
-//    };
-//    if !(_team isEqualTo "") then {
-//        private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _vehicle));
-//        if (isText(_vehCfg >> "displayName")) then {
-//            [QEGVAR(Core,TrackAssetEvent),[_vehicle, getText(_vehCfg >> "displayName"), _team]] call CBA_fnc_serverEvent;
-//        };
-//    };
-//};
 [_vehicle,_persistent] call FUNC(setPersistent);
-if !(canSuspend) then {
-    _vehicle call _vehInit;
-} else {
-    _vehicle spawn _vehInit;
+_vehicle call _vehInit;
+if !(_storedVars isEqualTo []) then {
+    LOG_1("Setting vars: %1",_storedVars);
+    {
+        _x params ["_varName","_varValue"];
+        _vehicle setvariable [_varName,_varValue];
+        LOG_2("Setting _varName: %1 with: %2",_varName,_varValue);
+    } forEach _storedVars;
 };
+
 _vehicle

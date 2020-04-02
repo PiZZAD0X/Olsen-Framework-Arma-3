@@ -1,17 +1,17 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_groupcaller","_enemycaller","_timeCalled","_group"];
 
 private _return = false;
-private _lastReinforcmentTime = _group getVariable ["PZAI_Group_ReinforceTime", CBA_MissionTime];
+private _lastReinforcmentTime = _group getVariable [QGVAR(ReinforceTime), CBA_MissionTime];
 if (_lastReinforcmentTime < CBA_MissionTime + 120) exitwith {false};
-private _groupReinforcement = _group getVariable ["PZAI_Group_Reinforce", (PZAI_Reinforce)];
-private _groupQRF = _group getVariable ["PZAI_Group_QRF", false];
+private _groupReinforcement = _group getVariable [QGVAR(Reinforcement), (PZAI_Reinforce)];
+private _groupQRF = _group getVariable [QGVAR(QRF), false];
 private _groupReinforcementDistance = if (_groupQRF) then {
-    _group getVariable ["PZAI_Group_QRF_Distance", (PZAI_QRF_Distance)];
+    _group getVariable [QGVAR(QRFDistance), (PZAI_QRF_Distance)];
 } else {
-    _group getVariable ["PZAI_Group_ReinforceDistance", (PZAI_ReinforceDistance)];
+    _group getVariable [QGVAR(ReinforceDistance), (PZAI_ReinforceDistance)];
 };
 private _distance = (leader _group) distance2d _enemycaller;
 

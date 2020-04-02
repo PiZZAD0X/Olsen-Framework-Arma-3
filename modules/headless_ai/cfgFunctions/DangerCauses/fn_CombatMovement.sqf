@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //Created on 8/14/14
 // Modified on : 8/3/16: Resolved AI getting stuck when no enemies existed, or enemies were far away.

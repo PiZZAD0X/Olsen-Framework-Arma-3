@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 /* HC_fnc_checkHC
 Checks whether client is headless client or not

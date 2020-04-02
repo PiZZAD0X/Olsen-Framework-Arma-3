@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params [["_pos",[0,0,0],[[]]],["_rangeMin",0,[0]],["_rangeMax",100,[0]],["_posCount",5,[0]],["_water",false,[false]]];
 private _return = [];

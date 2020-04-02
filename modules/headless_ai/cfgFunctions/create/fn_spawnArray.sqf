@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
 
-params ["_arrayName"];
+
+params [["_arrayName", "", [""]]];
 
 LOG_1("Executed spawnarray _Array: %1",_arrayName);
 

@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_group",["_waypoints",[],[[]]]];
 {
@@ -20,7 +20,8 @@ params ["_group",["_waypoints",[],[[]]]];
     _wp setWaypointStatements (_currentWaypoint select 15);
 } foreach _waypoints;
 //delete initial wp
-deleteWaypoint ((waypoints _group) select 0);
+deleteWaypoint [_group, 0];
+//_group setCurrentWaypoint [_group, 0];
 //set manual waypoint mission mode
 SETVAR(_group,InitialWPSet,true);
 SETVAR(_group,Mission,"MANUAL");

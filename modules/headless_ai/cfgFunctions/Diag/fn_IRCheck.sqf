@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //This function will determine if the player is alive and if we should be considering an IR laser or not. This function may be expanded later to consider flashlights and the like.
 //09/06/17 @ 1642

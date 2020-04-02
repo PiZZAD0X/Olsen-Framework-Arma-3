@@ -1,7 +1,7 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
 
-params [["_logic",objNull,[objNull]],["_grp",[],[[]]],["_syncedUnits",[],[[]]],["_syncedGroups",[],[[]]]];
+
+params [["_logic",objNull,[objNull]],["_group",[],[[]]],["_syncedUnits",[],[[]]],["_syncedGroups",[],[[]]]];
 if (!isNull _logic) then {
     private _synced = synchronizedObjects _logic;
     {
@@ -19,7 +19,7 @@ if (!isNull _logic) then {
         {
             _syncedGroups pushBack (group _x);
         } forEach _syncedUnits;
-        _grp = _syncedGroups arrayIntersect _syncedGroups;
+        _group = _syncedGroups arrayIntersect _syncedGroups;
     };
 };
-_grp
+_group

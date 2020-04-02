@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //This function will determine if an AI is low on ammo and needs to re-arm.
 //This script passes _this. _this should be the AI unit.

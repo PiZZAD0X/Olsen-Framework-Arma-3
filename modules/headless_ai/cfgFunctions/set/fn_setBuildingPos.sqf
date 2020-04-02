@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_occupyOption","_i",["_bld",[],[[]]],["_bldPos",[],[[]]],["_pos",[],[[]]],["_return",[],[[]]]];
 private ["_uBld"];

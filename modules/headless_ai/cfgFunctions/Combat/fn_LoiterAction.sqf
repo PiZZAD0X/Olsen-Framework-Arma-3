@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 /*
 Snippet of Code from Genesis92x the autor of VCOM, modified by crewt

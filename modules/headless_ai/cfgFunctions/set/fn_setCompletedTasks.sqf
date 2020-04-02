@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_grp",["_compTask",objNull,[objNull]]];
 private _completedTasks = _grp getVariable[QGVAR(CompletedTasks),[]];

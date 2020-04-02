@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_group",["_task",objNull,[objNull]]];
 private _taskSet = _task call FUNC(getTaskParams);

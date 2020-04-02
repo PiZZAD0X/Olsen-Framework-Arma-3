@@ -1,13 +1,15 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
 
+params ["_unit", ["_forced", false, [false]]];
 
-private _UnitSide = side (group _this);
-private _Array1 = [];
-{
-	private _TargetSide = side _x;
-	if ([_UnitSide, _TargetSide] call BIS_fnc_sideIsEnemy) then {
-        _Array1 pushback _x;
-    };
-} forEach allUnits;
-_Array1
+private _enemyArray = GETVAR(_unit,enemyArray,[]);
+private _updateDefaultTime = CBA_MissionTime - (GETMVAR(EnemyUpdateFrequency,5));
+private _enemyUpdateTime = CBA_MissionTime - (GETVAR(_unit,enemyArrayUpdateTime,_updateDefaultTime));
+if (_forced || _enemyArray isEqualTo [] || _enemyUpdateTime >= (GETMVAR(EnemyUpdateFrequency,5))) then {
+    private _unitSide = side _unit;
+    _enemyArray = (allUnits - allCurators) select {!(_x isKindOf "TargetSoldierBase") && {[_unitSide, (side _x)] call BIS_fnc_sideIsEnemy}};
+    SETVAR(_unit,enemyArrayUpdateTime,CBA_MissionTime);
+    SETVAR(_unit,enemyArray,_enemyArray);
+};
+
+_enemyArray

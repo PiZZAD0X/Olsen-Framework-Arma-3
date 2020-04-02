@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //Script will make AI use the proper stances depending on friendlies behind them.
 private ["_Counter","_NearestUnit","_Nearobjects","_StanceCompare"];

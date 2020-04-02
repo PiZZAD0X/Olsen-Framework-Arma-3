@@ -15,7 +15,7 @@
  * Public: No
  */
  #include "..\..\script_macros.hpp"
- AI_EXEC_CHECK(SERVERHC);
+ 
 
 params ["_settings", ["_options", []]];
 

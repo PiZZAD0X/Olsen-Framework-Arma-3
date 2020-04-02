@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 private ["_dgn_returnvariable", "_Position", "_Array","_StartedInside"];
 

@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 GVAR(ActiveList) = [];
 
@@ -10,4 +10,4 @@ GVAR(ActiveHandlePFH) = [{
             GVAR(ActiveList) deleteAt _foreachIndex;
         };
     } foreach GVAR(ActiveList);
-}, 1] call CBA_fnc_addPerFrameHandler;
+}, 0.2] call CBA_fnc_addPerFrameHandler;

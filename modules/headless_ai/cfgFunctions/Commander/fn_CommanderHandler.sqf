@@ -1,9 +1,10 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 LOG("Starting CommanderHandler Function");
 
 GVAR(AreaMarkerArray) = [];
+
 
 //private _markercolour = (switch (GVAR(CommanderSide)) do {
 //    case "west": {"ColorBlue"};
@@ -51,8 +52,8 @@ GVAR(AreaMarkerArray) = [];
         ERROR_2("%1 max value below minimum! max: %2",_marker,_max);
         _max = 10;
     };
-    if (_threshold < 1) then {
-        ERROR_2("%1 threshold value below minimum! threshold: %2",_marker,_threshold);
+    if (_threshold > _max) then {
+        ERROR_2("%1 threshold value above maximum! threshold: %2 max: %3",_marker,_threshold,_max);
         _threshold = 1;
     };
     if (_preferredTypes isEqualTo []) then {
@@ -175,51 +176,48 @@ GVAR(CommanderAreasHandlerPFH) = [{
 GVAR(CommanderAssets) = [];
 
 GVAR(CommanderAssetsHandlerPFH) = [{
-
     {
-        private _groupArray = _x;
-        _groupArray params ["_group","_position","_hasradio","_areaAssigned","_assetType"];
+        private _assetArray = _x;
+        _assetArray params ["_group","_position","_hasradio","_areaAssigned","_assetType"];
         if (_areaAssigned isEqualTo "NONE") then {
             //check zones for assignments
             private _assigned = false;
             {
                 private _areaArray = _x;
                 _areaArray params ["_marker","_mission","_min","_max","_threshold","_QRFSupport","_assetSupport","_withdrawalEnabled","_resourceUse","_preferredTypes","_terrainMode","_importance","_assignedAssets","_control"];
-                LOG_2("Area: %1 _assignedAssets: %2",_marker,_assignedAssets);
                 private _assetCount = (count _assignedAssets);
-                LOG_2("_assetCount: %2 _max: %3",_assetCount,_max);
+                LOG_4("Area: %1 _assetCount: %2 _max: %4 _assignedAssets: %3",_marker,_assetCount,_assignedAssets,_max);
                 if (
                     (_assetCount < _max) &&
                     {_control > -2} &&
                     {!_assigned} &&
                     {(_assetType in _preferredTypes) || ("ALL" in _preferredTypes)}
                 ) then {
-                    LOG_1("Sending group to area with array: %1",_areaArray);
+                    LOG_3("Sending group %1 to area %2 with array: %3",_group,_marker,_areaArray);
                     _assigned = true;
-                    [_groupArray,_areaArray,_forEachIndex] call FUNC(assignToArea);
+                    [_assetArray,_areaArray,_forEachIndex] call FUNC(assignToArea);
                 };
             } foreach GVAR(CommanderAreas);
             if !(_assigned) then {
-                ERROR_1("Could not find area suitable for: %1 ignoring preferred types",_groupArray);
+                ERROR_1("Could not find area suitable for: %1 type %2 ignoring preferred types",_group,_assetType);
                 {
                     private _areaArray = _x;
                     _areaArray params ["_marker","_mission","_min","_max","_threshold","_QRFSupport","_assetSupport","_withdrawalEnabled","_resourceUse","_preferredTypes","_terrainMode","_importance","_assignedAssets","_control"];
-                    LOG_2("Area: %1 _assignedAssets: %2",_marker,_assignedAssets);
                     private _assetCount = (count _assignedAssets);
-                    LOG_2("_assetCount: %2 _max: %3",_assetCount,_max);
+                    LOG_4("Area: %1 _assetCount: %2 _max: %4 _assignedAssets: %3",_marker,_assetCount,_assignedAssets,_max);
                     if (
                         (_assetCount < _max) &&
                         {_control > -2} &&
                         {!_assigned}
                     ) then {
-                        LOG_1("Sending group to area with array: %1",_areaArray);
+                        LOG_3("Sending group %1 to area %2 with array: %3",_group,_marker,_areaArray);
                         _assigned = true;
-                        [_groupArray,_areaArray,_forEachIndex] call FUNC(assignToArea);
+                        [_assetArray,_areaArray,_forEachIndex] call FUNC(assignToArea);
                     };
                 } foreach GVAR(CommanderAreas);
                 if !(_assigned) then {
-                    ERROR_1("Could not find area suitable for: %1 sending to default zone",_groupArray);
-                    [_groupArray,(GVAR(CommanderAssets) select 0),0] call FUNC(assignToArea);
+                    ERROR_1("Could not find area suitable for: %1 sending to default zone",_assetArray);
+                    [_assetArray,(GVAR(CommanderAssets) select 0),0] call FUNC(assignToArea);
                 };
             };
         };

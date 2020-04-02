@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //This will tell our scripts if certain waypoints are set or not
 //_WaypointCheck = _group call FUNC(Waypointcheck);

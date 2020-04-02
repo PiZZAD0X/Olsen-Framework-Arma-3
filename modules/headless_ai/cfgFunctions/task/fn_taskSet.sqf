@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_group",["_newTask",objNull,[objNull]],["_setTime",0,[0]]];
 if (!isNull _newTask) then {

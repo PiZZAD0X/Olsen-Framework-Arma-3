@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //Created on ???
 // Modified on : 8/19/14 - 8/3/15 - 9/1/15 - 9/9/2017

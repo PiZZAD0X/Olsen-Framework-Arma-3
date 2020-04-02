@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_gpos","_taskRadius","_i",["_pos",[],[[]]]];
 private _bp = (([_gpos,_taskRadius] call FUNC(getNearestBuilding)) buildingPos -1);

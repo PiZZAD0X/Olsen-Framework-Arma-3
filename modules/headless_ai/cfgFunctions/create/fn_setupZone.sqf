@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_logic",["_delay",0,[0]],"_code",["_initial",false],["_entitiesArray",[],[[]]]];
 private ["_entities"];
@@ -69,7 +69,7 @@ if !(_syncedPosition isEqualTo []) then {
         if !(_syncedTemplate isEqualTo []) then {
             LOG_2("_logic: %1 template getSyncedModules: %2",_logic,_syncedTemplate);
             {
-                [[_x,(_x getVariable QGVAR(Template)),_delay,_code]] spawn FUNC(createZone);
+                [[_x,(_x getVariable QGVAR(Template)),_delay,_code]] call FUNC(createZone);
             } foreach _syncedTemplate;
         };
     } foreach _syncedPosition;
@@ -78,13 +78,13 @@ if !(_syncedPosition isEqualTo []) then {
 //for "_p" from 0 to (count _posModules) step 1 do {
 //    private _tempModules = [(_posModules select _p),[QGVAR(TemplateModule)]] call FUNC(getSyncedModules);
 //    for "_t" from 0 to (count _tempModules) step 1 do {
-//        [(_tempModules select _t),((_tempModules select _t) getVariable QGVAR(Template)),_delay,{}] spawn FUNC(createZone);
+//        [(_tempModules select _t),((_tempModules select _t) getVariable QGVAR(Template)),_delay,{}] call FUNC(createZone);
 //    };
 //};
 if !(_syncedRespawn isEqualTo []) then {
     LOG_2("_logic: %1 respawn getSyncedModules: %2",_logic,_syncedRespawn);
     {
-        _x spawn FUNC(setRespawn);
+        _x call FUNC(setRespawn);
     } forEach _syncedRespawn;
 };
 true

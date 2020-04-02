@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params [["_pos",[],[[]]],["_vc","",[""]],["_vr",[],[[]]],["_u",objNull,[objNull]]];
 private _veh = _pos nearestObject _vc;

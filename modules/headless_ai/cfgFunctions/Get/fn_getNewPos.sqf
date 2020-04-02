@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_newPos","_grpldr","_unit",["_pos",[],[[]]]];
 private _grpPos = getPosATL _grpldr;

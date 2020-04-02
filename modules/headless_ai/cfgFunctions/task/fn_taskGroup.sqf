@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_group","_i"];
 ([_group] call FUNC(getGroupVariables)) params ["_pos","_behaviour","_combat","_speed","_formation","_taskRadius","_wait","_task","_taskTimer","_occupyOption","_waypoints","_tasks","_fl","_surrender","_tracker"];
@@ -21,7 +21,7 @@ if (_occupyOption > 0 && _task < 6) then {
         {_x setvariable[QGVAR(Occupy),true]} forEach (units _group);
         _group setVariable[QGVAR(CompletedTasks),[]];
         _group setVariable[QGVAR(CurrentTaskEndTime),(CBA_MissionTime + _taskTimer)];
-        [{!((count waypoints (_this select 1)) isEqualTo 0)},{
+        [{!((count waypoints (_this select 1)) isEqualTo 0)}, {
             _this call FUNC(taskAssign);
         },[_task,_group,_pos,_taskRadius,_wait,_behaviour,_combat,_speed,_formation,_occupyOption]] call CBA_fnc_waitUntilAndExecute;
     };

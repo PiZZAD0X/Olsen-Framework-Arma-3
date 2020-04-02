@@ -33,8 +33,16 @@ class Extended_PreInit_EventHandlers {
 
 #undef description_XEH_PreInit
 
-#define description_XEH_InitPost
-#undef description_XEH_InitPost
+#define description_XEH_InitPost_CAManBase
+
+class Extended_InitPost_EventHandlers {
+	class CAManBase {
+		#include "core\description.hpp" //DO NOT REMOVE
+		#include "modules\modules.sqf" //DO NOT REMOVE
+	};
+};
+
+#undef description_XEH_InitPost_CAManBase
 
 #define description_notifications
 

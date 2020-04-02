@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_functions","_delay"];
 [{
@@ -10,7 +10,7 @@ params ["_functions","_delay"];
         if ( count _posModules > 0) then {
             private _pos = getPosATL (_posModules select 0);
             if (((_posModules select 0) getVariable [QGVAR(PositionRadius),0]) > 0) then {
-                _spos = [_pos,0,((_posModules select 0) getVariable [QGVAR(PositionRadius),0]),1] call FUNC(getRandomPositionCircle);
+                _spos = [_pos,0,(GETVAR((_posModules select 0),PositionRadius,0)),1] call FUNC(getRandomPositionCircle);
             } else {
                 _spos = _pos;
             };

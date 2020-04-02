@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //Created on 8/15/14
 // Modified on : 8/29/14 - Fixed passenger getting a nill for _NotDriver

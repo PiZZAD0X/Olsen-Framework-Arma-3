@@ -5,10 +5,10 @@
 //of reinforcements or subsequent AOs.
 
 //Array objects
-GVAR(ArrayObjects) = ["hcTest","hcTest2"];
+GVAR(ArrayObjects) = ["hcTest","hcTest_1"];
 
 //Initial spawns are spawned upon init, at the start of the mission.
-GVAR(InitialSpawn) = ["hcTest"];
+GVAR(InitialSpawn) = [];
 
 //Custom viewdistance for the AI
 GVAR(AIViewDistance) = 2500;
@@ -16,8 +16,16 @@ GVAR(AIViewDistance) = 2500;
 GVAR(ForceTimeEnable) = true;
 GVAR(ForceTime) = [12,00];
 
+//Turn this on to see certain debug messages.
+GVAR(Debug) = true;
+GVAR(FSMDebug) = false;
+//Turn on map markers that track AI movement
+GVAR(UseMarkers) = true;
+GVAR(GroupDebug) = false;
+GVAR(CommanderDebug) = false;
+
 //Custom AI Skill settings for all spawned AI
-GVAR(CustomSkillEnabled) = true;
+GVAR(CustomSkillEnabled) = false;
 GVAR(CustomSkill_aimingspeed) = 1;
 GVAR(CustomSkill_spotdistance) = 1;
 GVAR(CustomSkill_aimingaccuracy) = 0.65;
@@ -32,7 +40,6 @@ GVAR(CustomSkill_courage) = 1;
 //AI commander options -WIP
 GVAR(CommanderEnabled) = false;
 GVAR(CommanderSide) = "EAST";
-GVAR(CommanderDebug) = true;
 //"Random" "Aggressive" "Defensive" "Guerilla" "Probing"
 GVAR(CommanderPersonality) = "Random";
 GVAR(CommanderDelay) = 3;
@@ -42,7 +49,7 @@ GVAR(CommanderSkill) = 5;
 //Preferred asset types will be determined from terrain setting if not manually defined.
 //["_marker","_mission","_min","_max","_threshold","_QRFSupport","_assetSupport","_withdrawalEnabled","_resourceUse","_preferredTypes","_terrainMode"];
 GVAR(CommanderAreas) = [
-    ["area1", "Defend", 2, 4, 0, true, true, false, true, ["Infantry", "Snipers"]],
+    ["area1", "Defend", 2, 2, 0, true, true, false, true, ["Infantry", "Snipers"]],
     ["area0", "Patrol", 0, 2, 2, false, false, true,  false, ["Infantry"]],
     ["area2", "Patrol", 0, 4, 2, false, false, true,  false, ["Motorized", "Mechanized", "Armor"]],
     ["area3", "Recon", 0, 2, 1, false]
@@ -56,32 +63,38 @@ GVAR(CommanderResourcesArty) = [];
 GVAR(CommanderResourcesAirStrikes) = [];
 GVAR(CommanderResourcesParadrops) = [];
 //Commander fills zones to maximum asset values then starts assigning to next zone, or commander assigns evenly to zones in order of precedent until max values filled
-GVAR(CommanderFillAssignMode) = false;
+//"FILL" or "EVEN"
+GVAR(CommanderFillAssignMode) = "FILL";
+//Commander will assign groups that start in a zone to that zone - overlapping zones work in precedence + max asset assignments.
+GVAR(CommanderAssignStartZone) = true;
 
 //AI system options
 GVAR(Enabled) = true;
 //The distance a unit needs to be away for PZAI scripts to temporary disable itself upon the unit? The AI unit will also need to be out of combat.
 GVAR(DisableDistance) = 3000;
+GVAR(EnemyUpdateFrequency) = 5;
 //Aid to the AI spotting distance and time
 GVAR(SightAid) = true;
 //Aid to the AI spotting distance and time when in a vehicle
 GVAR(SightAidVehicles) = false;
 //Distance at which the AI will start seeings enemies in LOS of them
-GVAR(SightAidDistance) = 1200;
+GVAR(SightAidDistance) = 600;
 //Minimum reveal value per increase +n reveal value per check every 5 seconds of targets in LOS of enemies.
-GVAR(SightAidMinIncrease) = 2;
+GVAR(SightAidMinIncrease) = 1;
 //Distance at which the AI will force engage the enemies
-GVAR(SightAidEngageDistance) = 400;
+GVAR(SightAidEngageDistance) = 300;
 //How far can the AI hear gunshots from?
 GVAR(HearingDistance) = 2000;
 //How revealed an enemy is from a gunshot report
 GVAR(HearingMinIncrease) = 1;
 //Distance a bunker enemy can see/engage the enemy
-GVAR(BunkerDistance) = 900;
+GVAR(BunkerDistance) = 2500;
+GVAR(AimDistAdjust) = 0.00024;
+GVAR(AimConeAdjust) = 0.975;
 //Whether Bunker AI get released and act normally/free to move if enemies get too close
 GVAR(BunkerRelease) = true;
 //Sensitivity/Sightlevel needed for Bunker AI to engage - lower is more sensitive.
-GVAR(BunkerSightlevel) = 0.25;
+GVAR(BunkerSightlevel) = 0.15;
 //Distance at which AI are released from bunker
 GVAR(BunkerReleaseDist) = 25;
 //Distance AI will respond to call of help from each other
@@ -92,11 +105,6 @@ GVAR(RadioNeedRadio) = false;
 GVAR(PatrolDistance) = 200;
 //Whether the AI will patrol between garrison positions. Pretty buggy, but nice for 'mersion
 GVAR(GarrisonPatrol) = false;
-//Turn this on to see certain debug messages.
-GVAR(Debug) = true;
-GVAR(FSMDebug) = false;
-//Turn on map markers that track AI movement
-GVAR(UseMarkers) = true;
 //Default group reinforcement behaviour
 GVAR(Reinforce) = true;
 //Default distance for radio reinforcment calls
@@ -153,3 +161,4 @@ GVAR(BasicCheckLimit) = 40;
 GVAR(LeaderExecuteLimit) = 20;
 //How low should the FPS be before simulation is paused on AI. AI routines are still run but simulation is disabled. Acts similar to automatic simulation from ACE.
 GVAR(FPSFreeze) = 10;
+

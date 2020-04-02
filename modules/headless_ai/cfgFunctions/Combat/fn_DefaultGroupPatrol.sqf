@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 //This script will dictate how the loiter WP works for the AI
 params ["_unit", "_Group","_thisFSM"];

@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 private ["_Unit", "_index", "_wPos", "_NearestEnemy", "_unit","_GuessLocation","_MovedRecently","_MovedRecentlyCover","_InCover","_ReturnVariable"];
 _Unit = _this select 0;

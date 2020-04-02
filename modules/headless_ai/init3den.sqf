@@ -40,3 +40,12 @@ PZAI_fnc_StanceToInit = {
 		_object call PZAI_fnc_StanceToInit;
 	}];
 } foreach (all3DENEntities select 0);
+
+[{
+	params ["_argNested", "_idPFH"];
+	_argNested params ["_marker", "_enemyCount"];
+	if (({_x inArea _marker && {side _x isEqualTo east}} count allUnits) <= _enemyCount) exitwith {
+		//code
+		[_idPFH] call CBA_fnc_removePerFrameHandler;
+	};
+}, 10, ["markerName", 4]] call CBA_fnc_addPerFrameHandler;

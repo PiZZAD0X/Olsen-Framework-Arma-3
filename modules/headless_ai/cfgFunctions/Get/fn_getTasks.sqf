@@ -1,5 +1,5 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_grp",["_AllowedModules",[],[[]]],["_AllowedSynced",[],[[]]],["_item",objNull,[objNull]],["_Allowed",false,[false]]];
 private _grpldr = leader _grp;

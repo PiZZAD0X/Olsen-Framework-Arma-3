@@ -1,11 +1,11 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
+
 
 params ["_args",["_initmode",false,[false]]];
-_args params ["","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uBld",objNull,[objNull]]];
-_grpSet params ["_side","_gpos","_behaviour","_combat","_speed","_formation","","","","_taskRadius","_wait","_startBld","_task","_taskTimer","","_occupyOption","","","","_tasks",""];
+_args params ["","_groupSet","_groupMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uBld",objNull,[objNull]]];
+_groupSet params ["_side","_gpos","_behaviour","_combat","_speed","_formation","","","","_taskRadius","_wait","_startBld","_task","_taskTimer","","_occupyOption","","","","_tasks",""];
 private _spos = _gpos;
-_blds = [_spos,_taskRadius,_occupyOption,(count _grpMem)] call FUNC(getBuildingList);
+_blds = [_spos,_taskRadius,_occupyOption,(count _groupMem)] call FUNC(getBuildingList);
 _blds params [["_bld",[],[[]]],["_bldPos",[],[[]]]];
 private _ngrp = createGroup _side;
 {
@@ -21,11 +21,16 @@ private _ngrp = createGroup _side;
         _u setvariable[QGVAR(Occupy),true];
         [_u,_uBld,_bldPos,_wait,[_behaviour,_combat,_speed,_formation]] spawn FUNC(taskBuildingPatrol);
     };
-    if (canSuspend) then {
-        sleep 0.25;
-    };
-} foreach _grpMem;
-[_ngrp,_gpos,_grpSet] call FUNC(setGroupVariables);
+} foreach _groupMem;
+if !(_storedVars isEqualTo []) then {
+    LOG_1("Setting vars: %1",_storedVars);
+    {
+        _x params ["_varName","_varValue"];
+        _group setvariable [_varName,_varValue];
+        LOG_2("Setting _varName: %1 with: %2",_varName,_varValue);
+    } forEach _storedVars;
+};
+[_ngrp,_gpos,_groupSet] call FUNC(setGroupVariables);
 if !(_tasks isEqualTo []) then {
     [_ngrp,_tasks] call FUNC(taskRegister);
     _tasks = _tasks call FUNC(taskRemoveZoneActivated);

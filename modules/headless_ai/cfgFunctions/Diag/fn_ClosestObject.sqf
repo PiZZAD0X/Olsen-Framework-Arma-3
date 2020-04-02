@@ -1,31 +1,28 @@
 #include "..\..\script_macros.hpp"
-AI_EXEC_CHECK(SERVERHC);
 
-params ["_list","_object"];
 
-private _position = [0,0,0];
-if (isNil ("_object")) exitWith {};
-if (isNil ("_list")) exitWith {};
-if (TypeName _object isEqualTo "OBJECT") then {_position = getPosWorld _object;};
-if (TypeName _object isEqualTo "STRING") then {_position = getMarkerPos _object;};
-if (TypeName _object isEqualTo "ARRAY") then {_position = _object;};
+params [["_list",[],[[]]],["_object",objnull,[objnull]],["_randomSelect",false,[false]]];
 
+if ("_object" isEqualTo objnull) exitWith {};
+if ("_list" isEqualTo []) exitWith {};
+	
 private _DistanceArray = [];
 
 {
-	if !(isNil "_x") then {
-		private _CompareObjectPos = [0,0,0];
-		if (TypeName _x isEqualTo "OBJECT") then {_CompareObjectPos = getPosWorld _x;};
-		if (TypeName _x isEqualTo "STRING") then {_CompareObjectPos = getMarkerPos _x;};
-		if (TypeName _x isEqualTo "ARRAY") then {_CompareObjectPos = _x;};
-		private _NewObjectDistance = _CompareObjectPos distance _position;
-		_DistanceArray pushback [_NewObjectDistance,_x];
-	};
+	private _enemyUnit = _x;
+	private _NewObjectDistance = _object distance2d _enemyUnit;
+	_DistanceArray pushback [_NewObjectDistance,_enemyUnit];
 } foreach _list;
 
 _DistanceArray sort true;
 
-private _ClosestObject = ((_DistanceArray select 0) select 1);
+private _selectIndex = if (_randomSelect) then {
+	random ((count _DistanceArray) / 2)
+} else {
+	0
+};
 
-if (isNil "_ClosestObject") exitWith {};
+private _ClosestObject = ((_DistanceArray select _selectIndex) select 1);
+
+if (isNil "_ClosestObject") exitWith {[0,0,0]};
 _ClosestObject
