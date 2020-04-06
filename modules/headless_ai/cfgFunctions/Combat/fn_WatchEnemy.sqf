@@ -2,9 +2,12 @@
 
 
 //unit 1, unit 2
-params [["_unit",objnull,[objnull]],["_target",objnull,[objnull]],["_laserTarget",objnull,[objnull]],["_suppressMode",false,[false]]];
+params [
+    ["_unit", objnull, [objnull]],
+    ["_engageMode", false, [false]],
+    ["_target", objnull, [objnull]]
+];
 
-private _group = group _unit;
 private _invisibleTarget = GETVAR(_unit,InvisibleTarget,objnull);
 if (_invisibleTarget isEqualTo objnull) then {
     private _targetClass = "CBA_O_InvisibleTarget";
@@ -37,29 +40,33 @@ private _getposTarget = getposASL _target;
 _unit doWatch objnull;
 _unit doTarget objnull;
 
-if ((_laserTarget isEqualTo objnull) && {!_suppressMode}) then {
-    if (GETMVAR(FSMDebug,false)) then {
-    	LOG_2("_unit: %1 targeting: %2 in laserTarget mode",_unit,_target);
-    };
-    _unit reveal [_target,4];
-    _unit doWatch _target;
-    _unit doTarget _target;
-    _unit reveal [_invisibleTarget,0];
-    _invisibleTarget setposASL [0,0,0];
-    //_unit glanceAt _getposTarget;
-    //_unit lookAt _getposTarget;
-} else {
+if (_engageMode) then {
+    
     if (GETMVAR(FSMDebug,false)) then {
     	LOG_2("_unit: %1 targeting: %2 in normal mode",_unit,_target);
     };
-    private _targetpos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 4];
-    _laserTarget setposASL _targetpos;
-    _invisibleTarget setposASL _targetpos;
+    
+    private _targetPos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 4];
+    
+    private _laserTarget = GETVAR(_unit,laserTarget,objnull);
+    
+    _laserTarget setposASL _getposTarget;
+    _invisibleTarget setposASL _targetPos;
     _unit reveal [_invisibleTarget,4];
-    _unit doWatch _targetpos;
+    _unit doWatch _targetPos;
     _unit doTarget _invisibleTarget;
-    //_unit glanceAt _targetpos;
-    //_unit lookAt _targetpos;
+    
+} else {
+    if (GETMVAR(FSMDebug,false)) then {
+    	LOG_1("_unit: %1 targeting laserTarget",_unit);
+    };
+    
+    _unit reveal [_target, 4];
+    _unit doWatch _getposTarget;
+    _unit doTarget _target;
+    _unit reveal [_invisibleTarget, 0];
+    _invisibleTarget setposASL [0,0,0];
+    
 };
 
 true

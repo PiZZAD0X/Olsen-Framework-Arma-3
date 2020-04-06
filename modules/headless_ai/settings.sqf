@@ -5,7 +5,7 @@
 //of reinforcements or subsequent AOs.
 
 //Array objects
-GVAR(ArrayObjects) = ["hcTest","hcTest_1"];
+GVAR(ArrayObjects) = [];
 
 //Initial spawns are spawned upon init, at the start of the mission.
 GVAR(InitialSpawn) = [];
@@ -17,10 +17,10 @@ GVAR(ForceTimeEnable) = true;
 GVAR(ForceTime) = [12,00];
 
 //Turn this on to see certain debug messages.
-GVAR(Debug) = true;
+GVAR(Debug) = false;
 GVAR(FSMDebug) = false;
 //Turn on map markers that track AI movement
-GVAR(UseMarkers) = true;
+GVAR(UseMarkers) = false;
 GVAR(GroupDebug) = false;
 GVAR(CommanderDebug) = false;
 
@@ -91,6 +91,8 @@ GVAR(HearingMinIncrease) = 1;
 GVAR(BunkerDistance) = 2500;
 GVAR(AimDistAdjust) = 0.00024;
 GVAR(AimConeAdjust) = 0.975;
+GVAR(AimedAdjust) = 0.9925;
+GVAR(BunkerEnemyLOSChecks) = 20;
 //Whether Bunker AI get released and act normally/free to move if enemies get too close
 GVAR(BunkerRelease) = true;
 //Sensitivity/Sightlevel needed for Bunker AI to engage - lower is more sensitive.
@@ -161,4 +163,3 @@ GVAR(BasicCheckLimit) = 40;
 GVAR(LeaderExecuteLimit) = 20;
 //How low should the FPS be before simulation is paused on AI. AI routines are still run but simulation is disabled. Acts similar to automatic simulation from ACE.
 GVAR(FPSFreeze) = 10;
-

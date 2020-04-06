@@ -3,7 +3,7 @@
 params ["_unit"];
 
 private _burstCount = GETVAR(_unit,burstCount,0);
-private _isVehicle = !(vehicle _unit isEqualTo _unit);
+private _isVehicle = (vehicle _unit != _unit);
 private _maxCount = 5;
 
 if (_isVehicle) then {

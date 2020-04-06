@@ -53,6 +53,7 @@ GVAR(zoneEntities) = [];
     [_unit,_groupStance,_stance] call FUNC(setStance);
 }] call CBA_fnc_addEventHandler;
 
+/*
 ["CAManBase", "FiredMan", {
     params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_vehicle"];
     private _ammoLeft = ((weaponState _unit) select 4);
@@ -154,3 +155,4 @@ GVAR(zoneEntities) = [];
         };
     };
 }] call CBA_fnc_addClassEventHandler;
+*/

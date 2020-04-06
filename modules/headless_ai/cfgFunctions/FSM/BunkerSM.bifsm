@@ -77,6 +77,7 @@ class GraphItems
 			{
 				Id=4;
 				Condition="true";
+				ConditionTab=1;
 			};
 		};
 	};
@@ -105,6 +106,7 @@ class GraphItems
 				Id=13;
 				Priority=1;
 				Condition="!((QGETVAR(_this,enemyInRange,[])) isEqualTo [])";
+				ConditionTab=1;
 			};
 		};
 	};
@@ -163,7 +165,7 @@ class GraphItems
 	};
 	class Item6
 	{
-		Flags=218;
+		Flags=4314;
 		BasicText="";
 		Left=-225;
 		Top=225;
@@ -185,7 +187,7 @@ class GraphItems
 			{
 				Id=16;
 				Priority=1;
-				Condition="([ARR_2((vehicle _this),QGETVAR(_this,enemyTarget,objnull))] call FUNC(LOSCheck))";
+				Condition="!((QGETVAR(_this,enemyInRange,[])) isEqualTo [])";
 			};
 		};
 	};
@@ -328,9 +330,9 @@ class GraphItems
 		Flags=218;
 		BasicText="";
 		Left=-225;
-		Top=525;
+		Top=650;
 		Right=-125;
-		Bottom=575;
+		Bottom=700;
 		BgColor=65535;
 		class ItemInfo
 		{
@@ -347,7 +349,6 @@ class GraphItems
 			{
 				Id=22;
 				Condition="([_this] call FUNC(isAimed))";
-				PreCondition="conditionFrequency = 0.15;";
 				ConditionTab=2;
 			};
 		};
@@ -376,7 +377,8 @@ class GraphItems
 			{
 				Id=23;
 				Priority=2;
-				Condition="((CBA_MissionTime >= ((QGETVAR(_this,TargetStartTime,CBA_MissionTime)) + 4)) || ((CBA_MissionTime >= ((QGETVAR(_this,TargetStartTime,CBA_MissionTime)) + 2)) && {(CBA_MissionTime >= ((QGETVAR(_this,LastFiredTime,CBA_MissionTime)) + 2))}))";
+				Condition="((CBA_MissionTime >= ((QGETVAR(_this,LastFiredTime,(CBA_MissionTime - 4))) + 4)))";
+				ConditionTab=1;
 			};
 		};
 	};
@@ -385,9 +387,9 @@ class GraphItems
 		Flags=250;
 		BasicText="";
 		Left=-225;
-		Top=600;
+		Top=725;
 		Right=-125;
-		Bottom=650;
+		Bottom=775;
 		BgColor=16777215;
 		class ItemInfo
 		{
@@ -411,9 +413,9 @@ class GraphItems
 		Flags=218;
 		BasicText="";
 		Left=-75;
-		Top=600;
+		Top=725;
 		Right=25;
-		Bottom=650;
+		Bottom=775;
 		BgColor=8421440;
 		class ItemInfo
 		{
@@ -430,7 +432,8 @@ class GraphItems
 			{
 				Id=25;
 				Condition="true";
-				PreCondition="conditionFrequency = 0.15;";
+				PreCondition="conditionFrequency = 0.05;";
+				ConditionTab=2;
 			};
 		};
 	};
@@ -459,6 +462,7 @@ class GraphItems
 				Id=26;
 				Priority=3;
 				Condition="([_this] call FUNC(CondBurstCount))";
+				ConditionTab=1;
 			};
 		};
 	};
@@ -467,9 +471,9 @@ class GraphItems
 		Flags=218;
 		BasicText="";
 		Left=-350;
-		Top=525;
+		Top=650;
 		Right=-250;
-		Bottom=575;
+		Bottom=700;
 		BgColor=65535;
 		class ItemInfo
 		{
@@ -487,6 +491,7 @@ class GraphItems
 				Id=27;
 				Priority=1;
 				Condition="(_this ammo currentMuzzle _this) == 0";
+				ConditionTab=1;
 			};
 		};
 	};
@@ -495,9 +500,9 @@ class GraphItems
 		Flags=250;
 		BasicText="";
 		Left=-350;
-		Top=600;
+		Top=725;
 		Right=-250;
-		Bottom=650;
+		Bottom=775;
 		BgColor=16777215;
 		class ItemInfo
 		{
@@ -521,9 +526,9 @@ class GraphItems
 		Flags=218;
 		BasicText="";
 		Left=-450;
-		Top=525;
+		Top=650;
 		Right=-350;
-		Bottom=575;
+		Bottom=700;
 		BgColor=8421440;
 		class ItemInfo
 		{
@@ -593,6 +598,7 @@ class GraphItems
 			{
 				Id=31;
 				Condition="true";
+				ConditionTab=1;
 			};
 		};
 	};
@@ -700,6 +706,7 @@ class GraphItems
 			{
 				Id=35;
 				Condition="true";
+				ConditionTab=1;
 			};
 		};
 	};
@@ -753,7 +760,8 @@ class GraphItems
 			{
 				Id=37;
 				Condition="true";
-				PreCondition="conditionFrequency = 2;";
+				PreCondition="conditionFrequency = 1;";
+				ConditionTab=2;
 			};
 		};
 	};
@@ -782,6 +790,59 @@ class GraphItems
 				Id=38;
 				Priority=2;
 				Condition="(QGETVAR(_this,seeChecks,0) > 8)";
+			};
+		};
+	};
+	class Item29
+	{
+		Flags=218;
+		BasicText="";
+		Left=-225;
+		Top=500;
+		Right=-125;
+		Bottom=550;
+		BgColor=8421440;
+		class ItemInfo
+		{
+			Text="Move to " \n "Aimed";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=8;
+			class ItemInfo
+			{
+				Id=39;
+				Condition="true";
+			};
+		};
+	};
+	class Item30
+	{
+		Flags=250;
+		BasicText="";
+		Left=-225;
+		Top=575;
+		Right=-125;
+		Bottom=625;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Aimed";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=40;
+				InitCode="onStateEntered = QFUNC(onSEAimed);";
 			};
 		};
 	};
@@ -945,7 +1006,7 @@ class GraphLinks
 	class Link14
 	{
 		From=11;
-		To=12;
+		To=29;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -954,39 +1015,6 @@ class GraphLinks
 		};
 	};
 	class Link15
-	{
-		From=11;
-		To=13;
-		Color=6316128;
-		Flags=2;
-		class Extra
-		{
-			ArrowSize=0;
-		};
-	};
-	class Link16
-	{
-		From=11;
-		To=16;
-		Color=6316128;
-		Flags=2;
-		class Extra
-		{
-			ArrowSize=0;
-		};
-	};
-	class Link17
-	{
-		From=11;
-		To=17;
-		Color=6316128;
-		Flags=2;
-		class Extra
-		{
-			ArrowSize=0;
-		};
-	};
-	class Link18
 	{
 		From=12;
 		To=14;
@@ -997,7 +1025,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link19
+	class Link16
 	{
 		From=13;
 		To=22;
@@ -1008,7 +1036,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link20
+	class Link17
 	{
 		From=14;
 		To=15;
@@ -1019,10 +1047,10 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link21
+	class Link18
 	{
 		From=15;
-		To=11;
+		To=30;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -1030,7 +1058,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link22
+	class Link19
 	{
 		From=16;
 		To=20;
@@ -1041,7 +1069,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link23
+	class Link20
 	{
 		From=17;
 		To=18;
@@ -1052,7 +1080,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link24
+	class Link21
 	{
 		From=18;
 		To=19;
@@ -1063,9 +1091,20 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link25
+	class Link22
 	{
 		From=19;
+		To=30;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link23
+	{
+		From=20;
 		To=11;
 		Color=6316128;
 		Flags=2;
@@ -1074,18 +1113,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link26
-	{
-		From=20;
-		To=6;
-		Color=6316128;
-		Flags=2;
-		class Extra
-		{
-			ArrowSize=0;
-		};
-	};
-	class Link27
+	class Link24
 	{
 		From=20;
 		To=25;
@@ -1096,7 +1124,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link28
+	class Link25
 	{
 		From=21;
 		To=1;
@@ -1107,7 +1135,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link29
+	class Link26
 	{
 		From=22;
 		To=21;
@@ -1118,7 +1146,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link30
+	class Link27
 	{
 		From=23;
 		To=4;
@@ -1129,7 +1157,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link31
+	class Link28
 	{
 		From=23;
 		To=24;
@@ -1140,7 +1168,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link32
+	class Link29
 	{
 		From=23;
 		To=28;
@@ -1151,7 +1179,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link33
+	class Link30
 	{
 		From=24;
 		To=5;
@@ -1162,7 +1190,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link34
+	class Link31
 	{
 		From=25;
 		To=1;
@@ -1173,7 +1201,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link35
+	class Link32
 	{
 		From=26;
 		To=27;
@@ -1184,7 +1212,7 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link36
+	class Link33
 	{
 		From=27;
 		To=1;
@@ -1195,10 +1223,65 @@ class GraphLinks
 			ArrowSize=0;
 		};
 	};
-	class Link37
+	class Link34
 	{
 		From=28;
 		To=26;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link35
+	{
+		From=29;
+		To=30;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link36
+	{
+		From=30;
+		To=12;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link37
+	{
+		From=30;
+		To=13;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link38
+	{
+		From=30;
+		To=16;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link39
+	{
+		From=30;
+		To=17;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -1210,7 +1293,7 @@ class GraphLinks
 class Globals
 {
 	NextGroupID=1;
-	NextID=39;
+	NextID=41;
 	FSMName="GVAR(bunkerStateMachine)";
 	CompileConfig="C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\CBA_FSMEditor.cfg";
 	class Attributes
@@ -1235,10 +1318,10 @@ class Globals
 	DefaultLinkColorFromSelected=6316287;
 	DefaultLinkColorToSelected=6356832;
 	DefaultLinkUseCustom=1;
-	PZoomLeft=-509.58087;
-	PZoomRight=113.97906;
-	PZoomBottom=682.63165;
-	PZoomTop=-68.607208;
+	PZoomLeft=-479.97839;
+	PZoomRight=266.98395;
+	PZoomBottom=698.61365;
+	PZoomTop=-201.29169;
 	Clxs=547;
 	Clys=659;
 	Aspect=1;
@@ -1250,9 +1333,9 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=-1894;
+	Left=26;
 	Top=26;
-	Right=-953;
+	Right=967;
 	Bottom=857;
 	ShowCmd=1;
 	SplitPos=565;

@@ -2,10 +2,10 @@
 
 
 params ["_unit",["_pos",[],[[]]],"_vehicle"];
-private _unitInit = (GETVAR(_unit,Init,""));
+private _unitInit = GETVAR(_unit,Init,"");
 if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
-private _stance = _unit getvariable ["unitpos","AUTO"];
+private _stance = GETVAR(_unit,stance,"AUTO");
 
 [true,
 typeOf _unit,

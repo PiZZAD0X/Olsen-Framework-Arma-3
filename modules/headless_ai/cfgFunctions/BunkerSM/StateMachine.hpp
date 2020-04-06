@@ -35,10 +35,10 @@ class GVAR(bunkerStateMachine) {
         class Can_See {
             targetState = QUOTE(CombatMode);
 
-            condition = QUOTE(([ARR_2((vehicle _this),QGETVAR(_this,enemyTarget,objnull))] call FUNC(LOSCheck)));
+            condition = QUOTE(!((QGETVAR(_this,enemyInView,[])) isEqualTo []));
         };
         class Can_Not_See {
-            targetState = QUOTE(Remove_Cant_See);
+            targetState = QUOTE(Wait);
 
             condition = QUOTE(true);
         };
@@ -58,6 +58,59 @@ class GVAR(bunkerStateMachine) {
     };
     class Target {
         onStateEntered = QFUNC(onSETarget);
+        class Move_to__Aimed {
+            targetState = QUOTE(Aimed);
+
+            condition = QUOTE(true);
+        };
+    };
+    class Fire {
+        onStateEntered = QFUNC(onSEFire);
+        class Return_To_Aim {
+            targetState = QUOTE(Aimed);
+            conditionFrequency = 0.15;
+            condition = QUOTE(true);
+        };
+    };
+    class Refill_Ammo {
+        onStateEntered = QUOTE((vehicle _this) setAmmo [ARR_2(primaryWeapon (vehicle _this), 10000)]);
+        class Return_to_AIm {
+            targetState = QUOTE(Aimed);
+
+            condition = QUOTE(true);
+        };
+    };
+    class Burst_Reset {
+        onStateEntered = QFUNC(onSEBurstReset);
+        class Enemy_in__Range {
+            targetState = QUOTE(Check_Nearby_Ene);
+
+            condition = QUOTE(!((QGETVAR(_this,enemyInRange,[])) isEqualTo []));
+        };
+        class Can_Not_See {
+            targetState = QUOTE(Enemy_Check_);
+
+            condition = QUOTE(true);
+        };
+    };
+    class Timeout_Reset {
+        onStateEntered = QFUNC(onSETimeOutReset);
+        class Return {
+            targetState = QUOTE(Enemy_Check_);
+
+            condition = QUOTE(true);
+        };
+    };
+    class Wait {
+        onStateEntered = "";
+        class Wait_Completed {
+            targetState = QUOTE(Enemy_Check_);
+            conditionFrequency = 1;
+            condition = QUOTE(true);
+        };
+    };
+    class Aimed {
+        onStateEntered = QFUNC(onSEAimed);
         class Burst {
             targetState = QUOTE(Burst_Reset);
 
@@ -77,69 +130,6 @@ class GVAR(bunkerStateMachine) {
             targetState = QUOTE(Fire);
             conditionFrequency = 0.15;
             condition = QUOTE(([_this] call FUNC(isAimed)));
-        };
-    };
-    class Fire {
-        onStateEntered = QFUNC(onSEFire);
-        class Return_To_Aim {
-            targetState = QUOTE(Target);
-            conditionFrequency = 0.15;
-            condition = QUOTE(true);
-        };
-    };
-    class Refill_Ammo {
-        onStateEntered = QUOTE((vehicle _this) setAmmo [ARR_2(primaryWeapon (vehicle _this), 10000)]);
-        class Return_to_AIm {
-            targetState = QUOTE(Target);
-
-            condition = QUOTE(true);
-        };
-    };
-    class Burst_Reset {
-        onStateEntered = QFUNC(onSEBurstReset);
-        class Can_See {
-            targetState = QUOTE(CombatMode);
-
-            condition = QUOTE(([ARR_2((vehicle _this),QGETVAR(_this,enemyTarget,objnull))] call FUNC(LOSCheck)));
-        };
-        class Can_Not_See {
-            targetState = QUOTE(Enemy_Check_);
-
-            condition = QUOTE(true);
-        };
-    };
-    class Timeout_Reset {
-        onStateEntered = QFUNC(onSETimeOutReset);
-        class Return {
-            targetState = QUOTE(Enemy_Check_);
-
-            condition = QUOTE(true);
-        };
-    };
-    class Remove_Cant_See {
-        onStateEntered = QFUNC(onSERemoveCantSeeEnemy);
-        class Max_Checks {
-            targetState = QUOTE(Wait);
-
-            condition = QUOTE((QGETVAR(_this,seeChecks,0) > 8));
-        };
-        class Check_Next_Enemy {
-            targetState = QUOTE(Check_Nearby_Ene);
-
-            condition = QUOTE(!((QGETVAR(_this,enemyInRange,[])) isEqualTo []));
-        };
-        class No_Enemy__in_Ran {
-            targetState = QUOTE(Wait);
-
-            condition = QUOTE(true);
-        };
-    };
-    class Wait {
-        onStateEntered = "";
-        class Wait_Completed {
-            targetState = QUOTE(Enemy_Check_);
-            conditionFrequency = 2;
-            condition = QUOTE(true);
         };
     };
 };

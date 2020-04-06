@@ -14,6 +14,7 @@ if (_knowsabouttarget < 4) then {
 	private _cansee = [objNull, "VIEW"] checkVisibility [eyePos _Unit, eyePos _enemyTarget];
 	if ((_cansee > 0.6) && {(_distance < GETMVAR(SightAidEngageDistance,200))}) exitwith {
 		_unit reveal [_enemyTarget, 4];
+		_unit doSuppressiveFire _enemyTarget;
 	};
 	if (_cansee > 0.05) then {
 		private _revealValue = linearConversion [100, GETMVAR(SightAidDistance,600), _distance, 4, GETMVAR(SightAidMinIncrease,1)];

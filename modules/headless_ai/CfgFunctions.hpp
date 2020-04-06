@@ -114,6 +114,7 @@ class PZAI {
 		class OnSECombatMode {};
 		class OnSETarget {};
 		class OnSEFire {};
+		class OnSEAimed {};
 		class OnSETimeOutReset {};
 		class OnSEBurstReset {};
 		class CondBurstCount {};

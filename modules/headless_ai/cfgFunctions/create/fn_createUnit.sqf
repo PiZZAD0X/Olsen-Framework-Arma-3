@@ -39,7 +39,7 @@ if (_vehicleAssigned && {!isNull _currentVeh}) then {
 
 if !(_storedVars isEqualTo []) then {
     {
-        _x params ["_varName","_varValue"];
+        _x params ["_varName", "_varValue"];
         _unit setvariable [_varName,_varValue];
     } forEach _storedVars;
 };

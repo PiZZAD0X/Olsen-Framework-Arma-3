@@ -10,7 +10,7 @@ private _group = group _unit;
 
 _unit disableAI "PATH";
 _unit disableAI "FSM";
-//dostop _unit;
+dostop _unit;
 _unit forcespeed 0;
 _group setBehaviour "AWARE";
 
@@ -44,22 +44,18 @@ if (GETMVAR(UseMarkers,false)) then {
 _invisibleTargetHelper attachTo [_invisibleTarget, [0,0,0]];
 SETVAR(_unit,InvisibleTarget,_invisibleTarget);
 
-private _vectordirandup = (GETVAR(_unit,VecDirUp,[ARR_2((vectordir _unit), (vectorup _unit))]));
+private _vectordirandup = GETVAR(_unit,VecDirUp,[ARR_2((vectordir _unit), (vectorup _unit))]);
 private _vectordir = (_vectordirandup select 0);
 private _azimuth = (((_vectordir) select 0) atan2 ((_vectordir) select 1) + 360) % 360;
 private _relpos = _unit getPos [20, _azimuth];
-private _laserPos = [(_relpos) select 0, (_relpos) select 1, (((getposASL _unit)) select 2) + 4];
+private _laserPos = [(_relpos) select 0, (_relpos) select 1, (((getposASL _unit)) select 2) + 2];
 _laserTarget setposASL _laserPos;
-[_unit,_laserTarget] call FUNC(WatchEnemy);
+[_unit, false, _laserTarget] call FUNC(WatchEnemy);
 
 SETVAR(_unit,oldGroup,_group);
 SETVAR(_unit,oldTrenchPos,getposASL _unit);
 SETVAR(_unit,oldUnitPos,unitpos _unit);
 SETVAR(_unit,laserPos,_laserPos);
-
-SETVAR(_unit,TargetStartTime,CBA_MissionTime);
-SETVAR(_unit,TargetSet,false);
-SETVAR(_this,burstCount,0);
 
 if ((leader _group) isEqualTo _unit) then {
 	SETVAR(_group,Mission,"BUNKER");

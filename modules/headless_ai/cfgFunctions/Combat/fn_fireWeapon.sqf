@@ -2,16 +2,17 @@
 
 
 //unit 1, unit 2
-params [["_unit",objnull,[objnull]],["_suppressMode",false,[false]]];
+params [["_unit", objnull, [objnull]]];
 
-private _isVehicle = !(vehicle _unit isEqualTo _unit);
+private _isVehicle = (vehicle _unit != _unit);
 
 if (_isVehicle) then {
     (vehicle _unit) fireAtTarget [objnull];
+    LOG_1("vehicle %1 attempting to fire weapon",_unit);
 } else {
-    private _weaponType = ((currentWeapon _unit) call BIS_fnc_itemType) select 1;
+    //private _weaponType = ((currentWeapon _unit) call BIS_fnc_itemType) select 1;
     private _fireMode = currentWeaponMode _unit;
-    if (_weaponType isEqualTo "MachineGun") then {
+    //if (_weaponType isEqualTo "MachineGun") then {
         private _weaponModes = (getArray (configFile >> "CfgWeapons" >> (currentWeapon _unit) >> "modes"));
         _fireMode = switch (true) do {
             case ("FullAuto" in _weaponModes): {
@@ -27,6 +28,8 @@ if (_isVehicle) then {
                 currentWeaponMode _unit
             };
         };
-    };
+    //};
     _unit forceWeaponFire [currentWeapon (vehicle _unit), _fireMode];
+    
+    LOG_2("%1 attempting to fire weapon in mode %2",_unit,_fireMode);
 };
