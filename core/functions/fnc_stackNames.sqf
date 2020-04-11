@@ -12,34 +12,21 @@
  * Public: No
  */
 
-private _array = _this;
+params [["_array", [], [[]]]];
 private _foundArray = [];
 private _newArray = [];
 
 {
+    private _string = _x;
+	if !(_string in _foundArray) then {
+		_foundArray pushBackUnique _string;
+		private _count = {
+            _x isEqualTo _string
+        } count _array;
 
-	if (!(_x in _foundArray)) then {
-
-		private _string = _x;
-
-		_foundArray set [count _foundArray, _string];
-
-		private _count = 0;
-
-		{
-
-			if (_string == _x) then {
-
-				_count = _count + 1;
-
-			};
-
-		} forEach _array;
-
-		_newArray set [count _newArray, format ["%1 X %2", _count, _string]];
-
+		private _newItem = format ["%1 X %2", _count, _string];
+        _newArray pushBackUnique _newItem;
 	};
-
 } forEach _array;
 
 _newArray

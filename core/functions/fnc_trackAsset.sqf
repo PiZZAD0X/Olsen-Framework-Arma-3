@@ -23,5 +23,4 @@ params [
 private _asset = vehicle (_asset);
 
 _asset setVariable ["FW_AssetName", _name];
-
 _asset setVariable ["FW_AssetTeam", _team];

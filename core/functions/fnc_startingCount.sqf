@@ -12,12 +12,8 @@
  * Public: No
  */
 
-{
-
-	if (!(_x getVariable ["FW_DontTrack", false])) then {
-
-		_x call FNC_TrackUnit;
-
-	};
-
-} forEach allUnits;
+allUnits select {
+    !(_x getVariable ["FW_DontTrack", false])
+} apply {
+    _x call FNC_TrackUnit;
+};
