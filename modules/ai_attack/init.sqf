@@ -1,4 +1,4 @@
-["AI Attack", "Allows for continious ai attack", "Sacher"] call FNC_RegisterModule;
+["AI Attack", "1.0", "Allows for continious ai attack", "Sacher"] call FNC_RegisterModule;
 
 FNC_AtkRegisterPath =
 {
@@ -79,7 +79,14 @@ FNC_AtkRandomStart =
 		_delay = _this select 7;
 		_spawnDelay = _this select 8;
 		_shouldClean = true;
-		if((_this select 9) == 0) then {_shouldClean = false; };
+		if((typeName (_this select 9)) == "SCALAR") then
+		{
+			_shouldClean = (_this select 9) == 1;
+		}
+		else
+		{
+			_shouldClean = (_this select 9);
+		};
 
 		{
 				_found = ATKcachedPaths find _x;
@@ -474,7 +481,7 @@ FNC_AtkVehicleStart =
 FNC_AtkStopAttack =
 {
 
-	_found = ATKcachedAttacks find _this select 0;
+	_found = ATKcachedAttacks find (_this select 0);
 	if(_found < 0) then
 	{
 		_temp = format ["AI Attack module:<br></br>Attack ""%1"" does not exist and therefore cannot be stopped, in file ""modules\ai_attack\settings.sqf"" does not exist.", _x];
@@ -482,7 +489,7 @@ FNC_AtkStopAttack =
 	}
 	else
 	{
-			terminate ATKcachedAttacks select (_found +1);
+			terminate (ATKcachedAttacks select (_found +1));
 	};
 
 };

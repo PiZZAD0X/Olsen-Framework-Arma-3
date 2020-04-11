@@ -13,6 +13,7 @@ PREP(canLinkItem);
 PREP(canAttachItem);
 PREP(addItemOrg);
 PREP(addItemRandomOrg);
+PREP(addItemRandomOrgPercent);
 PREP(addItemVehicleOrg);
 PREP(addItemVehicleRandomOrg);
 PREP(removeAllGear);
@@ -21,7 +22,7 @@ PREP(registerModule);
 PREP(checkClassname);
 PREP(makeUnitsList);
 
-FNC_Briefing = compile preprocessFileLineNumbers "customization\briefing.sqf";
+FNC_Briefing = compile preprocessFileLineNumbers "customisation\briefing.sqf";
 
 FNC_Menu = compile preprocessFileLineNumbers "core\menu.sqf";
 

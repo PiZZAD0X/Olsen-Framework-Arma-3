@@ -2,7 +2,7 @@
 //Written by TinfoilHate
 //Updated: June 06, 2017
 
-["AI link", "Shares targeting information between AI groups based on radios.", "TinfoilHate"] call FNC_RegisterModule;
+["AI link", "1.0", "Shares targeting information between AI groups based on radios.", "TinfoilHate"] call FNC_RegisterModule;
 
 #include "settings.sqf"
 

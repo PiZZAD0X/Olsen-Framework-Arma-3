@@ -1,4 +1,4 @@
-["Auto Track Assets", "Automatically runs FNC_TrackAsset on AI vehicles.", "Starfox64"] call FNC_RegisterModule;
+["Auto Track Assets", "1.0", "Automatically runs FNC_TrackAsset on AI vehicles.", "Starfox64"] call FNC_RegisterModule;
 
 if (isServer) then {
 

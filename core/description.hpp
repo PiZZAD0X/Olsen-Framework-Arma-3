@@ -8,16 +8,15 @@
 	respawnButton = 1; //Disables the respawn button
 	respawnDialog = 0; //Disables the score screen while respawning
 	respawnTemplates[] = {"Base"}; //Disables respawn countdown
-	enableDebugConsole = 0; //Only for logged-in admins
+	enableDebugConsole = 1; //Only for logged-in admins
 	enableTargetDebug = 1; //Enable CBA Target Debugging
 
 	class Extended_PreInit_EventHandlers {
-
 		class Mission {
-
-			init = "'' call compile preprocessFileLineNumbers 'preinit.sqf'; FNC_GearScript = compile preprocessFileLineNumbers 'customization\gear.sqf'; FNC_VehicleGearScript = compile preprocessFileLineNumbers 'customization\vehGear.sqf';"; //Compiles the gear script for the server and client
+			init = "'' call compile preprocessFileLineNumbers 'preinit.sqf'; FNC_GearScript = compile preprocessFileLineNumbers 'customisation\gear.sqf'; FNC_VehicleGearScript = compile preprocessFileLineNumbers 'customisation\vehGear.sqf';"; //Compiles the gear script for the server and client
 
 		};
+
 	};
 
 	class CfgDebriefingSections {
@@ -25,13 +24,18 @@
 			title = "Acex Killed Events";
 			variable = "acex_killTracker_outputText";
 		};
+
 	};
 
 #endif
 
 #ifdef description_titles
-
 	#include "dia\debug\dia_debug.hpp" //Must have for the end screen to work, if removed Arma 3 will crash on mission load
 	#include "dia\endscreen\dia_endscreen.hpp" //Must have for the end screen to work, if removed Arma 3 will crash on mission load
+
+#endif
+
+#ifdef description_params
+	// Do nothing.
 
 #endif

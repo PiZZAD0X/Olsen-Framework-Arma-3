@@ -14,7 +14,7 @@
 
 switch (side player) do { //Checks what team the player is on
 
-	case west: { //If player is west he receives this message
+	case west: { //If player is west they receive this message
 
 		_startTextArray = [
 			["TITLEQUOTE", "BLUFOR Time"],
@@ -24,7 +24,7 @@ switch (side player) do { //Checks what team the player is on
 
 	}; //End of west case
 
-	case east: { //If player is east he receives this message
+	case east: { //If player is east they receive this message
 
 		_startTextArray = [
 			["TITLEQUOTE", "Malden"],
@@ -33,4 +33,24 @@ switch (side player) do { //Checks what team the player is on
 		];
 
 	}; //End of east case
+
+	case independent: {
+
+		_startTextArray = [
+			["TITLEQUOTE", "Malden"],
+			["TEXT", "Near Saint Maire"],
+			["DATETIME"]
+		];
+
+	};
+
+	case civilian: {
+
+		_startTextArray = [
+			["TITLEQUOTE", "Malden"],
+			["TEXT", "Near Saint Maire"],
+			["DATETIME"]
+		];
+
+	};
 }; //End of switch

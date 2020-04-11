@@ -1,4 +1,4 @@
-["Medical Settings", "Setting medical nonsense without modules.", "TinfoilHate"] call FNC_RegisterModule;
+["Medical Settings", "1.1", "Setting medical nonsense without modules.", "TinfoilHate, StatusRed"] call FNC_RegisterModule;
 
 #include "settings.sqf"
 

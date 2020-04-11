@@ -1,4 +1,4 @@
-["AI drivers", "Adds AI commanded by players as drivers to vehicles.", "BlackHawk"] call FNC_RegisterModule;
+["AI drivers", "1.0", "Adds AI commanded by players as drivers to vehicles.", "BlackHawk"] call FNC_RegisterModule;
 
 #include "settings.sqf"
 
@@ -15,7 +15,7 @@ aidrivers_removeUnit = {
     params ["_target"];
 
     private _driver = _target getVariable ["aidrivers_driver", objNull];
-    
+
     if (!isNull _driver) then {
         deleteVehicle _driver;
         private _handle = _target getVariable ["aidrivers_pfhID", []];
@@ -30,12 +30,12 @@ aidrivers_removeUnit = {
 
 aidrivers_createUnit = {
     params ["_target", "_caller"];
-    
+
     if (!isNull driver _target) exitWith {};
-    private _turret = (assignedVehicleRole _player) select 1;
+    private _turret = (assignedVehicleRole _caller) select 1;
     _caller moveInDriver _target;
     _caller moveInTurret [_target, _turret];
-    
+
     private _class = "B_Soldier_F";
     if (side _caller == EAST) then {
         _class = "O_Soldier_F";
@@ -51,16 +51,16 @@ aidrivers_createUnit = {
     removeVest _unit;
     removeHeadgear _unit;
     removeGoggles _unit;
-    
+
     _unit forceAddUniform uniform _caller;
     _unit addVest vest _caller;
     _unit addHeadGear headGear _caller;
-    
+
     _target setVariable ["aidrivers_driver", _unit, true];
 
     _unit moveInDriver _target;
     _unit setBehaviour "COMBAT";
-    
+
     doStop _unit;
 
     FW_AidriverLastTimeIn = time;
@@ -98,11 +98,11 @@ FNC_toggleDriverCam = {
         FW_driverCam camCommit 0;
 
         FW_pipNvEnabled = false;
-        
+
         _veh = vehicle player;
         _mempoint = getText ( configfile >> "CfgVehicles" >> (typeOf _veh) >> "memoryPointDriverOptics" );
         FW_driverCam attachTo [_veh,[0,0,0], _mempoint];
-        
+
         with uiNamespace do {
             "FW_pipDriver" cutRsc ["RscTitleDisplayEmpty", "PLAIN"];
             FW_pipDisplay = uiNamespace getVariable "RscTitleDisplayEmpty";
@@ -140,11 +140,19 @@ FNC_enableAIDriver = {
 
     //unflip action
     private _unflipAction = ["ai_driver_unflip","Unflip vehicle","",{
-        [_target, surfaceNormal position _target] remoteExec ["setVectorUp", 2, false];
+        [_target, surfaceNormal position _target] remoteExec ["setVectorUp", _target, false];
         _target setPos [getpos _target select 0, getpos _target select 1, (getpos _target select 2) + 2];
     },
     {
         vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && (vectorUp _target) select 2 < 0
+    }] call ace_interact_menu_fnc_createAction;
+
+    //engine off action
+    private _engineOffAction = ["ai_driver_engineoff","Turn off engine","",{
+        [_target, false] remoteExec ["engineOn", _target];
+    },
+    {
+        vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && isEngineOn _target
     }] call ace_interact_menu_fnc_createAction;
 
     //PIP action
@@ -173,6 +181,7 @@ FNC_enableAIDriver = {
     {
         [_x, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
         [_x, 1, ["ACE_SelfActions"], _unflipAction] call ace_interact_menu_fnc_addActionToObject;
+        [_x, 1, ["ACE_SelfActions"], _engineOffAction] call ace_interact_menu_fnc_addActionToObject;
         [_x, 1, ["ACE_SelfActions"], _pipAction] call ace_interact_menu_fnc_addActionToObject;
         [_x, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
     } foreach _vehs;
