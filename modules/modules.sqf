@@ -49,3 +49,4 @@
 //#include "knock_down\root.sqf"
 //#include "weapon_helper\root.sqf"
 //#include "headless_spawn\root.sqf"
+//#include "set_identity\root.sqf"
