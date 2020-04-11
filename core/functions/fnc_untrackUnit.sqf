@@ -19,7 +19,7 @@ if (_unit getVariable ["FW_Tracked", false]) then {
 	{
 		_x params ["", "_side", "_type", "_total", "_current"];
 
-		if (_unit getVariable "FW_Side" == _side and ((_type != "ai" && isPlayer _unit) || (_type == "ai"))) exitWith {
+		if ((_unit getVariable "FW_Side" isEqualTo _side) && {((!(_type isEqualTo "ai") && {isPlayer _unit}) || (_type isEqualTo "ai"))}) exitWith {
 
 			if (_unit call FNC_Alive) then {
 

@@ -11,8 +11,8 @@
  *
  * Public: No
  */
- 
- private _vehicle = _this;
+
+params ["_vehicle"];
 
 clearItemCargoGlobal _vehicle;
 clearMagazineCargoGlobal _vehicle;

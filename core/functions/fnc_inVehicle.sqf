@@ -12,6 +12,6 @@
  * Public: Yes
  */
 
-private _unit = _this;
+params ["_unit"];
 
 ((vehicle _unit) != _unit)

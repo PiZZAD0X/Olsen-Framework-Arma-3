@@ -13,16 +13,18 @@
  * Public: Yes
  */
 
-private _unit =(_this select 0) createVehicle (_this select 1);
+params ["_className", "_position", ["_side", sideEmpty, [sideEmpty]]];
+
+private _unit = _className createVehicle _position;
 if(!isNil "aCount_addEH") then { ["aCount_event_addEH", _unit] call CBA_fnc_serverEvent};
-if (_unit getVariable ["FW_AssetName", ""] == "" && (count _this >= 3)) then
+if ((_unit getVariable ["FW_AssetName", ""] isEqualTo "") && {!(_side isEqualTo sideEmpty)}) then
 {
   {
 	if (_x select 1 == (_this select 2)) exitWith {
-	  _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _unit));
+	  private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _unit));
 	  if (isText(_vehCfg >> "displayName")) then
 	  {
-		[_unit, getText(_vehCfg >> "displayName"), _x select 0] call FNC_TrackAsset;
+		[_unit, getText (_vehCfg >> "displayName"), _x select 0] call FNC_TrackAsset;
 	  };
 	};
   } forEach FW_Teams;
