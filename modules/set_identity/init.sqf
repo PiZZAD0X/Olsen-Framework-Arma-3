@@ -14,11 +14,11 @@ if (isServer) then {
                 } apply {
                     if !(_faceArray isEqualTo []) then {
                         private _faceSelected = selectRandom _faceArray;
-                        {[_x, _faceSelected] remoteExec ["setFace", 0, _x]};
+                        [_x, _faceSelected] remoteExec ["setFace", 0, _x];
                     };
                     if !(_voicesArray isEqualTo []) then {
                         private _voiceSelected = selectRandom _voicesArray;
-                        {[_x, _voiceSelected] remoteExec ["setSpeaker", 0, _x]};
+                        [_x, _voiceSelected] remoteExec ["setSpeaker", 0, _x];
                     };
                 };
             } forEach [
