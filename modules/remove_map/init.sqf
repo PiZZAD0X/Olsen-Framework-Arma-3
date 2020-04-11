@@ -1,25 +1,23 @@
-["Remove Maps", "1.0", "Removes maps and compasses from specific gear cases.", "TinfoilHate"] call FNC_RegisterModule;
+["Remove Maps", "1.1", "Removes maps and compasses from specific gear cases.", "TinfoilHate, PiZZADOX"] call FNC_RegisterModule;
 
-	[{time > 1}, {
-		#include "settings.sqf"
+#include "settings.sqf"
 
-		_keepMapClasses = _keepMapClasses + _keepCompassClasses;
+[{
+    params [["_keepMapClasses", [], [[]]], ["_keepCompassClasses", [], [[]]]];
+    _keepMapClasses append _keepCompassClasses;
 
-		{
-			_unit = _x;
-			_gear = _unit getVariable ["FW_Loadout", ""];
-
-			if (local _unit) then {
-				if (_gear in _keepMapClasses) then {
-					if (_gear in _keepCompassClasses) then {
-						_unit unlinkItem "ItemMap";
-					} else {
-						//Hooray, you're important!
-					};
-				} else {
-					_unit unlinkItem "ItemMap";
-					_unit unlinkItem "ItemCompass";
-				};
-			};
-		} forEach allUnits;
-	}] call CBA_fnc_waitUntilAndExecute;
+    allUnits select {
+        local _x
+    } apply {
+        private _unit = _x;
+        private _gear = _unit getVariable ["FW_Loadout", ""];
+        if (_gear in _keepMapClasses) then {
+            if (_gear in _keepCompassClasses) then {
+                _unit unlinkItem "ItemMap";
+            };
+        } else {
+            _unit unlinkItem "ItemMap";
+            _unit unlinkItem "ItemCompass";
+        };
+    };
+}, [_keepMapClasses, _keepCompassClasses]] call CBA_fnc_execNextFrame;
