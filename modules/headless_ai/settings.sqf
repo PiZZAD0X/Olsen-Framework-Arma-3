@@ -5,10 +5,19 @@
 //of reinforcements or subsequent AOs.
 
 //Array objects
+//eg: ["mainEnemy", "patrol_1", "patrol_2", "patrol_3"]
 GVAR(ArrayObjects) = [];
 
 //Initial spawns are spawned upon init, at the start of the mission.
-GVAR(InitialSpawn) = [];
+//eg: ["mainEnemy"]
+GVAR(InitialSpawn) = ["mainEnemy"];
+
+//Initial random spawns are randomly selected upon init, at the start of the mission according to their weight value.
+//Array is structured with array object name and random selection weight.
+//eg: [["patrol_1", 2], ["patrol_2", 1], ["patrol_3", 1]]
+GVAR(InitialRandomSpawns) = [["patrol_1", 2], ["patrol_2", 1], ["patrol_3", 1]];
+//Amount of random spawns to choose upon init.
+GVAR(InitialRandomSpawnsCount) = 1;
 
 //Custom viewdistance for the AI
 GVAR(AIViewDistance) = 2500;
@@ -91,7 +100,7 @@ GVAR(HearingMinIncrease) = 1;
 GVAR(BunkerDistance) = 2500;
 GVAR(AimDistAdjust) = 0.00024;
 GVAR(AimConeAdjust) = 0.975;
-GVAR(AimedAdjust) = 0.9925;
+GVAR(AimedAdjust) = 0.999;
 GVAR(BunkerEnemyLOSChecks) = 20;
 //Whether Bunker AI get released and act normally/free to move if enemies get too close
 GVAR(BunkerRelease) = true;

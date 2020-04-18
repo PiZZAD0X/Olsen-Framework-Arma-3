@@ -45,6 +45,22 @@ class PZAI {
 		class CommanderHandler {};
 	};
 	
+	class StateMachine {
+		file = "modules\headless_ai\cfgFunctions\statemachine";
+		class addEventTransition {};
+		class addState {};
+		class addTransition {};
+		class clockwork {};
+		class create {};
+		class createFromConfig {};
+		class delete {};
+		class getCurrentState {};
+		class manualTransition {};
+		class toString {};
+		class updateList {};
+		class dumpPerformanceCounters {};
+	};
+	
 	class CommanderSM {
 		file = "modules\headless_ai\cfgFunctions\CommanderSM";
 		class CM_OnStateInitial {};

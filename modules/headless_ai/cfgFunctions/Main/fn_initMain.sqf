@@ -7,7 +7,7 @@ GVAR(GroupArray) = [];
 
 //StateMachines
 LOG("creating bunkerStateMachine");
-GVAR(bunkerStateMachineHandler) = (missionConfigFile >> QGVAR(bunkerStateMachine)) call CBA_statemachine_fnc_createFromConfig;
+GVAR(bunkerStateMachineHandler) = (missionConfigFile >> QGVAR(bunkerStateMachine)) call FUNC(createFromConfig);
 //LOG("creating commanderStateMachine");
 //GVAR(commanderStateMachineHandler) = (missionConfigFile >> QGVAR(commanderStateMachine)) call CBA_statemachine_fnc_createFromConfig;
 //LOG("creating sightAidStateMachine");
@@ -44,6 +44,34 @@ if !(GVAR(InitialSpawn) isEqualTo []) then {
 			} foreach _InitialSpawn;
 		}, [_InitialSpawn]] call CBA_fnc_execNextFrame;
 	}, [_InitialSpawn]] call CBA_fnc_execNextFrame;
+};
+
+if ((GVAR(InitialRandomSpawnsCount) > 1) && {!(GVAR(InitialRandomSpawns) isEqualTo [])}) then {
+	//construct InitialRandomSpawns array
+	private _InitialRandomSpawns = [];
+	{
+	    _x params ["_element", "_weight"];
+		_InitialRandomSpawns pushBack _element;
+		_InitialRandomSpawns pushBack _weight;
+	} forEach GVAR(InitialRandomSpawns);
+	LOG_1("InitialRandomSpawns %1",_InitialRandomSpawns);
+	[{
+		params ["_InitialRandomSpawns"];
+		private _InitialRandomSpawnsSelected = [];
+		for "_a" from 0 to (GETMVAR(InitialRandomSpawnsCount,1)) step 1 do {
+		    private _selected = selectRandomWeighted _InitialRandomSpawns;
+			_InitialRandomSpawnsSelected pushBack _selected;
+			_InitialRandomSpawns - [_selected];
+		};
+		if !(GVAR(_InitialRandomSpawnsSelected) isEqualTo []) then {
+			[{
+				params ["_InitialRandomSpawnsSelected"];
+				{
+					[_x] call FUNC(spawnArray);
+				} foreach _InitialRandomSpawnsSelected;
+			}, [_InitialRandomSpawnsSelected]] call CBA_fnc_execNextFrame;
+		};
+	}, [_InitialRandomSpawns]] call CBA_fnc_execNextFrame;
 };
 
 //marker function
