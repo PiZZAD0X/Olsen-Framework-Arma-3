@@ -10,7 +10,7 @@ private _laserTarget = GETVAR(_unit,laserTarget,objnull);
 _laserTarget setposASL _defaultLaserPos;
 [_unit, false, _laserTarget] call FUNC(WatchEnemy);
 
-if (GETMVAR(FSMDebug,false)) then {
+if (GETMVAR(VerboseDebug,false)) then {
     LOG_1("%1 timed out from bunker engage, resetting",_unit);
 };
 

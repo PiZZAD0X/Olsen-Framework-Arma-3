@@ -1,8 +1,14 @@
 #include "..\..\script_macros.hpp"
 
 
-params ["_logic",["_delay",0,[0]],"_code",["_initial",false],["_entitiesArray",[],[[]]]];
-private ["_entities"];
+params [
+    "_logic",
+    ["_delay",0,[0]],
+    "_code",
+    ["_initial",false],
+    ["_entitiesArray",[],[[]]]
+];
+private _entities = [];
 LOG_2("setupZone started _logic: %1 _initmode: %2",_logic,_initial);
 
 if !(_initial) then {

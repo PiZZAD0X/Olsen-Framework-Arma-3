@@ -1,9 +1,35 @@
 #include "..\..\script_macros.hpp"
 
 
-params ["_pos","_vehArgs","_side"];
-_vehArgs params ["_uv","_vehClass","_vehpos","_vectorDir","_vectorUp","_damage","_fuel","_turretMags","_locked","_vehInWater","_vehName","_persistent","_vehInit","_fly","_flyInHeight", "_storedVars"];
-LOG_1("_vehArgs: %1",_vehArgs);
+params [
+    "_pos",
+    "_vehArgs",
+    "_side"
+];
+_vehArgs params [
+    "_uv",
+    "_vehClass", 
+    "_vehCustomization", 
+    "_vehpos",
+    "_vectorDir",
+    "_vectorUp",
+    "_damage",
+    "_fuel",
+    "_turretMags",
+    "_locked",
+    "_vehInWater",
+    "_vehName",
+    "_persistent",
+    "_vehInit",
+    "_fly",
+    "_flyInHeight", 
+    "_storedVars"
+];
+
+if (GETMVAR(Debug,false)) then {
+    LOG_1("_vehArgs: %1",_vehArgs);
+};
+
 private _flying = "NONE";
 if (_fly && {(_vehClass isKindOf "Air")}) then {
     _flying = "FLY";
@@ -21,8 +47,11 @@ if (_fly) then {
 _vehicle setDamage _damage;
 _vehicle setFuel _fuel;
 _vehicle lock _locked;
+_vehCustomization params ["_vehCustomSkin", "_vehCustomAnimations"];
+[_vehicle, _vehCustomSkin, _vehCustomAnimations] call BIS_fnc_initVehicle;
 {
-    _x params [["_class","",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
+    _x params [["_class",
+"",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
     _vehicle setMagazineTurretAmmo [_class,_ammo,_path];
 } forEach _turretMags;
 if !(_vehName isEqualTo "") then {
@@ -33,7 +62,8 @@ _vehicle call _vehInit;
 if !(_storedVars isEqualTo []) then {
     LOG_1("Setting vars: %1",_storedVars);
     {
-        _x params ["_varName","_varValue"];
+        _x params ["_varName",
+"_varValue"];
         _vehicle setvariable [_varName,_varValue];
         LOG_2("Setting _varName: %1 with: %2",_varName,_varValue);
     } forEach _storedVars;

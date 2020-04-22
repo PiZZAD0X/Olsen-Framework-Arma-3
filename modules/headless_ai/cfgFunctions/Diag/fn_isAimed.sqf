@@ -5,7 +5,7 @@ params ["_unit"];
 private _invisibleTarget = GETVAR(_unit,InvisibleTarget,objnull);
 
 if (_invisibleTarget isEqualTo objnull) exitwith {
-    if (GETMVAR(FSMDebug,false)) then {
+    if (GETMVAR(VerboseDebug,false)) then {
     	LOG_1("_unit: %1 cannot find invisible target",_unit);
     };
     false
@@ -28,7 +28,7 @@ private _isAimed = (
     _aimedAdjustResult
 );
 
-if (GETMVAR(FSMDebug,false)) then {
+if (GETMVAR(VerboseDebug,false)) then {
     LOG_4("%1 aimCheck with vectorCos: %2 and aimedAdjust: %3 result: %4",_unit,_vectorCosResult,_aimedAdjustResult,_isAimed);
 };
 

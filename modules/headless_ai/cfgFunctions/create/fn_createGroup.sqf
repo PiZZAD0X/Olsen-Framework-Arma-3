@@ -2,8 +2,37 @@
 
 
 params ["_args"];
-_args params ["","_groupSet","_groupMem",["_currentVeh",objNull,[objNull]]];
-_groupSet params ["_side","_groupPos","_behaviour","_combat","_speed","_formation","_groupStance","_groupInit","_createRadius","_taskRadius","_wait","_startBld","_task","_taskTimer", "_multi", "_occupyOption", "_vehAssigned","_waypoints","_onWater","_fl","_surrender", "_tracker", "_storedVars"];
+_args params [
+    "",
+    "_groupSet",
+    "_groupMem",
+    ["_currentVeh",objNull,[objNull]]
+];
+_groupSet params [
+    "_side",
+    "_groupPos",
+    "_behaviour",
+    "_combat",
+    "_speed",
+    "_formation",
+    "_groupStance",
+    "_groupInit",
+    "_createRadius",
+    "_taskRadius",
+    "_wait",
+    "_startBld",
+    "_task",
+    "_taskTimer", 
+    "_multi", 
+    "_occupyOption", 
+    "_vehAssigned",
+    "_waypoints",
+    "_onWater",
+    "_fl",
+    "_surrender", 
+    "_tracker", 
+    "_storedVars"
+];
 createCenter _side;
 private _group = createGroup _side;
 {
@@ -21,7 +50,7 @@ _group call CBA_fnc_clearWaypoints;
 
 if !(_storedVars isEqualTo []) then {
     {
-        _x params ["_varName","_varValue"];
+        _x params ["_varName", "_varValue"];
         _group setvariable [_varName,_varValue];
     } forEach _storedVars;
 };

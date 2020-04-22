@@ -26,7 +26,7 @@ private _cansee = if ((vehicle _unit) != _unit) then {
     [_unit, "VIEW", objNull] checkVisibility [eyepos _unit, _eyeP2]
 };
 
-//if (GETMVAR(FSMDebug,false)) then {
+//if (GETMVAR(VerboseDebug,false)) then {
 //	LOG_3("_unit: %1 _cansee: %2 _target: %3",_unit,_cansee,_target);
 //};
 

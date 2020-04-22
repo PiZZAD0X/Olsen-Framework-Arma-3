@@ -10,7 +10,7 @@ SETVAR(_unit,LastFiredTime,CBA_MissionTime);
 
 private _enemyTarget = GETVAR(_unit,enemyTarget,objnull);
 
-if (GETMVAR(FSMDebug,false)) then {
+if (GETMVAR(VerboseDebug,false)) then {
     LOG_2("%1 Targeted %2 in bunker mode",_unit,_enemyTarget);
 };
 

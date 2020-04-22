@@ -37,6 +37,7 @@ class PZAI {
 		class SuppressingShots {};
 		class ThrowGrenade {};
 		class WatchEnemy {};
+		class SearchBuilding {};
 	};
 
 	class Commander {

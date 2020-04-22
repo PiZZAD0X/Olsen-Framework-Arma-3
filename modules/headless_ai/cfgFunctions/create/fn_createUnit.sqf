@@ -1,8 +1,36 @@
 #include "..\..\script_macros.hpp"
 
 
-params ["_occupy","_group","_gpos","_startBld","_i","_unitArgs","_taskRadius",["_currentVeh",objNull,[objNull]]];
-_unitArgs params ["_uv","_unitClass","_unitPos","_unitVectorDir","_unitVectorUp","_damage","_editorGear","_vehicle","_vr","_vehicleAssigned","_handcuffed","_unitOnWater","_unitIsPersistent","_unitStance","_unitInit","_name","_identity", "_storedVars"];
+params [
+    "_occupy",
+    "_group",
+    "_gpos",
+    "_startBld",
+    "_i",
+    "_unitArgs",
+    "_taskRadius",
+    ["_currentVeh",objNull,[objNull]]
+];
+_unitArgs params [
+    "_uv",
+    "_unitClass",
+    "_unitPos",
+    "_unitVectorDir",
+    "_unitVectorUp",
+    "_damage",
+    "_editorGear",
+    "_vehicle",
+    "_vr",
+    "_vehicleAssigned",
+    "_handcuffed",
+    "_unitOnWater",
+    "_unitIsPersistent",
+    "_unitStance",
+    "_unitInit",
+    "_name",
+    "_identity", 
+    "_storedVars"
+];
 
 if (_occupy) then {
     LOG_1("%1 set to occupy",_unitClass);

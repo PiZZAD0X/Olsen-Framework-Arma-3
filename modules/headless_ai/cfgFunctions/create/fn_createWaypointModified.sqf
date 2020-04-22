@@ -1,7 +1,13 @@
 #include "..\..\script_macros.hpp"
 
 
-params[["_s",0,[0]],["_t","OBJECT",[""]],["_a",1,[0]],"_var",["_array",[],[[]]]];
+params[
+    ["_s",0,[0]],
+    ["_t","OBJECT",[""]],
+    ["_a",1,[0]],
+    "_var",
+    ["_array",[],[[]]]
+];
 if ((_array select _s) isEqualType _t ) then {
     _array deleteAt 0;
 };

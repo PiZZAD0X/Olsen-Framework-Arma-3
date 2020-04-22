@@ -14,7 +14,11 @@ Params: 1: Array, the array to search for nested arrays in
 Return: Scalar, -1 if there is no match
 */
 
-params ["_givenSearchArray","_givenSearchValue",["_desiredIndex",0,[0]]];
+params [
+    "_givenSearchArray",
+    "_givenSearchValue",
+    ["_desiredIndex",0,[0]]
+];
 private ["_nestedArray", "_currentIndex"];
 
 scopeName "main";

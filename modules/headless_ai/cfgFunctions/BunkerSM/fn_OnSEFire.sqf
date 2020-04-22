@@ -10,7 +10,7 @@ SETVAR(_unit,burstCount,_burstCount);
 
 private _enemyTarget = GETVAR(_unit,enemyTarget,objnull);
 
-if (GETMVAR(FSMDebug,false)) then {
+if (GETMVAR(VerboseDebug,false)) then {
     LOG_2("%1 Attempting to fire bunker mode at %2",_unit,_enemyTarget);
 };
 

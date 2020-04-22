@@ -662,7 +662,7 @@ class FSM
                                         to="Set_Vector";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"_IsBunker"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 is a bunker AI, entering bunker init"",_Unit];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -884,7 +884,7 @@ class FSM
                         itemno = 23;
                         init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
                          "_t = time;" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""sim pause for %1"",_unit];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -924,7 +924,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"private [""_t""];" \n
                          "_t = time;" \n
                          "diag_log format [""temp halt for %1"",_unit];" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "_MyNearestEnemy = _Unit call PZAI_fnc_ClosestEnemy;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -1096,7 +1096,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!alive _Unit || {isNull _Unit} || {isPlayer _Unit}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"if (!isNull _laserTarget) then {deletevehicle _laserTarget};" \n
-                                         "if (PZAI_FSMDEBUG) then {" \n
+                                         "if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 is dead or null exiting from bunker init fsm"",_Unit];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -1138,7 +1138,7 @@ class FSM
                          "if !(_EnemyArray isEqualTo []) then {" \n
                          "	_EnemyInRange = _EnemyArray select {((vehicle _unit) distance2d _x) < _Distance};" \n
                          "};" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "	diag_log format [""%1 enemy array: %2"",_Unit,_EnemyArray];" \n
                          "};" \n
                          "" \n
@@ -1176,7 +1176,7 @@ class FSM
                                         to="Recheck_Time";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!(isNil ""_LastFiredTime"") && {(_EnemyInRange isEqualTo [])}"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "	diag_log format [""%1 no enemy in range, looking for suppress"",_Unit];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -1192,7 +1192,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"_NearestEnemyBunker = [_EnemyInRange,(vehicle _unit),true] call PZAI_fnc_ClosestObject;" \n
                          "_BunkerEnemyDistance = ((vehicle _unit) distance2d _NearestEnemyBunker);" \n
                          "_cantSeeCount = 0;" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "	diag_log format [""%1 nearest enemy: %2 distance: %3 position: %4"",_Unit,_NearestEnemyBunker,_BunkerEnemyDistance, getposASL _NearestEnemyBunker];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -1280,7 +1280,7 @@ class FSM
                                         to="Recheck_Time";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"_cantSeeCount > 6"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 Exceeded canSee checks: %2"",_Unit,_cantSeeCount];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -1359,7 +1359,7 @@ class FSM
                         name = "Supress_last__known";
                         itemno = 52;
                         init = /*%FSM<STATEINIT""">*/"[_unit,_laserTarget,_laserTarget,true] call PZAI_fnc_WatchEnemy;" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""%1 recently shot, trying to suppress: %2"",_Unit,_lastknowntargetpos];" \n
                          "};" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -1379,7 +1379,7 @@ class FSM
                                          "    _burstcount > 5" \n
                                          "};" \n
                                          ""/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 exiting bunker targeting on burst: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -1392,7 +1392,7 @@ class FSM
                                         to="Check_Recent";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t2 + 5)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 timed out of bunker suppressing for: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -1473,7 +1473,7 @@ class FSM
                 {
                         name = "Fire_Weapon";
                         itemno = 57;
-                        init = /*%FSM<STATEINIT""">*/"if (PZAI_FSMDEBUG) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""%1 attempting to suppress fire"",_Unit];" \n
                          "};" \n
                          "[_unit,true] call PZAI_fnc_fireWeapon;"/*%FSM</STATEINIT""">*/;
@@ -1576,7 +1576,7 @@ class FSM
                 {
                         name = "Exit";
                         itemno = 66;
-                        init = /*%FSM<STATEINIT""">*/"if (PZAI_FSMDEBUG) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""%1 is dead from bunker exiting fsm"",_Unit];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -1623,7 +1623,7 @@ class FSM
                         itemno = 69;
                         init = /*%FSM<STATEINIT""">*/"[_unit,_NearestEnemyBunker,_laserTarget] call PZAI_fnc_WatchEnemy;" \n
                          "_group setvariable [""PZAI_CurrentTarget"",_NearestEnemyBunker];" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "    diag_log format [""%1 watching enemy: %2"",_Unit,_NearestEnemyBunker];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -1642,7 +1642,7 @@ class FSM
                                          "    _burstcount > 5" \n
                                          "};" \n
                                          ""/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 exiting bunker targeting on burst count: %2"",_Unit,_burstcount];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -1666,7 +1666,7 @@ class FSM
                                         to="Check_Recent";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t3 + 5)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 timed out of bunker targeting for: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -1690,7 +1690,7 @@ class FSM
                 {
                         name = "Fire_Weapon_1";
                         itemno = 72;
-                        init = /*%FSM<STATEINIT""">*/"if (PZAI_FSMDEBUG) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""%1 attempting to fire"",_Unit];" \n
                          "};" \n
                          "[_unit] call PZAI_fnc_fireWeapon;" \n
@@ -1796,7 +1796,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"!alive _Unit || {isNull _Unit} || {isPlayer _Unit}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"if (!isNull _laserTarget) then {deletevehicle _laserTarget};" \n
-                                         "if (PZAI_FSMDEBUG) then {" \n
+                                         "if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 is dead or null exiting from bunker init fsm"",_Unit];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -1893,13 +1893,13 @@ class FSM
                         name = "Leader_init";
                         itemno = 116;
                         init = /*%FSM<STATEINIT""">*/"_leadertime = CBA_MissionTime;" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""checking leader for %1"",_group];" \n
                          "};" \n
                          "_currentmission = _group getvariable [""PZAI_Mission"",""NONE""];" \n
                          "_InitialWaypointSet = _group getvariable [""PZAI_InitialWPSet"",false];" \n
                          "_currenttarget = _group getvariable [""PZAI_CurrentTarget"",objnull];" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""check %1 mission: %2 WPSet: %3 target: %4"",_group,_currentmission,_InitialWaypointSet,_currenttarget];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2035,7 +2035,7 @@ class FSM
                         itemno = 146;
                         init = /*%FSM<STATEINIT""">*/"_leadertime2 = CBA_MissionTime;" \n
                          "" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "	diag_log format [""_group: %1 leadercheck"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2049,7 +2049,7 @@ class FSM
                                         to="Radio_Check";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(!(_currentTarget isEqualto objnull))"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "	diag_log format [""_target set for: %1"",_group];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2062,7 +2062,7 @@ class FSM
                                         to="Execute_Count__1_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_currentTarget isEqualto objnull)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "	diag_log format [""_group: %1 leadercheck target not set"",_group];" \n
                                          "};" \n
                                          ""/*%FSM</ACTION""">*/;
@@ -2136,7 +2136,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"_RadioCheck = [_group] call PZAI_fnc_HasRadioGroup;" \n
                          "_group setvariable [""PZAI_HasRadio"",_RadioCheck];" \n
                          "" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "	diag_log format [""_group: %1 radiocheck"",_group];" \n
                          "};" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2151,7 +2151,7 @@ class FSM
                                         to="Recent_Call_Chec";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_RadioCheck) || (!PZAI_RadioNeedRadio) "/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "	diag_log format [""%1 has radio"",_group];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2164,7 +2164,7 @@ class FSM
                                         to="Execute_Count__1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "	diag_log format [""%1 has radio"",_group];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2178,7 +2178,7 @@ class FSM
                         name = "Try_to_Radio";
                         itemno = 164;
                         init = /*%FSM<STATEINIT""">*/"[_group,_currentTarget,_side] call PZAI_fnc_RadioCommsEnemy;" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "	diag_log format [""%1 radioing for help"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2370,7 +2370,7 @@ class FSM
                          "    _group setvariable [""PZAI_HasRadio"",_RadioCheck];" \n
                          "};" \n
                          "" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "	diag_log format [""_group: %1 radiocheck"",_group];" \n
                          "};" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2396,7 +2396,7 @@ class FSM
                                         to="Recent_Call_Chec_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_RadioCheck) || (!PZAI_RadioNeedRadio) "/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "	diag_log format [""%1 has radio"",_group];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2421,7 +2421,7 @@ class FSM
                         name = "Try_to_Radio_1";
                         itemno = 200;
                         init = /*%FSM<STATEINIT""">*/"[_group,_NearestEnemyBunker,side _unit] call PZAI_fnc_RadioCommsEnemy;" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "	diag_log format [""%1 radioing for help"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2486,7 +2486,7 @@ class FSM
                          "_unit doSuppressiveFire _laserTarget;" \n
                          "_unit suppressFor 5;" \n
                          "_group setvariable [""PZAI_CurrentTarget"",_NearestEnemyBunker];" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""%1 watching enemy: %2"",_Unit,_NearestEnemyBunker];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2500,7 +2500,7 @@ class FSM
                                         to="Check_Recent";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"_burstcount > 5"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 exiting bunker targeting on burst: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2524,7 +2524,7 @@ class FSM
                                         to="Check_Recent";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t3 + 5)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 timed out of bunker targeting for: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2560,7 +2560,7 @@ class FSM
                                         to="Supress_last__known_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(vehicle _unit != _unit)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "    diag_log format [""%1 vehicle attempting to watch suppress: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2572,7 +2572,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Supress_last__known";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        condition=/*%FSM<CONDITION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "    diag_log format [""%1 infantry attempting to watch suppress: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -2620,7 +2620,7 @@ class FSM
                 {
                         name = "Fire_Weapon_2";
                         itemno = 223;
-                        init = /*%FSM<STATEINIT""">*/"if (PZAI_FSMDEBUG) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""%1 attempting to fire"",_Unit];" \n
                          "};" \n
                          "[_unit] call PZAI_fnc_fireWeapon;" \n
@@ -2666,7 +2666,7 @@ class FSM
                                         to="CombatMode___Tar_1";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(vehicle _unit != _unit)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "    diag_log format [""%1 vehicle attempting to watch: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2679,7 +2679,7 @@ class FSM
                                         to="CombatMode___Tar";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "    diag_log format [""%1 infantry attempting to watch: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2695,7 +2695,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"_laserTarget setposASL _lastknowntargetpos;" \n
                          "_unit doSuppressiveFire _laserTarget;" \n
                          "_unit suppressFor 5;" \n
-                         "if (PZAI_FSMDEBUG) then {" \n
+                         "if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""%1 watching enemy: %2"",_Unit,_NearestEnemyBunker];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2709,7 +2709,7 @@ class FSM
                                         to="Check_Recent";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"_burstcount > 5"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 exiting bunker targeting on burst: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2733,7 +2733,7 @@ class FSM
                                         to="Check_Recent";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"CBA_MissionTime > (_t2 + 5)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/"if (PZAI_FSMDEBUG) then {" \n
+                                        action=/*%FSM<ACTION""">*/"if (PZAI_VerboseDebug) then {" \n
                                          "diag_log format [""%1 timed out of bunker suppressing for: %2"",_Unit,_NearestEnemyBunker];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -2757,7 +2757,7 @@ class FSM
                 {
                         name = "Fire_Weapon_3";
                         itemno = 233;
-                        init = /*%FSM<STATEINIT""">*/"if (PZAI_FSMDEBUG) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (PZAI_VerboseDebug) then {" \n
                          "diag_log format [""%1 attempting to suppress fire"",_Unit];" \n
                          "};" \n
                          "[_unit,true] call PZAI_fnc_FireWeapon;"/*%FSM</STATEINIT""">*/;

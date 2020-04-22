@@ -42,7 +42,7 @@ _unit doTarget objnull;
 
 if (_engageMode) then {
     
-    if (GETMVAR(FSMDebug,false)) then {
+    if (GETMVAR(VerboseDebug,false)) then {
     	LOG_2("_unit: %1 targeting: %2 in normal mode",_unit,_target);
     };
     
@@ -57,7 +57,7 @@ if (_engageMode) then {
     _unit doTarget _invisibleTarget;
     
 } else {
-    if (GETMVAR(FSMDebug,false)) then {
+    if (GETMVAR(VerboseDebug,false)) then {
     	LOG_1("_unit: %1 targeting laserTarget",_unit);
     };
     
