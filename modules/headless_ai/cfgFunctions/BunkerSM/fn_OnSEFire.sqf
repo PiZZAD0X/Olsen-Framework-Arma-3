@@ -15,7 +15,7 @@ if (GETMVAR(VerboseDebug,false)) then {
 };
 
 private _targetPos = getposASL _enemyTarget;
-private _lastKnownTargetPos = [_targetPos select 0, _targetPos select 1,(_targetPos select 2) + 4];
+private _lastKnownTargetPos = [_targetPos select 0, _targetPos select 1,(_targetPos select 2) + (GVAR(AimTargetHeightAdjust))];
 
 //private _delayTime = 1;
 

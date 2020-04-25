@@ -1,11 +1,19 @@
 #include "..\..\script_macros.hpp"
 
 
-params ["_unit",["_pos",[],[[]]],"_vehicle"];
+params ["_unit", ["_pos",[],[[]]], "_vehicle"];
 private _unitInit = GETVAR(_unit,Init,"");
 if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
 private _stance = GETVAR(_unit,stance,"AUTO");
+private _identity = [
+    name _unit,
+    face _unit,
+    speaker _unit,
+    nameSound _unit,
+    pitch _unit
+];
+LOG_2("unit:%1 identity:%2",_unit,_identity);
 
 [true,
 typeOf _unit,
@@ -23,5 +31,5 @@ GETVAR(_unit,Persistent,true),
 _stance,
 _unitInit,
 GETVAR(_unit,Name,""),
-GETVAR(_unit,Identity,""),
+_identity,
 GETVAR(_unit,storedVars,[])]

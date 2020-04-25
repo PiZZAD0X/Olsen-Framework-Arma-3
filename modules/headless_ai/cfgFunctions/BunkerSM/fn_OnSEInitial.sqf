@@ -48,7 +48,7 @@ private _vectordirandup = GETVAR(_unit,VecDirUp,[ARR_2((vectordir _unit), (vecto
 private _vectordir = (_vectordirandup select 0);
 private _azimuth = (((_vectordir) select 0) atan2 ((_vectordir) select 1) + 360) % 360;
 private _relpos = _unit getPos [20, _azimuth];
-private _laserPos = [(_relpos) select 0, (_relpos) select 1, (((getposASL _unit)) select 2) + 2];
+private _laserPos = [(_relpos) select 0, (_relpos) select 1, (((getposASL _unit)) select 2) + (GVAR(AimTargetHeightAdjust))];
 _laserTarget setposASL _laserPos;
 [_unit, false, _laserTarget] call FUNC(WatchEnemy);
 

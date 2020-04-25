@@ -43,4 +43,5 @@ if !(isNil QGVAR(HC_ID)) then {
 };
 
 LOG_2("Running CheckIfHC: %1 for client %2",_hc,clientowner);
-_hc
+_hc;
+

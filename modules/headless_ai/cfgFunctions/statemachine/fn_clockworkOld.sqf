@@ -16,8 +16,14 @@ Author:
 ---------------------------------------------------------------------------- */
 
 
-private _fnc_repeat = {
-    params ["_stateMachine", "_list", "_skipNull", "_id"];
+{
+    #ifdef STATEMACHINE_PERFORMANCE_COUNTERS
+    private _perfStartTime = diag_tickTime;
+    #endif
+    private _stateMachine = _x;
+    private _list = _stateMachine getVariable QGVAR(list);
+    private _skipNull = _stateMachine getVariable QGVAR(skipNull);
+    private _id = _stateMachine getVariable QGVAR(ID);
     private _tick = _stateMachine getVariable QGVAR(tick);
 
     // Skip to next non-null element or end of list
@@ -43,7 +49,9 @@ private _fnc_repeat = {
             _stateMachine setVariable [QGVAR(list), _list];
         };
     };
-    
+
+    // If the list has no items, we can stop checking this state machine
+    // No need to set the tick when it will get reset next frame anyways
     if !(_list isEqualTo []) then {
         _stateMachine setVariable [QGVAR(tick), _tick + 1];
 
@@ -90,20 +98,6 @@ private _fnc_repeat = {
                 _current call (_stateMachine getVariable ONSTATEENTERED(_thisTarget));
             };
         } forEach (_stateMachine getVariable TRANSITIONS(_thisState));
-    };
-};
-
-{
-    #ifdef STATEMACHINE_PERFORMANCE_COUNTERS
-    private _perfStartTime = diag_tickTime;
-    #endif
-    private _stateMachine = _x;
-    private _list = _stateMachine getVariable QGVAR(list);
-    private _skipNull = _stateMachine getVariable QGVAR(skipNull);
-    private _id = _stateMachine getVariable QGVAR(ID);
-
-    for "_t" from 0 to (GETMVAR(StateMachineFrames,1)) step 1 do {
-        [_stateMachine, _list, _skipNull, _id] call _fnc_repeat;
     };
 
     #ifdef STATEMACHINE_PERFORMANCE_COUNTERS

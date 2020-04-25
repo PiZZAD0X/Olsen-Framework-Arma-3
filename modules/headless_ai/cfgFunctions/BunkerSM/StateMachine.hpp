@@ -68,7 +68,7 @@ class GVAR(bunkerStateMachine) {
         onStateEntered = QFUNC(onSEFire);
         class Return_To_Aim {
             targetState = QUOTE(Aimed);
-            conditionFrequency = 0.15;
+            conditionFrequency = 0.05;
             condition = QUOTE(true);
         };
     };
@@ -128,7 +128,7 @@ class GVAR(bunkerStateMachine) {
         };
         class Aimed {
             targetState = QUOTE(Fire);
-            conditionFrequency = 0.15;
+            conditionFrequency = 0.05;
             condition = QUOTE(([_this] call FUNC(isAimed)));
         };
     };

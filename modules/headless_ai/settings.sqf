@@ -8,7 +8,7 @@ of reinforcements or subsequent AOs.
 
 // Array objects
 // eg: ["mainEnemy", "patrol_1", "patrol_2", "patrol_3"]
-GVAR(ArrayObjects) = ["hc_1"];
+GVAR(ArrayObjects) = [];
 
 // Initial spawns are spawned upon init, at the start of the mission.
 // eg: ["mainEnemy"]
@@ -40,6 +40,7 @@ GVAR(Enabled) = true;
 // The distance a unit needs to be away for PZAI scripts to temporary disable itself upon the unit? The AI unit will also need to be out of combat.
 GVAR(DisableDistance) = 3000;
 GVAR(EnemyUpdateFrequency) = 5;
+GVAR(StateMachineFrames) = 4;
 // How far can the AI hear gunshots from?
 GVAR(HearingDistance) = 2000;
 // How revealed an enemy is from a gunshot report
@@ -101,3 +102,4 @@ GVAR(WaypointDistance) = 300;
 #include "settings\bunker.hpp"
 #include "settings\skill.hpp"
 #include "settings\sight.hpp"
+

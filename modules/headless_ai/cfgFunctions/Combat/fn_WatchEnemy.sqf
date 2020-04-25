@@ -46,7 +46,7 @@ if (_engageMode) then {
     	LOG_2("_unit: %1 targeting: %2 in normal mode",_unit,_target);
     };
     
-    private _targetPos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + 4];
+    private _targetPos = [_getposTarget select 0, _getposTarget select 1,(_getposTarget select 2) + (GVAR(AimTargetHeightAdjust))];
     
     private _laserTarget = GETVAR(_unit,laserTarget,objnull);
     

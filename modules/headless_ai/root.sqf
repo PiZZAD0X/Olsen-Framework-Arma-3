@@ -1,5 +1,6 @@
 #ifdef description
 	#include "StateMachines.hpp"
+	#include "CfgRemoteExec.hpp"
 #endif
 
 #ifdef description_functions
