@@ -1,7 +1,7 @@
 #define PREFIX HC
 #define COMPONENT PZAI
 #define DEBUG_MODE_FULL
-#define VERSIONSTR "0.2"
+#define VERSIONSTR "0.2.2"
 #include "script_macros_common.hpp"
 #include "script_macros_mission.hpp"
 
@@ -44,7 +44,8 @@
 //Script control
 #define AI_EXEC_CHECK(ARG) \
 private _argUpper = toUpper(#ARG);\
-if ((_argUpper isEqualTo "SERVER") && {((!isServer) && {isMultiplayer})}) exitWith {}; \
+if (is3DEN) exitWith {};\
+if ((_argUpper isEqualTo "SERVER") && {((!isServer) && {isMultiplayer})}) exitWith {};\
 if ((_argUpper isEqualTo "CLIENT") && {(!hasinterface)}) exitWith {};\
 if ((_argUpper isEqualTo "HC") && {((hasinterface || isServer) && {isMultiplayer})}) exitWith {};\
 if ((_argUpper isEqualTo "CLIENTHC") && {((isDedicated) && {isMultiplayer})}) exitWith {};\

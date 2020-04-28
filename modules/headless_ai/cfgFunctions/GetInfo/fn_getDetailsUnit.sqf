@@ -4,23 +4,29 @@
 params ["_unit", ["_pos",[],[[]]], "_vehicle"];
 private _unitInit = GETVAR(_unit,Init,"");
 if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
-private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
+private _vehAssigned = !((assignedVehicleRole _unit) isEqualTo []);
 private _stance = GETVAR(_unit,stance,"AUTO");
+if (_pos isEqualTo []) then {
+    _pos = (getposATL _unit) apply {parseNumber (_x toFixed 2)};
+};
+private _vectorDir = (vectorDir _unit) apply {parseNumber (_x toFixed 2)};
+private _vectorUp = (vectorUp _unit) apply {parseNumber (_x toFixed 2)};
+private _damage = parseNumber (damage _unit toFixed 2);
+private _pitch = parseNumber (pitch _unit toFixed 2);
 private _identity = [
     name _unit,
     face _unit,
     speaker _unit,
     nameSound _unit,
-    pitch _unit
+    _pitch
 ];
-LOG_2("unit:%1 identity:%2",_unit,_identity);
 
 [true,
 typeOf _unit,
-getposATL _unit,
-vectorDir _unit,
-vectorUp _unit,
-damage _unit,
+_pos,
+_vectorDir,
+_vectorUp,
+_damage,
 getUnitLoadout _unit,
 typeOf _vehicle,
 assignedVehicleRole _unit,

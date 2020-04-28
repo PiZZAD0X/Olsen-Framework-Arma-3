@@ -82,6 +82,11 @@ class GVAR(bunkerStateMachine) {
     };
     class Burst_Reset {
         onStateEntered = QFUNC(onSEBurstReset);
+        class Burst_Reset_Coun {
+            targetState = QUOTE(Enemy_Check_);
+
+            condition = QUOTE(((QGETVAR(_this,BurstResetCount,0)) >= QGETMVAR(MaxBurstResetCount,3)));
+        };
         class Enemy_in__Range {
             targetState = QUOTE(Check_Nearby_Ene);
 
@@ -128,7 +133,7 @@ class GVAR(bunkerStateMachine) {
         };
         class Aimed {
             targetState = QUOTE(Fire);
-            conditionFrequency = 0.05;
+
             condition = QUOTE(([_this] call FUNC(isAimed)));
         };
     };

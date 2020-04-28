@@ -33,16 +33,19 @@ GVAR(zoneEntities) = [];
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(SpawnArrayEvent), {
-    params ["_arrayName"];
-    private _initial = if (CBA_MissionTime <= 0) then {true} else {false};
+    params [["_arrayName", "", [""]]];
+    private _initial = CBA_MissionTime <= 0;
     LOG_2("SpawnArray _Array: %1 _initial: %2",_arrayName,_initial);
-    private _logic = (call compile (_arrayName));
-    private _entities = (([_arrayName,GVAR(zoneEntities)] call FUNC(getDetails)) select 1);
+    private _logic = missionNamespace getVariable [_arrayName, objnull];
+    if (_logic isEqualTo objnull) exitwith {
+        LOG_1("Could not find arrayName %1",_arrayName);
+    };
+    private _entities = (([_arrayName, GVAR(zoneEntities)] call FUNC(getDetails)) select 1);
     LOG_2("SpawnArray _Array: %1 _entities: %2",_arrayName,_entities);
 
     if !(_entities isEqualTo []) then {
         LOG_2("Spawning %1 on %2",_logic,clientowner);
-        [_initial,[_logic,_entities]] call FUNC(createZone);
+        [_initial, [_logic, _entities]] call FUNC(createZone);
     } else {
         LOG_2("Did not find array %1 on %2",_logic,clientowner);
     };

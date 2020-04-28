@@ -18,10 +18,17 @@ if !(GVAR(ArrayObjects) isEqualTo []) then {
 	[{
 		params ["_ArrayObjects"];
 		{
-			LOG_1("Getting Array data for %1",_x);
-			private _entities = [(call compile (_x))] call FUNC(getSyncedObjects);
-			LOG_1("_entities %1",count _entities);
-	        GVAR(zoneEntities) pushBack [_x,_entities];
+            private _arrayName = _x;
+			LOG_1("Getting Array data for %1",_arrayName);
+            private _logic = missionNamespace getVariable [_arrayName, objnull];
+			if !(_logic isEqualTo objnull) then {
+				private _entities = [_logic] call FUNC(getSyncedObjects);
+				GVAR(zoneEntities) pushBack [_arrayName, _entities];
+				_entities params ["_groups", "_emptyVehs", "_objects"];
+				LOG_4("Array: %1 Groups: %2 emptyVehs: %3 Objects: %4",_arrayName, count _groups, count _emptyVehs, count _objects);
+		    } else {
+				LOG_1("Could not find arrayName %1",_arrayName);
+			};
 		} foreach _ArrayObjects;
 		if (isMultiplayer) then {
 			[{GVAR(HC_ID) isEqualType 0}, {

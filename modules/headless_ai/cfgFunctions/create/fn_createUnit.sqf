@@ -81,13 +81,11 @@ if !(_name isEqualTo "") then {
     }] remoteExec ["BIS_fnc_call", 0, true];
 }, [_unit, _identity]] call CBA_fnc_execNextFrame;
 
-LOG_2("setting unit:%1 to identity: %2",_unit,_identity);
-
 [_unit,_unitIsPersistent] call FUNC(setPersistent);
 _unit call _unitInit;
 
 if (_vehicleAssigned && {!isNull _currentVeh}) then {
-    [_unit,_vr,_currentVeh] call FUNC(setAssignedVehicle);
+    [_unit, _vr, _currentVeh] call FUNC(setAssignedVehicle);
 };
 
 if !(_storedVars isEqualTo []) then {

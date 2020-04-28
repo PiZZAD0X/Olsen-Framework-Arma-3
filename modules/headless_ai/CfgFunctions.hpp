@@ -145,7 +145,7 @@ class PZAI {
 	class Eventhandlers {
 		file = "modules\headless_ai\cfgFunctions\Eventhandlers";
 		class onAIHit {};
-		class playerInit {};
+		class onPlayerInit {};
 		class onInit {};
 		class onInitPost {};
 	};
@@ -183,6 +183,7 @@ class PZAI {
 		class HasRadioGroup {};
 		class IRCheck {};
 		class isAimed {};
+		class isFacing {};
 		class LOSCheck {};
 		class StanceModifier {};
 		class UnitCheck {};

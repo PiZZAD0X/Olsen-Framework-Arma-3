@@ -1,15 +1,18 @@
 #include "..\..\script_macros.hpp"
 
 
-params ["_unit",["_pos",[],[[]]]];
+params ["_unit", ["_pos",[],[[]]]];
 private _group = (group _unit);
 private _groupInit = _group getVariable [QGVAR(Init),""];
 private _occupy = GETVAR(_group,occupyOption,0);
 if (_occupy isEqualTo 1) then {_occupy = floor(random [2,5,7])};
 if (typename _groupInit isEqualTo "STRING") then {_groupInit = compile _groupInit;};
-private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
+private _vehAssigned = !((assignedVehicleRole _unit) isEqualTo []);
+if (_pos isEqualTo []) then {
+    _pos = (getposATL _unit) apply {parseNumber (_x toFixed 2)};
+};
 [side _unit,
-getposATL _unit,
+_pos,
 behaviour _unit,
 combatMode _group,
 speedMode _group,

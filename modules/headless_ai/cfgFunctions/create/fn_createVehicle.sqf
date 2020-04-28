@@ -9,7 +9,6 @@ params [
 _vehArgs params [
     "_uv",
     "_vehClass", 
-    "_vehCustomization", 
     "_vehpos",
     "_vectorDir",
     "_vectorUp",
@@ -23,7 +22,8 @@ _vehArgs params [
     "_vehInit",
     "_fly",
     "_flyInHeight", 
-    "_storedVars"
+    "_storedVars",
+    ["_vehCustomization", [], [[]]]
 ];
 
 if (GETMVAR(Debug,false)) then {
@@ -37,7 +37,7 @@ if (_fly && {(_vehClass isKindOf "Air")}) then {
 if (_flying isEqualTo "FLY") then {
     _pos = ([_pos select 0, _pos select 1, _flyInHeight] vectorAdd [0,0,150]);
 };
-private _vehicle = createVehicle [_vehClass, _pos,[],0,_flying];
+private _vehicle = createVehicle [_vehClass, _pos, [], 0, _flying];
 _vehicle setVectorDirAndUp [_vectorDir,_vectorUp];
 _vehicle setPosATL _pos;
 if (_fly) then {
@@ -50,8 +50,7 @@ _vehicle lock _locked;
 _vehCustomization params ["_vehCustomSkin", "_vehCustomAnimations"];
 [_vehicle, _vehCustomSkin, _vehCustomAnimations] call BIS_fnc_initVehicle;
 {
-    _x params [["_class",
-"",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
+    _x params [["_class", "", [""]], ["_path", [], [[]]], ["_ammo", 0, [0]]];
     _vehicle setMagazineTurretAmmo [_class,_ammo,_path];
 } forEach _turretMags;
 if !(_vehName isEqualTo "") then {
@@ -62,8 +61,7 @@ _vehicle call _vehInit;
 if !(_storedVars isEqualTo []) then {
     LOG_1("Setting vars: %1",_storedVars);
     {
-        _x params ["_varName",
-"_varValue"];
+        _x params ["_varName", "_varValue"];
         _vehicle setvariable [_varName,_varValue];
         LOG_2("Setting _varName: %1 with: %2",_varName,_varValue);
     } forEach _storedVars;

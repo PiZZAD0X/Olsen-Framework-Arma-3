@@ -4,15 +4,21 @@
 params ["_veh",["_pos",[],[[]]]];
 private _vehInit = (GETVAR(_veh,Init,""));
 if (typename _vehInit isEqualTo "STRING") then {_vehInit = compile _vehInit;};
-if (_pos isEqualTo []) then {_pos = getPosATL _veh;};
+if (_pos isEqualTo []) then {
+    _pos = (getposATL _veh) apply {parseNumber (_x toFixed 2)};
+};
+private _vectorDir = (vectorDir _veh) apply {parseNumber (_x toFixed 2)};
+private _vectorUp = (vectorUp _veh) apply {parseNumber (_x toFixed 2)};
+private _damage = parseNumber (damage _veh toFixed 2);
+private _fuel = parseNumber (fuel _veh toFixed 2);
+private _vehCustomization = _veh call BIS_fnc_getVehicleCustomization;
 [false,
 typeOf _veh,
-_veh call BIS_fnc_getVehicleCustomization,
-getposATL _veh,
-vectorDir _veh,
-vectorUp _veh,
-damage _veh,
-fuel _veh,
+_pos,
+_vectorDir,
+_vectorUp,
+_damage,
+_fuel,
 magazinesAllTurrets _veh,
 locked _veh,
 surfaceIsWater (getposATL _veh),
@@ -21,4 +27,5 @@ surfaceIsWater (getposATL _veh),
 _vehInit,
 (GETVAR(_veh,Flying,false)),
 (GETVAR(_veh,FlyInHeight,250)),
-(GETVAR(_veh,StoredVars,[]))]
+(GETVAR(_veh,StoredVars,[])),
+_vehCustomization]

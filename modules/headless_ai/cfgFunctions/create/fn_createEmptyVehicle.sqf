@@ -3,7 +3,6 @@
 
 params [
     "_vehClass", 
-    "_vehCustomization", 
     "_vehPos",
     "_vectorDir",
     "_vectorUp",
@@ -15,7 +14,8 @@ params [
     "_vehName",
     "_persistent",
     "_vehInit", 
-    "_storedVars"
+    "_storedVars",
+    ["_vehCustomization", [], [[]]]
 ];
 
 private _vehicle = createVehicle [_vehClass,_vehPos,[],0,"CAN_COLLIDE"];

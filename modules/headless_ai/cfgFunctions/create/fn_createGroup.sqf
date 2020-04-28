@@ -1,46 +1,46 @@
 #include "..\..\script_macros.hpp"
 
 
-params ["_args"];
-_args params [
+params [
     "",
     "_groupSet",
     "_groupMem",
     ["_currentVeh",objNull,[objNull]]
 ];
+
 _groupSet params [
-    "_side",
-    "_groupPos",
-    "_behaviour",
-    "_combat",
-    "_speed",
-    "_formation",
-    "_groupStance",
-    "_groupInit",
-    "_createRadius",
-    "_taskRadius",
-    "_wait",
-    "_startBld",
-    "_task",
-    "_taskTimer", 
-    "_multi", 
-    "_occupyOption", 
-    "_vehAssigned",
-    "_waypoints",
-    "_onWater",
-    "_fl",
-    "_surrender", 
-    "_tracker", 
-    "_storedVars"
+    /* 0 */ "_side",
+    /* 1 */ "_groupPos",
+    /* 2 */ "_behaviour",
+    /* 3 */ "_combat",
+    /* 4 */ "_speed",
+    /* 5 */ "_formation",
+    /* 6 */ "_groupStance",
+    /* 7 */ "_groupInit",
+    /* 8 */ "_createRadius",
+    /* 9 */ "_taskRadius",
+    /* 10 */ "_wait",
+    /* 11 */ "_startBld",
+    /* 12 */ "_task",
+    /* 13 */ "_taskTimer", 
+    /* 14 */ "_multi", 
+    /* 15 */ "_occupyOption", 
+    /* 16 */ "_vehAssigned",
+    /* 17 */ "_waypoints",
+    /* 18 */ "_onWater",
+    /* 19 */ "_fl",
+    /* 20 */ "_surrender", 
+    /* 21 */ "_tracker", 
+    /* 22 */ "_storedVars"
 ];
 createCenter _side;
 private _group = createGroup _side;
 {
     if ((_x select 0)) then {
-        private _u = [false,_group,_groupPos,_startBld,_foreachIndex,_x,_taskRadius,_currentVeh] call FUNC(createUnit);
+        private _u = [false, _group, _groupPos, _startBld, _foreachIndex, _x, _taskRadius, _currentVeh] call FUNC(createUnit);
     } else {
         private _vpos = (_x select 2);
-        private _v = [_vpos,_x,_side] call FUNC(createVehicle);
+        private _v = [_vpos, _x, _side] call FUNC(createVehicle);
         _currentVeh = _v;
     };
 } foreach _groupMem;

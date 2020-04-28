@@ -67,6 +67,9 @@ switch (_task) do {
     case "NONE": {
         _taskSet call FUNC(taskPatrol);
     };
+    case "BYPASS": {
+        _taskSet call FUNC(taskPatrol);
+    };
     case "BLDMOVE": {
         _taskSet call FUNC(taskPatrol);
     };

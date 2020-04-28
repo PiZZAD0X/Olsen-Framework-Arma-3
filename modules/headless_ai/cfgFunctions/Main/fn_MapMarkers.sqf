@@ -44,18 +44,31 @@ GVAR(MapMarkersPFH) = [{
                     default {"b_inf"};
                 };
                 _trackername setMarkerShape "ICON";
+                _trackername setMarkerSize [0.5, 0.5];
                 _trackername setMarkerType _drawicon;
                 _trackername setmarkercolor _markercolour;
             };
             _trackername setmarkerpos [getpos _leader select 0, getpos _leader select 1];
-            private _usedest = if (_behaviourtasking in ["PATROL","PERIMPATROL","SENTRY","ATTACK","ASSAULT","FLANK","MOVE","MANUAL","BLDMOVE","BLDSEARCH"]) then {true} else {false};
+            private _usedest = if (_behaviourtasking in [
+                "PATROL",
+                "PERIMPATROL",
+                "SENTRY",
+                "ATTACK",
+                "BUNKER",
+                "ASSAULT",
+                "FLANK",
+                "MOVE",
+                "MANUAL",
+                "BLDMOVE",
+                "BLDSEARCH"
+            ]) then {true} else {false};
             private _usetarget = false;
             if (_target isEqualTo objnull) then {
                 _target = "NONE";
             } else {
                 _usetarget = true;
             };
-            private _text = format ["%1. %2 - Grpcount: %3 - Area: %7 - Type: %8 - Mission: %4 - CombatMode: %5 - Target: %6",_rankshort, _lastname, _groupcount, _behaviourtasking, _behaviour, _target, _areaAssigned, _assetType];
+            private _text = format ["%1. %2 - Grpcount: %3 - Mission: %4 - Area: %7 - Type: %8 - CombatMode: %5 - Target: %6",_rankshort, _lastname, _groupcount, _behaviourtasking, _behaviour, _target, _areaAssigned, _assetType];
             //LOG_1("MarkerText: %1",_text);
             _trackername setMarkerText _text;
             if (_usedest) then {

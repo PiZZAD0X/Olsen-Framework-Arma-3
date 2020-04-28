@@ -12,8 +12,8 @@ GVAR(bunkerStateMachineHandler) = (missionConfigFile >> QGVAR(bunkerStateMachine
 //GVAR(commanderStateMachineHandler) = (missionConfigFile >> QGVAR(commanderStateMachine)) call CBA_statemachine_fnc_createFromConfig;
 LOG("creating sightAidStateMachine");
 GVAR(sightAidStateMachineHandler) = (missionConfigFile >> QGVAR(sightAidStateMachine)) call CBA_statemachine_fnc_createFromConfig;
-//LOG("creating cachingStateMachine");
-//GVAR(cachingStateMachineHandler) = (missionConfigFile >> QGVAR(cachingStateMachine)) call CBA_statemachine_fnc_createFromConfig;
+LOG("creating cachingStateMachine");
+GVAR(cachingStateMachineHandler) = (missionConfigFile >> QGVAR(cachingStateMachine)) call CBA_statemachine_fnc_createFromConfig;
 //LOG("creating unitStanceStateMachine");
 //GVAR(unitStanceStateMachineHandler) = (missionConfigFile >> QGVAR(unitStanceStateMachine)) call CBA_statemachine_fnc_createFromConfig;
 
@@ -40,7 +40,7 @@ if !(GVAR(InitialSpawn) isEqualTo []) then {
 		[{
 			params ["_InitialSpawn"];
 			{
-				[_x] call FUNC(spawnArray);
+				_x call FUNC(spawnArray);
 			} foreach _InitialSpawn;
 		}, [_InitialSpawn]] call CBA_fnc_execNextFrame;
 	}, [_InitialSpawn]] call CBA_fnc_execNextFrame;
@@ -67,7 +67,7 @@ if ((GVAR(InitialRandomSpawnsCount) > 1) && {!(GVAR(InitialRandomSpawns) isEqual
 			[{
 				params ["_InitialRandomSpawnsSelected"];
 				{
-					[_x] call FUNC(spawnArray);
+					_x call FUNC(spawnArray);
 				} foreach _InitialRandomSpawnsSelected;
 			}, [_InitialRandomSpawnsSelected]] call CBA_fnc_execNextFrame;
 		};

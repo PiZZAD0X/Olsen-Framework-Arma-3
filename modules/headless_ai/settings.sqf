@@ -1,6 +1,6 @@
 #include "script_macros.hpp"
 /*
-This module enables live spawning of arrays including AI nd objects on the HC machine locally.
+This module enables live spawning of arrays including AI and objects on the HC machine locally.
 It is designed to spawn HC locally in order to improve performance, as well as enabling the
 option of having randomized enemy composition, size, etc, or to allow for live spawning
 of reinforcements or subsequent AOs.
@@ -38,7 +38,8 @@ GVAR(UseMarkers) = true;
 // AI system options
 GVAR(Enabled) = true;
 // The distance a unit needs to be away for PZAI scripts to temporary disable itself upon the unit? The AI unit will also need to be out of combat.
-GVAR(DisableDistance) = 3000;
+GVAR(CacheDisableDistance) = 3000;
+GVAR(CacheAllPlayers) = true;
 GVAR(EnemyUpdateFrequency) = 5;
 GVAR(StateMachineFrames) = 4;
 // How far can the AI hear gunshots from?

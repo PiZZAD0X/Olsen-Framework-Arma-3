@@ -30,7 +30,9 @@ if (_isVehicle) then {
 
 private _return = (_burstCount > _maxCount);
 
-LOG_2("Burst Check for: %1 burst exit: %2",_unit,_return);
+if (GETMVAR(VerboseDebug,false)) then {
+    LOG_2("Burst Check for: %1 burst exit: %2",_unit,_return);
+};
 
 _return
 
