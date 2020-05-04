@@ -15,6 +15,6 @@ _Unit addEventHandler ["Hit",{
     _this call FUNC(AIHit);
 }];
 
-if (GVAR(Debug)) then {
-	LOG_1("%1 completed UnitInit",_unit);
+if (GETMVAR(VerboseDebug,false)) then {
+    LOG_1("%1 completed UnitInit",_unit);
 };

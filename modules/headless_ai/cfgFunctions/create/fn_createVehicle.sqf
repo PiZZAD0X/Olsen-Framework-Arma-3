@@ -8,7 +8,7 @@ params [
 ];
 _vehArgs params [
     "_uv",
-    "_vehClass", 
+    "_vehClass",
     "_vehpos",
     "_vectorDir",
     "_vectorUp",
@@ -21,9 +21,10 @@ _vehArgs params [
     "_persistent",
     "_vehInit",
     "_fly",
-    "_flyInHeight", 
+    "_flyInHeight",
     "_storedVars",
-    ["_vehCustomization", [], [[]]]
+    ["_vehCustomization", [], [[]]],
+    "_name"
 ];
 
 if (GETMVAR(Debug,false)) then {
@@ -40,6 +41,12 @@ if (_flying isEqualTo "FLY") then {
 private _vehicle = createVehicle [_vehClass, _pos, [], 0, _flying];
 _vehicle setVectorDirAndUp [_vectorDir,_vectorUp];
 _vehicle setPosATL _pos;
+
+if !(_name isEqualTo "") then {
+    private _uniqueName = [_name] call FUNC(findUniqueName);
+    missionNamespace setVariable [_uniqueName, _vehicle, true];
+};
+
 if (_fly) then {
     _vehicle flyInHeight _flyInHeight;
     _vehicle setVelocity [((velocity _vehicle) select 0) + (sin (getDir _vehicle) * 80),((velocity _vehicle) select 1) + (cos (getDir _vehicle) * 80),((velocity _vehicle) select 2)];

@@ -47,7 +47,7 @@ _groups apply {
         /* 22 */ "_storedVars"
     ];
     if ((_occupyOption > 0) && {!(_vehAssigned)}) then {
-        _x call FUNC(createOccupyGroup);
+        //rewrite _x call FUNC(createOccupyGroup);
     } else {
         _x call FUNC(createGroup);
     };

@@ -12,6 +12,7 @@ private _vectorUp = (vectorUp _veh) apply {parseNumber (_x toFixed 2)};
 private _damage = parseNumber (damage _veh toFixed 2);
 private _fuel = parseNumber (fuel _veh toFixed 2);
 private _vehCustomization = _veh call BIS_fnc_getVehicleCustomization;
+private _name = GETVAR(_veh,varName,"");
 [false,
 typeOf _veh,
 _pos,
@@ -28,4 +29,5 @@ _vehInit,
 (GETVAR(_veh,Flying,false)),
 (GETVAR(_veh,FlyInHeight,250)),
 (GETVAR(_veh,StoredVars,[])),
-_vehCustomization]
+_vehCustomization,
+_name]

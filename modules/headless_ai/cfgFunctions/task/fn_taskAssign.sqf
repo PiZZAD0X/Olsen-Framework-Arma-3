@@ -2,7 +2,7 @@
 
 
 params [
-    ["_task","PATROL",["PATROL"]],
+    ["_task","NONE",["NONE"]],
     ["_group",grpNull,[grpNull]],
     ["_pos",[],[[]]],
     ["_radius",50,[0]],
@@ -22,11 +22,12 @@ private _taskSetBld = [_bld,_group,_pos,_radius,_wait,_behaviour,_combat,_speed,
 private _taskSetBlds = [_blds,_group,_pos,_radius,_wait,_behaviour,_combat,_speed,_formation];
 
 _task = toUpper _task;
+if (_task isEqualTo "NONE") then {
+    _task = "PATROL";
+    LOG_2("group:%1 defaulted to task: %2,",_group,_task);
+};
 LOG_2("group:%1 set to task: %2,",_group,_task);
 switch (_task) do {
-    default {
-        _taskSet call FUNC(taskPatrol);
-    };
     case "MANUAL": {};
     case "GARRISON": {
         _taskSet call FUNC(taskPatrol);
@@ -64,9 +65,6 @@ switch (_task) do {
     case "HOLD": {
         _taskSet call FUNC(taskPatrol);
     };
-    case "NONE": {
-        _taskSet call FUNC(taskPatrol);
-    };
     case "BYPASS": {
         _taskSet call FUNC(taskPatrol);
     };
@@ -77,6 +75,9 @@ switch (_task) do {
         _taskSet call FUNC(taskPatrol);
     };
     case "BLDSEARCH": {
+        _taskSet call FUNC(taskPatrol);
+    };
+    default {
         _taskSet call FUNC(taskPatrol);
     };
 };

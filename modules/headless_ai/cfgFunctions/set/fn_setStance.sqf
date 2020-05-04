@@ -1,14 +1,19 @@
 #include "..\..\script_macros.hpp"
 
-params [["_unit", objNull, [objNull]], ["_groupStance", "AUTO", [""]], ["_unitStance", "AUTO", [""]]];
+params [
+    ["_unit", objNull, [objNull]],
+    ["_groupStance", "AUTO", [""]],
+    ["_unitStance", "AUTO", [""]]
+];
 
-if (_groupStance isEqualTo "AUTO") then {
-    _unit setUnitPos _unitStance;
+LOG_1("setstance: %1",_this);
+
+private _stance = if (!(_groupStance isEqualTo "AUTO") && {_unitStance isEqualTo "AUTO"}) then {
+    _groupStance
 } else {
-    if !(_groupStance isEqualTo _unitStance) then {
-        _unit setUnitPos _unitStance;
-    } else {
-        _unit setUnitPos _groupStance;
-    };
+    _unitStance
 };
 
+if !(_stance isEqualTo "AUTO") then {
+    _unit setUnitPos _stance;
+};

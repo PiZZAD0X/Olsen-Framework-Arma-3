@@ -12,6 +12,7 @@ private _vectorUp = (vectorUp _veh) apply {parseNumber (_x toFixed 2)};
 private _damage = parseNumber (damage _veh toFixed 2);
 private _fuel = parseNumber (fuel _veh toFixed 2);
 private _vehCustomization = _veh call BIS_fnc_getVehicleCustomization;
+private _name = GETVAR(_veh,varName,"");
 [typeOf _veh,
 _pos,
 _vectorDir,
@@ -25,4 +26,5 @@ surfaceIsWater (getposATL _veh),
 (GETVAR(_veh,Persistent,true)),
 _vehInit,
 (GETVAR(_veh,StoredVars,[])),
-_vehCustomization]
+_vehCustomization,
+_name]

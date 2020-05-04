@@ -9,13 +9,20 @@ params [
     "_objInWater",
     "_objName",
     "_persistent",
-    "_objInit", 
-    "_storedVars"
+    "_objInit",
+    "_storedVars",
+    "_name"
 ];
 
 private _object = createVehicle [_objClass,_objpos,[],0,"CAN_COLLIDE"];
 _object setVectorDirAndUp [_vectorDir,_vectorUp];
 _object setPosATL _objpos;
+
+if !(_name isEqualTo "") then {
+    private _uniqueName = [_name] call FUNC(findUniqueName);
+    missionNamespace setVariable [_uniqueName, _object, true];
+};
+
 _object setDamage _damage;
 if ((count _objName) > 1) then {
     missionNamespace setVariable[_objName, _object];

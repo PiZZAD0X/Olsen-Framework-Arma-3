@@ -45,7 +45,7 @@ class PZAI {
 		class assignToArea {};
 		class CommanderHandler {};
 	};
-	
+
 	class StateMachine {
 		file = "modules\headless_ai\cfgFunctions\statemachine";
 		class addEventTransition {};
@@ -61,18 +61,18 @@ class PZAI {
 		class updateList {};
 		class dumpPerformanceCounters {};
 	};
-	
+
 	class CommanderSM {
 		file = "modules\headless_ai\cfgFunctions\CommanderSM";
 		class CM_OnStateInitial {};
 	};
-    
+
     class GroupHandlerSM {
 		file = "modules\headless_ai\cfgFunctions\GroupHandlerSM";
 		class GH_OnStateInitial {};
 		class GH_OnStateGroupCheck {};
 	};
-	
+
 	class SightAidSM {
 		file = "modules\headless_ai\cfgFunctions\SightAidSM";
 		class SA_OnSECheckNearbyEnemies {};
@@ -80,7 +80,7 @@ class PZAI {
 		class SA_onSEEnemyInRange {};
 		class SA_OnSERemoveCantSeeEnemy {};
 	};
-	
+
 	class UnitStanceSM {
 		file = "modules\headless_ai\cfgFunctions\UnitStanceSM";
 		class US_onSEInitial {};
@@ -88,13 +88,13 @@ class PZAI {
 		class US_onSEStanceCheck {};
 		class US_onSEUnitChecks {};
 	};
-	
+
 	//class UnitCombatSM {
 	//	file = "modules\headless_ai\cfgFunctions\UnitCombatSM";
 	//	class UC_onSECheckNearbyEnemies {};
 	//	class UC_onSEUnitChecks {};
 	//};
-    
+
     class CachingSM {
 		file = "modules\headless_ai\cfgFunctions\CachingSM";
 		class CH_onSEDistanceCheck {};
@@ -118,10 +118,11 @@ class PZAI {
 		class setunitskill {};
 		class UnitInit {};
 		class SetInit {};
+		class findUniqueName {};
 		class deleteVehicles {};
 		class searchNestedArray {};
 	};
-	
+
 	class BunkerSM {
 		file = "modules\headless_ai\cfgFunctions\BunkerSM";
 		class OnSEInitial {};
@@ -136,7 +137,7 @@ class PZAI {
 		class OnSEBurstReset {};
 		class CondBurstCount {};
 	};
-	
+
 	//class GroupHandlerSM {
 	//	file = "modules\headless_ai\cfgFunctions\GroupHandlerSM";
 	//	class GH_OnStateInitial {};
@@ -154,7 +155,6 @@ class PZAI {
 		file = "modules\headless_ai\cfgFunctions\create";
 	    class createFunctions {};
 	    class createGroup {};
-	    class createOccupyGroup {};
 	    class createUnit {};
 	    class createVehicle {};
 	    class createEmptyVehicle {};
@@ -183,7 +183,6 @@ class PZAI {
 		class HasRadioGroup {};
 		class IRCheck {};
 		class isAimed {};
-		class isFacing {};
 		class LOSCheck {};
 		class StanceModifier {};
 		class UnitCheck {};

@@ -10,6 +10,7 @@ if (_pos isEqualTo []) then {
 private _vectorDir = (vectorDir _obj) apply {parseNumber (_x toFixed 2)};
 private _vectorUp = (vectorUp _obj) apply {parseNumber (_x toFixed 2)};
 private _damage = parseNumber (damage _obj toFixed 2);
+private _name = GETVAR(_obj,varName,"");
 [typeOf _obj,
 _pos,
 _vectorDir,
@@ -19,4 +20,5 @@ surfaceIsWater (getposATL _obj),
 _obj getVariable [QGVAR(Name),""],
 _obj getVariable [QGVAR(Persistent),true],
 _objectInit,
-(GETVAR(_obj,StoredVars,[]))]
+(GETVAR(_obj,StoredVars,[])),
+_name]

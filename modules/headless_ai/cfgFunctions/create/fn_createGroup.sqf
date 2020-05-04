@@ -22,19 +22,33 @@ _groupSet params [
     /* 10 */ "_wait",
     /* 11 */ "_startBld",
     /* 12 */ "_task",
-    /* 13 */ "_taskTimer", 
-    /* 14 */ "_multi", 
-    /* 15 */ "_occupyOption", 
+    /* 13 */ "_taskTimer",
+    /* 14 */ "_multi",
+    /* 15 */ "_occupyOption",
     /* 16 */ "_vehAssigned",
     /* 17 */ "_waypoints",
     /* 18 */ "_onWater",
     /* 19 */ "_fl",
-    /* 20 */ "_surrender", 
-    /* 21 */ "_tracker", 
-    /* 22 */ "_storedVars"
+    /* 20 */ "_surrender",
+    /* 21 */ "_tracker",
+    /* 22 */ "_storedVars",
+    /* 23 */ "_name"
 ];
 createCenter _side;
 private _group = createGroup _side;
+
+if !(_name isEqualTo "") then {
+    private _uniqueName = [_name] call FUNC(findUniqueName);
+    missionNamespace setVariable [_uniqueName, _group, true];
+};
+
+if !(_storedVars isEqualTo []) then {
+    {
+        _x params ["_varName", "_varValue"];
+        _group setvariable [_varName, _varValue];
+    } forEach _storedVars;
+};
+
 {
     if ((_x select 0)) then {
         private _u = [false, _group, _groupPos, _startBld, _foreachIndex, _x, _taskRadius, _currentVeh] call FUNC(createUnit);
@@ -48,18 +62,13 @@ private _group = createGroup _side;
 [_group,_groupSet] call FUNC(setGroupVariables);
 _group call CBA_fnc_clearWaypoints;
 
-if !(_storedVars isEqualTo []) then {
-    {
-        _x params ["_varName", "_varValue"];
-        _group setvariable [_varName,_varValue];
-    } forEach _storedVars;
-};
+
 //if !(_tasks isEqualTo []) then {
 //    [_group,_tasks] call FUNC(taskRegister);
 //    _tasks = _tasks call FUNC(taskRemoveZoneActivated);
 //};
 //if !(_tasks isEqualTo []) then {GVAR(taskedGroups) pushBack [_group];};
-if (count _waypoints > 1) then {
+if ((count _waypoints > 1) && {_task isEqualTo "NONE"}) then {
     LOG_2("Setting %1 to manual wp mode with: %2",_group,_waypoints);
     [_group,_waypoints] call FUNC(createWaypoints);
 } else {

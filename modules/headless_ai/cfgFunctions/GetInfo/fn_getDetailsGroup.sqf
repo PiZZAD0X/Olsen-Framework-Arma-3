@@ -11,6 +11,7 @@ private _vehAssigned = !((assignedVehicleRole _unit) isEqualTo []);
 if (_pos isEqualTo []) then {
     _pos = (getposATL _unit) apply {parseNumber (_x toFixed 2)};
 };
+private _name = GETVAR(_group,varName,"");
 [side _unit,
 _pos,
 behaviour _unit,
@@ -23,7 +24,7 @@ GETVAR(_group,createRadius,0),
 GETVAR(_group,taskRadius,30),
 GETVAR(_group,taskWait,3),
 GETVAR(_group,startBuilding,false),
-GETVAR(_group,task,"PATROL"),
+GETVAR(_group,task,"NONE"),
 GETVAR(_group,TaskTimer,0),
 GETVAR(_group,multiplier,0),
 _occupy,
@@ -33,4 +34,5 @@ _vehAssigned,
 GETVAR(_group,forceLights,false),
 GETVAR(_group,surrender,false),
 GETVAR(_group,Tracker,false),
-GETVAR(_group,storedVars,[])]
+GETVAR(_group,storedVars,[]),
+_name]

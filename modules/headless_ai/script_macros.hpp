@@ -1,7 +1,7 @@
 #define PREFIX HC
 #define COMPONENT PZAI
 #define DEBUG_MODE_FULL
-#define VERSIONSTR "0.2.2"
+#define VERSIONSTR "0.2.3"
 #include "script_macros_common.hpp"
 #include "script_macros_mission.hpp"
 

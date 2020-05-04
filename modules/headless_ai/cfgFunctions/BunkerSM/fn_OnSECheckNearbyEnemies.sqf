@@ -9,7 +9,7 @@ private _enemyInRange = GETVAR(_unit,enemyInRange,[]);
 //private _chosenTarget = objnull;
 
 _enemyInRange resize (GETMVAR(BunkerEnemyLOSChecks,20));
-private _enemyInView = _enemyInRange select {!(isNull _x) && {[_unit, _x, (GETMVAR(LOSDirCheck,false))] call FUNC(LOSCheck)}};
+private _enemyInView = _enemyInRange select {!(isNull _x) && {[_unit, _x] call FUNC(LOSCheck)}};
 //_enemyInRange = _enemyInRange select {[_unit, _x] call FUNC(LOSCheck)} apply {[_x distance _unit, _x]};
 
 SETVAR(_unit,enemyInView,_enemyInView);

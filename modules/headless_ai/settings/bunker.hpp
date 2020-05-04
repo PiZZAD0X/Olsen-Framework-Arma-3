@@ -7,7 +7,6 @@ GVAR(AimedAdjust) = 0.999;
 GVAR(AimTargetHeightAdjust) = 2;
 // Bunker AI performance setting for evaluating potential targets
 GVAR(BunkerEnemyLOSChecks) = 20;
-GVAR(LOSDirCheck) = true;
 // Whether Bunker AI get released and act normally/free to move if enemies get too close
 GVAR(BunkerRelease) = true;
 // Sensitivity/Sightlevel needed for Bunker AI to engage - lower is more sensitive.

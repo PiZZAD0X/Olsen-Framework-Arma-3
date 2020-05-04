@@ -12,14 +12,15 @@ if (_pos isEqualTo []) then {
 private _vectorDir = (vectorDir _unit) apply {parseNumber (_x toFixed 2)};
 private _vectorUp = (vectorUp _unit) apply {parseNumber (_x toFixed 2)};
 private _damage = parseNumber (damage _unit toFixed 2);
-private _pitch = parseNumber (pitch _unit toFixed 2);
+//private _pitch = parseNumber (pitch _unit toFixed 2);
 private _identity = [
     name _unit,
     face _unit,
     speaker _unit,
     nameSound _unit,
-    _pitch
+    pitch _unit
 ];
+private _name = GETVAR(_unit,varName,"");
 
 [true,
 typeOf _unit,
@@ -38,4 +39,5 @@ _stance,
 _unitInit,
 GETVAR(_unit,Name,""),
 _identity,
-GETVAR(_unit,storedVars,[])]
+GETVAR(_unit,storedVars,[]),
+_name]

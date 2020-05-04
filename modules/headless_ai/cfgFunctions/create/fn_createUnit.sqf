@@ -28,7 +28,7 @@ _unitArgs params [
     "_unitStance",
     "_unitInit",
     "_name",
-    "_identity", 
+    "_identity",
     "_storedVars"
 ];
 
@@ -54,8 +54,10 @@ _unit setDamage _damage;
 if (_handcuffed) then {
     [_unit,_handcuffed] call ACE_captives_fnc_setHandcuffed;
 };
+
 if !(_name isEqualTo "") then {
-    missionNamespace setVariable [_name, _unit];
+    private _uniqueName = [_name] call FUNC(findUniqueName);
+    missionNamespace setVariable [_uniqueName, _unit, true];
 };
 
 [{

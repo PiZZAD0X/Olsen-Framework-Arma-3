@@ -2,7 +2,7 @@
 
 
 params [
-    "_vehClass", 
+    "_vehClass",
     "_vehPos",
     "_vectorDir",
     "_vectorUp",
@@ -13,14 +13,21 @@ params [
     "_vehInWater",
     "_vehName",
     "_persistent",
-    "_vehInit", 
+    "_vehInit",
     "_storedVars",
-    ["_vehCustomization", [], [[]]]
+    ["_vehCustomization", [], [[]]],
+    "_name"
 ];
 
 private _vehicle = createVehicle [_vehClass,_vehPos,[],0,"CAN_COLLIDE"];
 _vehicle setPosATL _vehPos;
 _vehicle setVectorDirAndUp [_vectorDir, _vectorUp];
+
+if !(_name isEqualTo "") then {
+    private _uniqueName = [_name] call FUNC(findUniqueName);
+    missionNamespace setVariable [_uniqueName, _vehicle, true];
+};
+
 _vehicle setDamage _damage;
 _vehicle setFuel _fuel;
 {
