@@ -30,9 +30,9 @@
 #ifdef description_XEH_PreInit
 
 	class Mission {
-
-		init = "'' call compile preprocessFileLineNumbers 'preinit.sqf'; FNC_GearScript = compile preprocessFileLineNumbers 'customization\gear.sqf'; FNC_VehicleGearScript = compile preprocessFileLineNumbers 'customization\vehGear.sqf';"; //Compiles the gear script for the server and client
-
+		init = "'' call compile preprocessFileLineNumbers 'preinit.sqf'";
+		serverInit = "'' call compile preprocessFileLineNumbers 'preinitServer.sqf'";
+		clientInit = "'' call compile preprocessFileLineNumbers 'preinitClient.sqf'";
 	};
 
 #endif

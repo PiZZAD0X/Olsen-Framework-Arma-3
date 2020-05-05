@@ -12,6 +12,7 @@ if (_pos isEqualTo []) then {
     _pos = (getposATL _unit) apply {parseNumber (_x toFixed 2)};
 };
 private _name = GETVAR(_group,varName,"");
+private _groupID = GETVAR(_group,groupID,"");
 [side _unit,
 _pos,
 behaviour _unit,
@@ -35,4 +36,5 @@ GETVAR(_group,forceLights,false),
 GETVAR(_group,surrender,false),
 GETVAR(_group,Tracker,false),
 GETVAR(_group,storedVars,[]),
-_name]
+_name,
+_groupID]

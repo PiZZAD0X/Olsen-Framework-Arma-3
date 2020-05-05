@@ -32,7 +32,8 @@ _groupSet params [
     /* 20 */ "_surrender",
     /* 21 */ "_tracker",
     /* 22 */ "_storedVars",
-    /* 23 */ "_name"
+    /* 23 */ "_name",
+    /* 24 */ "_groupID"
 ];
 createCenter _side;
 private _group = createGroup _side;
@@ -40,6 +41,10 @@ private _group = createGroup _side;
 if !(_name isEqualTo "") then {
     private _uniqueName = [_name] call FUNC(findUniqueName);
     missionNamespace setVariable [_uniqueName, _group, true];
+};
+
+if !(_groupID isEqualTo "") then {
+    _group setGroupIdGlobal _groupID;
 };
 
 if !(_storedVars isEqualTo []) then {

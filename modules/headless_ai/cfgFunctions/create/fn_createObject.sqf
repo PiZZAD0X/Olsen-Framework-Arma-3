@@ -24,11 +24,9 @@ if !(_name isEqualTo "") then {
 };
 
 _object setDamage _damage;
-if ((count _objName) > 1) then {
-    missionNamespace setVariable[_objName, _object];
-};
 [_object,_persistent] call FUNC(setPersistent);
 _object call _objInit;
+
 if !(_storedVars isEqualTo []) then {
     LOG_1("Setting vars: %1",_storedVars);
     {

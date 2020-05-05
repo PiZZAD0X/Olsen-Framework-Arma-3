@@ -21,6 +21,7 @@ private _identity = [
     pitch _unit
 ];
 private _name = GETVAR(_unit,varName,"");
+private _olsenGearType = GETVAR(_unit,gearType,"");
 
 [true,
 typeOf _unit,
@@ -40,4 +41,5 @@ _unitInit,
 GETVAR(_unit,Name,""),
 _identity,
 GETVAR(_unit,storedVars,[]),
-_name]
+_name,
+_olsenGearType]

@@ -16,7 +16,8 @@ params [
     "_vehInit",
     "_storedVars",
     ["_vehCustomization", [], [[]]],
-    "_name"
+    "_name",
+    ["_olsenGearType", "", [""]]
 ];
 
 private _vehicle = createVehicle [_vehClass,_vehPos,[],0,"CAN_COLLIDE"];
@@ -26,6 +27,10 @@ _vehicle setVectorDirAndUp [_vectorDir, _vectorUp];
 if !(_name isEqualTo "") then {
     private _uniqueName = [_name] call FUNC(findUniqueName);
     missionNamespace setVariable [_uniqueName, _vehicle, true];
+};
+
+if !(_olsenGearType isEqualTo "") then {
+    [_vehicle, _olsenGearType] call FNC_VehicleGearScript;
 };
 
 _vehicle setDamage _damage;
@@ -38,9 +43,6 @@ _vehicle setFuel _fuel;
 _vehicle lock _locked;
 _vehCustomization params ["_vehCustomSkin", "_vehCustomAnimations"];
 [_vehicle, _vehCustomSkin, _vehCustomAnimations] call BIS_fnc_initVehicle;
-if ((count _vehName) > 1) then {
-    missionNamespace setVariable [_vehName, _vehicle];
-};
 [_vehicle,_persistent] call FUNC(setPersistent);
 _vehicle call _vehInit;
 if !(_storedVars isEqualTo []) then {

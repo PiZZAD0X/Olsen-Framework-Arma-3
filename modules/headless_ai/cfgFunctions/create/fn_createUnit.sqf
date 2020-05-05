@@ -29,7 +29,9 @@ _unitArgs params [
     "_unitInit",
     "_name",
     "_identity",
-    "_storedVars"
+    "_storedVars",
+    ["_varName", "", [""]],
+    ["_olsenGearType", "", [""]]
 ];
 
 if (_occupy) then {
@@ -55,9 +57,13 @@ if (_handcuffed) then {
     [_unit,_handcuffed] call ACE_captives_fnc_setHandcuffed;
 };
 
-if !(_name isEqualTo "") then {
-    private _uniqueName = [_name] call FUNC(findUniqueName);
+if !(_varName isEqualTo "") then {
+    private _uniqueName = [_varName] call FUNC(findUniqueName);
     missionNamespace setVariable [_uniqueName, _unit, true];
+};
+
+if !(_olsenGearType isEqualTo "") then {
+    [_unit, _olsenGearType] call FNC_GearScript;
 };
 
 [{
@@ -99,7 +105,14 @@ if !(_storedVars isEqualTo []) then {
 
 private _groupStance = GETVAR(_group,Stance,"AUTO");
 
-[{!isNull (_this select 0)},{
+["FW_eventSpawned", [_unit]] call CBA_fnc_serverEvent;
+
+[_unit, "Killed", {
+    _thisArgs params ["_unit"];
+    ["FW_eventKilled", _unit] call CBA_fnc_serverEvent;
+}, [_unit]] call CBA_fnc_addBISEventHandler;
+
+[{!isNull (_this select 0)}, {
 	params ["_unit", "_groupStance", "_unitStance"];
     [QGVAR(StanceChangeEvent), [_unit, _groupStance, _unitStance], _unit] call CBA_fnc_targetEvent;
 }, [_unit, _groupStance, _unitStance]] call CBA_fnc_waitUntilAndExecute;

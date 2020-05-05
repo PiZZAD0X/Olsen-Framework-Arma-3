@@ -24,7 +24,8 @@ _vehArgs params [
     "_flyInHeight",
     "_storedVars",
     ["_vehCustomization", [], [[]]],
-    "_name"
+    "_name",
+    ["_olsenGearType", "", [""]]
 ];
 
 if (GETMVAR(Debug,false)) then {
@@ -47,6 +48,10 @@ if !(_name isEqualTo "") then {
     missionNamespace setVariable [_uniqueName, _vehicle, true];
 };
 
+if !(_olsenGearType isEqualTo "") then {
+    [_vehicle, _olsenGearType] call FNC_VehicleGearScript;
+};
+
 if (_fly) then {
     _vehicle flyInHeight _flyInHeight;
     _vehicle setVelocity [((velocity _vehicle) select 0) + (sin (getDir _vehicle) * 80),((velocity _vehicle) select 1) + (cos (getDir _vehicle) * 80),((velocity _vehicle) select 2)];
@@ -60,9 +65,7 @@ _vehCustomization params ["_vehCustomSkin", "_vehCustomAnimations"];
     _x params [["_class", "", [""]], ["_path", [], [[]]], ["_ammo", 0, [0]]];
     _vehicle setMagazineTurretAmmo [_class,_ammo,_path];
 } forEach _turretMags;
-if !(_vehName isEqualTo "") then {
-    missionNamespace setVariable [_vehName, _vehicle];
-};
+
 [_vehicle,_persistent] call FUNC(setPersistent);
 _vehicle call _vehInit;
 if !(_storedVars isEqualTo []) then {
